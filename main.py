@@ -593,6 +593,29 @@ def p_printA(p):
     printA : PRINTA SEP_LPAREN ID SEP_RPAREN SEP_SEMICOLON
     '''
 
+################################################
+# REVISAR la hyperexpresion para uso de AND y OR, falta modificar las reglas que usen expresion para que usen hyperexp
+""" def p_hyper_exp(p):
+    '''
+    hyper_exp : and_exp hyper_aux
+    '''
+
+def p_hyper_aux(p):
+    '''
+    hyper_aux : REL_OR hyper_exp
+              | empty
+    '''
+
+def p_and_exp(p):
+    '''
+    and_exp : expresion andexpaux
+    '''
+def p_andexpaux(p):
+    '''
+    andexpaux : REL_AND and_exp
+              | empty
+    ''' """
+
 def p_expresion(p):
   '''
   expresion : exp expresionaux
