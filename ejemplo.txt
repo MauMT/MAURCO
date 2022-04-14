@@ -1,0 +1,33 @@
+program Ejemplo;
+
+class Libro{
+attributes<
+vars 
+int pags;
+>
+}
+
+vars
+    int i;
+    float valor;
+
+void func helloWorld()
+vars
+  char msg[5];
+{
+print(msg)
+print("aaaa")  
+  return;
+}
+
+main(){ 
+    x = 5;
+    y = 5 * 2;
+    if(4 < 3) then{
+      print(2)
+    }
+    else{
+      print(3)
+    }
+}
+end
