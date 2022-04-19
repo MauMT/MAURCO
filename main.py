@@ -306,12 +306,12 @@ def p_auxdec(p):
 
 def p_acceso_array(p):
     '''
-    acceso_array : ID SEP_LBRACKET expresion SEP_RBRACKET accarraux
+    acceso_array : ID SEP_LBRACKET hyper_exp SEP_RBRACKET accarraux
     '''
 
 def p_accarraux(p):
   '''
-    accarraux : SEP_LBRACKET expresion SEP_RBRACKET
+    accarraux : SEP_LBRACKET hyper_exp SEP_RBRACKET
               | empty
     '''
 
@@ -388,7 +388,7 @@ def p_asign_opciones(p):
 
 def p_asignacion_simple(p):
   '''
-  asignacion_simple : expresion
+  asignacion_simple : hyper_exp
                    | array_inside
   '''
 
@@ -410,13 +410,13 @@ def p_asignacion_metodo(p):
 
 def p_args(p):
     '''
-    args : expresion argsaux
+    args : hyper_exp argsaux
          | empty
     '''
 
 def p_argsaux(p):
     '''
-    argsaux : SEP_COMMA expresion argsaux
+    argsaux : SEP_COMMA hyper_exp argsaux
             | empty
     '''
 
@@ -432,23 +432,23 @@ def p_varsnovoid(p):
     '''
 
 ################################################
-# REVISAR este |empty
+# REVISAR estnovoid, checar si funciona con una sola regla
 ################################################
 def p_estnovoid(p):
     '''
-    estnovoid : estatuto estnvaux
+    estnovoid : estatuto estnovoid
               | empty
     '''
 
-def p_estnvaux(p):
+""" def p_estnvaux(p):
     '''
     estnvaux : estatuto estnvaux
              | empty
-    '''
+    ''' """
 
 def p_nvaux(p):
     '''
-    nvaux : RETURN SEP_LPAREN expresion SEP_RPAREN SEP_SEMICOLON SEP_RBRACE
+    nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON SEP_RBRACE
     '''
 
 def p_funcion_void(p):
@@ -494,7 +494,7 @@ def p_escritura(p):
 def p_escrituraaux(p):
     '''
     escrituraaux : letrero escaux2
-                 | expresion escaux2
+                 | hyper_exp escaux2
     '''
 
 def p_escaux2(p):
@@ -527,7 +527,7 @@ def p_voididt(p):
 
 def p_decision(p):
     '''
-    decision : IF SEP_LPAREN expresion SEP_RPAREN THEN bloque decisionaux
+    decision : IF SEP_LPAREN hyper_exp SEP_RPAREN THEN bloque decisionaux
     '''
 
 def p_decisionaux(p):
@@ -544,7 +544,7 @@ def p_repeticion(p):
 
 def p_repeticioncondicional(p):
     '''
-    repeticioncondicional : WHILE SEP_LPAREN expresion SEP_RPAREN DO bloque
+    repeticioncondicional : WHILE SEP_LPAREN hyper_exp SEP_RPAREN DO bloque
     '''
 
 def p_repeticionnocondicional(p):
@@ -595,7 +595,7 @@ def p_printA(p):
 
 ################################################
 # REVISAR la hyperexpresion para uso de AND y OR, falta modificar las reglas que usen expresion para que usen hyperexp
-""" def p_hyper_exp(p):
+def p_hyper_exp(p):
     '''
     hyper_exp : and_exp hyper_aux
     '''
@@ -614,7 +614,7 @@ def p_andexpaux(p):
     '''
     andexpaux : REL_AND and_exp
               | empty
-    ''' """
+    '''
 
 def p_expresion(p):
   '''
@@ -661,7 +661,7 @@ def p_terminoaux(p):
 
 def p_factor(p):
     '''
-    factor : SEP_LPAREN expresion SEP_RPAREN
+    factor : SEP_LPAREN hyper_exp SEP_RPAREN
            | sign cteidcall
     '''
 

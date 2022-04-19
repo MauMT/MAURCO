@@ -20,3 +20,11 @@ python main.py ejemplo.txt
 ---
 - Python 3.6 o superior
 - PLY 4.0: [Repositorio de PLY](https://github.com/dabeaz/ply)
+
+### Bugs conocidos
+---
+- La asignación con variables seguidas no funciona sin paréntesis:\
+❌ x = y + 1\
+✅ x = (y + 1)
+- No funciona la instanciación de los objetos
+- Los methods de un objeto no pueden ser de un tipo diferente a void 
