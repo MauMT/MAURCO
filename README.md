@@ -1,20 +1,26 @@
 # MAURCO
-Final project for Compiler Design 
-
+## Proyecto final para la clase de Diseño de Compiladores
+<br></br>
 ### Primer avance
 ---
 Esta entrega consiste un lexer y parser hecho usando PLY (Python lex() y yacc()).
+- Declaración de clases, variables locales y globales y funciones.
+- Estatutos de lectura, escritura, asignación, decisión y repetición.
+- Tres tipos básicos (char, int y float), arreglos de los tipos y objetos basados en los tipos. 
+
 - Ejecución del programa:
 ``` 
 python main.py ejemplo.txt
 ```
 
-
-### Features
+### Segundo avance
 ---
-- Declaración de clases, variables locales y globales y funciones.
-- Estatutos de lectura, escritura, asignación, decisión y repetición.
-- Tres tipos básicos (char, int y float), arreglos de los tipos y objetos basados en los tipos. 
+- Correción de conflictos en la sintaxis
+- creación de directorio de variables(globales y locales), funciones y clases
+
+### Tercer avance
+---
+- Generación de cuádruplos para expresiones lineales
 
 ### Requerimientos
 ---
@@ -23,8 +29,5 @@ python main.py ejemplo.txt
 
 ### Bugs conocidos
 ---
-- La asignación con variables seguidas no funciona sin paréntesis:\
-❌ x = y + 1\
-✅ x = (y + 1)
-- No funciona la instanciación de los objetos
-- Los methods de un objeto no pueden ser de un tipo diferente a void 
+- Existe un warning de shift-reduce en la regla para las funciones
+- ~~Los methods de un objeto no pueden ser de un tipo diferente a void~~ En correción

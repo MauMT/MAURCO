@@ -1,5 +1,7 @@
 from ply.lex import lex
 from ply.yacc import yacc
+import dirVar
+
 tokens = [
 #
   'ID',
@@ -256,7 +258,7 @@ def p_functions(p):
 
 def p_vars(p):
     '''
-    vars : VARS varsaux
+    vars : VARS SEP_LBRACE varsaux SEP_RBRACE
     '''
 
 def p_varsaux(p):
@@ -378,6 +380,8 @@ def p_valasigaux(p):
     valasigaux : ID asatr
                | acceso_array
     '''
+    print(p[1])
+    print("AAAAAAAAAAAAAAAAAAAAAAAA")
 
 def p_asign_opciones(p):
   '''
@@ -386,11 +390,13 @@ def p_asign_opciones(p):
                 | asignacion_metodo
   '''
 
+
 def p_asignacion_simple(p):
   '''
   asignacion_simple : hyper_exp
                    | array_inside
   '''
+
 
 def p_asatr(p):
     '''
@@ -432,19 +438,19 @@ def p_varsnovoid(p):
     '''
 
 ################################################
-# REVISAR estnovoid, checar si funciona con una sola regla
+# REVISAR este |empty
 ################################################
 def p_estnovoid(p):
     '''
-    estnovoid : estatuto estnovoid
+    estnovoid : estatuto estnvaux
               | empty
     '''
 
-""" def p_estnvaux(p):
+def p_estnvaux(p):
     '''
     estnvaux : estatuto estnvaux
              | empty
-    ''' """
+    '''
 
 def p_nvaux(p):
     '''
@@ -662,15 +668,19 @@ def p_terminoaux(p):
 def p_factor(p):
     '''
     factor : SEP_LPAREN hyper_exp SEP_RPAREN
-           | sign cteidcall
+           | cteidcall
     '''
-
+#QUITE sign antes de cteidcall  
+"""
 def p_sign(p):
     '''
     sign : OP_PLUS
          | OP_MINUS
          | empty
     '''
+    print("555555555555555555555555555555")
+    print(p[0])
+"""
 
 def p_cteidcall(p):
     '''
@@ -680,6 +690,8 @@ def p_cteidcall(p):
               | llamadafuncionmetodo
               | acceso_array
     '''
+    print("SSSSSSSSSSSSSSSSS")
+    print(p[1])
 
 def p_typeidf(p):
     '''
@@ -695,21 +707,24 @@ def p_error(p):
   print("Error de parser en!")
   print(p)
 
-import sys
+file = open("ejemplo.txt", 'r')
+
+#lexer.input("program primero ")
+
+lines = file.read()
+file.close()
+
+# Build the lexer.
 lexer = lex()
+lexer.input(lines)
+
+# Build the parser.
 parser = yacc()
+try:
+    print('Parsing...')
+    parser.parse(lines, debug=1)
+    print('Correct syntax.')
+except:
+    print(f'Syntax error')
 
-if __name__ == '__main__':
-
-    if len(sys.argv) > 1:
-        file = sys.argv[1]
-        try:
-            archEnt = open(file, 'r')
-            text = archEnt.read()
-            archEnt.close()
-            if parser.parse(text) == "Success":
-                print("Compilación exitosa")
-        except EOFError:
-            print(EOFError)
-    else:
-        print("No se ingresó el nombre de un archivo")
+print()

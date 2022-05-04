@@ -2,46 +2,76 @@ program Ejemplo;
 
 class Libro{
 attributes<
-vars 
+vars{ 
 int pags;
+}
 >
 
-
-
-}
-
-vars
-    int i;
-    float valor;
+methods<
 
 void func helloWorld()
-vars
-  char msg[5];
+ vars{
+  int x;
+}
 {
 print(msg)
 print("aaaa")  
   return;
 }
 
+>
+
+
+}
+
+ vars{
+    int i;
+    object karen karen;
+    float valor;
+}
+
+void func helloWorld()
+ vars{
+  char msg[5];
+}
+{
+print(msg)
+print("aaaa")  
+  return;
+}
+
+
+int func helloWorld()
+ vars{
+  char msg[5];
+}
+{
+print(msg)
+print("aaaa")  
+  return (x*1);
+}
+
+
 main(){ 
-    x = (x+5);
+    x = (x*5);
     y = 5 * 2;
     helloWorld();
     
 
-    if(x < 3 & x+3!=y | 3) then{
+    if(x < 7 & x*8!=y | 9) then{
       print(2)
     }
     else{
-      print(3)
+      print(0)
     }
-    print(x+3)
+    x = x - 1;
+    print(x*3)
     print("hola")
     input(x,y);
     input(z);
     z=suma(1,5);
     while(x<4 | y<5) do{
-      x = (y+1);
+      x = (y*1);
       libro.pags = (libro.pags+1);
     }
 }
