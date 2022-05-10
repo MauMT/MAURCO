@@ -1,0 +1,57 @@
+program Ejemplo;
+
+class Libro{
+attributes<
+  vars 
+  int pags;
+>
+
+methods
+<
+  int func byeWorld()
+  vars
+  int send;
+  {
+  print(send)
+  print("aaaa")  
+    return (send);
+  }
+  
+  void func nowo()
+  vars
+  int mail;
+  {
+  print(mail)
+  print("aaaa")  
+    return;
+  }
+>
+
+}
+
+vars
+{
+    object karen claro;
+    int i;
+    float valor;
+    int x;
+}
+
+void func helloWorld()
+vars
+int msg;
+
+{
+print(msg)
+print("aaaa")  
+  return;
+}
+
+main(){ 
+    a = (x+5);
+    y = b*(5 + 2.3);
+    print(x+3/5)
+    print("hola")
+    
+}
+end

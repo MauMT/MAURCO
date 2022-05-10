@@ -707,7 +707,7 @@ def p_error(p):
   print("Error de parser en!")
   print(p)
 
-file = open("ejemplo.txt", 'r')
+file = open("simple_test.txt", 'r')
 
 #lexer.input("program primero ")
 
