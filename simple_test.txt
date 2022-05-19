@@ -31,10 +31,11 @@ methods
 
 vars
 {
-    object karen claro;
+    object Carro myCar;
     int i;
     float valor;
-    int x;
+    char msg;
+    int x, a, b;
 }
 
 void func helloWorld()
@@ -50,7 +51,11 @@ print("aaaa")
 main(){ 
     a = (x+5);
     y = b*(5 + 2.3);
-    print(x+3/5)
+    z = 11*78;
+    print(z+3/5)
+    if(i < 3 & j+9 != y) then{
+      print(2)
+    }
     print("hola")
     
 }
