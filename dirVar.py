@@ -53,8 +53,8 @@ def getlocalVariable(nomFuncion, nomVariable):
     return None
 
 def getglobalVariable(nomVariable):
-    if nomVariable in nomVariable:
-        return nomVariable[nomVariable]
+    if nomVariable in dirglobalVar:
+        return dirglobalVar[nomVariable]
     return None
 
 
