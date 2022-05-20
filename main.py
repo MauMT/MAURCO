@@ -810,14 +810,33 @@ def p_voididt(p):
   
 def p_decision(p):
     '''
-    decision : IF SEP_LPAREN hyper_exp SEP_RPAREN THEN bloque decisionaux
+    decision : IF SEP_LPAREN hyper_exp SEP_RPAREN ifcond1 THEN bloque decisionaux ifcond2
     '''
+
+def p_ifcond1(p):
+  '''
+  ifcond1 : empty
+  '''
+  cuads.condicion1()
+
+def p_ifcond2(p):
+  '''
+  ifcond2 : empty
+  '''
+  cuads.condicion2()
+  
 
 def p_decisionaux(p):
     '''
-    decisionaux : ELSE bloque
+    decisionaux : ifcond3 ELSE bloque
                 | empty
     '''
+  
+def p_ifcond3(p):
+  '''
+  ifcond3 :
+  '''
+  cuads.condicion3()
 
 def p_repeticion(p):
     '''
@@ -827,14 +846,52 @@ def p_repeticion(p):
 
 def p_repeticioncondicional(p):
     '''
-    repeticioncondicional : WHILE SEP_LPAREN hyper_exp SEP_RPAREN DO bloque
+    repeticioncondicional : WHILE cicwh1 SEP_LPAREN hyper_exp SEP_RPAREN cicwh2 DO bloque cicwh3
     '''
+  
+def p_cicwh1(p):
+  '''
+  cicwh1 :
+  '''
+  cuads.ciclowhile1()
+
+def p_cicwh2(p):
+  '''
+  cicwh2 :
+  '''
+  cuads.ciclowhile2()
+
+def p_cicwh3(p):
+  '''
+  cicwh3 :
+  '''
+  cuads.ciclowhile3()
 
 def p_repeticionnocondicional(p):
     '''
-    repeticionnocondicional : FROM ID OP_ASSIGN valueid TO valueid DO bloque
+    repeticionnocondicional : FROM ID OP_ASSIGN hyper_exp cicfr2 TO hyper_exp cicfr3 DO bloque cicfr4
     '''
+    cuads.ciclofrom1(p[2])
 
+def p_cicfr2(p):
+  '''
+  cicfr2 : 
+  '''
+  cuads.ciclofrom2()
+
+def p_cicfr3(p):
+  '''
+  cicfr3 : 
+  '''
+  cuads.ciclofrom3()
+
+def p_cicfr4(p):
+  '''
+  cicfr4 : 
+  '''
+  cuads.ciclofrom4()
+
+###########################################################################
 def p_valueid(p):
     '''
     valueid : ID
@@ -1237,16 +1294,16 @@ try:
     print(dirVar.dirFunciones)
     print("Dirclases")
     print(dirVar.dirClases)
-    a = (dirVar.getFuncion("helloWorld"))
-    print(a.__dict__)
+    #a = (dirVar.getFuncion("helloWorld"))
+    #print(a.__dict__)
     #b = a["localVar"]
     #print(b.__dict__)
     #clase
-    libro = (dirVar.dirClases["Libro"])
-    print(libro.__dict__)
-    print("pOperandos\n", cuads.pOperandos)
-    print("pTipos\n", cuads.pTipos)
-    print("pOperadores\n", cuads.pOperadores)
+    #libro = (dirVar.dirClases["Libro"])
+    #print(libro.__dict__)
+    #print("pOperandos\n", cuads.pOperandos)
+    #print("pTipos\n", cuads.pTipos)
+    #print("pOperadores\n", cuads.pOperadores)
     print("Correct syntax")
 except:
     print(f'Syntax error')

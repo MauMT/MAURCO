@@ -13,7 +13,6 @@ methods
   int send;
   {
   print(send)
-  print("aaaa")  
     return (send);
   }
   
@@ -21,8 +20,7 @@ methods
   vars
   int mail;
   {
-  print(mail)
-  print("aaaa")  
+  print(mail) 
     return;
   }
 >
@@ -42,7 +40,6 @@ int msg;
 
 {
 print(msg)
-print("aaaa")  
   return;
 }
 
@@ -59,7 +56,6 @@ main(){
       print(3.5)
     }
     print(x+3)
-    print("hola")
     input(x,y);
     input(z);
     z=suma(1,5);
