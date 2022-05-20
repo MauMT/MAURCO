@@ -27,12 +27,18 @@ python main.py ejemplo.txt
 - Generación de cuádruplos para expresiones no lineales: _while_, _if-else_ y _from-to_
 
 ---
+### Quinto avance
+- Validación semántica de existencia de variables
+- Impresión de cuádruplos formateadas y con número
+
+---
 ### Requerimientos
 - Python 3.6 o superior
 - PLY 4.0: [Repositorio de PLY](https://github.com/dabeaz/ply)
 
 ---
 ### Bugs conocidos
-- La asignación, que es asociativa por derecha genera cuádruplos en orden erróneo
+- El directorio de funciones sale vacío después de la regla
+- Aún no se reconocen variables locales de las funciones o clases
 - No funciona aún la obtención de atributos o métodos como variables, solamente se leen IDs  
 - ~~Los methods de un objeto no pueden ser de un tipo diferente a void~~ _En corrección_

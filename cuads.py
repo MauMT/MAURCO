@@ -1,20 +1,29 @@
 import dirVar
 import virtualAdd
+import constantTypeCheck
 pOperandos = []
 pOperadores = []
 pTipos = []
 
-####### NUMERAR LÍNEAS E IMPRIMIR EN TABLA BONITA
-
-#funcion de array cuadruplos
+#cuadruplos
 cuads=[("goto","1","","")]
 
 tempcounter = 0
+'''
+def checarExistenciaGlobaloConstante(operandoIzq, operandoDer):
+  if not constantTypeCheck.isConstant(operandoIzq) and not constantTypeCheck.isConstant(operandoDer):
+    if operandoIzq not in dirVar.dirglobalVar:
+      raise NameError('Variable ', operandoIzq,' no declarada')
+      print('Variable ', operandoIzq,' no declarada')
+    elif operandoDer not in dirVar.dirglobalVar:
+      raise NameError('Variable ', operandoDer,' no declarada')
+      print('Variable ', operandoDer,' no declarada')
+'''
 
 #funcion de agregar ID 
 #validaciones de ID con tipo
 
-## ESTO ES MÁS UN AGREGAR TEMPORAL
+## ESTO ES MÁS UN AGREGAR TEMPORAL EN CUADS Y CONSTANT O 
 def agregarID(id):
   #if nomFuncion in dirFunciones:
   #validacion de tipo y si esta en varstable
@@ -44,10 +53,10 @@ def validar():
 
     left = pOperandos.pop()
     print(left)
-
-    #right type
+    
+  #right type
     #left type
-    #llenar con el tipo de os cuads
+    #llenar con el tipo de los cuads
 
     #operador
     oper = pOperadores.pop()

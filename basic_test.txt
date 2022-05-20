@@ -4,9 +4,10 @@ program Ejemplo;
 vars
 {
     int i;
-    float valor, y;
+    float valor, y, z, j;
     char msg;
     int x, a, b;
+    int mau[4], mtz[2][3];
 }
 
 void func helloWorld()
@@ -28,6 +29,6 @@ main(){
       print(2)
     }
     print("hola")
-    
+
 }
 end

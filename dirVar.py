@@ -63,6 +63,7 @@ def agregarFuncion(nomFuncion, tipoFuncion):
     print("Error, ya existe")
   else:
     dirFunciones[nomFuncion] = funcion(tipoFuncion)
+    print(dirFunciones)
 
 def agregarlocalVariable(nomFuncion, nomVariable, tipoVariable):
   if nomFuncion in dirFunciones:
@@ -78,6 +79,7 @@ def agregarlocalVariable(nomFuncion, nomVariable, tipoVariable):
 def agregarglobalVariable(nomVariable, tipoVariable):
   if nomVariable in dirglobalVar:
     print("Error ya existe esta variable global")
+    #raise NameError("Ya existe la variable ", nomVariable)
   else:
     dirglobalVar[nomVariable] = variable(tipoVariable)
 
@@ -113,6 +115,9 @@ def agregarMetodosClase(nombreClase, nomMetodo, tipoRetorno):
       dirClases[nombreClase].getMetodosClase()[nombreClase] = funcion(tipoRetorno)
   else:
     print("no existe esa clase")
+
+def getDirFunciones():
+  return dirFunciones
 
 dirglobalVar = {}
 #adentro puede haber objetos de la clase que esten instanciados

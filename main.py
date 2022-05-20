@@ -72,7 +72,6 @@ tokens = [
   'INHERITS',
   'ATTRIBUTES',
   'METHODS',
-
 ]
 #t_ID =#t_PROGRAMA =#t_VAR =  #tipos de datos#t_INT =#t_FLOAT =#t_STRING =#t_CTEINT =#t_CTEFLOAT =#comandos#t_IF =#t_ELSE = #t_PRINT =
 
@@ -137,7 +136,6 @@ t_OP_GT = r'\>'
 t_OP_LT = r'\<'
 t_OP_NOTEQ = r'\!='
 t_OP_EQUAL = r'\=\='
-
 # Caracteres ignorados
 t_ignore = " \t"
 
@@ -188,7 +186,7 @@ currID = queue.Queue()
 currVars = queue.Queue()
 currMet = queue.Queue()
 currTypeID = queue.Queue()
-
+currFuncion = ""
 def p_programa(p):
   '''
   programa : PROGRAM ID SEP_SEMICOLON proaux
@@ -230,7 +228,7 @@ def p_provarsaux(p):
 
 def p_varsGlobal(p):
     '''
-    varsGlobal : VARS  SEP_LBRACE varsauxGlobal SEP_RBRACE
+    varsGlobal : VARS SEP_LBRACE varsauxGlobal SEP_RBRACE
     '''
 
 def p_varsauxGlobal(p):
@@ -299,6 +297,7 @@ def p_principal(p):
   ############################
   currTipo = "VOID"
   currFuncion = p[1]
+  
   dirVar.agregarFuncion(currFuncion, currTipo)
   ############################
   ############################
@@ -456,6 +455,7 @@ def p_typemet(p):
     '''
     currTipo = p[1]
     currFuncion = p[3]
+    print("4588888 -", currFuncion)
     currMet.put((currFuncion, currTipo))
     #dirVar.agregarMetodosClase(currClass, currFuncion, currTipo)
 
@@ -689,7 +689,14 @@ def p_valasigaux(p):
     '''
     print("valasigaux--- ", p[1])
     currID = p[1]
-    cuads.agregarID(currID)
+    print(type(currID))
+    if currID in dirVar.dirglobalVar:
+      cuads.agregarID(currID)
+      print('entra|')
+    else:
+      raise NameError('Variable no declarada')
+      print('Variable', currID, 'no declarada')
+    #cuads.agregarID(currID)
     print("pipipipipiop", cuads.pOperandos)
     #  print("AAAAAAAAAAAAAAAAAAAAAAAA")
 
@@ -806,6 +813,7 @@ def p_voididt(p):
     voididt : ID
             | ID OP_DOT ID
     '''
+
 #########################
   
 def p_decision(p):
@@ -1013,7 +1021,13 @@ def p_cteidcall_atributo_metodo(p):
   #currTipo = dirVar.getglobalVariable(currID).tipoVariable()
   print("tipo id --- ", currTipo)
   #cuads.agregarTipo(currTipo)
-  cuads.agregarID(currID)
+
+  if currID in dirVar.dirglobalVar:
+    cuads.agregarID(currID)
+    print('entra|')
+  else:
+    raise NameError('Variable no declarada')
+    print('Variable', currID, 'no declarada')
 
 def p_var_id_aux(p):
   '''
@@ -1033,13 +1047,6 @@ def p_cteidcall_am_aux(p):
   cteidcall_am_aux : asignacion_funcion
                     | empty
   '''
-################### NO SE USA
-#def p_typeidf(p):
-'''
-typeidf : OP_DOT ID 
-        | empty
-'''
-###################
 
 def p_empty(p):
     'empty :'
@@ -1080,25 +1087,28 @@ def p_typefun(p):
                   | VOID FUNCTION ID voidnext
   '''
   currTipo = p[1]
+  global currFuncion
   currFuncion = p[3]
   dirVar.agregarFuncion(currFuncion, currTipo)
-
+  print("dirkun ", dirVar.dirFunciones)
   #AGREGAR VARIABLES LOCALES
-  while not(currTypeID.empty()) :
+  #while not(currTypeID.empty()) :
       #currTypeID.put(currID.get(), currTipo)
-      tup = currTypeID.get()
-      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1])
+  #    tup = currTypeID.get() 
+  #    dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1])
 
 
 def p_voidnext(p):
   '''
   voidnext : SEP_LPAREN paramsfun SEP_RPAREN voidvars
   '''
+  
 
 def p_novoidnext(p):
   '''
   novoidnext : SEP_LPAREN paramsfun SEP_RPAREN varsfun SEP_LBRACE estfun nvaux
   '''
+  
 
 
 def p_paramsfun(p):
@@ -1177,6 +1187,7 @@ def p_objectsvarsfun(p):
     while not(currID.empty()) :
       currTypeID.put((currID.get(), currTipo))
 
+
 def p_idvarsfun(p):
     '''
     idvarsfun : typefunp lista_ids stepidvarsfun varsauxfun
@@ -1186,10 +1197,17 @@ def p_stepidvarsfun(p):
     '''
     stepidvarsfun : 
     '''
-    print("Empty")
-    print(currID.empty())
+    #print("Empty")
+    #print(currID.empty())
+    #while not(currID.empty()) :
+    #  currTypeID.put((currID.get(), currTipo))
+    #agregarlocalVariable(nomFuncion, nomVariable, tipoVariable)
+    print("mi id cu", currID)
+    global currFuncion
+    print(dirVar.dirFunciones)
+    print("jejeje- ", currID.get())
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      dirVar.agregarlocalVariable(currFuncion, currID.get(), currTipo)
 
 def p_typefunp(p):
   '''
@@ -1238,10 +1256,7 @@ try:
     print("Dirclases")
     print(dirVar.dirClases)
     a = (dirVar.getFuncion("helloWorld"))
-    print(a.__dict__)
-    #b = a["localVar"]
-    #print(b.__dict__)
-    #clase
+    print("a - helloWorld()", a.__dict__)
     libro = (dirVar.dirClases["Libro"])
     print(libro.__dict__)
     print("pOperandos\n", cuads.pOperandos)
@@ -1250,6 +1265,8 @@ try:
     print("Correct syntax")
 except:
     print(f'Syntax error')
+    print("DIRGLOB")
+    print(dirVar.dirglobalVar)
     
 
 cuads.printCuads()

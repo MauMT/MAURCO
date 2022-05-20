@@ -20,4 +20,11 @@ def checkintOrFloat(num):
   else:
       return "unknown"
 
-print(checkintOrFloat("2.3"))
+def isConstant(num):
+  if checkintOrFloat(num) != "unknown":
+    return True
+  return False
+
+# print(checkintOrFloat("2.3"))
+# print(isConstant("5"))
+# print(isConstant("b"))
