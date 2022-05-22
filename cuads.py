@@ -319,8 +319,46 @@ def ciclofrom4():
 
 
 ######################################################
+#CUADS FUNCIONES
+######################################################
+
+def endfunc():
+  cuads.append(("ENDFUNC", " ", " ", " "))
+
+
+def createERA(nombre):
+  cuads.append(("ERA", nombre, " ", " "))
+  global conttipos
+  conttipos = 0
+
+def valparams(params):
+  #validar tipo
+  #global conttipos
+  #if pilatipos == params[conttipos]
+  #conttipos += 1
+  cuads.append("PARAM", cuads[len(cuads)-1][3] , " ", ("param"+str(conttipos)))
+
+def valnull(params):
+  #global conttipos
+  #if(len(params) == conttipos):
+  return True
+  #else:
+  #return False
+
+def createGOSUB(nombre):
+  cuads.append(("GOSUB", nombre, " ", " "))
+
+
+######################################################
 #PRINT
 ######################################################
+def getCurrCounter():
+  return len(cuads)
+
+def getTempCounter():
+  return tempcounter
+
+
 def printCuads():
   cuadCounter = 0
   # print cuads as a formatted table

@@ -722,8 +722,20 @@ def p_asatr(p):
 
 def p_asignacion_compleja(p):
     '''
-    asignacion_compleja : ID asatr asignacion_funcion
+    asignacion_compleja : usfunc asatr asignacion_funcion
     '''
+
+def p_usfunc(p):
+    '''
+    usfunc : ID
+    '''
+    global callfunc
+    callfunc = p[1]
+    bex = dirVar.verify(p[1])
+    if (bex):
+        cuads.createERA(p[1])
+
+
 ##### NO USADA EN ESTA VERSIÓN
 def p_asignacion_compleja_aux(p):
     '''
@@ -734,10 +746,23 @@ def p_asignacion_compleja_aux(p):
 
 def p_asignacion_funcion(p):
     '''
-    asignacion_funcion : SEP_LPAREN args SEP_RPAREN
+    asignacion_funcion : SEP_LPAREN args SEP_RPAREN valnull
     '''
 
-### cambié SEP_LPAREN args SEP_RPAREN por asignacion_funcion
+def p_valnull(p):
+    '''
+    valnull : empty
+    '''
+    global callfunc
+    par = dirVar.getParametersfunc(callfunc)
+    if(cuads.valnull(par)):
+        print("Todo bien")
+        cuads.createGOSUB(callfunc)
+    else:
+        print("break")
+
+
+### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
 def p_asignacion_metodo(p):
     '''
     asignacion_metodo : OP_DOT ID asignacion_funcion
@@ -745,13 +770,24 @@ def p_asignacion_metodo(p):
 
 def p_args(p):
     '''
-    args : hyper_exp argsaux
+    args : hyper_exp validateparam argsaux
          | empty
     '''
 
+def p_validateparam(p):
+    '''
+    validateparam : empty
+    '''
+    global callfunc
+    par = dirVar.getParametersfunc(callfunc)
+    cuads.valparams(par)
+
+
+
+
 def p_argsaux(p):
     '''
-    argsaux : SEP_COMMA hyper_exp argsaux
+    argsaux : SEP_COMMA hyper_exp validateparam argsaux
             | empty
     '''
 
@@ -798,7 +834,7 @@ def p_letaux(p):
 #### NO SE USAN 😬#######
 def p_llamadavoid(p):
     '''
-    llamadavoid : ID asatr SEP_LPAREN args SEP_RPAREN SEP_SEMICOLON
+    llamadavoid : usfunc asatr SEP_LPAREN args SEP_RPAREN valnull SEP_SEMICOLON
     '''
 
 def p_voididt(p):
@@ -1030,6 +1066,7 @@ def p_factor(p):
            | cteidcall_atributo_metodo
     '''
 
+
   #QUITE sign antes de cteidcall  
 """
 def p_sign(p):
@@ -1084,7 +1121,7 @@ def p_aux_accesoarray(p):
                   | acceso_array
   '''
 
-# asignacion_funcion ---> SEP_LPAREN args SEP_RPAREN
+# asignacion_funcion ---> SEP_LPAREN  SEP_RPAREN
 def p_cteidcall_am_aux(p):
   '''
   cteidcall_am_aux : asignacion_funcion
@@ -1139,12 +1176,14 @@ def p_typefun(p):
   currTipo = p[1]
   currFuncion = p[3]
   dirVar.agregarFuncion(currFuncion, currTipo)
+  dirVar.initFunction(currFuncion, insContcuad, primtempcont)
+  dirVar.agregartemp(currFuncion, finaltemp)
 
   #AGREGAR VARIABLES LOCALES
   while not(currTypeID.empty()) :
       #currTypeID.put(currID.get(), currTipo)
       tup = currTypeID.get()
-      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1])
+      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2])
 
 
 def p_voidnext(p):
@@ -1154,7 +1193,7 @@ def p_voidnext(p):
 
 def p_novoidnext(p):
   '''
-  novoidnext : SEP_LPAREN paramsfun SEP_RPAREN varsfun SEP_LBRACE estfun nvaux
+  novoidnext : SEP_LPAREN paramsfun insCont SEP_RPAREN varsfun SEP_LBRACE estfun nvaux
   '''
 
 
@@ -1172,7 +1211,7 @@ def p_paramsfuncreate(p):
     print("paramsmnv")
     print(p[2])
     currID.put(p[2])
-    currTypeID.put((currID.get(), currTipo))
+    currTypeID.put((currID.get(), currTipo, True))
 
 
 def p_typeparamfun(p):
@@ -1200,12 +1239,23 @@ def p_paramsauxfuncreate(p):
     print("paramsmnv")
     print(p[3])
     currID.put(p[3])
-    currTypeID.put((currID.get(), currTipo))
+    currTypeID.put((currID.get(), currTipo, True))
 
 def p_voidvars(p):
     '''
-    voidvars : varsfun SEP_LBRACE estfun RETURN SEP_SEMICOLON SEP_RBRACE
+    voidvars : varsfun insCont SEP_LBRACE estfun RETURN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
+
+
+def p_insCont(p):
+    '''
+    insCont : empty
+    '''
+    global insContcuad
+    global primtempcont
+    insContcuad = cuads.getCurrCounter()
+    primtempcont = cuads.getTempCounter()
+
 
 def p_varsfun(p):
     '''
@@ -1232,7 +1282,7 @@ def p_objectsvarsfun(p):
     print("call objectsvarsmet")
     currTipo = p[2]
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      currTypeID.put((currID.get(), currTipo, False))
 
 def p_idvarsfun(p):
     '''
@@ -1246,7 +1296,7 @@ def p_stepidvarsfun(p):
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      currTypeID.put((currID.get(), currTipo, False))
 
 def p_typefunp(p):
   '''
@@ -1269,8 +1319,21 @@ def p_estfun(p):
 
 def p_nvaux(p):
     '''
-    nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON SEP_RBRACE
+    nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
+
+def p_relCurr(p):
+    '''
+    relCurr : empty
+    '''
+    #release current varTable
+    #funcion para borrar toda la tabla de la funcion
+    cuads.endfunc()
+    global finaltemp
+    finaltemp = cuads.getTempCounter()
+
+
+
 
 file = open("basic_test.txt", 'r')
 

@@ -1,3 +1,5 @@
+import cuads
+
 class variable:
     def __init__(self, tipovar):
         self.tipovar = tipovar
@@ -13,6 +15,10 @@ class variable:
 class funcion:
     def __init__(self, tipoFuncion):
         self.tipoFuncion = tipoFuncion
+        self.parameters = []
+        self.cantVar = 0
+        self.tempcount = 0
+        self.direccion = 0
         self.localVar = {}
 
     def gettipoFuncion(self):
@@ -64,15 +70,50 @@ def agregarFuncion(nomFuncion, tipoFuncion):
   else:
     dirFunciones[nomFuncion] = funcion(tipoFuncion)
 
-def agregarlocalVariable(nomFuncion, nomVariable, tipoVariable):
+
+def agregarlocalVariable(nomFuncion, nomVariable, tipoVariable, isParam):
   if nomFuncion in dirFunciones:
     if nomVariable in dirFunciones[nomFuncion].gettableFuncion():
       print("ya existe esta variable local")
     else:
+      if(isParam):
+        dirFunciones[nomFuncion].parameters.append(tipoVariable)
       dirFunciones[nomFuncion].gettableFuncion()[nomVariable]= variable(tipoVariable)
-  
+      dirFunciones[nomFuncion].cantVar = len(dirFunciones[nomFuncion].gettableFuncion())
   else:
     print("no existe esta funcion")
+
+
+def initFunction(nomFuncion, dir, cant):
+    if nomFuncion in dirFunciones:
+        dirFunciones[nomFuncion].direccion = dir
+        dirFunciones[nomFuncion].tempcount = cant
+    else:
+        print("no existe la funcion")
+
+def agregartemp(nomFuncion, cant):
+    if nomFuncion in dirFunciones:
+        dirFunciones[nomFuncion].cantVar += (cant - dirFunciones[nomFuncion].tempcount)
+    else:
+        print("no existe la funcion")
+
+
+def verify(nomFuncion):
+    if nomFuncion in dirFunciones:
+        return True
+    else:
+        return False
+
+def getParametersfunc(nomFuncion):
+    if nomFuncion in dirFunciones:
+        return dirFunciones[nomFuncion].parameters
+    else:
+        print("no existe la funcion")
+
+#######################################################################################
+#FUNCION ELIMINAR TODAS LAS VARIABLES EN SCOPE
+#######################################################################################
+
     
 
 def agregarglobalVariable(nomVariable, tipoVariable):
