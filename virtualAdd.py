@@ -1,4 +1,4 @@
-
+import dirVar
 # Inicio de direcciones para variables globales
 Gi = 5000
 Gf = 8000
@@ -8,6 +8,7 @@ Li = 11000
 Lf = 13000
 
 # Inicio de direcciones para variables temporales
+# 
 Ti = 15000
 Tf = 17000
 
@@ -15,6 +16,19 @@ Tf = 17000
 Ci = 20000
 Cf = 21000
 
+def intOrFloatAddress(tipo):
+  if tipo == "int":
+    return getGlobalAddInt()
+  elif tipo == "float":
+    return getGlobalAddFloat()
+  return None
+
+def intOrFloatConstant(tipo):
+  if tipo == "int":
+    return getConstantAddInt()
+  elif tipo == "float":
+    return getConstantAddFloat()
+  return None
 
 def getGlobalAddInt():
   global Gi
@@ -55,4 +69,8 @@ def getConstantAddFloat():
   Cf = Cf+1
   return aux
 
+
+def buscarDireccionVirtual(nombreVariable):
+  if nombreVariable in dirVar.dirglobalVar:
+    return dirVar.dirglobalVar[nombreVariable].direccion
 

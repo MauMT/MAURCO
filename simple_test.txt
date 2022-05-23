@@ -29,11 +29,10 @@ methods
 
 vars
 {
-    object Carro myCar;
-    int i;
-    float valor;
-    char msg;
-    int x, a, b;
+  int i;
+  float valor, y;
+  char msg;
+  int x, a, b, z;
 }
 
 void func helloWorld()
@@ -52,6 +51,19 @@ main(){
     print(z+3/5)
     if(i < 3 & j+9 != y) then{
       print(2)
+    }
+    else{
+      a = (x+5);
+    }
+    helloWorld();
+    while(i<3) do {
+      i = (i+1);
+      print(2)
+    }
+    from x=0 to 10 do{
+      print(3)
+      y = y+5;
+      b = (b+y)+1;
     }
     
 }

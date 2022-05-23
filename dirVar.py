@@ -1,15 +1,19 @@
 import cuads
+import virtualAdd
 
 class variable:
     def __init__(self, tipovar):
         self.tipovar = tipovar
         self.valor = None
-
+        self.direccion = None
     def tipoVariable(self):
         return self.tipovar
 
     def valorVariable(self):
         return self.valor
+    
+    def direccionVariable(self):
+        return self.direccion
 
 #-----------------------------------------------------------
 class funcion:
@@ -65,8 +69,10 @@ def getglobalVariable(nomVariable):
 
 
 def agregarFuncion(nomFuncion, tipoFuncion):
+  print("dirFunciones actualmente: ", dirFunciones)
   if nomFuncion in dirFunciones:
     print("Error, ya existe")
+    raise NameError("Error: la función", nomFuncion,"ya existe")
   else:
     dirFunciones[nomFuncion] = funcion(tipoFuncion)
 
@@ -118,7 +124,8 @@ def getParametersfunc(nomFuncion):
 
 def agregarglobalVariable(nomVariable, tipoVariable):
   if nomVariable in dirglobalVar:
-    print("Error ya existe esta variable global")
+    print("Error ya existe la variable global: ", nomVariable)
+    #raise NameError("Error: la variable ", nomVariable," ya existe")
   else:
     dirglobalVar[nomVariable] = variable(tipoVariable)
 
@@ -155,6 +162,14 @@ def agregarMetodosClase(nombreClase, nomMetodo, tipoRetorno):
   else:
     print("no existe esa clase")
 
+# primero se busca en la tabla de variables de la función actual y luego en la global
+# Y si es una constante se busca en la tabla de constantes, y se declara si no está declarada
+def agregarDireccionVariable(nombre, direccion):
+    if nombre in dirglobalVar:
+        dirglobalVar[nombre].direccion = direccion
+    else:
+        print("no existe la variable")
+
 dirglobalVar = {}
 #adentro puede haber objetos de la clase que esten instanciados
 #agregarobjeto
@@ -168,6 +183,19 @@ dirClases = {}
 #Crear clase
 #checar si ya existe
 #agregar clase
+
+dirConstantes = {}
+
+# {valor: dirección}
+# ejemplo {'2.3': 5000, '1': 5001}
+def obtener_o_agregar_constante(valor, tipo):
+    if valor in dirConstantes:
+        return dirConstantes[valor]
+    else:
+        dirConstantes[valor] = virtualAdd.intOrFloatConstant(tipo)
+        return dirConstantes[valor]
+
+
 
 '''
 agregarFuncion("hola", "int")
@@ -184,3 +212,5 @@ print(dirFunciones)
 print(dirFunciones["hola"].localVar)
 print(dir)
 '''
+
+

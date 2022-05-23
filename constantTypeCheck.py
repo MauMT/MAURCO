@@ -20,4 +20,4 @@ def checkintOrFloat(num):
   else:
       return "unknown"
 
-print(checkintOrFloat("2.3"))
+#print(checkintOrFloat("2.3"))

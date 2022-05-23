@@ -184,6 +184,8 @@ global currTypeID
 global currMet
 global currVars
 global currTipo'''
+
+currFuncion = ""
 currID = queue.Queue()
 currVars = queue.Queue()
 currMet = queue.Queue()
@@ -688,8 +690,15 @@ def p_valasigaux(p):
     valasigaux : ID valasign_aux2
     '''
     print("valasigaux--- ", p[1])
+    global currFuncion
+    print("curr rex ", currFuncion)
     currID = p[1]
-    cuads.agregarID(currID)
+    if currID in dirVar.dirglobalVar:
+      cuads.agregarID(currID)
+      print('entra|')
+    else:
+      raise NameError('Variable no declarada')
+      print('Variable', currID, 'no declarada')
     print("pipipipipiop", cuads.pOperandos)
     #  print("AAAAAAAAAAAAAAAAAAAAAAAA")
 
@@ -1091,7 +1100,7 @@ def p_cteidcall(p):
     print("mau ", currVal)
     currTipo = constantTypeCheck.checkintOrFloat(str(currVal))
     print("mmmm ", currTipo)
-    cuads.agregarConst(currVal)
+    cuads.agregarConst(currVal, currTipo)
     cuads.agregarTipo(currTipo)
     
   #print("SSSSSSSSSSSSSSSSS")
@@ -1103,9 +1112,10 @@ def p_cteidcall_atributo_metodo(p):
   cteidcall_atributo_metodo : ID var_id_aux
   '''
   currID = p[1]
+  global currFuncion
   print("prueba ID --- ", currID)
   #currTipo = dirVar.getglobalVariable(currID).tipoVariable()
-  print("tipo id --- ", currTipo)
+  #print("tipo id --- ", currTipo)
   #cuads.agregarTipo(currTipo)
   cuads.agregarID(currID)
 
@@ -1174,7 +1184,10 @@ def p_typefun(p):
                   | VOID FUNCTION ID voidnext
   '''
   currTipo = p[1]
+  global currFuncion
   currFuncion = p[3]
+  print("tipo funcion gato ", currTipo)
+  print("funcion  gato ", currFuncion)
   dirVar.agregarFuncion(currFuncion, currTipo)
   dirVar.initFunction(currFuncion, insContcuad, primtempcont)
   dirVar.agregartemp(currFuncion, finaltemp)
@@ -1298,6 +1311,7 @@ def p_stepidvarsfun(p):
     while not(currID.empty()) :
       currTypeID.put((currID.get(), currTipo, False))
 
+################### CHECAR SIMILITUD CON LA REGLA typeparamfun
 def p_typefunp(p):
   '''
   typefunp : INT
@@ -1316,7 +1330,8 @@ def p_estfun(p):
               | empty
     '''
 
-
+# GUARDAR RESULTADO EN UNA NUEVA VARIABLE
+# MARCAR ERROR DE SINTAXIS SI NO SE PONE VALOR AL RETURN
 def p_nvaux(p):
     '''
     nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
@@ -1355,21 +1370,21 @@ try:
     print(dirVar.dirglobalVar)
     print("dirFunc")
     print(dirVar.dirFunciones)
-    print("Dirclases")
-    print(dirVar.dirClases)
-    #a = (dirVar.getFuncion("helloWorld"))
-    #print(a.__dict__)
-    #b = a["localVar"]
-    #print(b.__dict__)
+    """ print("Dirclases")
+    print(dirVar.dirClases) """
+    a = (dirVar.getFuncion("helloWorld"))
+    print(a.__dict__)
+    
     #clase
     #libro = (dirVar.dirClases["Libro"])
     #print(libro.__dict__)
     #print("pOperandos\n", cuads.pOperandos)
     #print("pTipos\n", cuads.pTipos)
     #print("pOperadores\n", cuads.pOperadores)
+    print("dirConstantes: ", dirVar.dirConstantes)
     print("Correct syntax")
 except:
     print(f'Syntax error')
-    
+    print("dirConstantes: ", dirVar.dirConstantes)
 
 cuads.printCuads()

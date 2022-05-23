@@ -19,18 +19,19 @@ tempcounter = 0
 
 #funcion de agregar ID 
 #validaciones de ID con tipo
-# falta buscar en la funcion actual y en las globales
-def agregarID(id):
-  #validacion de tipo y si esta en varstable
-    #if id in dirVar.dirglobalVar: # or id in dirVar.dirFunciones[funcionActual] :
-    pOperandos.append(id)
-    """ else:
-      raise NameError('Variable no declarada')
-      print("variable no declarada") """
 
-def agregarConst(const, tipo):
-  address = dirVar.obtener_o_agregar_constante(const, tipo)
-  pOperandos.append(address)
+## ESTO ES MÁS UN AGREGAR TEMPORAL
+def agregarID(id):
+  #if nomFuncion in dirFunciones:
+  #validacion de tipo y si esta en varstable
+  #if id not in dirVar.dirglobalVar:
+    pOperandos.append(id)
+  #else:
+  #  raise NameError('Variable no declarada')
+  #  print("variable no declarada")
+
+def agregarConst(const):
+  pOperandos.append(const)
 
 def agregarTipo(tipo):
   pTipos.append(tipo)
@@ -53,25 +54,18 @@ def validar():
     #right type
     #left type
     #llenar con el tipo de os cuads
-#############################################################################################
-#IMPLEMENTACIÓN CON VARIABLE SISN SABER SU TIPO
-    right_addr = virtualAdd.getGlobalAddFloat()
-    left_addr = virtualAdd.getGlobalAddFloat()
-#############################################################################################
+
     #operador
     oper = pOperadores.pop()
     print(oper)
 
-
-
     #result type checar semantica con cubo
+
     #generar cuadruplo
+    result = "t" + str(tempcounter)
 
-######### IMPLEMENTACIÓN AUXILIAR CON VALORES SIEMPRE FLOAT ##############################################
-    # result = "t" + str(tempcounter)
-    result = virtualAdd.getGlobalAddFloat()
 
-    cuads.append((oper, left_addr, right_addr, result))
+    cuads.append((oper, left, right, result))
     print(cuads)
 
     #agregar resultado en pOperandos
@@ -86,8 +80,8 @@ def cuadssumsub():
     print("empty")
   else:
     if(( pOperadores[-1] == "+") or ( pOperadores[-1] == "-")):
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -99,8 +93,8 @@ def cuadsmuldiv():
   else:
     if(( pOperadores[-1] == "*") or ( pOperadores[-1] == "/")):
       print("yes")
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -113,8 +107,8 @@ def cuadscomparation():
     if(( pOperadores[-1] == "<") or ( pOperadores[-1] == "==") 
       or (pOperadores[-1] == ">") or (pOperadores[-1] == "!=")):
       print("yes")
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -126,8 +120,8 @@ def cuadsand():
   else:
     if(( pOperadores[-1] == "&")):
       print("yes")
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -139,8 +133,8 @@ def cuadsor():
   else:
     if(( pOperadores[-1] == "|")):
       print("yes")
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -179,7 +173,7 @@ def cuadsasignacion():
   else:
     if(( pOperadores[-1] == "=")):
       print("yes-assign")
-      #global tempcounter
+      global tempcounter
       #tempcounter = tempcounter + 1
       auxAsignacion()
     else:
@@ -266,7 +260,7 @@ def ciclowhile2():
   cuads.append(("GOTOF", result, " ", "fill"))
   psaltos.append(len(cuads)-1)
 
-# el GOTO apunta a un cuad antes
+
 def ciclowhile3():
   end = psaltos.pop()
   returns = psaltos.pop()
@@ -325,46 +319,8 @@ def ciclofrom4():
 
 
 ######################################################
-#CUADS FUNCIONES
-######################################################
-
-def endfunc():
-  cuads.append(("ENDFUNC", " ", " ", " "))
-
-
-def createERA(nombre):
-  cuads.append(("ERA", nombre, " ", " "))
-  global conttipos
-  conttipos = 0
-
-def valparams(params):
-  #validar tipo
-  #global conttipos
-  #if pilatipos == params[conttipos]
-  #conttipos += 1
-  cuads.append("PARAM", cuads[len(cuads)-1][3] , " ", ("param"+str(conttipos)))
-
-def valnull(params):
-  #global conttipos
-  #if(len(params) == conttipos):
-  return True
-  #else:
-  #return False
-
-def createGOSUB(nombre):
-  cuads.append(("GOSUB", nombre, " ", " "))
-
-
-######################################################
 #PRINT
 ######################################################
-def getCurrCounter():
-  return len(cuads)
-
-def getTempCounter():
-  return tempcounter
-
-
 def printCuads():
   cuadCounter = 0
   # print cuads as a formatted table
