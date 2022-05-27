@@ -177,13 +177,7 @@ def t_error(t):
 # REGLAS 
 
 print("CALL INITIAL")
-'''global currFuncion
-global currClass
-global currID
-global currTypeID
-global currMet
-global currVars
-global currTipo'''
+
 currID = queue.Queue()
 currVars = queue.Queue()
 currMet = queue.Queue()
@@ -207,6 +201,10 @@ def p_ini(p):
   global currMet
   global currVars
   global currTipo
+  global isArr
+  global isMat
+  isArr = False
+  isMat = False
   currID = queue.Queue()
   currVars = queue.Queue()
   currMet = queue.Queue()
@@ -248,10 +246,8 @@ def p_objectsvarsglobal(p):
     global currTipo
     currTipo = p[2]
     while not(currID.empty()) :
-      cul = currID.get()
-      print("VARGLOBAAAAAAAAAAAAAAAAAAAAL")
-      print(cul)
-      dirVar.agregarglobalVariable(cul, currTipo)
+      curr = currID.get()
+      dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
 
 def p_idvarsglobal(p):
     '''
@@ -265,7 +261,9 @@ def p_stepid(p):
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
-      dirVar.agregarglobalVariable(currID.get(), currTipo)
+      curr = currID.get()
+      dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
+      
     
 
 def p_typeVarsGlobal(p):
@@ -277,10 +275,7 @@ def p_typeVarsGlobal(p):
   print("call varsGlobal")
   global currTipo
   currTipo = p[1]
-  #print("Empty")
-  #print(currID.empty())
-  #while not(currID.empty()) :
-    #dirVar.agregarglobalVariable(currID.get(), currTipo)
+
 
 
 #funciones del programa
@@ -337,10 +332,10 @@ def p_clase(p):
       
     #METODO QUE AGREGA LAS FUNCIONES
     while not(currTypeID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
       tup = currTypeID.get()
       print(tup)
-      dirVar.agregarAtributosClase(currClass,tup[0], tup[1])
+      #currID.put(p[1], isMat, isArr, arrLength) Tipo
+      dirVar.agregarAtributosClase(currClass,tup[0], tup[1],tup[2])
 
 def p_inheritsaux(p):
     '''
@@ -377,18 +372,16 @@ def p_objectsvarsclass(p):
     global currTipo
     currTipo = p[2]
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
-      #dirVar.agregarAtributosClase(currClass,currID.get(), currTipo)
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_stepidvarsclass(p):
     '''
     stepidvarsclass : 
     '''
-    #print("Empty")
-    #print(currID.empty())
-    #print(currTipo)
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_idvarsclass(p):
     '''
@@ -407,13 +400,6 @@ def p_typevarsclass(p):
     
     currTipo = p[1]
     print(currTipo)
-    print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
-    #while not(currID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
-      #objcur = (currID.get(), currTipo)
-      #print(objcur)
-      #print("objcur")
-      #currTypeID.put(objcur)
 
 def p_metaux(p):
     '''
@@ -473,8 +459,10 @@ def p_paramsmetcreate(p):
     '''
     print("paramsmnv")
     print(p[2])
-    currID.put(p[2])
-    currTypeID.put((currID.get(), currTipo))
+    global arrLength
+    currID.put(p[2], arrLength)
+    curr = currID.get()
+    currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_typeparamet(p):
     '''
@@ -485,8 +473,6 @@ def p_typeparamet(p):
     print("call typeparammv")
     global currTipo
     currTipo = p[1]
-    #while not(currID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
 
 
 def p_paramsauxmet(p):
@@ -502,8 +488,10 @@ def p_paramsauxmetcreate(p):
     '''
     print("paramsmnv")
     print(p[3])
-    currID.put(p[3])
-    currTypeID.put((currID.get(), currTipo))
+    global arrLength
+    currID.put(p[3], arrLength)
+    curr = currID.get()
+    currTypeID.put((curr[0], curr[1], currTipo))
 
 
 def p_voidvarsmet(p):
@@ -538,7 +526,8 @@ def p_objectsvarsmet(p):
     print("call objectsvarsmet")
     currTipo = p[2]
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_idvarsmet(p):
     '''
@@ -552,7 +541,8 @@ def p_stepidvarsmet(p):
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_typemetp(p):
   '''
@@ -563,8 +553,6 @@ def p_typemetp(p):
   print("call typemv")
   global currTipo
   currTipo = p[1]
-  #while not(currID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
 
 def p_estmet(p):
     '''
@@ -584,15 +572,19 @@ def p_lista_ids(p):
   '''
   lista_ids : ID listaidaux
   '''
-  print("listaids")
-  print(p[1])
-  currID.put(p[1])
+  global arrLength
+
+  currID.put(p[1], arrLength)
+
+  arrLength = []
+
 
 def p_listaidaux(p):
     '''
     listaidaux : decarr decaraux
                | decaraux
     '''
+
     
 
 def p_decaraux(p):
@@ -601,33 +593,50 @@ def p_decaraux(p):
              | SEP_SEMICOLON
     '''
 
+
 def p_lista_objetos(p):
   '''
   lista_objetos : ID listaobjaux
   '''
-
+  global arrLength
+  currID.put(p[1], arrLength)
   print("lista_objetos")
   print(p[1])
-  currID.put(p[1])
 
 def p_listaobjetosaux(p):
     '''
     listaobjaux : SEP_COMMA lista_objetos
                 | SEP_SEMICOLON
     '''
-  ######################################
-#FALTAN ARRAYS
-  ######################################
+  #######################################################
+#ARRAYS
+  #######################################################
 def p_decarr(p):
     '''
-    decarr : SEP_LBRACKET CTE_INT SEP_RBRACKET auxdec
+    decarr : arrdecprime
+           | matdecprime
     '''
+    
 
-def p_auxdec(p):
+def p_arrdecprime(p):
     '''
-    auxdec : SEP_LBRACKET CTE_INT SEP_RBRACKET
-           | empty
+    arrdecprime : SEP_LBRACKET CTE_INT SEP_RBRACKET
     '''
+    global arrLength
+    arrLength = []
+    arrLength.append(p[2])
+    
+
+def p_matdecprime(p):
+    '''
+    matdecprime : SEP_LBRACKET CTE_INT SEP_RBRACKET SEP_LBRACKET CTE_INT SEP_RBRACKET
+    '''
+    global arrLength
+    arrLength = []
+    arrLength.append(p[2])
+    arrLength.append(p[5])
+
+
 
 def p_acceso_array(p):
     '''
@@ -688,10 +697,10 @@ def p_valasigaux(p):
     valasigaux : ID valasign_aux2
     '''
     print("valasigaux--- ", p[1])
-    currID = p[1]
-    cuads.agregarID(currID)
+    currentID = p[1]
+    cuads.agregarID(currentID)
     print("pipipipipiop", cuads.pOperandos)
-    #  print("AAAAAAAAAAAAAAAAAAAAAAAA")
+
 
 def p_valasign_aux2(p):
   '''
@@ -1102,12 +1111,10 @@ def p_cteidcall_atributo_metodo(p):
   '''
   cteidcall_atributo_metodo : ID var_id_aux
   '''
-  currID = p[1]
-  print("prueba ID --- ", currID)
-  #currTipo = dirVar.getglobalVariable(currID).tipoVariable()
+  currentID = p[1]
+  print("prueba ID --- ", currentID)
   print("tipo id --- ", currTipo)
-  #cuads.agregarTipo(currTipo)
-  cuads.agregarID(currID)
+  cuads.agregarID(currentID)
 
 def p_var_id_aux(p):
   '''
@@ -1181,9 +1188,9 @@ def p_typefun(p):
 
   #AGREGAR VARIABLES LOCALES
   while not(currTypeID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
       tup = currTypeID.get()
-      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2])
+      #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
+      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
 
 
 def p_voidnext(p):
@@ -1210,8 +1217,11 @@ def p_paramsfuncreate(p):
     '''
     print("paramsmnv")
     print(p[2])
-    currID.put(p[2])
-    currTypeID.put((currID.get(), currTipo, True))
+    global arrLength
+    currID.put(p[2], arrLength)
+
+    curr = currID.get()
+    currTypeID.put((curr[0], curr[1], currTipo, True))
 
 
 def p_typeparamfun(p):
@@ -1238,8 +1248,11 @@ def p_paramsauxfuncreate(p):
     '''
     print("paramsmnv")
     print(p[3])
-    currID.put(p[3])
-    currTypeID.put((currID.get(), currTipo, True))
+    global arrLength
+    currID.put(p[3], arrLength)
+
+    curr = currID.get()
+    currTypeID.put((curr[0], curr[1], currTipo, True))
 
 def p_voidvars(p):
     '''
@@ -1282,7 +1295,9 @@ def p_objectsvarsfun(p):
     print("call objectsvarsmet")
     currTipo = p[2]
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo, False))
+      while not(currID.empty()) :
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo, False))
 
 def p_idvarsfun(p):
     '''
@@ -1293,10 +1308,14 @@ def p_stepidvarsfun(p):
     '''
     stepidvarsfun : 
     '''
+
+    #currID.pust(p[1], isMat, isArr, arrLength)
+
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo, False))
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo, False))
 
 def p_typefunp(p):
   '''
@@ -1307,8 +1326,6 @@ def p_typefunp(p):
   print("call typemv")
   global currTipo
   currTipo = p[1]
-  #while not(currID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
 
 def p_estfun(p):
     '''

@@ -175,13 +175,17 @@ def t_error(t):
   t.lexer.skip(1)
 
 # REGLAS 
-pOperandos = []
-pOperadores = []
-pTipos = []
+
+print("CALL INITIAL")
+
+currID = queue.Queue()
+currVars = queue.Queue()
+currMet = queue.Queue()
+currTypeID = queue.Queue()
 
 def p_programa(p):
   '''
-  programa : ini PROGRAM ID SEP_SEMICOLON proaux
+  programa : PROGRAM ID SEP_SEMICOLON proaux
   '''
   p[0] = "Success"
 
@@ -267,10 +271,6 @@ def p_typeVarsGlobal(p):
   print("call varsGlobal")
   global currTipo
   currTipo = p[1]
-  #print("Empty")
-  #print(currID.empty())
-  #while not(currID.empty()) :
-    #dirVar.agregarglobalVariable(currID.get(), currTipo)
 
 
 #funciones del programa
@@ -319,7 +319,7 @@ def p_clase(p):
     print("CLASSSSEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 
     #METODO QUE QUITA LAS VARIABLES Y PARAMETROS CON TIPO
-    #currMet.put(currFuncion, currTipo)
+
     while not(currMet.empty()) :
       metup = currMet.get()
       print(metup)
@@ -327,7 +327,6 @@ def p_clase(p):
       
     #METODO QUE AGREGA LAS FUNCIONES
     while not(currTypeID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
       tup = currTypeID.get()
       print(tup)
       dirVar.agregarAtributosClase(currClass,tup[0], tup[1])
@@ -368,15 +367,12 @@ def p_objectsvarsclass(p):
     currTipo = p[2]
     while not(currID.empty()) :
       currTypeID.put((currID.get(), currTipo))
-      #dirVar.agregarAtributosClase(currClass,currID.get(), currTipo)
 
 def p_stepidvarsclass(p):
     '''
     stepidvarsclass : 
     '''
-    #print("Empty")
-    #print(currID.empty())
-    #print(currTipo)
+
     while not(currID.empty()) :
       currTypeID.put((currID.get(), currTipo))
 
@@ -397,13 +393,6 @@ def p_typevarsclass(p):
     
     currTipo = p[1]
     print(currTipo)
-    print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
-    #while not(currID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
-      #objcur = (currID.get(), currTipo)
-      #print(objcur)
-      #print("objcur")
-      #currTypeID.put(objcur)
 
 def p_metaux(p):
     '''
@@ -553,8 +542,6 @@ def p_typemetp(p):
   print("call typemv")
   global currTipo
   currTipo = p[1]
-  #while not(currID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
 
 def p_estmet(p):
     '''
@@ -570,26 +557,29 @@ def p_mnvaux(p):
 #General
 #####################################
 ################################
+
+
 def p_lista_ids(p):
   '''
-  lista_ids : ID listaidaux
+  lista_ids : listaidprime
+            | decarr decaraux
   '''
-  print("listaids")
-  print(p[1])
-  currID.put(p[1])
 
-def p_listaidaux(p):
+def p_listaidprime(p):
     '''
-    listaidaux : decarr decaraux
-               | decaraux
+    listaidprime : ID decaraux
     '''
-    
+      print("listaids")
+      print(p[1])
+      currID.put(p[1])
+
 
 def p_decaraux(p):
     '''
     decaraux : SEP_COMMA lista_ids
              | SEP_SEMICOLON
     '''
+
 
 def p_lista_objetos(p):
   '''
@@ -605,19 +595,39 @@ def p_listaobjetosaux(p):
     listaobjaux : SEP_COMMA lista_objetos
                 | SEP_SEMICOLON
     '''
-  ######################################
-#FALTAN ARRAYS
-  ######################################
+  #######################################################
+#ARRAYS
+  #######################################################
 def p_decarr(p):
     '''
-    decarr : SEP_LBRACKET CTE_INT SEP_RBRACKET auxdec
+    decarr : arrdecprime
+           | matdecprime
     '''
+    
 
-def p_auxdec(p):
+def p_arrdecprime(p):
     '''
-    auxdec : SEP_LBRACKET CTE_INT SEP_RBRACKET
-           | empty
+    arrdecprime : SEP_LBRACKET CTE_INT SEP_RBRACKET
     '''
+    global isArr
+    global arrLength
+    isArr = True
+    arrLength = []
+    arrLength.append(p[2])
+    
+
+def p_matdecprime(p):
+    '''
+    matdecprime : SEP_LBRACKET CTE_INT SEP_RBRACKET SEP_LBRACKET CTE_INT SEP_RBRACKET
+    '''
+    global arrdR
+    global arrLength
+    global isMat
+    isMat = True
+    arrLength.append(p[2])
+    arrLength.append(p[5])
+
+
 
 def p_acceso_array(p):
     '''
@@ -667,12 +677,20 @@ def p_asignacion(p):
     '''
     asignacion : valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON
     '''
-
+    
+    currOper = p[2]
+    cuads.agregarOperador(currOper)
+    cuads.cuadsasignacion()
+    
+  
 def p_valasigaux(p):
     '''
     valasigaux : ID valasign_aux2
     '''
-    print(p[1])
+    print("valasigaux--- ", p[1])
+    currID = p[1]
+    cuads.agregarID(currID)
+    print("pipipipipiop", cuads.pOperandos)
     #  print("AAAAAAAAAAAAAAAAAAAAAAAA")
 
 def p_valasign_aux2(p):
@@ -684,8 +702,9 @@ def p_valasign_aux2(p):
 def p_asign_opciones(p):
   '''
   asign_opciones : asignacion_simple
-                
+               
   '''
+  
 
 
 def p_asignacion_simple(p):
@@ -693,7 +712,7 @@ def p_asignacion_simple(p):
   asignacion_simple : hyper_exp
                    | array_inside
   '''
-
+  #cuads.cuadsasignacion()
 
 def p_asatr(p):
       '''
@@ -703,8 +722,20 @@ def p_asatr(p):
 
 def p_asignacion_compleja(p):
     '''
-    asignacion_compleja : ID asatr asignacion_funcion
+    asignacion_compleja : usfunc asatr asignacion_funcion
     '''
+
+def p_usfunc(p):
+    '''
+    usfunc : ID
+    '''
+    global callfunc
+    callfunc = p[1]
+    bex = dirVar.verify(p[1])
+    if (bex):
+        cuads.createERA(p[1])
+
+
 ##### NO USADA EN ESTA VERSIÓN
 def p_asignacion_compleja_aux(p):
     '''
@@ -715,10 +746,23 @@ def p_asignacion_compleja_aux(p):
 
 def p_asignacion_funcion(p):
     '''
-    asignacion_funcion : SEP_LPAREN args SEP_RPAREN
+    asignacion_funcion : SEP_LPAREN args SEP_RPAREN valnull
     '''
 
-### cambié SEP_LPAREN args SEP_RPAREN por asignacion_funcion
+def p_valnull(p):
+    '''
+    valnull : empty
+    '''
+    global callfunc
+    par = dirVar.getParametersfunc(callfunc)
+    if(cuads.valnull(par)):
+        print("Todo bien")
+        cuads.createGOSUB(callfunc)
+    else:
+        print("break")
+
+
+### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
 def p_asignacion_metodo(p):
     '''
     asignacion_metodo : OP_DOT ID asignacion_funcion
@@ -726,13 +770,24 @@ def p_asignacion_metodo(p):
 
 def p_args(p):
     '''
-    args : hyper_exp argsaux
+    args : hyper_exp validateparam argsaux
          | empty
     '''
 
+def p_validateparam(p):
+    '''
+    validateparam : empty
+    '''
+    global callfunc
+    par = dirVar.getParametersfunc(callfunc)
+    cuads.valparams(par)
+
+
+
+
 def p_argsaux(p):
     '''
-    argsaux : SEP_COMMA hyper_exp argsaux
+    argsaux : SEP_COMMA hyper_exp validateparam argsaux
             | empty
     '''
 
@@ -746,7 +801,8 @@ def p_lectaux(p):
     lectaux : SEP_COMMA ID lectaux
             | empty
     '''
-
+##### ESTE PRINT DEBERÍA INCLUIR STRINGS como print("hola")
+## actualmente lo toma como id al parecer
 def p_escritura(p):
     '''
     escritura : PRINT SEP_LPAREN escrituraaux
@@ -778,7 +834,7 @@ def p_letaux(p):
 #### NO SE USAN 😬#######
 def p_llamadavoid(p):
     '''
-    llamadavoid : ID asatr SEP_LPAREN args SEP_RPAREN SEP_SEMICOLON
+    llamadavoid : usfunc asatr SEP_LPAREN args SEP_RPAREN valnull SEP_SEMICOLON
     '''
 
 def p_voididt(p):
@@ -795,13 +851,13 @@ def p_decision(p):
 
 def p_ifcond1(p):
   '''
-  ifcond1 :
+  ifcond1 : empty
   '''
   cuads.condicion1()
 
 def p_ifcond2(p):
   '''
-  ifcond2 :
+  ifcond2 : empty
   '''
   cuads.condicion2()
   
@@ -852,13 +908,6 @@ def p_repeticionnocondicional(p):
     repeticionnocondicional : FROM ID OP_ASSIGN hyper_exp cicfr2 TO hyper_exp cicfr3 DO bloque cicfr4
     '''
     cuads.ciclofrom1(p[2])
-    
-############################
-def p_valueid(p):
-    '''
-    valueid : ID
-            | CTE_INT
-    '''
 
 def p_cicfr2(p):
   '''
@@ -877,7 +926,13 @@ def p_cicfr4(p):
   cicfr4 : 
   '''
   cuads.ciclofrom4()
-  
+
+###########################################################################
+def p_valueid(p):
+    '''
+    valueid : ID
+            | CTE_INT
+    '''
 #### REGLAS NO USADAS:  ####################################################
 def p_llamadafuncionmetodo(p):
     '''
@@ -933,6 +988,9 @@ def p_hyper_aux(p):
     hyper_aux : REL_OR hyper_exp
               | empty
     '''
+    currOperador = p[1]
+    cuads.agregarOperador(currOperador)
+    cuads.cuadsor()
 
 def p_and_exp(p):
     '''
@@ -943,6 +1001,9 @@ def p_andexpaux(p):
     andexpaux : REL_AND and_exp
               | empty
     '''
+    currOperador = p[1]
+    cuads.agregarOperador(currOperador)
+    cuads.cuadsand()
 
 def p_expresion(p):
   '''
@@ -953,7 +1014,8 @@ def p_expresionaux(p):
   '''
   expresionaux : evaluators exp
                | empty
-  ''' 
+  '''
+  cuads.cuadscomparation()
 
 def p_evaluators(p):
     '''
@@ -962,37 +1024,48 @@ def p_evaluators(p):
                 | OP_EQUAL
                 | OP_NOTEQ
     '''
-
+    currOperador = p[1]
+    cuads.agregarOperador(currOperador)
+  
 def p_exp(p):
     '''
     exp : termino expaux
     '''
-
+    cuads.cuadssumsub()
+  
 def p_expaux(p):
     '''
     expaux : OP_PLUS termino expaux
            | OP_MINUS termino expaux
            | empty
     '''
-
+    currOperador = p[1]
+    cuads.agregarOperador(currOperador)
+    
 def p_termino(p):
     '''
     termino : factor terminoaux
     '''
-
+    cuads.cuadsmuldiv()
+  
 def p_terminoaux(p):
     '''
     terminoaux : OP_MULT factor terminoaux
                | OP_DIV factor terminoaux
                | empty
     '''
-
+    
+    currOperador = p[1]
+    cuads.agregarOperador(currOperador)
+    print("operador -|-|-|- ", currOperador)
+  
 def p_factor(p):
     '''
     factor : SEP_LPAREN hyper_exp SEP_RPAREN
            | cteidcall
            | cteidcall_atributo_metodo
     '''
+
 
   #QUITE sign antes de cteidcall  
 """
@@ -1018,8 +1091,8 @@ def p_cteidcall(p):
     print("mau ", currVal)
     currTipo = constantTypeCheck.checkintOrFloat(str(currVal))
     print("mmmm ", currTipo)
-    pOperandos.append(currVal)
-    pTipos.append(currTipo)
+    cuads.agregarConst(currVal)
+    cuads.agregarTipo(currTipo)
     
   #print("SSSSSSSSSSSSSSSSS")
     #print(p[1])
@@ -1027,7 +1100,19 @@ def p_cteidcall(p):
 #Factorización por la izq de ID asatr y llamadafuncionmetodo
 def p_cteidcall_atributo_metodo(p):
   '''
-  cteidcall_atributo_metodo : ID aux_accesoarray
+  cteidcall_atributo_metodo : ID var_id_aux
+  '''
+  currID = p[1]
+  print("prueba ID --- ", currID)
+  #currTipo = dirVar.getglobalVariable(currID).tipoVariable()
+  print("tipo id --- ", currTipo)
+  #cuads.agregarTipo(currTipo)
+  cuads.agregarID(currID)
+
+def p_var_id_aux(p):
+  '''
+  var_id_aux : aux_accesoarray
+             | empty
   '''
 
 def p_aux_accesoarray(p):
@@ -1036,6 +1121,7 @@ def p_aux_accesoarray(p):
                   | acceso_array
   '''
 
+# asignacion_funcion ---> SEP_LPAREN  SEP_RPAREN
 def p_cteidcall_am_aux(p):
   '''
   cteidcall_am_aux : asignacion_funcion
@@ -1090,12 +1176,13 @@ def p_typefun(p):
   currTipo = p[1]
   currFuncion = p[3]
   dirVar.agregarFuncion(currFuncion, currTipo)
+  dirVar.initFunction(currFuncion, insContcuad, primtempcont)
+  dirVar.agregartemp(currFuncion, finaltemp)
 
   #AGREGAR VARIABLES LOCALES
   while not(currTypeID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
       tup = currTypeID.get()
-      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1])
+      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2])
 
 
 def p_voidnext(p):
@@ -1105,7 +1192,7 @@ def p_voidnext(p):
 
 def p_novoidnext(p):
   '''
-  novoidnext : SEP_LPAREN paramsfun SEP_RPAREN varsfun SEP_LBRACE estfun nvaux
+  novoidnext : SEP_LPAREN paramsfun insCont SEP_RPAREN varsfun SEP_LBRACE estfun nvaux
   '''
 
 
@@ -1123,7 +1210,7 @@ def p_paramsfuncreate(p):
     print("paramsmnv")
     print(p[2])
     currID.put(p[2])
-    currTypeID.put((currID.get(), currTipo))
+    currTypeID.put((currID.get(), currTipo, True))
 
 
 def p_typeparamfun(p):
@@ -1151,12 +1238,23 @@ def p_paramsauxfuncreate(p):
     print("paramsmnv")
     print(p[3])
     currID.put(p[3])
-    currTypeID.put((currID.get(), currTipo))
+    currTypeID.put((currID.get(), currTipo, True))
 
 def p_voidvars(p):
     '''
-    voidvars : varsfun SEP_LBRACE estfun RETURN SEP_SEMICOLON SEP_RBRACE
+    voidvars : varsfun insCont SEP_LBRACE estfun RETURN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
+
+
+def p_insCont(p):
+    '''
+    insCont : empty
+    '''
+    global insContcuad
+    global primtempcont
+    insContcuad = cuads.getCurrCounter()
+    primtempcont = cuads.getTempCounter()
+
 
 def p_varsfun(p):
     '''
@@ -1183,7 +1281,7 @@ def p_objectsvarsfun(p):
     print("call objectsvarsmet")
     currTipo = p[2]
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      currTypeID.put((currID.get(), currTipo, False))
 
 def p_idvarsfun(p):
     '''
@@ -1197,7 +1295,7 @@ def p_stepidvarsfun(p):
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      currTypeID.put((currID.get(), currTipo, False))
 
 def p_typefunp(p):
   '''
@@ -1208,8 +1306,7 @@ def p_typefunp(p):
   print("call typemv")
   global currTipo
   currTipo = p[1]
-  #while not(currID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
+
 
 def p_estfun(p):
     '''
@@ -1220,10 +1317,23 @@ def p_estfun(p):
 
 def p_nvaux(p):
     '''
-    nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON SEP_RBRACE
+    nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
 
-file = open("test.txt", 'r')
+def p_relCurr(p):
+    '''
+    relCurr : empty
+    '''
+    #release current varTable
+    #funcion para borrar toda la tabla de la funcion
+    cuads.endfunc()
+    global finaltemp
+    finaltemp = cuads.getTempCounter()
+
+
+
+
+file = open("basic_test.txt", 'r')
 
 #lexer.input("program primero ")
 
@@ -1239,24 +1349,25 @@ parser = yacc.yacc()
 try:
     print('Parsing...')
     parser.parse(lines, debug=1)
-    print('Correct syntax.')
     print("DIRGLOB")
     print(dirVar.dirglobalVar)
     print("dirFunc")
     print(dirVar.dirFunciones)
     print("Dirclases")
     print(dirVar.dirClases)
-    a = (dirVar.getFuncion("helloWorld"))
-    print(a.__dict__)
+    #a = (dirVar.getFuncion("helloWorld"))
+    #print(a.__dict__)
     #b = a["localVar"]
     #print(b.__dict__)
     #clase
-    libro = (dirVar.dirClases["Libro"])
-    print(libro.__dict__)
-    print("pOperandos\n", pOperandos)
-    print("pTipos\n", pTipos)
+    #libro = (dirVar.dirClases["Libro"])
+    #print(libro.__dict__)
+    #print("pOperandos\n", cuads.pOperandos)
+    #print("pTipos\n", cuads.pTipos)
+    #print("pOperadores\n", cuads.pOperadores)
+    print("Correct syntax")
 except:
     print(f'Syntax error')
     
 
-print()
+cuads.printCuads()

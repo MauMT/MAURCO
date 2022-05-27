@@ -1,8 +1,9 @@
 import cuads
 
 class variable:
-    def __init__(self, tipovar):
+    def __init__(self, tipovar, length):
         self.tipovar = tipovar
+        self.length = length
         self.valor = None
 
     def tipoVariable(self):
@@ -10,6 +11,9 @@ class variable:
 
     def valorVariable(self):
         return self.valor
+
+    def lengthVariable(self):
+        return self.length
 
 #-----------------------------------------------------------
 class funcion:
@@ -71,18 +75,30 @@ def agregarFuncion(nomFuncion, tipoFuncion):
     dirFunciones[nomFuncion] = funcion(tipoFuncion)
 
 
-def agregarlocalVariable(nomFuncion, nomVariable, tipoVariable, isParam):
+def agregarlocalVariable(nomFuncion, nomVariable, arrLength, tipoVariable, isParam):
   if nomFuncion in dirFunciones:
     if nomVariable in dirFunciones[nomFuncion].gettableFuncion():
       print("ya existe esta variable local")
     else:
       if(isParam):
         dirFunciones[nomFuncion].parameters.append(tipoVariable)
-      dirFunciones[nomFuncion].gettableFuncion()[nomVariable]= variable(tipoVariable)
-      dirFunciones[nomFuncion].cantVar = len(dirFunciones[nomFuncion].gettableFuncion())
+      #es correcta la identacion por param
+
+      dirFunciones[nomFuncion].gettableFuncion()[nomVariable]= variable(tipoVariable, arrLength)
+      dirFunciones[nomFuncion].cantVar = len(dirFunciones[nomFuncion].gettableFuncion())+len(arrLength)
   else:
     print("no existe esta funcion")
+    
 
+"""
+#currID.put(p[1], isMat, isArr, arrLength) Tipo
+      dirVar.agregarAtributosClase(currClass,tup[0], tup[1], tup[2], tup[3],tup[4])
+
+
+tup = currTypeID.get()
+#currID.put(p[1], isMat, isArr, arrLength) Tipo, TrueParam
+      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3], tup[4], tup[5])
+"""
 
 def initFunction(nomFuncion, dir, cant):
     if nomFuncion in dirFunciones:
@@ -136,12 +152,18 @@ def getClase(nombreClase):
 
 #-----------------------
 
-def agregarAtributosClase(nombreClase, nomVariable, tipoVariable):
+"""
+#currID.put(p[1], isMat, isArr, arrLength) Tipo
+      dirVar.agregarAtributosClase(currClass,tup[0], tup[1], tup[2], tup[3],tup[4])
+"""
+
+def agregarAtributosClase(nombreClase, nomVariable, arrLength, tipoVariable):
   if nombreClase in dirClases:
     if nomVariable in dirClases[nombreClase].getAtributosClase():
       print("ya existe esta variable local")
     else:
-      dirClases[nombreClase].getAtributosClase()[nomVariable]= variable(tipoVariable)
+      dirClases[nombreClase].getAtributosClase()[nomVariable]= variable(tipoVariable, arrLength)
+
   
   else:
     print("no existe esa clase")
