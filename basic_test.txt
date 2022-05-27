@@ -38,10 +38,10 @@ main(){
     }
     helloWorld();
     while(i<3) do {
-      i = (i+1);
+      i = i+1;
       print(2)
     }
-    z = z*2.1;
+    z = z+y+x;
     
 }
 end

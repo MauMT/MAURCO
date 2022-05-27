@@ -69,6 +69,17 @@ def getConstantAddFloat():
   Cf = Cf+1
   return aux
 
+def getTempAddInt():
+  global Ti
+  aux = Ti
+  Ti = Ti+1
+  return aux
+
+def getTempAddFloat():
+  global Tf
+  aux = Tf
+  Tf = Tf+1
+  return aux
 
 def buscarDireccionVirtual(nombreVariable):
   if nombreVariable in dirVar.dirglobalVar:

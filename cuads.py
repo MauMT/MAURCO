@@ -13,7 +13,7 @@ psaltos = []
 ####### NUMERAR LÍNEAS E IMPRIMIR EN TABLA BONITA
 
 #funcion de array cuadruplos
-cuads=[("goto","1","","")]
+cuads=[("GOTO","1","","")]
 
 tempcounter = 0
 
@@ -45,10 +45,10 @@ def validar():
     #right operando
     #left operando
     right = pOperandos.pop()
-    print(right)
+    print("validar right", right)
 
     left = pOperandos.pop()
-    print(left)
+    print("validar left", left)
 
     #right type
     #left type
@@ -60,7 +60,7 @@ def validar():
 #############################################################################################
     #operador
     oper = pOperadores.pop()
-    print(oper)
+    print("validar operador", oper)
 
 
 
@@ -68,17 +68,18 @@ def validar():
     #generar cuadruplo
 
 ######### IMPLEMENTACIÓN AUXILIAR CON VALORES SIEMPRE FLOAT ##############################################
-    # result = "t" + str(tempcounter)
-    result = virtualAdd.getGlobalAddFloat()
+    result = "t" + str(tempcounter)
+    addr_result = virtualAdd.getTempAddFloat()
 
-    cuads.append((oper, left_addr, right_addr, result))
+    #cuads.append((oper, left_addr, right_addr, addr_result))
+    cuads.append((oper, left,right, result))
     print(cuads)
 
     #agregar resultado en pOperandos
-    agregarID(result)
-    dirVar.agregarglobalVariable(result,"float")
-    
-    #agregar resultadotipo en pTipospo
+    agregarID(addr_result)
+    dirVar.agregarglobalVariable(result, "float")
+    dirVar.dirglobalVar[result].direccion = addr_result
+    #agregar resultadotipo en pTipos
 
 
 def cuadssumsub():
@@ -86,8 +87,8 @@ def cuadssumsub():
     print("empty")
   else:
     if(( pOperadores[-1] == "+") or ( pOperadores[-1] == "-")):
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -99,8 +100,8 @@ def cuadsmuldiv():
   else:
     if(( pOperadores[-1] == "*") or ( pOperadores[-1] == "/")):
       print("yes")
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -113,8 +114,8 @@ def cuadscomparation():
     if(( pOperadores[-1] == "<") or ( pOperadores[-1] == "==") 
       or (pOperadores[-1] == ">") or (pOperadores[-1] == "!=")):
       print("yes")
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -126,8 +127,8 @@ def cuadsand():
   else:
     if(( pOperadores[-1] == "&")):
       print("yes")
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -139,8 +140,8 @@ def cuadsor():
   else:
     if(( pOperadores[-1] == "|")):
       print("yes")
-      """ global tempcounter
-      tempcounter = tempcounter + 1 """
+      global tempcounter
+      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -179,8 +180,8 @@ def cuadsasignacion():
   else:
     if(( pOperadores[-1] == "=")):
       print("yes-assign")
-      #global tempcounter
-      #tempcounter = tempcounter + 1
+      global tempcounter
+      tempcounter = tempcounter + 1
       auxAsignacion()
     else:
       #print(pOperandos)
@@ -374,3 +375,4 @@ def printCuads():
   for el1, el2, el3, el4 in cuads:
       print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format(cuadCounter,el1,el2,el3,el4))
       cuadCounter+=1
+  print(pTipos.__len__(), pTipos)

@@ -191,6 +191,8 @@ currVars = queue.Queue()
 currMet = queue.Queue()
 currTypeID = queue.Queue()
 
+from currTipo import currTipo 
+
 def p_programa(p):
   '''
   programa : PROGRAM ID SEP_SEMICOLON proaux
@@ -247,7 +249,7 @@ def p_objectsvarsglobal(p):
     objectsvarsglobal : OBJECT ID lista_objetos varsauxGlobal
     '''
     print("call objectsvarsglobal")
-    global currTipo
+    #global currTipo
     currTipo = p[2]
     while not(currID.empty()) :
       cul = currID.get()
@@ -264,6 +266,7 @@ def p_stepid(p):
     '''
     stepid : 
     '''
+    global currTipo
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
@@ -677,12 +680,18 @@ def p_estatuto(p):
 
 def p_asignacion(p):
     '''
-    asignacion : valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON
+    asignacion : valasigaux OP_ASSIGN cuadsasign asign_opciones SEP_SEMICOLON
     '''
-    
     currOper = p[2]
     cuads.agregarOperador(currOper)
+    
+
+def p_cuadsasign(p):
+    '''
+    cuadsasign : 
+    '''
     cuads.cuadsasignacion()
+
     
   
 def p_valasigaux(p):
@@ -994,11 +1003,16 @@ def p_hyper_exp(p):
 
 def p_hyper_aux(p):
     '''
-    hyper_aux : REL_OR hyper_exp
+    hyper_aux : REL_OR cuadsor hyper_exp
               | empty
     '''
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
+
+def p_cuadsor(p):
+    '''
+    cuadsor :
+    '''
     cuads.cuadsor()
 
 def p_and_exp(p):
@@ -1007,12 +1021,18 @@ def p_and_exp(p):
     '''
 def p_andexpaux(p):
     '''
-    andexpaux : REL_AND and_exp
+    andexpaux : REL_AND cuadsand and_exp
               | empty
     '''
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
-    cuads.cuadsand()
+    
+
+def p_cuadsand(p):
+  '''
+  cuadsand :
+  '''
+  cuads.cuadsand()
 
 def p_expresion(p):
   '''
@@ -1021,10 +1041,10 @@ def p_expresion(p):
   
 def p_expresionaux(p):
   '''
-  expresionaux : evaluators exp
+  expresionaux : evaluators cuadscomparation exp
                | empty
   '''
-  cuads.cuadscomparation()
+  
 
 def p_evaluators(p):
     '''
@@ -1035,46 +1055,63 @@ def p_evaluators(p):
     '''
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
+    
   
+def p_cuadscomparation(p): 
+  '''
+  cuadscomparation :
+  '''
+  cuads.cuadscomparation()
+
 def p_exp(p):
     '''
     exp : termino expaux
     '''
-    cuads.cuadssumsub()
+    
   
 def p_expaux(p):
     '''
-    expaux : OP_PLUS termino expaux
-           | OP_MINUS termino expaux
+    expaux : OP_PLUS termino cuadruplos_exp expaux
+           | OP_MINUS termino cuadruplos_exp expaux
            | empty
     '''
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
-    
+
+def p_cuadruplos_exp(p):
+    '''
+    cuadruplos_exp :
+    '''
+    cuads.cuadssumsub()
+ 
 def p_termino(p):
     '''
     termino : factor terminoaux
     '''
-    cuads.cuadsmuldiv()
+    
   
 def p_terminoaux(p):
     '''
-    terminoaux : OP_MULT factor terminoaux
-               | OP_DIV factor terminoaux
+    terminoaux : OP_MULT factor cuadruplos_termino terminoaux
+               | OP_DIV factor cuadruplos_termino terminoaux
                | empty
     '''
-    
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
-    print("operador -|-|-|- ", currOperador)
-  
+    
+def p_cuadruplos_termino(p):
+    '''
+    cuadruplos_termino :
+    '''
+    cuads.cuadsmuldiv()
+
 def p_factor(p):
     '''
     factor : SEP_LPAREN hyper_exp SEP_RPAREN
            | cteidcall
            | cteidcall_atributo_metodo
     '''
-
+    
 
   #QUITE sign antes de cteidcall  
 """
@@ -1115,8 +1152,8 @@ def p_cteidcall_atributo_metodo(p):
   global currFuncion
   print("prueba ID --- ", currID)
   #currTipo = dirVar.getglobalVariable(currID).tipoVariable()
-  #print("tipo id --- ", currTipo)
-  #cuads.agregarTipo(currTipo)
+  print("tipo id --- ", currTipo)
+  cuads.agregarTipo(currTipo)
   cuads.agregarID(currID)
 
 def p_var_id_aux(p):
@@ -1374,7 +1411,22 @@ try:
     print(dirVar.dirClases) """
     a = (dirVar.getFuncion("helloWorld"))
     print(a.__dict__)
+    i = dirVar.dirglobalVar["i"]
+    print("i", i.__dict__)
+    y = dirVar.dirglobalVar["y"]
+    print("y", y.__dict__)
+    valor = dirVar.dirglobalVar["valor"]
+    print("valor", valor.__dict__)
+    a = dirVar.dirglobalVar["a"]
+    print(a.__dict__)
+    b = dirVar.dirglobalVar["b"]
+    print(b.__dict__)
+    z = dirVar.dirglobalVar["z"]
+    print(z.__dict__)
+    x = dirVar.dirglobalVar["x"]
+    print(x.__dict__)
     
+
     #clase
     #libro = (dirVar.dirClases["Libro"])
     #print(libro.__dict__)
@@ -1388,3 +1440,5 @@ except:
     print("dirConstantes: ", dirVar.dirConstantes)
 
 cuads.printCuads()
+#print(dirVar.dirFunciones["main"].__dict__)
+#print(dirVar.dirglobalVar["t1"].direccion)
