@@ -132,11 +132,12 @@ def getParametersfunc(nomFuncion):
 
     
 
-def agregarglobalVariable(nomVariable, tipoVariable):
+def agregarglobalVariable(nomVariable, arrLength, tipoVariable):
   if nomVariable in dirglobalVar:
     print("Error ya existe esta variable global")
   else:
-    dirglobalVar[nomVariable] = variable(tipoVariable)
+    dirglobalVar[nomVariable] = variable(tipoVariable, arrLength)
+
 
 ##checar si usar objeto(), o cambiar objeto() a clase()
 def crearClase(nombreClase):

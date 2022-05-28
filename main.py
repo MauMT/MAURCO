@@ -182,6 +182,8 @@ currID = queue.Queue()
 currVars = queue.Queue()
 currMet = queue.Queue()
 currTypeID = queue.Queue()
+arrLength = []
+currFuncion = None
 
 def p_programa(p):
   '''
@@ -207,6 +209,7 @@ def p_ini(p):
   isArr = False
   isMat = False
   arrExp = []
+  arrLength = []
   currID = queue.Queue()
   currVars = queue.Queue()
   currMet = queue.Queue()
@@ -249,6 +252,7 @@ def p_objectsvarsglobal(p):
     currTipo = p[2]
     while not(currID.empty()) :
       curr = currID.get()
+      print("Algo no se")
       dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
 
 def p_idvarsglobal(p):
@@ -258,13 +262,19 @@ def p_idvarsglobal(p):
   
 def p_stepid(p):
     '''
-    stepid : 
+    stepid : empty
     '''
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
       curr = currID.get()
-      dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
+
+      if len(curr[1]) ==0:
+        print("i")
+        dirVar.agregarglobalVariable(curr[0], [], currTipo)
+      else:
+        print("f")
+        dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
       
     
 
@@ -462,7 +472,7 @@ def p_paramsmetcreate(p):
     print("paramsmnv")
     print(p[2])
     global arrLength
-    currID.put(p[2], arrLength)
+    currID.put((p[2], arrLength))
     curr = currID.get()
     currTypeID.put((curr[0], curr[1], currTipo))
 
@@ -491,7 +501,7 @@ def p_paramsauxmetcreate(p):
     print("paramsmnv")
     print(p[3])
     global arrLength
-    currID.put(p[3], arrLength)
+    currID.put((p[3], arrLength))
     curr = currID.get()
     currTypeID.put((curr[0], curr[1], currTipo))
 
@@ -576,8 +586,13 @@ def p_lista_ids(p):
   '''
   global arrLength
 
-  currID.put(p[1], arrLength)
-
+  if len(arrLength)==0:
+    print("hey")
+    currID.put((p[1], []))
+  else:
+    print("hey1")
+    currID.put((p[1], arrLength))
+    
   arrLength = []
 
 
@@ -586,7 +601,7 @@ def p_listaidaux(p):
     listaidaux : decarr decaraux
                | decaraux
     '''
-
+    #print("ccccccccooooooooooooooooooooomo")
     
 
 def p_decaraux(p):
@@ -594,6 +609,7 @@ def p_decaraux(p):
     decaraux : SEP_COMMA lista_ids
              | SEP_SEMICOLON
     '''
+    #print("estaaaaaaaaaaaaaaaaaaaaaaaaaas")
 
 
 def p_lista_objetos(p):
@@ -601,7 +617,7 @@ def p_lista_objetos(p):
   lista_objetos : ID listaobjaux
   '''
   global arrLength
-  currID.put(p[1], arrLength)
+  currID.put((p[1], arrLength))
   print("lista_objetos")
   print(p[1])
 
@@ -642,24 +658,51 @@ def p_matdecprime(p):
 
 def p_acceso_array(p):
     '''
-    acceso_array : SEP_LBRACKET hyper_exp SEP_RBRACKET accarraux
+    acceso_array : mataccarraux
+                 | arraccarraux
+    '''
+
+def p_it(p):
+    '''
+    it : empty
+               
+    '''
+    print("NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS")
+
+
+def p_arraccarraux(p):
+    '''
+    arraccarraux : SEP_LBRACKET hyper_exp SEP_RBRACKET
     '''
     global isArr
     global arrExp
     isArr = True
-    arrExp.append(cuads.pOperandos.pop())
+    val = cuads.pOperandos.pop()
+    print(val)
+    print("ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
+    arrExp.append(val)
 
 
-def p_accarraux(p):
+def p_mataccarraux(p):
     '''
-    accarraux : SEP_LBRACKET hyper_exp SEP_RBRACKET
-              | empty
+    mataccarraux : SEP_LBRACKET  hyper_exp SEP_RBRACKET SEP_LBRACKET  hyper_exp SEP_RBRACKET
     '''
     global isMat
     global arrExp
     isMat = True
-    arrExp.append(cuads.pOperandos.pop())
+    val = cuads.pOperandos.pop()
+    print("ATTTTTTTTTTTTTTTTTTTAYYYYÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ")
+    arrExp.append(val)
+    val = cuads.pOperandos.pop()
+    arrExp.append(val)
 
+    
+"""
+def p_matvalue(p):
+    '''
+    matvalue : 
+    '''
+"""
 
 
 
@@ -712,20 +755,106 @@ def p_asignacion(p):
     
   
 def p_valasigaux(p):
-    '''
-    valasigaux : ID valasign_aux2
-    '''
-    print("valasigaux--- ", p[1])
-    currentID = p[1]
-    cuads.agregarID(currentID)
-    print("pipipipipiop", cuads.pOperandos)
+  '''
+  valasigaux : ID valasign_aux2
+  '''
+  ####NO FUNCIONA CON ARREGLOS
+  #print("valasigaux--- ", p[1])currentID = p[1]
+  #cuads.agregarID(currentID)
+  #print("pipipipipiop", cuads.pOperandos)
+
+  global isArr
+  global arrExp
+  global isMat
+  currentID = p[1]
+  print("prueba ID --- ", currentID)
+  print("tipo id --- ", currTipo)
+  cuads.agregarID(currentID)
+
+  #verificar que ID tiene dimensiones y tipo
+  print("1")
+  #currentID = cuads.pOperandos.top()
+  #currTID = cuads.pTipos.pop()
+  print("2")
+  #print(currentID)
+  if(currFuncion == None):
+    print("es none")
+    arrVar = dirVar.getglobalVariable(currentID)
+    if(arrVar == None):
+        print("ERROR NO EXISTE LA VARIABLE")
+  else:
+      arrVar = dirVar.getlocalVariable(currFuncion, currentID)
+      if(arrVar == None):
+        arrVar = dirVar.getglobalVariable(currentID)
+        if(arrVar == None):
+            #NO EXISTE
+            print("ERROR NO EXISTE LA VARIABLE")
+
+  print("3")
+  #verificar si es un arreglo o matriz
+  if(len(arrVar.length)==0):
+    #ES UNA VARIABLE NORMAL
+    print("normal")
+  else:
+    cuads.pOperandos.pop()
+    #arr por ahora
+    print("lengths Exp")
+    print(len(arrExp))
+    print(arrExp)
+    print(len(arrVar.length))
+    print("lengths arrvar")
+    if(len(arrExp)==len(arrVar.length)):
+        if(len(arrVar.length)==1):
+            print("aqui entra arrvar1")
+            #arreglo
+            #verificar pilatop con arrexp
+            #cuadruplo de suma
+            print("arrExp en 0")
+            print(arrExp[0])
+            cuads.arrVerifica(arrExp[0], arrVar.length[0])
+            print("verify")
+
+            ##############AQUI HAY UNA DIRECCION FALSA HAY QUE CAMBIARLA 27/05
+
+            cuads.sumaDirBasearr(arrExp[0], 3)
+            print("no hay 4")
+
+        else:
+            print("aqui entra arrvar2")
+            #matriz
+            print("3")
+            cuads.arrVerifica(arrExp[0], arrVar.length[0])
+            print("4")
+            cuads.arrMult(arrExp[0], arrVar.length[1])
+            #verificar pilatop con arrexp
+            print("5")
+            cuads.arrVerifica(arrExp[1], arrVar.length[1])
+            print("6")
+            cuads.arrSumaMult(arrExp[1])
+            print("7")
+            cuads.sumaDirBase(3)
+            print("8")
+            #crear cuadruplo de multiplicacion
+    else:
+        #ERROR LAS DIMENSIONES NO COINCIDEN
+        print("Las dimensiones no coinciden")
+  print("4")
+
+
+  isArr = False
+  isMat = False
+  arrExp = []
+
 
 
 def p_valasign_aux2(p):
   '''
-  valasign_aux2 : asatr
-                | acceso_array
+  valasign_aux2 :  asatr
+                |  acceso_array
   '''
+
+
+
 #agrgar el code para leer asignaciocompleja cteidcall creo
 def p_asign_opciones(p):
   '''
@@ -738,7 +867,7 @@ def p_asign_opciones(p):
 def p_asignacion_simple(p):
   '''
   asignacion_simple : hyper_exp
-                   | array_inside
+                    | array_inside
   '''
   #cuads.cuadsasignacion()
 
@@ -1059,6 +1188,7 @@ def p_exp(p):
     '''
     exp : termino expaux
     '''
+    print("exp")
     cuads.cuadssumsub()
   
 def p_expaux(p):
@@ -1067,6 +1197,7 @@ def p_expaux(p):
            | OP_MINUS termino expaux
            | empty
     '''
+    print("expaux")
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
     
@@ -1074,6 +1205,7 @@ def p_termino(p):
     '''
     termino : factor terminoaux
     '''
+    print("term")
     cuads.cuadsmuldiv()
   
 def p_terminoaux(p):
@@ -1139,44 +1271,68 @@ def p_cteidcall_atributo_metodo(p):
   cuads.agregarID(currentID)
 
   #verificar que ID tiene dimensiones y tipo
-
-  currentID = cuads.pOperandos.pop()
+  print("1")
+  #currentID = cuads.pOperandos.top()
   #currTID = cuads.pTipos.pop()
-  arrVar = dirVar.getlocalVariable(currFuncion, currentID)
-  if(arrVar = None):
+  print("2")
+  #print(currentID)
+  if(currFuncion == None):
+    print("es none")
     arrVar = dirVar.getglobalVariable(currentID)
-    if(arrVar = None):
-        #NO EXISTE
+    if(arrVar == None):
         print("ERROR NO EXISTE LA VARIABLE")
+  else:
+      arrVar = dirVar.getlocalVariable(currFuncion, currentID)
+      if(arrVar == None):
+        arrVar = dirVar.getglobalVariable(currentID)
+        if(arrVar == None):
+            #NO EXISTE
+            print("ERROR NO EXISTE LA VARIABLE")
 
+  print("3")
   #verificar si es un arreglo o matriz
   if(len(arrVar.length)==0):
     #ES UNA VARIABLE NORMAL
-
+    print("normal")
   else:
+    cuads.pOperandos.pop()
+    #arr por ahora
+    print("lengths Exp")
+    print(len(arrExp))
+    print(arrExp)
+    print(len(arrVar.length))
+    print("lengths arrvar")
     if(len(arrExp)==len(arrVar.length)):
         if(len(arrVar.length)==1):
-        #arreglo
-        #verificar pilatop con arrexp
-        #cuadruplo de suma
-        cuads.arrVerifica(arrExp[0], arrVar.length[0])
-        cuads.arrSumaMult(arrExp[0])
+            print("aqui entra arrvar1")
+            #arreglo
+            #verificar pilatop con arrexp
+            #cuadruplo de suma
+            print("arrExp en 0")
+            print(arrExp[0])
+            cuads.arrVerifica(arrExp[0], arrVar.length[0])
+            print("verify")
+
+            ##############AQUI HAY UNA DIRECCION FALSA HAY QUE CAMBIARLA 27/05
+
+            cuads.sumaDirBasearr(arrExp[0], 3)
+            print("no hay 4")
 
         else:
-        #matriz
-        cuads.arrVerifica(arrExp[0], arrVar.length[0])
-        cuads.arrMult(arrExp[0], arrVar.length[1])
-        #verificar pilatop con arrexp
-        cuads.arrVerifica(arrExp[1], arrVar.length[1])
-        cuads.arrSumaMult(arrExp[1])
+            print("aqui entra arrvar2")
+            #matriz
+            cuads.arrVerifica(arrExp[0], arrVar.length[0])
+            cuads.arrMult(arrExp[0], arrVar.length[1])
+            #verificar pilatop con arrexp
+            cuads.arrVerifica(arrExp[1], arrVar.length[1])
+            cuads.arrSumaMult(arrExp[1])
 
-        cuads.sumaDirBase()
-        #crear cuadruplo de multiplicacion
+            cuads.sumaDirBase()
+            #crear cuadruplo de multiplicacion
     else:
         #ERROR LAS DIMENSIONES NO COINCIDEN
         print("Las dimensiones no coinciden")
-
-    
+  print("4")
 
 
   isArr = False
@@ -1286,7 +1442,7 @@ def p_paramsfuncreate(p):
     print("paramsmnv")
     print(p[2])
     global arrLength
-    currID.put(p[2], arrLength)
+    currID.put((p[2], arrLength))
 
     curr = currID.get()
     currTypeID.put((curr[0], curr[1], currTipo, True))
@@ -1317,7 +1473,7 @@ def p_paramsauxfuncreate(p):
     print("paramsmnv")
     print(p[3])
     global arrLength
-    currID.put(p[3], arrLength)
+    currID.put((p[3], arrLength))
 
     curr = currID.get()
     currTypeID.put((curr[0], curr[1], currTipo, True))
@@ -1364,8 +1520,8 @@ def p_objectsvarsfun(p):
     currTipo = p[2]
     while not(currID.empty()) :
       while not(currID.empty()) :
-      curr = currID.get()
-      currTypeID.put((curr[0], curr[1], currTipo, False))
+        curr = currID.get()
+        currTypeID.put((curr[0], curr[1], currTipo, False))
 
 def p_idvarsfun(p):
     '''

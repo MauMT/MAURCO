@@ -72,18 +72,21 @@ def validar():
 
     #agregar resultado en pOperandos
     agregarID(result)
-    dirVar.agregarglobalVariable(result,"float")
+    print("agregarid")
+    dirVar.agregarglobalVariable(result, [] ,"float")
     
     #agregar resultadotipo en pTipospo
 
 
 def cuadssumsub():
+  print("entrasumsub")
   if not pOperadores:
     print("empty")
   else:
     if(( pOperadores[-1] == "+") or ( pOperadores[-1] == "-")):
       global tempcounter
       tempcounter = tempcounter + 1
+      print("op1sumsub")
       validar()
     else:
       #print(pOperandos)
@@ -148,7 +151,7 @@ REVISAR ESTO
 def auxAsignacion(): 
 
     right = ''
-    print(right)
+    print("rOp assign ", right)
 
     left = pOperandos.pop()
     print("lOp assign ", left)
@@ -162,7 +165,7 @@ def auxAsignacion():
     cuads.append((oper, left, right, result))
     print(cuads)
     
-    dirVar.agregarglobalVariable(result,"float")
+    dirVar.agregarglobalVariable(result,[],"float")
     print(dirVar.dirglobalVar)
     #agregar resultado en pOperandos
     #agregarID(result)
@@ -362,19 +365,35 @@ def arrMult(s1, m1):
   result = "t" + str(tempcounter)
   tempcounter = tempcounter +1
   cuads.append(("*", s1, m1, result))
-  pOperandos.agregarID(result)
+  agregarID(result)
 
 def arrSumaMult(s2):
   global tempcounter
   result = "t" + str(tempcounter)
   tempcounter = tempcounter +1
-  cuads.append(("+", s2, pOperandos.pop(), result))
-  pOperandos.agregarID(result)
+  val = pOperandos.pop()
+  cuads.append(("+", s2, val, result))
+  agregarID(result)
+
+
 
 def sumaDirBase(direccion):
   direccion = 150222
+  print(direccion)
+  #print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
+  global tempcounter
+  result = "t" + str(tempcounter)
   cuads.append(("+", direccion, pOperandos.pop(), result))
-  pOperandos.agregarID(result)
+  agregarID(result)
+
+def sumaDirBasearr(temp, direccion):
+  direccion = 150222
+  print(direccion)
+  #print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
+  global tempcounter
+  result = "t" + str(tempcounter)
+  cuads.append(("+", direccion, temp, result))
+  agregarID(result)
 
 ######################################################
 #PRINT
