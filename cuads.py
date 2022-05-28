@@ -42,7 +42,7 @@ def agregarOperador(operador):
 
 
 def validar():
-    
+    global tempcounter
     #right operando
     #left operando
     right = pOperandos.pop()
@@ -61,8 +61,10 @@ def validar():
 
     #result type checar semantica con cubo
 
+    #agregar un valor a temp counter
     #generar cuadruplo
     result = "t" + str(tempcounter)
+    tempcounter = tempcounter +1
 
 
     cuads.append((oper, left, right, result))
@@ -348,6 +350,31 @@ def valnull(params):
 def createGOSUB(nombre):
   cuads.append(("GOSUB", nombre, " ", " "))
 
+
+######################################################
+#ARREGLOS
+######################################################
+def arrVerifica(val, rango):
+  cuads.append(("VER", val, "0", rango))
+
+def arrMult(s1, m1):
+  global tempcounter
+  result = "t" + str(tempcounter)
+  tempcounter = tempcounter +1
+  cuads.append(("*", s1, m1, result))
+  pOperandos.agregarID(result)
+
+def arrSumaMult(s2):
+  global tempcounter
+  result = "t" + str(tempcounter)
+  tempcounter = tempcounter +1
+  cuads.append(("+", s2, pOperandos.pop(), result))
+  pOperandos.agregarID(result)
+
+def sumaDirBase(direccion):
+  direccion = 150222
+  cuads.append(("+", direccion, pOperandos.pop(), result))
+  pOperandos.agregarID(result)
 
 ######################################################
 #PRINT

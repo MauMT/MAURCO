@@ -203,8 +203,10 @@ def p_ini(p):
   global currTipo
   global isArr
   global isMat
+  global arrExp
   isArr = False
   isMat = False
+  arrExp = []
   currID = queue.Queue()
   currVars = queue.Queue()
   currMet = queue.Queue()
@@ -642,21 +644,38 @@ def p_acceso_array(p):
     '''
     acceso_array : SEP_LBRACKET hyper_exp SEP_RBRACKET accarraux
     '''
+    global isArr
+    global arrExp
+    isArr = True
+    arrExp.append(cuads.pOperandos.pop())
+
 
 def p_accarraux(p):
-  '''
+    '''
     accarraux : SEP_LBRACKET hyper_exp SEP_RBRACKET
               | empty
     '''
+    global isMat
+    global arrExp
+    isMat = True
+    arrExp.append(cuads.pOperandos.pop())
+
+
+
+
+
+####################################################################################
+#PROBABLEMENTE QUITAR ARRAY INSIDE PORQUE ES MAS FUNCIONALIDAD CON PUNTOS
+####################################################################################
 
 def p_array_inside(p):
     '''
-    array_inside : SEP_COMMA CTE_INT insideaux
+    array_inside : SEP_LBRACKET hyper_exp insideaux
     '''
 
 def p_insideaux(p):
     '''
-    insideaux : SEP_COMMA CTE_INT insideaux
+    insideaux : SEP_COMMA hyper_exp insideaux
               | SEP_RBRACKET matrixaux
     '''
 
@@ -1111,10 +1130,59 @@ def p_cteidcall_atributo_metodo(p):
   '''
   cteidcall_atributo_metodo : ID var_id_aux
   '''
+  global isArr
+  global arrExp
+  global isMat
   currentID = p[1]
   print("prueba ID --- ", currentID)
   print("tipo id --- ", currTipo)
   cuads.agregarID(currentID)
+
+  #verificar que ID tiene dimensiones y tipo
+
+  currentID = cuads.pOperandos.pop()
+  #currTID = cuads.pTipos.pop()
+  arrVar = dirVar.getlocalVariable(currFuncion, currentID)
+  if(arrVar = None):
+    arrVar = dirVar.getglobalVariable(currentID)
+    if(arrVar = None):
+        #NO EXISTE
+        print("ERROR NO EXISTE LA VARIABLE")
+
+  #verificar si es un arreglo o matriz
+  if(len(arrVar.length)==0):
+    #ES UNA VARIABLE NORMAL
+
+  else:
+    if(len(arrExp)==len(arrVar.length)):
+        if(len(arrVar.length)==1):
+        #arreglo
+        #verificar pilatop con arrexp
+        #cuadruplo de suma
+        cuads.arrVerifica(arrExp[0], arrVar.length[0])
+        cuads.arrSumaMult(arrExp[0])
+
+        else:
+        #matriz
+        cuads.arrVerifica(arrExp[0], arrVar.length[0])
+        cuads.arrMult(arrExp[0], arrVar.length[1])
+        #verificar pilatop con arrexp
+        cuads.arrVerifica(arrExp[1], arrVar.length[1])
+        cuads.arrSumaMult(arrExp[1])
+
+        cuads.sumaDirBase()
+        #crear cuadruplo de multiplicacion
+    else:
+        #ERROR LAS DIMENSIONES NO COINCIDEN
+        print("Las dimensiones no coinciden")
+
+    
+
+
+  isArr = False
+  isMat = False
+  arrExp = []
+
 
 def p_var_id_aux(p):
   '''
