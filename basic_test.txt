@@ -14,6 +14,7 @@ int msg;
 
 {
 print(msg)
+i = 2*7;
   return;
 }
 

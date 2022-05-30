@@ -13,7 +13,7 @@ psaltos = []
 ####### NUMERAR LÍNEAS E IMPRIMIR EN TABLA BONITA
 
 #funcion de array cuadruplos
-cuads=[("goto","1","","")]
+cuads=[("GOTO","MAIN","","")]
 
 tempcounter = 0
 
@@ -336,6 +336,9 @@ def createERA(nombre):
   cuads.append(("ERA", nombre, " ", " "))
   global conttipos
   conttipos = 0
+
+def createRETURN(variable):
+  cuads.append(("RETURN", variable, " ", " "))
 
 def valparams(params):
   #validar tipo
