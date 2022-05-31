@@ -313,23 +313,15 @@ def p_profunctions(p):
 
 def p_principal(p):
   '''
-<<<<<<< Updated upstream
-  principal : MAIN  SEP_LPAREN SEP_RPAREN maini bloque
-  '''
-  ############################
-  ############################
-  print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
-  currTipo = "VOID"
-=======
   principal : MAIN maini SEP_LPAREN SEP_RPAREN bloque
   '''
   ############################
   ############################
   currTipo = "void"
->>>>>>> Stashed changes
   currFuncion = p[1]
   dirVar.agregarFuncion(currFuncion, currTipo)
-
+  ############################
+  ############################
 
 def p_maini(p):
   '''
@@ -337,18 +329,6 @@ def p_maini(p):
   '''
   print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
   cuads.valMain()
-  ############################
-  ############################
-
-<<<<<<< Updated upstream
-=======
-def p_maini(p):
-  '''
-  maini : empty
-  '''
-  print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
-  cuads.valMain()
->>>>>>> Stashed changes
 
 def p_bloque(p):
   '''
@@ -492,7 +472,6 @@ def p_typemet(p):
             | CHAR FUNCTION ID
             | VOID FUNCTION ID
     '''
-    print("HOLAAAAAAAAA")
     currTipo = p[1]
     currFuncion = p[3]
     currMet.put((currFuncion, currTipo))
@@ -617,9 +596,6 @@ def p_mnvaux(p):
     '''
     mnvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON SEP_RBRACE
     '''
-
-
-
 #####################################
 #General
 #####################################
@@ -962,14 +938,6 @@ def p_valnull(p):
     else:
         print("break")
 
-<<<<<<< Updated upstream
-    if(dirVar.getfunctype(callfunc) == "VOID"):
-        print("ES VOID")
-    else: 
-        cuads.asignval(callfunc)
-
-
-=======
     print("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU")
     print(dirVar.getfunctype(callfunc))
 
@@ -979,7 +947,6 @@ def p_valnull(p):
         print("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES VOID") 
         cuads.asignval(callfunc)
 
->>>>>>> Stashed changes
 
 ### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
 def p_asignacion_metodo(p):
@@ -1466,19 +1433,11 @@ def p_typefun(p):
                   | CHAR FUNCTION ID novoidnext
                   | VOID FUNCTION ID voidnext
   '''
-  #global valref
   currTipo = p[1]
   currFuncion = p[3]
   dirVar.agregarFuncion(currFuncion, currTipo)
   dirVar.initFunction(currFuncion, insContcuad, primtempcont)
   dirVar.agregartemp(currFuncion, finaltemp)
-
-  if(p[1] == "VOID"):
-    print("hola")
-    #valred
-  else:
-    dirVar.agregarglobalVariable(currFuncion)
-
 
   #AGREGAR VARIABLES LOCALES
   while not(currTypeID.empty()) :
@@ -1633,10 +1592,7 @@ def p_nvaux(p):
     nvaux : RETURN SEP_LPAREN hyper_exp cureturn SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 def p_cureturn(p):
     '''
     cureturn : empty
