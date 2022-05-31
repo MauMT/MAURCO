@@ -100,7 +100,17 @@ tup = currTypeID.get()
       dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3], tup[4], tup[5])
 """
 
+"""
+
+def agregarFuncion(nomFuncion, tipoFuncion):
+  if nomFuncion in dirFunciones:
+    print("Error, ya existe")
+  else:
+    dirFunciones[nomFuncion] = funcion(tipoFuncion)
+"""
+
 def getfunctype(nomFuncion):
+    print("entra funcion")
     if nomFuncion in dirFunciones:
         print("tipooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
         return dirFunciones[nomFuncion].tipoFuncion

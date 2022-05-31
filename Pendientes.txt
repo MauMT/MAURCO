@@ -10,11 +10,11 @@ Maquina virtual
 version de documentacion
 8   ################################ Despues de maquina virtual
 
+no funciona params
+5
+
 - type mismatch (no a fuerzas) ints
 3  ##################################
-
-- return statement
-5  #################################Funciones valor global
 
 - arreglar count de goto
 4  #################################Contadores erroneos
@@ -39,3 +39,6 @@ version de documentacion
 
 Ponele al main su contador de incio
 10 ###############################
+
+return statement
+5  #################################Funciones valor global

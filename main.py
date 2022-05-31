@@ -939,6 +939,7 @@ def p_valnull(p):
         print("break")
 
     print("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU")
+    print(callfunc)
     print(dirVar.getfunctype(callfunc))
 
     if(dirVar.getfunctype(callfunc) == "void"):
