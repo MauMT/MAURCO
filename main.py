@@ -185,6 +185,19 @@ currTypeID = queue.Queue()
 arrLength = []
 currFuncion = None
 
+""" if(currFuncion == None):
+    print("es none")
+    arrVar = dirVar.getglobalVariable(currentID)
+    if(arrVar == None):
+        print("ERROR NO EXISTE LA VARIABLE")
+else:
+    arrVar = dirVar.getlocalVariable(currFuncion, currentID)
+    if(arrVar == None):
+      arrVar = dirVar.getglobalVariable(currentID)
+      if(arrVar == None):
+          #NO EXISTE
+          print("ERROR NO EXISTE LA VARIABLE") """
+
 def p_programa(p):
   '''
   programa : PROGRAM ID SEP_SEMICOLON proaux
@@ -216,7 +229,7 @@ def p_ini(p):
   currTypeID = queue.Queue()
   #currTipo = queue.Queue()
 #####################################
-  
+
 
 def p_proaux(p):
   '''
@@ -233,7 +246,7 @@ def p_provarsaux(p):
 
 def p_varsGlobal(p):
     '''
-    varsGlobal : VARS  SEP_LBRACE varsauxGlobal SEP_RBRACE
+    varsGlobal : VARS SEP_LBRACE varsauxGlobal SEP_RBRACE
     '''
 
 def p_varsauxGlobal(p):
@@ -1371,8 +1384,8 @@ def p_empty(p):
     pass
 
 def p_error(p):
-  print("Error de parser en!")
-  print(p)
+  print("Error de parser en", p)
+  raise Exception("Error al parsear ", p)
 
 
 #####################################
@@ -1594,6 +1607,9 @@ try:
     parser.parse(lines, debug=1)
     print("DIRGLOB")
     print(dirVar.dirglobalVar)
+    print("i", dirVar.dirglobalVar["i"].__dict__)
+    print("z", dirVar.dirglobalVar["z"].__dict__)
+    print("mat", dirVar.dirglobalVar["mat"].__dict__)
     print("dirFunc")
     print(dirVar.dirFunciones)
     print("Dirclases")

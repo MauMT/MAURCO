@@ -358,7 +358,7 @@ def createGOSUB(nombre):
 #ARREGLOS
 ######################################################
 def arrVerifica(val, rango):
-  cuads.append(("VER", val, "0", rango))
+  cuads.append(("VER", val, "0", rango-1))
 
 def arrMult(s1, m1):
   global tempcounter
