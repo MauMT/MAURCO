@@ -313,7 +313,7 @@ def p_profunctions(p):
 
 def p_principal(p):
   '''
-  principal : MAIN SEP_LPAREN SEP_RPAREN bloque
+  principal : MAIN maini SEP_LPAREN SEP_RPAREN bloque
   '''
   ############################
   ############################
@@ -322,6 +322,13 @@ def p_principal(p):
   dirVar.agregarFuncion(currFuncion, currTipo)
   ############################
   ############################
+
+def p_maini(p):
+  '''
+  maini : empty
+  '''
+  print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
+  cuads.valMain()
 
 def p_bloque(p):
   '''
@@ -931,6 +938,11 @@ def p_valnull(p):
     else:
         print("break")
 
+    if(dirVar.getfunctype(callfunc) == "void"):
+        print("ES VOID")
+    else: 
+        cuads.asignval(callfunc)
+
 
 ### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
 def p_asignacion_metodo(p):
@@ -1428,6 +1440,12 @@ def p_typefun(p):
       tup = currTypeID.get()
       #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
       dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+  
+  if(p[1] == "VOID"):
+    print("hola")
+    #valred
+  else:
+    dirVar.agregarglobalVariable(currFuncion, [], currTipo)
 
 
 def p_voidnext(p):
@@ -1439,6 +1457,12 @@ def p_novoidnext(p):
   '''
   novoidnext : SEP_LPAREN paramsfun insCont SEP_RPAREN varsfun SEP_LBRACE estfun nvaux
   '''
+
+  def p_cureturn(p):
+    '''
+    cureturn : empty
+    '''
+    cuads.cReturn()
 
 
 def p_paramsfun(p):
@@ -1573,8 +1597,14 @@ def p_estfun(p):
 
 def p_nvaux(p):
     '''
-    nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
+    nvaux : RETURN SEP_LPAREN hyper_exp cureturn SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
+
+def p_cureturn(p):
+    '''
+    cureturn : empty
+    '''
+    cuads.cReturn()
 
 def p_relCurr(p):
     '''

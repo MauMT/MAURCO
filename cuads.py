@@ -354,6 +354,27 @@ def createGOSUB(nombre):
   cuads.append(("GOSUB", nombre, " ", " "))
 
 
+def valMain():
+  print("maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaani")
+  cumain = (("GOTO", " ", " ", len(cuads)))
+  cuads[0] = cumain
+
+
+def cReturn():
+  print("REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
+  valret = pOperandos.pop()
+  cuads.append(("RETURN", " ", " ", valret))
+  #return valret
+
+def asignval(callfunc):
+  global tempcounter
+  result = "t" + str(tempcounter)
+  tempcounter = tempcounter +1
+  cuads.append(("=", callfunc, " ", result))
+
+
+
+
 ######################################################
 #ARREGLOS
 ######################################################
