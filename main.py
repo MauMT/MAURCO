@@ -323,6 +323,10 @@ def p_principal(p):
   ############################
   ############################
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 def p_maini(p):
   '''
   maini : empty
@@ -938,6 +942,7 @@ def p_valnull(p):
     else:
         print("break")
 
+<<<<<<< Updated upstream
     print("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU")
     print(callfunc)
     print(dirVar.getfunctype(callfunc))
@@ -946,6 +951,11 @@ def p_valnull(p):
         print("ES VOID")
     else:
         print("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES VOID") 
+=======
+    if(dirVar.getfunctype(callfunc) == "void"):
+        print("ES VOID")
+    else: 
+>>>>>>> Stashed changes
         cuads.asignval(callfunc)
 
 
@@ -1446,6 +1456,12 @@ def p_typefun(p):
       #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
       dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
 
+  if(p[1] == "void"):
+    print("hola")
+    #valred
+  else:
+    dirVar.agregarglobalVariable(currFuncion)
+
 
 def p_voidnext(p):
   '''
@@ -1591,12 +1607,15 @@ def p_estfun(p):
 def p_nvaux(p):
     '''
     nvaux : RETURN SEP_LPAREN hyper_exp cureturn SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
+<<<<<<< Updated upstream
     '''
 
 
 def p_cureturn(p):
     '''
     cureturn : empty
+=======
+>>>>>>> Stashed changes
     '''
     cuads.cReturn()
 
@@ -1610,6 +1629,11 @@ def p_relCurr(p):
     global finaltemp
     finaltemp = cuads.getTempCounter()
 
+def p_cureturn(p):
+    '''
+    cureturn : empty
+    '''
+    cuads.cReturn()
 
 
 
