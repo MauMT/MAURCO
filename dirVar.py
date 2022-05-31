@@ -126,6 +126,12 @@ def getParametersfunc(nomFuncion):
     else:
         print("no existe la funcion")
 
+def getfunctype(callfunc):
+    if nomFuncion in dirFunciones:
+        return dirFunciones[nomFuncion].tipoFuncion
+    else:
+        print("no existe la funcion")
+
 #######################################################################################
 #FUNCION ELIMINAR TODAS LAS VARIABLES EN SCOPE
 #######################################################################################

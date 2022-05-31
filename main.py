@@ -313,15 +313,25 @@ def p_profunctions(p):
 
 def p_principal(p):
   '''
-  principal : MAIN SEP_LPAREN SEP_RPAREN bloque
+  principal : MAIN  SEP_LPAREN SEP_RPAREN maini bloque
   '''
   ############################
   ############################
+  print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
   currTipo = "VOID"
   currFuncion = p[1]
   dirVar.agregarFuncion(currFuncion, currTipo)
+
+
+def p_maini(p):
+  '''
+  maini : empty
+  '''
+  print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
+  cuads.valMain()
   ############################
   ############################
+
 
 def p_bloque(p):
   '''
@@ -465,6 +475,7 @@ def p_typemet(p):
             | CHAR FUNCTION ID
             | VOID FUNCTION ID
     '''
+    print("HOLAAAAAAAAA")
     currTipo = p[1]
     currFuncion = p[3]
     currMet.put((currFuncion, currTipo))
@@ -589,6 +600,9 @@ def p_mnvaux(p):
     '''
     mnvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON SEP_RBRACE
     '''
+
+
+
 #####################################
 #General
 #####################################
@@ -930,6 +944,12 @@ def p_valnull(p):
         cuads.createGOSUB(callfunc)
     else:
         print("break")
+
+    if(dirVar.getfunctype(callfunc) == "VOID"):
+        print("ES VOID")
+    else: 
+        cuads.asignval(callfunc)
+
 
 
 ### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
@@ -1417,11 +1437,19 @@ def p_typefun(p):
                   | CHAR FUNCTION ID novoidnext
                   | VOID FUNCTION ID voidnext
   '''
+  #global valref
   currTipo = p[1]
   currFuncion = p[3]
   dirVar.agregarFuncion(currFuncion, currTipo)
   dirVar.initFunction(currFuncion, insContcuad, primtempcont)
   dirVar.agregartemp(currFuncion, finaltemp)
+
+  if(p[1] == "VOID"):
+    print("hola")
+    #valred
+  else:
+    dirVar.agregarglobalVariable(currFuncion)
+
 
   #AGREGAR VARIABLES LOCALES
   while not(currTypeID.empty()) :
@@ -1573,8 +1601,14 @@ def p_estfun(p):
 
 def p_nvaux(p):
     '''
-    nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
+    nvaux : RETURN SEP_LPAREN hyper_exp cureturn SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
+
+def p_cureturn(p):
+    '''
+    cureturn : empty
+    '''
+    cuads.cReturn()
 
 def p_relCurr(p):
     '''

@@ -26,6 +26,9 @@ python main.py ejemplo.txt
 ### Cuarto avance
 - Generación de cuádruplos para expresiones no lineales: _while_, _if-else_ y _from-to_
 
+### Avance siete
+- Se agregaron Funciones, arreglos y matrices
+
 ---
 ### Requerimientos
 - Python 3.6 o superior
@@ -36,3 +39,31 @@ python main.py ejemplo.txt
 - La asignación, que es asociativa por derecha genera cuádruplos en orden erróneo
 - No funciona aún la obtención de atributos o métodos como variables, solamente se leen IDs  
 - ~~Los methods de un objeto no pueden ser de un tipo diferente a void~~ _En corrección_
+
+### Pendientes
+Tabla de variables (metodos)
+9   ################################## 	
+
+Tipos aritmeticos con memoria
+1  ################################ Importante
+
+Maquina virtual
+7 ################################ Despues de memoria
+
+version de documentacion
+8   ################################ Despues de maquina virtual
+
+- type mismatch (no a fuerzas) ints
+3  ##################################
+
+- return statement
+5  #################################Funciones valor global
+
+- arreglar count de goto
+4  #################################Contadores erroneos
+
+- asignar direcciones virtuales locales y globales
+2  #################################tipos primero y hay pedos
+
+- asociativdad izquierda con el mismo operador
+6  ##################################no tan importante

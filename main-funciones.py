@@ -182,6 +182,21 @@ currID = queue.Queue()
 currVars = queue.Queue()
 currMet = queue.Queue()
 currTypeID = queue.Queue()
+arrLength = []
+currFuncion = None
+
+""" if(currFuncion == None):
+    print("es none")
+    arrVar = dirVar.getglobalVariable(currentID)
+    if(arrVar == None):
+        print("ERROR NO EXISTE LA VARIABLE")
+else:
+    arrVar = dirVar.getlocalVariable(currFuncion, currentID)
+    if(arrVar == None):
+      arrVar = dirVar.getglobalVariable(currentID)
+      if(arrVar == None):
+          #NO EXISTE
+          print("ERROR NO EXISTE LA VARIABLE") """
 
 def p_programa(p):
   '''
@@ -201,13 +216,20 @@ def p_ini(p):
   global currMet
   global currVars
   global currTipo
+  global isArr
+  global isMat
+  global arrExp
+  isArr = False
+  isMat = False
+  arrExp = []
+  arrLength = []
   currID = queue.Queue()
   currVars = queue.Queue()
   currMet = queue.Queue()
   currTypeID = queue.Queue()
   #currTipo = queue.Queue()
 #####################################
-  
+
 
 def p_proaux(p):
   '''
@@ -224,7 +246,7 @@ def p_provarsaux(p):
 
 def p_varsGlobal(p):
     '''
-    varsGlobal : VARS  SEP_LBRACE varsauxGlobal SEP_RBRACE
+    varsGlobal : VARS SEP_LBRACE varsauxGlobal SEP_RBRACE
     '''
 
 def p_varsauxGlobal(p):
@@ -242,10 +264,9 @@ def p_objectsvarsglobal(p):
     global currTipo
     currTipo = p[2]
     while not(currID.empty()) :
-      cul = currID.get()
-      print("VARGLOBAAAAAAAAAAAAAAAAAAAAL")
-      print(cul)
-      dirVar.agregarglobalVariable(cul, currTipo)
+      curr = currID.get()
+      print("Algo no se")
+      dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
 
 def p_idvarsglobal(p):
     '''
@@ -254,12 +275,20 @@ def p_idvarsglobal(p):
   
 def p_stepid(p):
     '''
-    stepid : 
+    stepid : empty
     '''
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
-      dirVar.agregarglobalVariable(currID.get(), currTipo)
+      curr = currID.get()
+
+      if len(curr[1]) ==0:
+        print("i")
+        dirVar.agregarglobalVariable(curr[0], [], currTipo)
+      else:
+        print("f")
+        dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
+      
     
 
 def p_typeVarsGlobal(p):
@@ -273,6 +302,7 @@ def p_typeVarsGlobal(p):
   currTipo = p[1]
 
 
+
 #funciones del programa
 
 def p_profunctions(p):
@@ -283,15 +313,25 @@ def p_profunctions(p):
 
 def p_principal(p):
   '''
-  principal : MAIN SEP_LPAREN SEP_RPAREN bloque
+  principal : MAIN  SEP_LPAREN SEP_RPAREN maini bloque
   '''
   ############################
   ############################
+  print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
   currTipo = "VOID"
   currFuncion = p[1]
   dirVar.agregarFuncion(currFuncion, currTipo)
+
+
+def p_maini(p):
+  '''
+  maini : empty
+  '''
+  print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
+  cuads.valMain()
   ############################
   ############################
+
 
 def p_bloque(p):
   '''
@@ -319,7 +359,7 @@ def p_clase(p):
     print("CLASSSSEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 
     #METODO QUE QUITA LAS VARIABLES Y PARAMETROS CON TIPO
-
+    #currMet.put(currFuncion, currTipo)
     while not(currMet.empty()) :
       metup = currMet.get()
       print(metup)
@@ -329,7 +369,8 @@ def p_clase(p):
     while not(currTypeID.empty()) :
       tup = currTypeID.get()
       print(tup)
-      dirVar.agregarAtributosClase(currClass,tup[0], tup[1])
+      #currID.put(p[1], isMat, isArr, arrLength) Tipo
+      dirVar.agregarAtributosClase(currClass,tup[0], tup[1],tup[2])
 
 def p_inheritsaux(p):
     '''
@@ -366,15 +407,16 @@ def p_objectsvarsclass(p):
     global currTipo
     currTipo = p[2]
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_stepidvarsclass(p):
     '''
     stepidvarsclass : 
     '''
-
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_idvarsclass(p):
     '''
@@ -433,6 +475,7 @@ def p_typemet(p):
             | CHAR FUNCTION ID
             | VOID FUNCTION ID
     '''
+    print("HOLAAAAAAAAA")
     currTipo = p[1]
     currFuncion = p[3]
     currMet.put((currFuncion, currTipo))
@@ -452,8 +495,10 @@ def p_paramsmetcreate(p):
     '''
     print("paramsmnv")
     print(p[2])
-    currID.put(p[2])
-    currTypeID.put((currID.get(), currTipo))
+    global arrLength
+    currID.put((p[2], arrLength))
+    curr = currID.get()
+    currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_typeparamet(p):
     '''
@@ -464,8 +509,6 @@ def p_typeparamet(p):
     print("call typeparammv")
     global currTipo
     currTipo = p[1]
-    #while not(currID.empty()) :
-      #currTypeID.put(currID.get(), currTipo)
 
 
 def p_paramsauxmet(p):
@@ -481,8 +524,10 @@ def p_paramsauxmetcreate(p):
     '''
     print("paramsmnv")
     print(p[3])
-    currID.put(p[3])
-    currTypeID.put((currID.get(), currTipo))
+    global arrLength
+    currID.put((p[3], arrLength))
+    curr = currID.get()
+    currTypeID.put((curr[0], curr[1], currTipo))
 
 
 def p_voidvarsmet(p):
@@ -517,7 +562,8 @@ def p_objectsvarsmet(p):
     print("call objectsvarsmet")
     currTipo = p[2]
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_idvarsmet(p):
     '''
@@ -531,7 +577,8 @@ def p_stepidvarsmet(p):
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo))
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo))
 
 def p_typemetp(p):
   '''
@@ -553,42 +600,53 @@ def p_mnvaux(p):
     '''
     mnvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON SEP_RBRACE
     '''
+
+
+
 #####################################
 #General
 #####################################
 ################################
-
-
 def p_lista_ids(p):
   '''
-  lista_ids : listaidprime
-            | decarr decaraux
+  lista_ids : ID listaidaux
   '''
+  global arrLength
 
-def p_listaidprime(p):
-    '''
-    listaidprime : ID decaraux
-    '''
-      print("listaids")
-      print(p[1])
-      currID.put(p[1])
+  if len(arrLength)==0:
+    print("hey")
+    currID.put((p[1], []))
+  else:
+    print("hey1")
+    currID.put((p[1], arrLength))
+    
+  arrLength = []
 
+
+def p_listaidaux(p):
+    '''
+    listaidaux : decarr decaraux
+               | decaraux
+    '''
+    #print("ccccccccooooooooooooooooooooomo")
+    
 
 def p_decaraux(p):
     '''
     decaraux : SEP_COMMA lista_ids
              | SEP_SEMICOLON
     '''
+    #print("estaaaaaaaaaaaaaaaaaaaaaaaaaas")
 
 
 def p_lista_objetos(p):
   '''
   lista_objetos : ID listaobjaux
   '''
-
+  global arrLength
+  currID.put((p[1], arrLength))
   print("lista_objetos")
   print(p[1])
-  currID.put(p[1])
 
 def p_listaobjetosaux(p):
     '''
@@ -609,9 +667,7 @@ def p_arrdecprime(p):
     '''
     arrdecprime : SEP_LBRACKET CTE_INT SEP_RBRACKET
     '''
-    global isArr
     global arrLength
-    isArr = True
     arrLength = []
     arrLength.append(p[2])
     
@@ -620,10 +676,8 @@ def p_matdecprime(p):
     '''
     matdecprime : SEP_LBRACKET CTE_INT SEP_RBRACKET SEP_LBRACKET CTE_INT SEP_RBRACKET
     '''
-    global arrdR
     global arrLength
-    global isMat
-    isMat = True
+    arrLength = []
     arrLength.append(p[2])
     arrLength.append(p[5])
 
@@ -631,23 +685,67 @@ def p_matdecprime(p):
 
 def p_acceso_array(p):
     '''
-    acceso_array : SEP_LBRACKET hyper_exp SEP_RBRACKET accarraux
+    acceso_array : mataccarraux
+                 | arraccarraux
     '''
 
-def p_accarraux(p):
-  '''
-    accarraux : SEP_LBRACKET hyper_exp SEP_RBRACKET
-              | empty
+def p_it(p):
     '''
+    it : empty
+               
+    '''
+    print("NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS")
+
+
+def p_arraccarraux(p):
+    '''
+    arraccarraux : SEP_LBRACKET hyper_exp SEP_RBRACKET
+    '''
+    global isArr
+    global arrExp
+    isArr = True
+    val = cuads.pOperandos.pop()
+    print(val)
+    print("ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
+    arrExp.append(val)
+
+
+def p_mataccarraux(p):
+    '''
+    mataccarraux : SEP_LBRACKET  hyper_exp SEP_RBRACKET SEP_LBRACKET  hyper_exp SEP_RBRACKET
+    '''
+    global isMat
+    global arrExp
+    isMat = True
+    val = cuads.pOperandos.pop()
+    print("ATTTTTTTTTTTTTTTTTTTAYYYYÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ")
+    arrExp.append(val)
+    val = cuads.pOperandos.pop()
+    arrExp.append(val)
+
+    
+"""
+def p_matvalue(p):
+    '''
+    matvalue : 
+    '''
+"""
+
+
+
+
+####################################################################################
+#PROBABLEMENTE QUITAR ARRAY INSIDE PORQUE ES MAS FUNCIONALIDAD CON PUNTOS
+####################################################################################
 
 def p_array_inside(p):
     '''
-    array_inside : SEP_COMMA CTE_INT insideaux
+    array_inside : SEP_LBRACKET hyper_exp insideaux
     '''
 
 def p_insideaux(p):
     '''
-    insideaux : SEP_COMMA CTE_INT insideaux
+    insideaux : SEP_COMMA hyper_exp insideaux
               | SEP_RBRACKET matrixaux
     '''
 
@@ -684,20 +782,106 @@ def p_asignacion(p):
     
   
 def p_valasigaux(p):
-    '''
-    valasigaux : ID valasign_aux2
-    '''
-    print("valasigaux--- ", p[1])
-    currID = p[1]
-    cuads.agregarID(currID)
-    print("pipipipipiop", cuads.pOperandos)
-    #  print("AAAAAAAAAAAAAAAAAAAAAAAA")
+  '''
+  valasigaux : ID valasign_aux2
+  '''
+  ####NO FUNCIONA CON ARREGLOS
+  #print("valasigaux--- ", p[1])currentID = p[1]
+  #cuads.agregarID(currentID)
+  #print("pipipipipiop", cuads.pOperandos)
+
+  global isArr
+  global arrExp
+  global isMat
+  currentID = p[1]
+  print("prueba ID --- ", currentID)
+  print("tipo id --- ", currTipo)
+  cuads.agregarID(currentID)
+
+  #verificar que ID tiene dimensiones y tipo
+  print("1")
+  #currentID = cuads.pOperandos.top()
+  #currTID = cuads.pTipos.pop()
+  print("2")
+  #print(currentID)
+  if(currFuncion == None):
+    print("es none")
+    arrVar = dirVar.getglobalVariable(currentID)
+    if(arrVar == None):
+        print("ERROR NO EXISTE LA VARIABLE")
+  else:
+      arrVar = dirVar.getlocalVariable(currFuncion, currentID)
+      if(arrVar == None):
+        arrVar = dirVar.getglobalVariable(currentID)
+        if(arrVar == None):
+            #NO EXISTE
+            print("ERROR NO EXISTE LA VARIABLE")
+
+  print("3")
+  #verificar si es un arreglo o matriz
+  if(len(arrVar.length)==0):
+    #ES UNA VARIABLE NORMAL
+    print("normal")
+  else:
+    cuads.pOperandos.pop()
+    #arr por ahora
+    print("lengths Exp")
+    print(len(arrExp))
+    print(arrExp)
+    print(len(arrVar.length))
+    print("lengths arrvar")
+    if(len(arrExp)==len(arrVar.length)):
+        if(len(arrVar.length)==1):
+            print("aqui entra arrvar1")
+            #arreglo
+            #verificar pilatop con arrexp
+            #cuadruplo de suma
+            print("arrExp en 0")
+            print(arrExp[0])
+            cuads.arrVerifica(arrExp[0], arrVar.length[0])
+            print("verify")
+
+            ##############AQUI HAY UNA DIRECCION FALSA HAY QUE CAMBIARLA 27/05
+
+            cuads.sumaDirBasearr(arrExp[0], 3)
+            print("no hay 4")
+
+        else:
+            print("aqui entra arrvar2")
+            #matriz
+            print("3")
+            cuads.arrVerifica(arrExp[0], arrVar.length[0])
+            print("4")
+            cuads.arrMult(arrExp[0], arrVar.length[1])
+            #verificar pilatop con arrexp
+            print("5")
+            cuads.arrVerifica(arrExp[1], arrVar.length[1])
+            print("6")
+            cuads.arrSumaMult(arrExp[1])
+            print("7")
+            cuads.sumaDirBase(3)
+            print("8")
+            #crear cuadruplo de multiplicacion
+    else:
+        #ERROR LAS DIMENSIONES NO COINCIDEN
+        print("Las dimensiones no coinciden")
+  print("4")
+
+
+  isArr = False
+  isMat = False
+  arrExp = []
+
+
 
 def p_valasign_aux2(p):
   '''
-  valasign_aux2 : asatr
-                | acceso_array
+  valasign_aux2 :  asatr
+                |  acceso_array
   '''
+
+
+
 #agrgar el code para leer asignaciocompleja cteidcall creo
 def p_asign_opciones(p):
   '''
@@ -710,7 +894,7 @@ def p_asign_opciones(p):
 def p_asignacion_simple(p):
   '''
   asignacion_simple : hyper_exp
-                   | array_inside
+                    | array_inside
   '''
   #cuads.cuadsasignacion()
 
@@ -760,6 +944,12 @@ def p_valnull(p):
         cuads.createGOSUB(callfunc)
     else:
         print("break")
+
+    if(dirVar.getfunctype(callfunc) == "VOID"):
+        print("ES VOID")
+    else: 
+        cuads.asignval(callfunc)
+
 
 
 ### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
@@ -1031,6 +1221,7 @@ def p_exp(p):
     '''
     exp : termino expaux
     '''
+    print("exp")
     cuads.cuadssumsub()
   
 def p_expaux(p):
@@ -1039,6 +1230,7 @@ def p_expaux(p):
            | OP_MINUS termino expaux
            | empty
     '''
+    print("expaux")
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
     
@@ -1046,6 +1238,7 @@ def p_termino(p):
     '''
     termino : factor terminoaux
     '''
+    print("term")
     cuads.cuadsmuldiv()
   
 def p_terminoaux(p):
@@ -1102,12 +1295,83 @@ def p_cteidcall_atributo_metodo(p):
   '''
   cteidcall_atributo_metodo : ID var_id_aux
   '''
-  currID = p[1]
-  print("prueba ID --- ", currID)
-  #currTipo = dirVar.getglobalVariable(currID).tipoVariable()
+  global isArr
+  global arrExp
+  global isMat
+  currentID = p[1]
+  print("prueba ID --- ", currentID)
   print("tipo id --- ", currTipo)
-  #cuads.agregarTipo(currTipo)
-  cuads.agregarID(currID)
+  cuads.agregarID(currentID)
+
+  #verificar que ID tiene dimensiones y tipo
+  print("1")
+  #currentID = cuads.pOperandos.top()
+  #currTID = cuads.pTipos.pop()
+  print("2")
+  #print(currentID)
+  if(currFuncion == None):
+    print("es none")
+    arrVar = dirVar.getglobalVariable(currentID)
+    if(arrVar == None):
+        print("ERROR NO EXISTE LA VARIABLE")
+  else:
+      arrVar = dirVar.getlocalVariable(currFuncion, currentID)
+      if(arrVar == None):
+        arrVar = dirVar.getglobalVariable(currentID)
+        if(arrVar == None):
+            #NO EXISTE
+            print("ERROR NO EXISTE LA VARIABLE")
+
+  print("3")
+  #verificar si es un arreglo o matriz
+  if(len(arrVar.length)==0):
+    #ES UNA VARIABLE NORMAL
+    print("normal")
+  else:
+    cuads.pOperandos.pop()
+    #arr por ahora
+    print("lengths Exp")
+    print(len(arrExp))
+    print(arrExp)
+    print(len(arrVar.length))
+    print("lengths arrvar")
+    if(len(arrExp)==len(arrVar.length)):
+        if(len(arrVar.length)==1):
+            print("aqui entra arrvar1")
+            #arreglo
+            #verificar pilatop con arrexp
+            #cuadruplo de suma
+            print("arrExp en 0")
+            print(arrExp[0])
+            cuads.arrVerifica(arrExp[0], arrVar.length[0])
+            print("verify")
+
+            ##############AQUI HAY UNA DIRECCION FALSA HAY QUE CAMBIARLA 27/05
+
+            cuads.sumaDirBasearr(arrExp[0], 3)
+            print("no hay 4")
+
+        else:
+            print("aqui entra arrvar2")
+            #matriz
+            cuads.arrVerifica(arrExp[0], arrVar.length[0])
+            cuads.arrMult(arrExp[0], arrVar.length[1])
+            #verificar pilatop con arrexp
+            cuads.arrVerifica(arrExp[1], arrVar.length[1])
+            cuads.arrSumaMult(arrExp[1])
+
+            cuads.sumaDirBase()
+            #crear cuadruplo de multiplicacion
+    else:
+        #ERROR LAS DIMENSIONES NO COINCIDEN
+        print("Las dimensiones no coinciden")
+  print("4")
+
+
+  isArr = False
+  isMat = False
+  arrExp = []
+
 
 def p_var_id_aux(p):
   '''
@@ -1140,8 +1404,8 @@ def p_empty(p):
     pass
 
 def p_error(p):
-  print("Error de parser en!")
-  print(p)
+  print("Error de parser en", p)
+  raise Exception("Error al parsear ", p)
 
 
 #####################################
@@ -1173,16 +1437,25 @@ def p_typefun(p):
                   | CHAR FUNCTION ID novoidnext
                   | VOID FUNCTION ID voidnext
   '''
+  #global valref
   currTipo = p[1]
   currFuncion = p[3]
   dirVar.agregarFuncion(currFuncion, currTipo)
   dirVar.initFunction(currFuncion, insContcuad, primtempcont)
   dirVar.agregartemp(currFuncion, finaltemp)
 
+  if(p[1] == "VOID"):
+    print("hola")
+    #valred
+  else:
+    dirVar.agregarglobalVariable(currFuncion)
+
+
   #AGREGAR VARIABLES LOCALES
   while not(currTypeID.empty()) :
       tup = currTypeID.get()
-      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2])
+      #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
+      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
 
 
 def p_voidnext(p):
@@ -1209,8 +1482,11 @@ def p_paramsfuncreate(p):
     '''
     print("paramsmnv")
     print(p[2])
-    currID.put(p[2])
-    currTypeID.put((currID.get(), currTipo, True))
+    global arrLength
+    currID.put((p[2], arrLength))
+
+    curr = currID.get()
+    currTypeID.put((curr[0], curr[1], currTipo, True))
 
 
 def p_typeparamfun(p):
@@ -1237,8 +1513,11 @@ def p_paramsauxfuncreate(p):
     '''
     print("paramsmnv")
     print(p[3])
-    currID.put(p[3])
-    currTypeID.put((currID.get(), currTipo, True))
+    global arrLength
+    currID.put((p[3], arrLength))
+
+    curr = currID.get()
+    currTypeID.put((curr[0], curr[1], currTipo, True))
 
 def p_voidvars(p):
     '''
@@ -1281,7 +1560,9 @@ def p_objectsvarsfun(p):
     print("call objectsvarsmet")
     currTipo = p[2]
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo, False))
+      while not(currID.empty()) :
+        curr = currID.get()
+        currTypeID.put((curr[0], curr[1], currTipo, False))
 
 def p_idvarsfun(p):
     '''
@@ -1292,10 +1573,14 @@ def p_stepidvarsfun(p):
     '''
     stepidvarsfun : 
     '''
+
+    #currID.pust(p[1], isMat, isArr, arrLength)
+
     print("Empty")
     print(currID.empty())
     while not(currID.empty()) :
-      currTypeID.put((currID.get(), currTipo, False))
+      curr = currID.get()
+      currTypeID.put((curr[0], curr[1], currTipo, False))
 
 def p_typefunp(p):
   '''
@@ -1307,7 +1592,6 @@ def p_typefunp(p):
   global currTipo
   currTipo = p[1]
 
-
 def p_estfun(p):
     '''
     estfun : estatuto estfun
@@ -1317,8 +1601,14 @@ def p_estfun(p):
 
 def p_nvaux(p):
     '''
-    nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
+    nvaux : RETURN SEP_LPAREN hyper_exp cureturn SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
+
+def p_cureturn(p):
+    '''
+    cureturn : empty
+    '''
+    cuads.cReturn()
 
 def p_relCurr(p):
     '''
@@ -1351,6 +1641,9 @@ try:
     parser.parse(lines, debug=1)
     print("DIRGLOB")
     print(dirVar.dirglobalVar)
+    print("i", dirVar.dirglobalVar["i"].__dict__)
+    print("z", dirVar.dirglobalVar["z"].__dict__)
+    print("mat", dirVar.dirglobalVar["mat"].__dict__)
     print("dirFunc")
     print(dirVar.dirFunciones)
     print("Dirclases")

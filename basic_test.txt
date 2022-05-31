@@ -16,7 +16,9 @@ vars
 int msg;
 
 {
-print(msg)
+  print(msg)
+  i = 5;
+  i = 4;
   return;
 }
 

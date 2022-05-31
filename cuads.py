@@ -195,8 +195,6 @@ def cuadsasignacion():
 #POPER
 #pOperadores = []
 
-
-
 #1
 #la ultima direccion de memoria validando el tipo de expresion
 #if lasttemp != bool ERROR
@@ -319,13 +317,25 @@ def ciclofrom4():
   cuads.append(("GOTO", " ", " ", RET))
   fill(FIN, len(cuads)-1)
   pOperandos.pop()
-  pTipos.pop()
+  #pTipos.pop()
 
 
 
 ######################################################
 #CUADS FUNCIONES
 ######################################################
+def valMain():
+  print("maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaani")
+  cumain = (("GOTO", " ", " ", len(cuads)))
+  cuads[0] = cumain
+
+
+def cReturn():
+  print("REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
+  valret = pOperandos.pop()
+  cuads.append(("RETURN", " ", " ", valret))
+  #return valret
+
 
 def endfunc():
   cuads.append(("ENDFUNC", " ", " ", " "))
@@ -352,6 +362,12 @@ def valnull(params):
 
 def createGOSUB(nombre):
   cuads.append(("GOSUB", nombre, " ", " "))
+
+def asignval(callfunc):
+  global tempcounter
+  result = "t" + str(tempcounter)
+  tempcounter = tempcounter +1
+  cuads.append(("=", callfunc, " ", result))
 
 
 ######################################################
@@ -414,3 +430,4 @@ def printCuads():
   for el1, el2, el3, el4 in cuads:
       print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format(cuadCounter,el1,el2,el3,el4))
       cuadCounter+=1
+
