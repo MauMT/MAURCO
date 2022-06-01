@@ -625,26 +625,45 @@ def p_mnvaux(p):
 ################################
 def p_lista_ids(p):
   '''
-  lista_ids : ID listaidaux
+  lista_ids : idlistval listaidaux
   '''
-  global arrLength
 
-  if len(arrLength)==0:
-    print("hey")
-    currID.put((p[1], []))
-  else:
-    print("hey1")
-    currID.put((p[1], arrLength))
-    
-  arrLength = []
+def p_idlistval(p):
+    '''
+    idlistval : ID 
+    '''
+    global currArrvalue
+    currArrvalue = p[1]
 
 
 def p_listaidaux(p):
     '''
-    listaidaux : decarr decaraux
-               | decaraux
+    listaidaux : decarr pasarr decaraux
+               | pasarr decaraux
     '''
     #print("ccccccccooooooooooooooooooooomo")
+    
+
+def p_pasarr(p):
+    '''
+    pasarr : empty
+    '''
+    global arrLength
+    global currArrvalue
+    
+    print("OLISTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    print(currArrvalue)
+    print(arrLength)
+    print("next")
+    if len(arrLength)==0:
+      print("hey")
+      currID.put((currArrvalue, []))
+    else:
+      print("hey1")
+      currID.put((currArrvalue, arrLength))
+        
+    arrLength = []
+
     
 
 def p_decaraux(p):
