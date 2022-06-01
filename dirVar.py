@@ -120,7 +120,13 @@ def agregarlocalVariable(nomFuncion, nomVariable, arrLength, tipoVariable, isPar
       dirFunciones[nomFuncion].cantVar = len(dirFunciones[nomFuncion].gettableFuncion())+len(arrLength)
   else:
     print("no existe esta funcion")
-    
+
+
+def getfunctype(nomFuncion):
+    if nomFuncion in dirFunciones:
+        return dirFunciones[nomFuncion].tipoFuncion
+    else:
+        print("no existe la funcion")
 
 """
 #currID.put(p[1], isMat, isArr, arrLength) Tipo

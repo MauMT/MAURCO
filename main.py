@@ -4,6 +4,8 @@ import dirVar
 import queue
 import constantTypeCheck
 import cuads
+import virtualAdd
+from functools import reduce
 
 tokens = [
 #
@@ -272,7 +274,7 @@ def p_idvarsglobal(p):
     '''
     idvarsglobal : typeVarsGlobal lista_ids stepid varsauxGlobal
      '''
-  
+
 def p_stepid(p):
     '''
     stepid : empty
@@ -281,15 +283,36 @@ def p_stepid(p):
     print(currID.empty())
     while not(currID.empty()) :
       curr = currID.get()
-
-      if len(curr[1]) ==0:
-        print("i")
-        dirVar.agregarglobalVariable(curr[0], [], currTipo)
-      else:
-        print("f")
-        dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
+      print("gloubal ", curr[0], curr[1], currTipo)
       
-    
+
+      if len(curr[1]) == 0:
+        print("not array")
+        dirVar.agregarglobalVariable(curr[0], [], currTipo)
+        print("not 1ssssss")
+        if currTipo == "int":
+          print("not 1aaaaaa")
+          auxDir = virtualAdd.getGlobalAddressInt()
+          print(auxDir)
+          dirVar.setGlobalVarAddress(curr[0], auxDir)
+        elif currTipo == "float":
+          print("not 123123")
+          auxDir = virtualAdd.getGlobalAddressFloat()
+          dirVar.setGlobalVarAddress(curr[0], auxDir)
+        else:
+          print("tipo desconocido")
+      else:
+        print("array")
+        dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
+        arrSize = reduce(lambda x, y: x * y, curr[1])
+        if currTipo == "int":
+          auxDir = virtualAdd.getGlobalAddressInt(size=arrSize)
+          dirVar.setGlobalVarAddress(curr[0], auxDir)
+        elif currTipo == "float":
+          auxDir = virtualAdd.getGlobalAddressFloat(size=arrSize)
+          dirVar.setGlobalVarAddress(curr[0], auxDir)
+        else:
+          print("tipo desconocido")
 
 def p_typeVarsGlobal(p):
   '''
@@ -300,7 +323,7 @@ def p_typeVarsGlobal(p):
   print("call varsGlobal")
   global currTipo
   currTipo = p[1]
-
+ 
 
 
 #funciones del programa
@@ -938,11 +961,13 @@ def p_valnull(p):
     else:
         print("break")
 
+
     if(dirVar.getfunctype(callfunc) == "void"):
         print("ES VOID")
-    else: 
+        print("1 No todo bien")
+    else:
+        print("2 No todo bien")
         cuads.asignval(callfunc)
-
 
 ### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
 def p_asignacion_metodo(p):
@@ -983,8 +1008,7 @@ def p_lectaux(p):
     lectaux : SEP_COMMA ID lectaux
             | empty
     '''
-##### ESTE PRINT DEBERÍA INCLUIR STRINGS como print("hola")
-## actualmente lo toma como id al parecer
+
 def p_escritura(p):
     '''
     escritura : PRINT SEP_LPAREN escrituraaux
@@ -1285,6 +1309,7 @@ def p_sign(p):
     print(p[0])
 """
 
+
 ###### CHECAR SI AGREGAR CTE_CHAR 
 def p_cteidcall(p):
     '''
@@ -1297,8 +1322,19 @@ def p_cteidcall(p):
     print("mau ", currVal)
     currTipo = constantTypeCheck.checkintOrFloat(str(currVal))
     print("mmmm ", currTipo)
-    cuads.agregarConst(currVal)
+
+    if currVal in dirVar.dirConstantes:
+        auxDir = dirVar.dirConstantes[currVal]
+    else:
+        if currTipo == "int":
+          auxDir = virtualAdd.getConstantAddressInt()
+        elif currTipo == "float":
+          auxDir = virtualAdd.getConstantAddressFloat()
+        dirVar.dirConstantes[currVal] = auxDir
+    #cuads.agregarConst(currVal)
+    cuads.agregarConst(auxDir)
     cuads.agregarTipo(currTipo)
+    
     
   #print("SSSSSSSSSSSSSSSSS")
     #print(p[1])
@@ -1315,7 +1351,7 @@ def p_cteidcall_atributo_metodo(p):
   print("prueba ID --- ", currentID)
   print("tipo id --- ", currTipo)
   cuads.agregarID(currentID)
-
+  cuads.agregarTipo(currTipo)
   #verificar que ID tiene dimensiones y tipo
   print("1")
   #currentID = cuads.pOperandos.top()
@@ -1427,7 +1463,7 @@ def p_error(p):
 
 def p_functions(p):
     '''
-    functions : typefun
+    functions : reini typefun
     '''
 
 '''
@@ -1456,18 +1492,57 @@ def p_typefun(p):
   dirVar.initFunction(currFuncion, insContcuad, primtempcont)
   dirVar.agregartemp(currFuncion, finaltemp)
 
-  #AGREGAR VARIABLES LOCALES
-  while not(currTypeID.empty()) :
-      tup = currTypeID.get()
-      #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
-      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
-  
   if(p[1] == "VOID"):
     print("hola")
     #valred
   else:
     dirVar.agregarglobalVariable(currFuncion, [], currTipo)
 
+  #AGREGAR VARIABLES LOCALES
+  while not(currTypeID.empty()) :
+      tup = currTypeID.get()
+      #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
+      #dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+      print("curr0:", tup[0], tup[1], tup[2], tup[3])
+      
+      tipo = tup[2]
+      if len(tup[1]) == 0:
+        print("not array")
+        dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+        print("la variable es", tup[0], virtualAdd.Li)
+        if tipo == "int":
+          auxDir = virtualAdd.getLocalAddressInt()
+          #setLocalVarAddress(func, nombreVar, dir)
+          dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+        elif tipo == "float":
+          auxDir = virtualAdd.getLocalAddressFloat()
+          dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+        else:
+          print("tipo desconocido")
+        
+      else:
+        
+        print(currFuncion)
+        dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+        arrSize = reduce(lambda x, y: x * y, tup[1])
+        
+        print("arrSize", arrSize)
+        if tipo == "int":
+          auxDir = virtualAdd.getLocalAddressInt(size=arrSize)
+          dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+        elif tipo == "float":
+          auxDir = virtualAdd.getLocalAddressFloat(size=arrSize)
+          dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+        else:
+          print("tipo desconocido") 
+      
+
+def p_reini(p):
+  '''
+    reini : 
+  '''
+  virtualAdd.reiniciarCountersLocales()
+  virtualAdd.reiniciarTemporalesLocales()
 
 def p_voidnext(p):
   '''
@@ -1658,20 +1733,25 @@ try:
     parser.parse(lines, debug=1)
     print("DIRGLOB")
     print(dirVar.dirglobalVar)
-    #print("i", dirVar.dirglobalVar["i"].__dict__)
-    #print("z", dirVar.dirglobalVar["z"].__dict__)
-    #print("mat", dirVar.dirglobalVar["mat"].__dict__)
-    #print("dirFunc")
-    #print(dirVar.dirFunciones)
-    #print("Dirclases")
-    #print(dirVar.dirClases)
+    print("dirFunc")
+    print(dirVar.dirFunciones)
+    print("Dirclases")
+    print(dirVar.dirClases)
+    
+    print("\nvars hw2:\n")
+    for key in dirVar.dirFunciones["helloWorld2"].localVar:
+      print(key, dirVar.dirFunciones["helloWorld2"].localVar[key].__dict__)
+
+    print("\nvars globales:\n")
+    for key in dirVar.dirglobalVar:
+      print(key, dirVar.dirglobalVar[key].__dict__)
     #a = (dirVar.getFuncion("helloWorld"))
-    #print(a.__dict__)
+    #print(a._dict_)
     #b = a["localVar"]
-    #print(b.__dict__)
+    #print(b._dict_)
     #clase
     #libro = (dirVar.dirClases["Libro"])
-    #print(libro.__dict__)
+    #print(libro._dict_)
     #print("pOperandos\n", cuads.pOperandos)
     #print("pTipos\n", cuads.pTipos)
     #print("pOperadores\n", cuads.pOperadores)
