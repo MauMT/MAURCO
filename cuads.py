@@ -44,6 +44,7 @@ def agregarOperador(operador):
 
 
 def validar():
+    print("validar")
     global tempcounter
     #right operando
     #left operando
@@ -94,8 +95,6 @@ def cuadssumsub():
     print("empty")
   else:
     if(( pOperadores[-1] == "+") or ( pOperadores[-1] == "-")):
-      global tempcounter
-      tempcounter = tempcounter + 1
       print("op1sumsub")
       validar()
     else:
@@ -108,8 +107,6 @@ def cuadsmuldiv():
   else:
     if(( pOperadores[-1] == "*") or ( pOperadores[-1] == "/")):
       print("yes")
-      global tempcounter
-      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -122,8 +119,6 @@ def cuadscomparation():
     if(( pOperadores[-1] == "<") or ( pOperadores[-1] == "==") 
       or (pOperadores[-1] == ">") or (pOperadores[-1] == "!=")):
       print("yes")
-      global tempcounter
-      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -135,8 +130,6 @@ def cuadsand():
   else:
     if(( pOperadores[-1] == "&")):
       print("yes")
-      global tempcounter
-      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)
@@ -148,8 +141,6 @@ def cuadsor():
   else:
     if(( pOperadores[-1] == "|")):
       print("yes")
-      global tempcounter
-      tempcounter = tempcounter + 1
       validar()
     else:
       #print(pOperandos)

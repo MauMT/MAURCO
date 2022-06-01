@@ -1295,7 +1295,7 @@ def p_termino(p):
 def p_terminoaux(p):
     '''
     terminoaux :  genmuldiv terminoaux
-               | empty
+               |  empty
     '''
 
 def p_genmuldiv(p):

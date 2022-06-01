@@ -20,17 +20,20 @@ print(msg)
   return;
 }
 
+
 int func helloWorld2()
 vars
-int i;
+int f;
 
 {
-i = 5;
-return(i);
+  print(f)
+  f = 1;
+  return(5);
 }
 
+
 main(){
-    x = 1 + 2 + 3 + 4 + 5;
+    x = 1 + 2 ;
     a = (x+5);
 
     arr[1] = 3;
