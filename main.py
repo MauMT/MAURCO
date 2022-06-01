@@ -1273,7 +1273,17 @@ def p_cteidcall(p):
     print("mau ", currVal)
     currTipo = constantTypeCheck.checkintOrFloat(str(currVal))
     print("mmmm ", currTipo)
-    cuads.agregarConst(currVal)
+
+    if currVal in dirVar.dirConstantes:
+        auxDir = dirVar.dirConstantes[currVal]
+    else:
+        if currTipo == "int":
+          auxDir = virtualAdd.getConstantAddressInt()
+        elif currTipo == "float":
+          auxDir = virtualAdd.getConstantAddressFloat()
+        dirVar.dirConstantes[currVal] = auxDir
+    #cuads.agregarConst(currVal)
+    cuads.agregarConst(auxDir)
     cuads.agregarTipo(currTipo)
     
     

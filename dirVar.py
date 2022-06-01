@@ -60,7 +60,28 @@ class objeto:
 
 
 #-----------------------------------------------------------
-     
+""" class Constante():
+    def __init__(self, valorConstante, tipoConstante):
+        self.tipoConstante = tipoConstante
+        self.direccion = None
+    
+    def getTipoConstante(self):
+        return self.tipoConstante
+    
+    def getDireccionConstante(self):
+        return self.direccion
+    
+    def setDireccionConstante(self, direccion):
+        self.direccion = direccion
+
+def getOrAddConstant(valorConstante, tipoConstante):
+    if valorConstante in dirConstantes:
+        return dirConstantes[valorConstante]
+    else:
+        dirConstantes[valorConstante] = Constante(valorConstante, tipoConstante)
+        return dirConstantes[valorConstante] """
+
+
 def getFuncion(nomFuncion):
     if nomFuncion in dirFunciones:
         return dirFunciones[nomFuncion]
@@ -216,6 +237,8 @@ dirClases = {}
 #checar si ya existe
 #agregar clase
 
+dirConstantes = {}
+
 '''
 agregarFuncion("hola", "int")
 agregarFuncion("adios", "float")
@@ -237,4 +260,10 @@ agregarglobalVariable("luis", [], "int")
 setGlobalVarAddress("alex", 9999)
 
 print(dirglobalVar["alex"].direccion)
+
+
+getOrAddConstant(5, "int")
+dirConstantes[5].setDireccionConstante(1000)
+
+print(dirConstantes[5].__dict__)
 '''
