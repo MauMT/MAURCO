@@ -1087,9 +1087,14 @@ def p_cicwh3(p):
 
 def p_repeticionnocondicional(p):
     '''
-    repeticionnocondicional : FROM ID OP_ASSIGN hyper_exp cicfr2 TO hyper_exp cicfr3 DO bloque cicfr4
+    repeticionnocondicional : FROM cicfr1 OP_ASSIGN hyper_exp cicfr2 TO hyper_exp cicfr3 DO bloque cicfr4
     '''
-    cuads.ciclofrom1(p[2])
+
+def p_cicfr1(p):
+  '''
+  cicfr1 : ID
+  '''
+  cuads.ciclofrom1(p[1])
 
 def p_cicfr2(p):
   '''
@@ -1197,6 +1202,7 @@ def p_expresionaux(p):
   expresionaux : evaluators exp
                | empty
   '''
+  ############################################################
   cuads.cuadscomparation()
 
 def p_evaluators(p):
@@ -1214,35 +1220,50 @@ def p_exp(p):
     exp : termino expaux
     '''
     print("exp")
-    cuads.cuadssumsub()
+
   
 def p_expaux(p):
     '''
-    expaux : OP_PLUS termino expaux
-           | OP_MINUS termino expaux
+    expaux : gensumres expaux
            | empty
     '''
     print("expaux")
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
+
+def p_gensumres(p):
+    '''
+    gensumres : OP_PLUS termino
+              | OP_MINUS termino
+    '''
+    currOperador = p[1]
+    cuads.agregarOperador(currOperador)
+    print("operador -|-|-|- ", currOperador)
+    cuads.cuadssumsub()
     
 def p_termino(p):
     '''
     termino : factor terminoaux
     '''
     print("term")
-    cuads.cuadsmuldiv()
+    ############################################################
+    
   
 def p_terminoaux(p):
     '''
-    terminoaux : OP_MULT factor terminoaux
-               | OP_DIV factor terminoaux
+    terminoaux :  genmuldiv terminoaux
                | empty
     '''
-    
+
+def p_genmuldiv(p):
+    '''
+    genmuldiv : OP_MULT factor
+              | OP_DIV factor
+    '''
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
     print("operador -|-|-|- ", currOperador)
+    cuads.cuadsmuldiv()
   
 def p_factor(p):
     '''
@@ -1637,13 +1658,13 @@ try:
     parser.parse(lines, debug=1)
     print("DIRGLOB")
     print(dirVar.dirglobalVar)
-    print("i", dirVar.dirglobalVar["i"].__dict__)
-    print("z", dirVar.dirglobalVar["z"].__dict__)
-    print("mat", dirVar.dirglobalVar["mat"].__dict__)
-    print("dirFunc")
-    print(dirVar.dirFunciones)
-    print("Dirclases")
-    print(dirVar.dirClases)
+    #print("i", dirVar.dirglobalVar["i"].__dict__)
+    #print("z", dirVar.dirglobalVar["z"].__dict__)
+    #print("mat", dirVar.dirglobalVar["mat"].__dict__)
+    #print("dirFunc")
+    #print(dirVar.dirFunciones)
+    #print("Dirclases")
+    #print(dirVar.dirClases)
     #a = (dirVar.getFuncion("helloWorld"))
     #print(a.__dict__)
     #b = a["localVar"]

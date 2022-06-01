@@ -45,10 +45,16 @@ def validar():
     global tempcounter
     #right operando
     #left operando
+    """
+    left = pOperandos.pop()
+    print(right)
+
+    right = pOperandos.pop()
+    """
     right = pOperandos.pop()
     print(right)
 
-    left = pOperandos.pop()
+    left= pOperandos.pop()
     print(left)
 
     #right type
@@ -236,7 +242,7 @@ def condicion3():
   cuads.append(("GOTO", " ", " ", "fill"))
   false = psaltos.pop()
   psaltos.append(len(cuads)-1)
-  fill(false, len(cuads)+1)
+  fill(false, len(cuads))
 
 
 
@@ -252,7 +258,7 @@ def fill(x, y):
 
 
 def ciclowhile1():
-  psaltos.append(len(cuads)-1)
+  psaltos.append(len(cuads))
 
 def ciclowhile2():
   checktype = pTipos.pop()
@@ -270,7 +276,7 @@ def ciclowhile3():
   end = psaltos.pop()
   returns = psaltos.pop()
   cuads.append(("GOTO", " ", " ", returns))
-  fill(end, len(cuads)-1)
+  fill(end, len(cuads))
 
 
 
@@ -283,43 +289,54 @@ def ciclofrom2():
   checktype = pTipos.pop()
   
   #implementar la tabla de variables y funciones
-  if checktype != bool:
-    print("TYPE MISMATCH")
-  else:
-    result = pOperandos.pop()
-    VControl = pOperandos.top()
-    tipControl = pOperandos.top()
-
+  print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS2")
+  #if checktype != bool:
+  #  print("TYPE MISMATCH")
+  #else:
+  print("SS")
+  result = pOperandos.pop()
+  print("SS")
+  #VControl = pOperandos[-1]
     #LLAMADA A CUBO SEMANTICO
     #if Tipo Res ERROR
     # SEMANTICA
-    cuads.append(("=", result, " ", VControl))
+  cuads.append(("=", result, " ", "VControl"))
 
 def ciclofrom3():
-  checktype = pTipos.pop()
+  print("3333333333333333333333333333333333333333333333333333333333333")
+  #checktype = pTipos.pop()
   #implementar la tabla de variables y funciones
-  if checktype != bool:
-    print("TYPE MISMATCH")
-  else:
-    result = pOperandos.pop()
-    #VFinal = result
-    cuads.append(("=", result, " ", "VFinal"))
-    cuads.append(("<", "VControl", "VFinal", "Tx"))
-    psaltos.append(len(cuads)-1)
-    cuads.append(("GOTOF", "Tx", " ", "fill"))
-    psaltos.append(len(cuads)-1)
+  #if checktype != bool:
+    #print("TYPE MISMATCH")
+  #else:
+  result = pOperandos.pop()
+  #VFinal = result
+  cuads.append(("=", result, " ", "VFinal"))
+  cuads.append(("<", "VControl", "VFinal", "Tx"))
+  psaltos.append(len(cuads)-1)
+  cuads.append(("GOTOF", "Tx", " ", "fill"))
+  psaltos.append(len(cuads)-1)
 
 
 def ciclofrom4():
-  cuads.append(("+", "VControl", 1, "Ty"))
-  cuads.append(("=", "Ty", " ", "VControl"))
-  cuads.append(("=", "Ty", " ",pOperandos.top()))
+  print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASSSSSS")
+  global tempcounter
+  result = "t" + str(tempcounter)
+  tempcounter = tempcounter +1
+  cuads.append(("+", "VControl", 1, result))
+  cuads.append(("=", result, " ", "VControl"))
+
+  cuads.append(("=", result, " ",pOperandos.pop()))
+  print("2222222222222222222222222222222222222222222222222222222222222")
   FIN = psaltos.pop()
   RET = psaltos.pop()
+  print("3333333333333333333333333333333333333333333333333333333333333")
   cuads.append(("GOTO", " ", " ", RET))
-  fill(FIN, len(cuads)-1)
-  pOperandos.pop()
-  pTipos.pop()
+  fill(FIN, len(cuads))
+  print("44444444444444444444444444444444444444444444444444444444444444")
+  #pOperandos.pop()
+  print("55555555555555555555555555555555555555555555555555555555555555")
+  #pTipos.pop()
 
 
 
