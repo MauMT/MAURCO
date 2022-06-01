@@ -5,6 +5,7 @@ class variable:
         self.tipovar = tipovar
         self.length = length
         self.valor = None
+        self.direccion = None
 
     def tipoVariable(self):
         return self.tipovar
@@ -15,6 +16,9 @@ class variable:
     def lengthVariable(self):
         return self.length
 
+    def direccionVariable(self):
+        return self.direccion
+
 #-----------------------------------------------------------
 class funcion:
     def __init__(self, tipoFuncion):
@@ -24,12 +28,19 @@ class funcion:
         self.tempcount = 0
         self.direccion = 0
         self.localVar = {}
+        self.direccionLocalInt = 11000
 
     def gettipoFuncion(self):
         return self.tipoFuncion
     
     def gettableFuncion(self):
         return self.localVar
+    
+    def getdireccionLocalInt(self):
+        return self.direccionLocalInt
+    
+    def setdireccionLocalInt(self, direccion):
+        self.direccionLocalInt = direccion
 
 #-----------------------------------------------------------
 class objeto:
@@ -178,6 +189,19 @@ def agregarMetodosClase(nombreClase, nomMetodo, tipoRetorno):
   else:
     print("no existe esa clase")
 
+
+def setLocalVarAddress(func, nombre, dir):
+    if func in dirFunciones:
+        dirFunciones[func].localVar[nombre].direccion = dir
+    else:
+        print("no existe la funcion")
+
+def setGlobalVarAddress(nombre, dir):
+    if nombre in dirglobalVar:
+        dirglobalVar[nombre].direccion = dir
+    else:
+        print("no existe la variable")
+
 dirglobalVar = {}
 #adentro puede haber objetos de la clase que esten instanciados
 #agregarobjeto
@@ -206,4 +230,11 @@ agregarlocalVariable("hola","andy", "int")
 print(dirFunciones)
 print(dirFunciones["hola"].localVar)
 print(dir)
+
+agregarglobalVariable("alex", [],"int")
+agregarglobalVariable("luis", [], "int")
+
+setGlobalVarAddress("alex", 9999)
+
+print(dirglobalVar["alex"].direccion)
 '''

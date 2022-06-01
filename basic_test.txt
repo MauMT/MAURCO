@@ -13,11 +13,21 @@ vars
 
 void func helloWorld()
 vars
-int msg;
+int msg, x, y;
+float mau;
 
 {
 print(msg)
   return;
+}
+
+int func helloWorld2()
+vars
+int i, x;
+
+{
+i = 5;
+return(i);
 }
 
 main(){ 
@@ -33,6 +43,7 @@ main(){
     print(z+3/5)
     if(i < 3 & j+9 != y) then{
       print(2)
+      i = i+1;
     }
     else{
       a = (x+5);
@@ -42,5 +53,6 @@ main(){
       i = (i+1);
       print(2)
     }
+    a = 0;
 }
 end

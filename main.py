@@ -4,6 +4,7 @@ import dirVar
 import queue
 import constantTypeCheck
 import cuads
+import virtualAdd
 
 tokens = [
 #
@@ -281,15 +282,24 @@ def p_stepid(p):
     print(currID.empty())
     while not(currID.empty()) :
       curr = currID.get()
+      print("gloubal ", curr[0], curr[1], currTipo)
+      
 
-      if len(curr[1]) ==0:
-        print("i")
+      if len(curr[1]) == 0:
+        print("not array")
         dirVar.agregarglobalVariable(curr[0], [], currTipo)
       else:
-        print("f")
+        print("array")
         dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
       
-    
+      if currTipo == "int":
+        auxDir = virtualAdd.getGlobalAddressInt()
+        dirVar.setGlobalVarAddress(curr[0], auxDir)
+      elif currTipo == "float":
+        auxDir = virtualAdd.getGlobalAddressFloat()
+        dirVar.setGlobalVarAddress(curr[0], auxDir)
+      else:
+        print("tipo desconocido")
 
 def p_typeVarsGlobal(p):
   '''
@@ -300,7 +310,7 @@ def p_typeVarsGlobal(p):
   print("call varsGlobal")
   global currTipo
   currTipo = p[1]
-
+ 
 
 
 #funciones del programa
@@ -971,8 +981,7 @@ def p_lectaux(p):
     lectaux : SEP_COMMA ID lectaux
             | empty
     '''
-##### ESTE PRINT DEBERÍA INCLUIR STRINGS como print("hola")
-## actualmente lo toma como id al parecer
+
 def p_escritura(p):
     '''
     escritura : PRINT SEP_LPAREN escrituraaux
@@ -1267,6 +1276,7 @@ def p_cteidcall(p):
     cuads.agregarConst(currVal)
     cuads.agregarTipo(currTipo)
     
+    
   #print("SSSSSSSSSSSSSSSSS")
     #print(p[1])
 
@@ -1282,7 +1292,7 @@ def p_cteidcall_atributo_metodo(p):
   print("prueba ID --- ", currentID)
   print("tipo id --- ", currTipo)
   cuads.agregarID(currentID)
-
+  cuads.agregarTipo(currTipo)
   #verificar que ID tiene dimensiones y tipo
   print("1")
   #currentID = cuads.pOperandos.top()
@@ -1394,7 +1404,7 @@ def p_error(p):
 
 def p_functions(p):
     '''
-    functions : typefun
+    functions : reini typefun
     '''
 
 '''
@@ -1428,7 +1438,24 @@ def p_typefun(p):
       tup = currTypeID.get()
       #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
       dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+      print("curr 0", tup[0], tup[2])
+      if(tup[2] == "int"):
+        auxDir = virtualAdd.getLocalAddressInt() 
+        print(auxDir)
+        dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+      elif(tup[2] == "float"):
+        auxDir = virtualAdd.getLocalAddressFloat() 
+        print(auxDir)
+        dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+      else:
+        print("tipo desconocido") 
+      
 
+def p_reini(p):
+  '''
+    reini : 
+  '''
+  virtualAdd.reiniciarCountersLocales()
 
 def p_voidnext(p):
   '''
@@ -1614,6 +1641,11 @@ try:
     print(dirVar.dirFunciones)
     print("Dirclases")
     print(dirVar.dirClases)
+    
+    print(vars(dirVar.dirFunciones["helloWorld2"].localVar['x']))
+    
+    for key in dirVar.dirglobalVar:
+      print(key, dirVar.dirglobalVar[key].__dict__)
     #a = (dirVar.getFuncion("helloWorld"))
     #print(a.__dict__)
     #b = a["localVar"]

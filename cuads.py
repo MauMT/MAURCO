@@ -1,5 +1,8 @@
 import dirVar
 import virtualAdd
+from semanticCube import semantic
+import queue
+
 #pOperandos
 pOperandos = []
 
@@ -10,12 +13,14 @@ pOperadores = []
 pTipos = []
 psaltos = []
 
+
 ####### NUMERAR LÍNEAS E IMPRIMIR EN TABLA BONITA
 
 #funcion de array cuadruplos
 cuads=[("goto","1","","")]
 
 tempcounter = 0
+
 
 #funcion de agregar ID 
 #validaciones de ID con tipo
@@ -53,18 +58,25 @@ def validar():
 
     #right type
     #left type
-    #llenar con el tipo de os cuads
+    rightType = pTipos.pop()
+    print(rightType)
 
+    leftType = pTipos.pop()
+    print(leftType)
+    
     #operador
     oper = pOperadores.pop()
     print(oper)
 
     #result type checar semantica con cubo
+    result_type = semantic[leftType][oper][rightType]
+    print(result_type)
 
     #agregar un valor a temp counter
     #generar cuadruplo
     result = "t" + str(tempcounter)
     tempcounter = tempcounter +1
+    
 
 
     cuads.append((oper, left, right, result))
