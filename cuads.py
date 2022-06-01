@@ -53,8 +53,19 @@ def validar():
 
     #right type
     #left type
+<<<<<<< Updated upstream
     #llenar con el tipo de os cuads
 
+=======
+    print(pTipos[-1])
+    rightType = pTipos.pop()
+    print("rtype", rightType)
+
+    print(pTipos[-1])
+    leftType = pTipos.pop()
+    print("ltype", leftType)
+    
+>>>>>>> Stashed changes
     #operador
     oper = pOperadores.pop()
     print(oper)

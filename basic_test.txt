@@ -11,6 +11,7 @@ vars
     int mat[2][3];
 }
 
+<<<<<<< Updated upstream
 void func helloWorld()
 vars
 int msg;
@@ -21,15 +22,9 @@ int msg;
   i = 4;
   return;
 }
+=======
+>>>>>>> Stashed changes
 
-int func helloWorld2()
-vars
-int i;
-
-{
-i = 5;
-return(i);
-}
 
 main(){ 
     a = (x+5);

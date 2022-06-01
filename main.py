@@ -805,14 +805,14 @@ def p_valasigaux(p):
     print("es none")
     arrVar = dirVar.getglobalVariable(currentID)
     if(arrVar == None):
-        print("ERROR NO EXISTE LA VARIABLE")
+        print("ERROR NO EXISTE LA VARIABLE 2")
   else:
       arrVar = dirVar.getlocalVariable(currFuncion, currentID)
       if(arrVar == None):
         arrVar = dirVar.getglobalVariable(currentID)
         if(arrVar == None):
             #NO EXISTE
-            print("ERROR NO EXISTE LA VARIABLE")
+            print("ERROR NO EXISTE LA VARIABLE 1 ")
 
   print("3")
   #verificar si es un arreglo o matriz
@@ -1446,10 +1446,20 @@ def p_typefun(p):
   '''
   currTipo = p[1]
   currFuncion = p[3]
+  print("currFuncion")
   dirVar.agregarFuncion(currFuncion, currTipo)
   dirVar.initFunction(currFuncion, insContcuad, primtempcont)
   dirVar.agregartemp(currFuncion, finaltemp)
 
+<<<<<<< Updated upstream
+=======
+  if(p[1] == "void"):
+    print("hola")
+    #valred
+  else:
+    dirVar.agregarglobalVariable(currFuncion, [], currTipo)
+
+>>>>>>> Stashed changes
   #AGREGAR VARIABLES LOCALES
   while not(currTypeID.empty()) :
       tup = currTypeID.get()
@@ -1465,7 +1475,7 @@ def p_typefun(p):
 
 def p_voidnext(p):
   '''
-  voidnext : SEP_LPAREN paramsfun SEP_RPAREN voidvars
+  voidnext : SEP_LPAREN paramsfun insCont SEP_RPAREN voidvars
   '''
 
 def p_novoidnext(p):
@@ -1526,9 +1536,11 @@ def p_paramsauxfuncreate(p):
 
 def p_voidvars(p):
     '''
-    voidvars : varsfun insCont SEP_LBRACE estfun RETURN SEP_SEMICOLON relCurr SEP_RBRACE
+    voidvars : varsfun SEP_LBRACE estfun RETURN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
 
+#insCont SEP_RPAREN varsfun SEP_LBRACE estfun nvaux
+#RETURN SEP_LPAREN hyper_exp cureturn SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
 
 def p_insCont(p):
     '''
@@ -1662,6 +1674,17 @@ try:
     print(dirVar.dirFunciones)
     print("Dirclases")
     print(dirVar.dirClases)
+<<<<<<< Updated upstream
+=======
+    
+    #print("\nvars hw2:\n")
+    #for key in dirVar.dirFunciones["helloWorld2"].localVar:
+      #print(key, dirVar.dirFunciones["helloWorld2"].localVar[key].__dict__)
+
+    print("\nvars globales:\n")
+    for key in dirVar.dirglobalVar:
+      print(key, dirVar.dirglobalVar[key].__dict__)
+>>>>>>> Stashed changes
     #a = (dirVar.getFuncion("helloWorld"))
     #print(a.__dict__)
     #b = a["localVar"]
@@ -1675,6 +1698,11 @@ try:
     print("Correct syntax")
 except:
     print(f'Syntax error')
+    print("dirFunc")
+    print(dirVar.dirFunciones)
+    print("\nvars hw2:\n")
+    #for key in dirVar.dirFunciones["helloWorld2"].localVar:
+      #print(key, dirVar.dirFunciones["helloWorld2"].localVar[key].__dict__)
     
 
 cuads.printCuads()
