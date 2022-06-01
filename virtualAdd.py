@@ -111,3 +111,9 @@ def reiniciarCountersLocales():
   Lf = 13000
   Tli = 19000
   Tlf = 21000
+
+def reiniciarTemporalesLocales():
+  global Tli
+  global Tlf
+  Tli = 19000
+  Tlf = 21000

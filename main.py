@@ -1460,17 +1460,8 @@ def p_typefun(p):
       tup = currTypeID.get()
       #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
       #dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
-      print("curr 0", tup[0], tup[1], tup[2], tup[3])
-      """ if(tup[2] == "int"):
-        auxDir = virtualAdd.getLocalAddressInt() 
-        print(auxDir)
-        dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
-      elif(tup[2] == "float"):
-        auxDir = virtualAdd.getLocalAddressFloat() 
-        print(auxDir)
-        dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
-      else:
-        print("tipo desconocido") """
+      print("curr0:", tup[0], tup[1], tup[2], tup[3])
+      
       tipo = tup[2]
       if len(tup[1]) == 0:
         print("not array")
@@ -1484,10 +1475,14 @@ def p_typefun(p):
           dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
         else:
           print("tipo desconocido")
+        
       else:
-        print("array")
+        
+        print(currFuncion)
         dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
-        arrSize = reduce(lambda x, y: x * y, tup[2])
+        arrSize = reduce(lambda x, y: x * y, tup[1])
+        
+        print("arrSize", arrSize)
         if tipo == "int":
           auxDir = virtualAdd.getLocalAddressInt(size=arrSize)
           dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
@@ -1503,6 +1498,7 @@ def p_reini(p):
     reini : 
   '''
   virtualAdd.reiniciarCountersLocales()
+  virtualAdd.reiniciarTemporalesLocales()
 
 def p_voidnext(p):
   '''
@@ -1687,8 +1683,8 @@ try:
     print(dirVar.dirClases)
     
   
-    for key in dirVar.dirFunciones["helloWorld"].localVar:
-      print(key, dirVar.dirFunciones["helloWorld"].localVar[key].__dict__)
+    for key in dirVar.dirFunciones["helloWorld2"].localVar:
+      print(key, dirVar.dirFunciones["helloWorld2"].localVar[key].__dict__)
 
     print("\nvars globales:\n")
     for key in dirVar.dirglobalVar:

@@ -24,7 +24,7 @@ print(msg)
 
 int func helloWorld2()
 vars
-int i, x;
+int i, x[4][3], y;
 
 {
 i = 5;
