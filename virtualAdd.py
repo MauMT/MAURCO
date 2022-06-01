@@ -11,9 +11,6 @@ Lf = 13000
 Tgi = 15000
 Tgf = 17000
 
-# Inicio de direcciones para variables temporales locales
-Tli = 19000
-Tlf = 21000
 
 
 # Inicio de direcciones para constantes
@@ -74,20 +71,6 @@ def getGlobalTempAddressFloat():
   return aux
 
 
-# TEMPORALES LOCALES
-def getLocalTempAddressInt():
-  global Tli
-  aux = Tli
-  Tli = Tli+1
-  return aux
-
-def getLocalTempAddressFloat():
-  global Tlf
-  aux = Tlf
-  Tlf = Tlf+1
-  return aux
-
-
 def getConstantAddressInt():
   global Ci
   aux = Ci
@@ -117,3 +100,12 @@ def reiniciarTemporalesLocales():
   global Tlf
   Tli = 19000
   Tlf = 21000
+
+
+""" x = getLocalAddressInt()
+print("1", x)
+y = getLocalAddressInt(size=12)
+print("2", y)
+z = getLocalAddressInt()
+print("3", z)
+ """

@@ -1466,6 +1466,7 @@ def p_typefun(p):
       if len(tup[1]) == 0:
         print("not array")
         dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+        print("la variable es", tup[0], virtualAdd.Li)
         if tipo == "int":
           auxDir = virtualAdd.getLocalAddressInt()
           #setLocalVarAddress(func, nombreVar, dir)
@@ -1689,6 +1690,11 @@ try:
     print("\nvars globales:\n")
     for key in dirVar.dirglobalVar:
       print(key, dirVar.dirglobalVar[key].__dict__)
+
+    print("\ndirConstantes\n")
+    for key in dirVar.dirConstantes:
+      print(key, dirVar.dirConstantes[key])
+    print("\n")
     #a = (dirVar.getFuncion("helloWorld"))
     #print(a.__dict__)
     #b = a["localVar"]

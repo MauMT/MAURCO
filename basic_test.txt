@@ -7,7 +7,7 @@ vars
     float valor, y;
     char msg;
     int x, a, b, z, j;
-    int arr[4];
+    int arr[4], mau3;
     int mat[2][3];
     int mau;
 }
@@ -24,7 +24,7 @@ print(msg)
 
 int func helloWorld2()
 vars
-int i, x[4][3], y;
+int i, x[4][3];
 
 {
 i = 5;

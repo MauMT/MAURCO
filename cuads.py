@@ -59,10 +59,10 @@ def validar():
     #right type
     #left type
     rightType = pTipos.pop()
-    print(rightType)
+    print("ltype", rightType)
 
     leftType = pTipos.pop()
-    print(leftType)
+    print("rtype", leftType)
     
     #operador
     oper = pOperadores.pop()
@@ -76,14 +76,19 @@ def validar():
     #generar cuadruplo
     result = "t" + str(tempcounter)
     tempcounter = tempcounter +1
-    
+    if result_type == "int":
+      result_addr = virtualAdd.getGlobalTempAddressInt()
+    elif result_type == "float":
+      result_addr = virtualAdd.getGlobalTempAddressFloat()
+    else:
+      print("error")
 
 
-    cuads.append((oper, left, right, result))
+    cuads.append((oper, left, right, result_addr))
     print(cuads)
 
     #agregar resultado en pOperandos
-    agregarID(result)
+    agregarID(result_addr)
     print("agregarid")
     dirVar.agregarglobalVariable(result, [] ,"float")
     
