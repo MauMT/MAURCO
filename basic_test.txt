@@ -24,12 +24,15 @@ print(msg)
 
 int func helloWorld2()
 vars
-int i, x[4][3], y;
+float i, x;
+int a, y[4][3], z;
 
 {
 i = 5;
 return(i);
 }
+
+
 
 main(){ 
     

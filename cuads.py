@@ -77,15 +77,22 @@ def validar():
     result = "t" + str(tempcounter)
     tempcounter = tempcounter +1
     
+    #getLocalTempAddressInt()
+    if result_type == "int":
+      resultAddress = virtualAdd.getLocalTempAddressInt()
+    elif result_type == "float":
+      resultAddress = virtualAdd.getLocalTempAddressFloat()
 
 
-    cuads.append((oper, left, right, result))
+    cuads.append((oper, left, right, resultAddress))
     print(cuads)
 
     #agregar resultado en pOperandos
-    agregarID(result)
+    agregarID(resultAddress)
     print("agregarid")
-    dirVar.agregarglobalVariable(result, [] ,"float")
+    # check if there is no "error" type from semantic cube
+    if result_type != "error":
+      dirVar.agregarglobalVariable(result, [] , result_type)
     
     #agregar resultadotipo en pTipospo
 
@@ -173,6 +180,8 @@ def auxAsignacion():
     #operador
     oper = pOperadores.pop()
     print(oper)
+
+    
 
     cuads.append((oper, left, right, result))
     print(cuads)
@@ -395,6 +404,7 @@ def sumaDirBase(direccion):
   #print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
   global tempcounter
   result = "t" + str(tempcounter)
+
   cuads.append(("+", direccion, pOperandos.pop(), result))
   agregarID(result)
 
