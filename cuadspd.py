@@ -2,6 +2,7 @@ import dirVar
 import virtualAdd
 from semanticCube import semantic
 import queue
+
 #pOperandos
 pOperandos = []
 
@@ -12,12 +13,14 @@ pOperadores = []
 pTipos = []
 psaltos = []
 
+
 ####### NUMERAR LÍNEAS E IMPRIMIR EN TABLA BONITA
 
 #funcion de array cuadruplos
 cuads=[("goto","1","","")]
 
 tempcounter = 0
+
 
 #funcion de agregar ID 
 #validaciones de ID con tipo
@@ -85,7 +88,6 @@ def validar():
     dirVar.agregarglobalVariable(result, [] ,"float")
     
     #agregar resultadotipo en pTipospo
-
 
 
 def cuadssumsub():
@@ -246,7 +248,7 @@ def condicion3():
   cuads.append(("GOTO", " ", " ", "fill"))
   false = psaltos.pop()
   psaltos.append(len(cuads)-1)
-  fill(false, len(cuads))
+  fill(false, len(cuads)+1)
 
 
 
@@ -262,7 +264,7 @@ def fill(x, y):
 
 
 def ciclowhile1():
-  psaltos.append(len(cuads))
+  psaltos.append(len(cuads)-1)
 
 def ciclowhile2():
   checktype = pTipos.pop()
@@ -280,7 +282,7 @@ def ciclowhile3():
   end = psaltos.pop()
   returns = psaltos.pop()
   cuads.append(("GOTO", " ", " ", returns))
-  fill(end, len(cuads))
+  fill(end, len(cuads)-1)
 
 
 
@@ -293,54 +295,43 @@ def ciclofrom2():
   checktype = pTipos.pop()
   
   #implementar la tabla de variables y funciones
-  print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS2")
-  #if checktype != bool:
-  #  print("TYPE MISMATCH")
-  #else:
-  print("SS")
-  result = pOperandos.pop()
-  print("SS")
-  #VControl = pOperandos[-1]
+  if checktype != bool:
+    print("TYPE MISMATCH")
+  else:
+    result = pOperandos.pop()
+    VControl = pOperandos.top()
+    tipControl = pOperandos.top()
+
     #LLAMADA A CUBO SEMANTICO
     #if Tipo Res ERROR
     # SEMANTICA
-  cuads.append(("=", result, " ", "VControl"))
+    cuads.append(("=", result, " ", VControl))
 
 def ciclofrom3():
-  print("3333333333333333333333333333333333333333333333333333333333333")
-  #checktype = pTipos.pop()
+  checktype = pTipos.pop()
   #implementar la tabla de variables y funciones
-  #if checktype != bool:
-    #print("TYPE MISMATCH")
-  #else:
-  result = pOperandos.pop()
-  #VFinal = result
-  cuads.append(("=", result, " ", "VFinal"))
-  cuads.append(("<", "VControl", "VFinal", "Tx"))
-  psaltos.append(len(cuads)-1)
-  cuads.append(("GOTOF", "Tx", " ", "fill"))
-  psaltos.append(len(cuads)-1)
+  if checktype != bool:
+    print("TYPE MISMATCH")
+  else:
+    result = pOperandos.pop()
+    #VFinal = result
+    cuads.append(("=", result, " ", "VFinal"))
+    cuads.append(("<", "VControl", "VFinal", "Tx"))
+    psaltos.append(len(cuads)-1)
+    cuads.append(("GOTOF", "Tx", " ", "fill"))
+    psaltos.append(len(cuads)-1)
 
 
 def ciclofrom4():
-  print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASSSSSS")
-  global tempcounter
-  result = "t" + str(tempcounter)
-  tempcounter = tempcounter +1
-  cuads.append(("+", "VControl", 1, result))
-  cuads.append(("=", result, " ", "VControl"))
-
-  cuads.append(("=", result, " ",pOperandos.pop()))
-  print("2222222222222222222222222222222222222222222222222222222222222")
+  cuads.append(("+", "VControl", 1, "Ty"))
+  cuads.append(("=", "Ty", " ", "VControl"))
+  cuads.append(("=", "Ty", " ",pOperandos.top()))
   FIN = psaltos.pop()
   RET = psaltos.pop()
-  print("3333333333333333333333333333333333333333333333333333333333333")
   cuads.append(("GOTO", " ", " ", RET))
-  fill(FIN, len(cuads))
-  print("44444444444444444444444444444444444444444444444444444444444444")
-  #pOperandos.pop()
-  print("55555555555555555555555555555555555555555555555555555555555555")
-  #pTipos.pop()
+  fill(FIN, len(cuads)-1)
+  pOperandos.pop()
+  pTipos.pop()
 
 
 
@@ -373,27 +364,6 @@ def valnull(params):
 
 def createGOSUB(nombre):
   cuads.append(("GOSUB", nombre, " ", " "))
-
-
-def valMain():
-  print("maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaani")
-  cumain = (("GOTO", " ", " ", len(cuads)))
-  cuads[0] = cumain
-
-
-def cReturn():
-  print("REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
-  valret = pOperandos.pop()
-  cuads.append(("RETURN", " ", " ", valret))
-  #return valret
-
-def asignval(callfunc):
-  global tempcounter
-  result = "t" + str(tempcounter)
-  tempcounter = tempcounter +1
-  cuads.append(("=", callfunc, " ", result))
-
-
 
 
 ######################################################

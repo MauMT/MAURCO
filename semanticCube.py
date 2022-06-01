@@ -48,9 +48,18 @@ semantic = {
         'int':'int',
         'float':'int',
         'char':'error'
-    }
-},
-
+    },
+    '&':{
+        'int':'int',
+        'float':'error',
+        'char':'error'
+    },
+    '|':{
+        'int':'int',
+        'float':'error',
+        'char':'error'
+    },
+  },
  'float': {
     '+' : {
         'int':'float',
@@ -77,10 +86,6 @@ semantic = {
         'float':'float',
         'char':'error'
     },
-    '.':{
-        'int':'float',
-        'float':'float'
-    },
     '<':{
         'int':'int',
         'float':'int'
@@ -98,17 +103,73 @@ semantic = {
         'int':'int',
         'float':'int',
         'char':'error'
-    }
-},
-
+    },
+    '&':{
+        'int':'error',
+        'float':'error',
+        'char':'error'
+    },
+    '|':{
+        'int':'error',
+        'float':'error',
+        'char':'error'
+    },
+ },
  'char': {
     '=' : {
-        'char':'char'
+        'char':'char',
+        'int':'error',
+        'float':'error'
     },
     '==':{
-        'char':'int'
+        'char':'int',
+        'int':'error',
+        'float':'error'
     },
     '!=':{
-        'char':'int'
-    }
+        'char':'int',
+        'int':'error',
+        'float':'error'
+    },
+    '<':{
+        'char':'error',
+        'int':'error',
+        'float':'error'
+    },
+    '>':{
+        'char':'error',
+        'int':'error',
+        'float':'error'
+    },
+    '+':{
+        'char':'error',
+        'int':'error',
+        'float':'error'
+    },
+    '-':{
+        'char':'error',
+        'int':'error',
+        'float':'error'
+    },
+    '*':{
+        'char':'error',
+        'int':'error',
+        'float':'error'
+    },
+    '/':{
+        'char':'error',
+        'int':'error',
+        'float':'error'
+    },
+    '&':{
+        'char':'error',
+        'int':'error',
+        'float':'error'
+    },
+    '|':{
+        'char':'error',
+        'int':'error',
+        'float':'error'
+    },
  }
+}

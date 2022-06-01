@@ -1,5 +1,5 @@
-Tabla de variables (metodos)
-9   ################################## 	
+Tabla de variables (metodos clases quitar)
+9   ################################## 
 
 Tipos aritmeticos con memoria
 1  ################################ Importante
@@ -10,17 +10,18 @@ Maquina virtual
 version de documentacion
 8   ################################ Despues de maquina virtual
 
-- type mismatch (no a fuerzas) ints
-3  ##################################
+
+********************************************************************
+
 
 - return statement
 5  #################################Funciones valor global
-
-- arreglar count de goto
-4  #################################Contadores erroneos
 
 - asignar direcciones virtuales locales y globales
 2  #################################tipos primero y hay pedos
 
 - asociativdad izquierda con el mismo operador
 6  ##################################no tan importante
+
+- arreglar count de goto
+4  #################################Contadores erroneos

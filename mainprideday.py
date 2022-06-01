@@ -274,7 +274,7 @@ def p_idvarsglobal(p):
     '''
     idvarsglobal : typeVarsGlobal lista_ids stepid varsauxGlobal
      '''
-  
+
 def p_stepid(p):
     '''
     stepid : empty
@@ -289,10 +289,14 @@ def p_stepid(p):
       if len(curr[1]) == 0:
         print("not array")
         dirVar.agregarglobalVariable(curr[0], [], currTipo)
+        print("not 1ssssss")
         if currTipo == "int":
+          print("not 1aaaaaa")
           auxDir = virtualAdd.getGlobalAddressInt()
+          print(auxDir)
           dirVar.setGlobalVarAddress(curr[0], auxDir)
         elif currTipo == "float":
+          print("not 123123")
           auxDir = virtualAdd.getGlobalAddressFloat()
           dirVar.setGlobalVarAddress(curr[0], auxDir)
         else:
@@ -309,9 +313,6 @@ def p_stepid(p):
           dirVar.setGlobalVarAddress(curr[0], auxDir)
         else:
           print("tipo desconocido")
-      
-     
-      
 
 def p_typeVarsGlobal(p):
   '''
@@ -335,7 +336,7 @@ def p_profunctions(p):
 
 def p_principal(p):
   '''
-  principal : MAIN SEP_LPAREN SEP_RPAREN bloque
+  principal : MAIN maini SEP_LPAREN SEP_RPAREN bloque
   '''
   ############################
   ############################
@@ -344,6 +345,13 @@ def p_principal(p):
   dirVar.agregarFuncion(currFuncion, currTipo)
   ############################
   ############################
+
+def p_maini(p):
+  '''
+  maini : empty
+  '''
+  print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
+  cuads.valMain()
 
 def p_bloque(p):
   '''
@@ -953,6 +961,10 @@ def p_valnull(p):
     else:
         print("break")
 
+    if(dirVar.getfunctype(callfunc) == "void"):
+        print("ES VOID")
+    else: 
+        cuads.asignval(callfunc)
 
 ### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
 def p_asignacion_metodo(p):
@@ -1096,9 +1108,14 @@ def p_cicwh3(p):
 
 def p_repeticionnocondicional(p):
     '''
-    repeticionnocondicional : FROM ID OP_ASSIGN hyper_exp cicfr2 TO hyper_exp cicfr3 DO bloque cicfr4
+    repeticionnocondicional : FROM cicfr1 OP_ASSIGN hyper_exp cicfr2 TO hyper_exp cicfr3 DO bloque cicfr4
     '''
-    cuads.ciclofrom1(p[2])
+
+def p_cicfr1(p):
+  '''
+  cicfr1 : ID
+  '''
+  cuads.ciclofrom1(p[1])
 
 def p_cicfr2(p):
   '''
@@ -1206,6 +1223,7 @@ def p_expresionaux(p):
   expresionaux : evaluators exp
                | empty
   '''
+  ############################################################
   cuads.cuadscomparation()
 
 def p_evaluators(p):
@@ -1223,35 +1241,50 @@ def p_exp(p):
     exp : termino expaux
     '''
     print("exp")
-    cuads.cuadssumsub()
+
   
 def p_expaux(p):
     '''
-    expaux : OP_PLUS termino expaux
-           | OP_MINUS termino expaux
+    expaux : gensumres expaux
            | empty
     '''
     print("expaux")
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
+
+def p_gensumres(p):
+    '''
+    gensumres : OP_PLUS termino
+              | OP_MINUS termino
+    '''
+    currOperador = p[1]
+    cuads.agregarOperador(currOperador)
+    print("operador -|-|-|- ", currOperador)
+    cuads.cuadssumsub()
     
 def p_termino(p):
     '''
     termino : factor terminoaux
     '''
     print("term")
-    cuads.cuadsmuldiv()
+    ############################################################
+    
   
 def p_terminoaux(p):
     '''
-    terminoaux : OP_MULT factor terminoaux
-               | OP_DIV factor terminoaux
+    terminoaux :  genmuldiv terminoaux
                | empty
     '''
-    
+
+def p_genmuldiv(p):
+    '''
+    genmuldiv : OP_MULT factor
+              | OP_DIV factor
+    '''
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
     print("operador -|-|-|- ", currOperador)
+    cuads.cuadsmuldiv()
   
 def p_factor(p):
     '''
@@ -1272,6 +1305,7 @@ def p_sign(p):
     print("555555555555555555555555555555")
     print(p[0])
 """
+
 
 ###### CHECAR SI AGREGAR CTE_CHAR 
 def p_cteidcall(p):
@@ -1455,6 +1489,12 @@ def p_typefun(p):
   dirVar.initFunction(currFuncion, insContcuad, primtempcont)
   dirVar.agregartemp(currFuncion, finaltemp)
 
+  if(p[1] == "VOID"):
+    print("hola")
+    #valred
+  else:
+    dirVar.agregarglobalVariable(currFuncion, [], currTipo)
+
   #AGREGAR VARIABLES LOCALES
   while not(currTypeID.empty()) :
       tup = currTypeID.get()
@@ -1510,6 +1550,12 @@ def p_novoidnext(p):
   '''
   novoidnext : SEP_LPAREN paramsfun insCont SEP_RPAREN varsfun SEP_LBRACE estfun nvaux
   '''
+
+  def p_cureturn(p):
+    '''
+    cureturn : empty
+    '''
+    cuads.cReturn()
 
 
 def p_paramsfun(p):
@@ -1644,8 +1690,14 @@ def p_estfun(p):
 
 def p_nvaux(p):
     '''
-    nvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
+    nvaux : RETURN SEP_LPAREN hyper_exp cureturn SEP_RPAREN SEP_SEMICOLON relCurr SEP_RBRACE
     '''
+
+def p_cureturn(p):
+    '''
+    cureturn : empty
+    '''
+    cuads.cReturn()
 
 def p_relCurr(p):
     '''
