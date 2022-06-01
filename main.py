@@ -5,6 +5,7 @@ import queue
 import constantTypeCheck
 import cuads
 import virtualAdd
+from functools import reduce
 
 tokens = [
 #
@@ -288,18 +289,29 @@ def p_stepid(p):
       if len(curr[1]) == 0:
         print("not array")
         dirVar.agregarglobalVariable(curr[0], [], currTipo)
+        if currTipo == "int":
+          auxDir = virtualAdd.getGlobalAddressInt()
+          dirVar.setGlobalVarAddress(curr[0], auxDir)
+        elif currTipo == "float":
+          auxDir = virtualAdd.getGlobalAddressFloat()
+          dirVar.setGlobalVarAddress(curr[0], auxDir)
+        else:
+          print("tipo desconocido")
       else:
         print("array")
         dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
+        arrSize = reduce(lambda x, y: x * y, curr[1])
+        if currTipo == "int":
+          auxDir = virtualAdd.getGlobalAddressInt(size=arrSize)
+          dirVar.setGlobalVarAddress(curr[0], auxDir)
+        elif currTipo == "float":
+          auxDir = virtualAdd.getGlobalAddressFloat(size=arrSize)
+          dirVar.setGlobalVarAddress(curr[0], auxDir)
+        else:
+          print("tipo desconocido")
       
-      if currTipo == "int":
-        auxDir = virtualAdd.getGlobalAddressInt()
-        dirVar.setGlobalVarAddress(curr[0], auxDir)
-      elif currTipo == "float":
-        auxDir = virtualAdd.getGlobalAddressFloat()
-        dirVar.setGlobalVarAddress(curr[0], auxDir)
-      else:
-        print("tipo desconocido")
+     
+      
 
 def p_typeVarsGlobal(p):
   '''
@@ -1447,9 +1459,9 @@ def p_typefun(p):
   while not(currTypeID.empty()) :
       tup = currTypeID.get()
       #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
-      dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
-      print("curr 0", tup[0], tup[2])
-      if(tup[2] == "int"):
+      #dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+      print("curr 0", tup[0], tup[1], tup[2], tup[3])
+      """ if(tup[2] == "int"):
         auxDir = virtualAdd.getLocalAddressInt() 
         print(auxDir)
         dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
@@ -1458,7 +1470,32 @@ def p_typefun(p):
         print(auxDir)
         dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
       else:
-        print("tipo desconocido") 
+        print("tipo desconocido") """
+      tipo = tup[2]
+      if len(tup[1]) == 0:
+        print("not array")
+        dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+        if tipo == "int":
+          auxDir = virtualAdd.getLocalAddressInt()
+          #setLocalVarAddress(func, nombreVar, dir)
+          dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+        elif tipo == "float":
+          auxDir = virtualAdd.getLocalAddressFloat()
+          dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+        else:
+          print("tipo desconocido")
+      else:
+        print("array")
+        dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+        arrSize = reduce(lambda x, y: x * y, tup[2])
+        if tipo == "int":
+          auxDir = virtualAdd.getLocalAddressInt(size=arrSize)
+          dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+        elif tipo == "float":
+          auxDir = virtualAdd.getLocalAddressFloat(size=arrSize)
+          dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
+        else:
+          print("tipo desconocido") 
       
 
 def p_reini(p):
@@ -1644,16 +1681,16 @@ try:
     parser.parse(lines, debug=1)
     print("DIRGLOB")
     print(dirVar.dirglobalVar)
-    print("i", dirVar.dirglobalVar["i"].__dict__)
-    print("z", dirVar.dirglobalVar["z"].__dict__)
-    print("mat", dirVar.dirglobalVar["mat"].__dict__)
     print("dirFunc")
     print(dirVar.dirFunciones)
     print("Dirclases")
     print(dirVar.dirClases)
     
-    print(vars(dirVar.dirFunciones["helloWorld2"].localVar['x']))
-    
+  
+    for key in dirVar.dirFunciones["helloWorld"].localVar:
+      print(key, dirVar.dirFunciones["helloWorld"].localVar[key].__dict__)
+
+    print("\nvars globales:\n")
     for key in dirVar.dirglobalVar:
       print(key, dirVar.dirglobalVar[key].__dict__)
     #a = (dirVar.getFuncion("helloWorld"))

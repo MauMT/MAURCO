@@ -20,17 +20,22 @@ Tlf = 21000
 Ci = 23000
 Cf = 24000
 
+def getCurrentGlobalAddressInt():
+  return Gi
 
-def getGlobalAddressInt():
+def getCurrentGlobalAddressFloat():
+  return Gf
+
+def getGlobalAddressInt(size=1):
   global Gi
   aux = Gi
-  Gi = Gi+1
+  Gi = Gi+size
   return aux
 
-def getGlobalAddressFloat():
+def getGlobalAddressFloat(size=1):
   global Gf
   aux = Gf
-  Gf = Gf+1
+  Gf = Gf+size
   return aux
 
 def setGlobalAddressInt(x):
@@ -42,16 +47,16 @@ def setGlobalAddressFloat(x):
   Gf = x
   
 ### deben ir asociadas a una función o algo así
-def getLocalAddressInt():
+def getLocalAddressInt(size=1):
   global Li
   aux = Li
-  Li = Li+1
+  Li = Li+size
   return aux
 
-def getLocalAddressFloat():
+def getLocalAddressFloat(size=1):
   global Lf
   aux = Lf
-  Lf = Lf+1
+  Lf = Lf+size
   return aux
 ##################################
 
