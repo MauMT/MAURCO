@@ -1409,7 +1409,7 @@ def p_cteidcall_atributo_metodo(p):
             raise Exception("No existe la variable")
       auxDir = arrVal.direccion
 '''
-  myAddress = None
+  myAddress = None 
   #if currFuncion == None
   if dirVar.getlocalVariable(currFuncion, result) == None:
       if dirVar.getglobalVariable(result) == None:
