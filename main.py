@@ -7,6 +7,7 @@ import cuads
 import virtualAdd
 from functools import reduce
 
+
 tokens = [
 #
   'ID',
@@ -1838,7 +1839,7 @@ try:
     #print("pOperandos\n", cuads.pOperandos)
     #print("pTipos\n", cuads.pTipos)
     #print("pOperadores\n", cuads.pOperadores)
-    print("Correct syntax")
+    print(f"Correct syntax")
 except:
     print(f'Syntax error')
     print("\ndirConstantes\n")
@@ -1856,3 +1857,4 @@ cuads.printCuads()
 
 print(cuads.cuads)
 print("size dirglobalVar", len(dirVar.dirglobalVar))
+import vm
