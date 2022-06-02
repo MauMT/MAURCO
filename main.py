@@ -186,6 +186,7 @@ currMet = queue.Queue()
 currTypeID = queue.Queue()
 arrLength = []
 currFuncion = None
+isCallFun = False
 
 """ if(currFuncion == None):
     print("es none")
@@ -937,8 +938,7 @@ def p_asign_opciones(p):
 
 def p_asignacion_simple(p):
   '''
-  asignacion_simple : hyper_exp
-                    | array_inside
+  asignacion_simple : it hyper_exp
   '''
 
 
@@ -950,32 +950,36 @@ def p_asatr(p):
 
 def p_asignacion_compleja(p):
     '''
-    asignacion_compleja : usfunc asatr asignacion_funcion
+    asignacion_compleja : usfunc asignacion_funcion
     '''
 
 def p_usfunc(p):
     '''
     usfunc : ID
     '''
+    print("IDGLOBALCURRFUNC")
+    print(p[1])
     global callfunc
     callfunc = p[1]
     bex = dirVar.verify(p[1])
     if (bex):
         cuads.createERA(p[1])
 
-
+"""
 ##### NO USADA EN ESTA VERSIÓN
 def p_asignacion_compleja_aux(p):
     '''
-    asignacion_compleja_aux : asignacion_funcion
+    asignacion_compleja_aux : it asisgnacion_funcion
                             | asignacion_metodo
     '''
 ####
+"""
 
 def p_asignacion_funcion(p):
     '''
     asignacion_funcion : SEP_LPAREN args SEP_RPAREN valnull
     '''
+    print("signnnnnnnnnaaaaaaaaaaaaaaaaaaaaa")
 
 def p_valnull(p):
     '''
@@ -983,6 +987,7 @@ def p_valnull(p):
     '''
     global callfunc
     par = dirVar.getParametersfunc(callfunc)
+    print("saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     if(cuads.valnull(par)):
         print("Todo bien")
         cuads.createGOSUB(callfunc)
@@ -997,7 +1002,7 @@ def p_valnull(p):
         print("2 No todo bien")
         cuads.asignval(callfunc, dirVar.getfunctype(callfunc))
 
-### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
+
 def p_asignacion_metodo(p):
     '''
     asignacion_metodo : OP_DOT ID asignacion_funcion
@@ -1014,6 +1019,8 @@ def p_validateparam(p):
     validateparam : empty
     '''
     global callfunc
+    print("caaaaaaaaaaaaaaaaaaaaaaallll")
+    print(callfunc)
     par = dirVar.getParametersfunc(callfunc)
     cuads.valparams(par)
 
@@ -1025,6 +1032,7 @@ def p_argsaux(p):
     argsaux : SEP_COMMA hyper_exp validateparam argsaux
             | empty
     '''
+
 
 def p_lectura(p):
     '''
@@ -1070,6 +1078,7 @@ def p_llamadavoid(p):
     '''
     llamadavoid : usfunc asatr SEP_LPAREN args SEP_RPAREN valnull SEP_SEMICOLON
     '''
+    print("llamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadavoid")
 
 def p_voididt(p):
     '''
@@ -1295,7 +1304,7 @@ def p_gensumres(p):
     
 def p_termino(p):
     '''
-    termino : factor terminoaux
+    termino : it factor terminoaux
     '''
     print("term")
     ############################################################
@@ -1321,11 +1330,17 @@ def p_factor(p):
     '''
     factor : SEP_LPAREN hyper_exp SEP_RPAREN
            | cteidcall
-           | cteidcall_atributo_metodo
+           | separadorarrfunc
     '''
 
+def p_its(p):
+    '''
+    its : empty
+    '''
+    print("ÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ")
 
-  #QUITE sign antes de cteidcall  
+
+
 """
 def p_sign(p):
     '''
@@ -1369,6 +1384,13 @@ def p_cteidcall(p):
     
   #print("SSSSSSSSSSSSSSSSS")
     #print(p[1])
+
+def p_separadorarrfunc(p):
+    '''
+    separadorarrfunc : asignacion_compleja
+                     | cteidcall_atributo_metodo
+    '''
+
 
 #Factorización por la izq de ID asatr y llamadafuncionmetodo
 def p_cteidcall_atributo_metodo(p):
@@ -1483,16 +1505,18 @@ def p_var_id_aux(p):
 
 def p_aux_accesoarray(p):
   '''
-  aux_accesoarray : asatr cteidcall_am_aux
-                  | acceso_array
+  aux_accesoarray : acceso_array
+                  | asatr cteidcall_am_aux
   '''
 
-# asignacion_funcion ---> SEP_LPAREN  SEP_RPAREN
+
 def p_cteidcall_am_aux(p):
   '''
   cteidcall_am_aux : asignacion_funcion
-                    | empty
+                | empty
   '''
+
+
 ################### NO SE USA
 #def p_typeidf(p):
 '''
@@ -1792,8 +1816,8 @@ try:
     print(dirVar.dirClases)
     
     print("\nvars hw2:\n")
-    for key in dirVar.dirFunciones["helloWorld2"].localVar:
-      print(key, dirVar.dirFunciones["helloWorld2"].localVar[key].__dict__)
+    for key in dirVar.dirFunciones["helloW2"].localVar:
+      print(key, dirVar.dirFunciones["helloW2"].localVar[key].__dict__)
 
     print("\nvars globales:\n")
     for key in dirVar.dirglobalVar:
@@ -1826,4 +1850,6 @@ except:
       print(key, dirVar.dirglobalVar[key].__dict__)
     
 
+cuads.addCounter()
 cuads.printCuads()
+#print(cuads.cuads)

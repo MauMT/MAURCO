@@ -1,9 +1,6 @@
 Tabla de variables (metodos clases quitar)
 9   ################################## 
 
-Tipos aritmeticos con memoria
-1  ################################ Importante
-
 Maquina virtual
 7 ################################ Despues de memoria
 
@@ -11,7 +8,7 @@ version de documentacion
 8   ################################ Despues de maquina virtual
 
 
-fallas del return con int si es la misma variable.
+fallas del return con int si es la misma variable.(no existe current funcion en el scope)
 
 
 ********************************************************************
@@ -32,3 +29,15 @@ fallas del return con int si es la misma variable.
 Arreglos no verifican antes de asignar
 
 No se genera correctamente las funciones
+
+Tipos aritmeticos con memoria
+1  ################################ Importante7
+
+params no genera cuads
+
+asignacion
+
+
+
+
+

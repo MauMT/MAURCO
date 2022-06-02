@@ -6,8 +6,8 @@ vars
     int i;
     float valor, y;
     char msg;
-    int x, a, b, z, j;
-    int arr[4], f;
+    int x, a, b, z, j, f;
+    int arr[4];
     int mat[2][3], q;
 }
 
@@ -22,7 +22,7 @@ print(msg)
 }
 
 
-void func helloWorld2()
+int func helloW2(int s)
 vars
 int f;
 int mat[2][3], q;
@@ -30,7 +30,7 @@ int mat[2][3], q;
 {
   print(f)
   f = 1;
-  return;
+  return(f);
 }
 
 
@@ -54,6 +54,8 @@ main(){
       a = (x+5);
     }
     helloWorld();
+    a = (x+5);
+    a = helloW2(5+1);
     while(i<3) do {
       i = (i+1);
       print(2)
@@ -63,5 +65,6 @@ main(){
       i = 3;
     }
     a = 0;
+    
 }
 end

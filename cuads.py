@@ -388,22 +388,37 @@ def createERA(nombre):
   cuads.append(("ERA", nombre, " ", " "))
   global conttipos
   conttipos = 0
+  print("ERAAAAAAA")
 
 def valparams(params):
+  print("dentrodepilatipos")
   #validar tipo
-  #global conttipos
-  #if pilatipos == params[conttipos]
-  #conttipos += 1
-  cuads.append("PARAM", cuads[len(cuads)-1][3] , " ", ("param"+str(conttipos)))
+  global conttipos
+  print(pTipos[-1])
+  if(params):
+    if pTipos[-1] == params[conttipos]:
+      conttipos += 1
+      print("sientra")
+      print(pOperandos[-1])
+      vfin = ("param"+str(conttipos))
+      print(vfin)
+      cuads.append(("PARAM", pOperandos.pop() ," ", vfin))
+      print("finaliza")
+    else:
+      print("errorparam")
+  else:
+    print("There are no params")
 
 def valnull(params):
   #global conttipos
-  #if(len(params) == conttipos):
-  return True
-  #else:
-  #return False
+  if(len(params) == conttipos):
+    return True
+  else:
+    return False
 
 def createGOSUB(nombre):
+  print(nombre)
+  print("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
   cuads.append(("GOSUB", nombre, " ", " "))
 
 
@@ -501,15 +516,20 @@ def getTempCounter():
   return tempcounter
 
 
-def printCuads():
+#add counter to each element in cuads
+def addCounter():
   cuadCounter = 0
-  # print cuads as a formatted table
+  for el1, el2, el3, el4 in cuads:
+      cuads[cuadCounter] = (cuadCounter, el1, el2, el3, el4)
+      cuadCounter+=1
+
+# prints cuads as a formatted table
+def printCuads():
   print ("\n\n\n")
   print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format("cuad","op","v1","v2","vf"))
   print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format("----","--","---","---","---"))
-  for el1, el2, el3, el4 in cuads:
+  for cuadCounter, el1, el2, el3, el4 in cuads:
       print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format(cuadCounter,el1,el2,el3,el4))
-      cuadCounter+=1
 
 
 '''

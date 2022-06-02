@@ -126,7 +126,7 @@ def getfunctype(nomFuncion):
     if nomFuncion in dirFunciones:
         return dirFunciones[nomFuncion].tipoFuncion
     else:
-        print("no existe la funcion")
+        print("functype no existe la funcion")
 
 """
 #currID.put(p[1], isMat, isArr, arrLength) Tipo
@@ -160,6 +160,7 @@ def verify(nomFuncion):
 
 def getParametersfunc(nomFuncion):
     if nomFuncion in dirFunciones:
+        print(dirFunciones[nomFuncion].parameters)
         return dirFunciones[nomFuncion].parameters
     else:
         print("no existe la funcion")
