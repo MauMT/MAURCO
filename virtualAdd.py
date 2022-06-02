@@ -14,7 +14,7 @@ Tgf = 17000
 
 # Inicio de direcciones para constantes
 Ci = 23000
-Cf = 24000
+Cf = 24000 #hasta 25,000
 
 def getCurrentGlobalAddressInt():
   return Gi

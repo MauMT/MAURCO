@@ -90,7 +90,7 @@ def validar():
     #agregar resultado en pOperandos
     agregarID(result_addr)
     print("agreegarid")
-    dirVar.agregarglobalVariable(result_addr, [] ,result_type)
+    #dirVar.agregarglobalVariable(result_addr, [] ,result_type)
     
     #agregar resultadotipo en pTipospo
 
@@ -161,35 +161,40 @@ REVISAR ESTO
 def auxAsignacion(currFuncion): 
 
     right = ''
-    print("rOp assign ", right)
+    #print("rOp assign ", right)
 
     left = pOperandos.pop()
-
     leftType = pTipos.pop()
     print("leftType", leftType)
 
+    result = pOperandos.pop()
     resultType = pTipos.pop()
-    print("rtype", resultType)
+    print("resOp assign ", result)
+    print("rtype -", resultType)
+
+    print("tamaño pTipos", len(pTipos))
+    print("tamaño pOperandos", len(pOperandos))
 
     print("lOp assign ", left)
-    result = pOperandos.pop()
-    print("rOp assign ", result)
+    
   
     #operador
     oper = pOperadores.pop()
     print(oper)
 
-    result_type = semantic[leftType][oper][resultType]
+    result_type = semantic[resultType][oper][leftType]
     print(result_type)
     print("sensual")
 
+    if result_type == "error":
+      print("No se puede asignar un tipo '{}' a un tipo '{}'".format(leftType, resultType))
+      raise Exception("No se puede asignar un tipo '{}' a un tipo '{}'".format(leftType, resultType))
     #agregarTipo(result_type)
 
     #agregar un valor a temp counter
     #generar cuadruplo
 
-    #result_type = if
-    """ myAddress = None
+    myAddress = None
     if dirVar.getlocalVariable(currFuncion, result) == None:
       if dirVar.getglobalVariable(result) == None:
         print("error en la busqueda")
@@ -197,9 +202,9 @@ def auxAsignacion(currFuncion):
       else:
        myAddress = dirVar.getglobalVariable(result).direccion
     else:
-      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion """
+      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion
 
-    cuads.append((oper, left, right, result))
+    cuads.append((oper, left, right, myAddress))
     print(cuads)
     #agregarID(result_addr)
 
@@ -501,16 +506,21 @@ def getTempCounter():
   return tempcounter
 
 
-def printCuads():
+#add counter to each element in cuads
+def addCounter():
   cuadCounter = 0
-  # print cuads as a formatted table
+  for el1, el2, el3, el4 in cuads:
+      cuads[cuadCounter] = (cuadCounter, el1, el2, el3, el4)
+      cuadCounter+=1
+  cuads.append((cuadCounter, "END", " ", " ", " "))
+
+# prints cuads as a formatted table
+def printCuads():
   print ("\n\n\n")
   print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format("cuad","op","v1","v2","vf"))
   print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format("----","--","---","---","---"))
-  for el1, el2, el3, el4 in cuads:
+  for cuadCounter, el1, el2, el3, el4 in cuads:
       print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format(cuadCounter,el1,el2,el3,el4))
-      cuadCounter+=1
-
 
 '''
 myAddress = None

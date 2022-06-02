@@ -236,6 +236,10 @@ def setGlobalVarAddress(nombre, dir):
     else:
         print("no existe la variable")
 
+
+def calcularMemoriaVariablesGlobales():
+    return dirglobalVar
+
 dirglobalVar = {}
 #adentro puede haber objetos de la clase que esten instanciados
 #agregarobjeto
@@ -252,7 +256,8 @@ dirClases = {}
 
 dirConstantes = {}
 
-
+numCasillasIntGlobales = 0
+numCasillasFloatGlobales = 0
 
 '''
 agregarFuncion("hola", "int")

@@ -1,0 +1,28 @@
+program Expresion;
+
+
+vars
+{
+    int i;
+    float valor, y;
+    char msg;
+    int x, a, b, z, j;
+    int arr[4], f;
+    int mat[2][3], q;
+}
+
+
+
+main(){
+    
+    x = 1 + 2 + 3 + 4 + 5 ;
+    a = (x+5);
+    
+    y = b*(5 + 2.3);
+    z = 11*78;
+    print(z+3/5)
+    
+    a = 0;
+    
+}
+end

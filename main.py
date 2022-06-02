@@ -825,10 +825,35 @@ def p_valasigaux(p):
   global arrExp
   global isMat
   currentID = p[1]
+
+
+  if(currFuncion == None):
+    print("es none")
+    tipo = dirVar.getglobalVariable(currentID).tipoVariable()
+    print("pek", tipo)
+    if(tipo == None):
+        print("ERROR NO EXISTE LA VARIABLE")
+  else:
+      tipo = dirVar.getlocalVariable(currFuncion, currentID).tipoVariable()
+      if(tipo == None):
+        tipo = dirVar.getglobalVariable(currentID).tipoVariable()
+        if(tipo == None):
+            #NO EXISTE
+            print("ERROR NO EXISTE LA VARIABLE")
+
+  """ if dirVar.getlocalVariable(currFuncion, result) == None:
+      if dirVar.getglobalVariable(result) == None:
+        print("error en la busqueda")
+        raise Exception("variable no existe we")
+      else:
+       myAddress = dirVar.getglobalVariable(result).direccion
+  else:
+      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion """
+
   print("prueba ID --- ", currentID)
-  print("tipo id --- ", currTipo)
+  print("tipo id --- ", tipo)
   cuads.agregarID(currentID)
-  cuads.agregarTipo(currTipo)
+  cuads.agregarTipo(tipo)
 
   #verificar que ID tiene dimensiones y tipo
   print("1")
@@ -1768,7 +1793,7 @@ def p_relCurr(p):
 
 
 
-file = open("basic_test.txt", 'r')
+file = open("exp_test.txt", 'r')
 
 #lexer.input("program primero ")
 
@@ -1791,9 +1816,9 @@ try:
     print("Dirclases")
     print(dirVar.dirClases)
     
-    print("\nvars hw2:\n")
+    """ print("\nvars hw2:\n")
     for key in dirVar.dirFunciones["helloWorld2"].localVar:
-      print(key, dirVar.dirFunciones["helloWorld2"].localVar[key].__dict__)
+      print(key, dirVar.dirFunciones["helloWorld2"].localVar[key].__dict__) """
 
     print("\nvars globales:\n")
     for key in dirVar.dirglobalVar:
@@ -1826,4 +1851,8 @@ except:
       print(key, dirVar.dirglobalVar[key].__dict__)
     
 
+cuads.addCounter()
 cuads.printCuads()
+
+print(cuads.cuads)
+print("size dirglobalVar", len(dirVar.dirglobalVar))
