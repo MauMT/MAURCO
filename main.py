@@ -1390,26 +1390,29 @@ def p_cteidcall_atributo_metodo(p):
   print("2")
   #print(currentID)
 
-  '''
+  
   auxDir = None
   if(currFuncion == None):
     print("es non1e")
     arrVar = dirVar.getglobalVariable(currentID)
+    auxDir = arrVar.direccion
     print(arrVar.__dict__)
     if(arrVar == None):
         print("ERROR NO EXISTE LA VARIABLE")
         raise Exception("No existe la variable")
   else:
       arrVar = dirVar.getlocalVariable(currFuncion, currentID)
+      auxDir = arrVar.direccion
       if(arrVar == None):
         arrVar = dirVar.getglobalVariable(currentID)
+        auxDir = arrVar.direccion
         if(arrVar == None):
             #NO EXISTE
             print("ERROR NO EXISTE LA VARIABLE")
             raise Exception("No existe la variable")
-      auxDir = arrVal.direccion
-'''
-  myAddress = None 
+  
+  
+  """ myAddress = None 
   #if currFuncion == None
   if dirVar.getlocalVariable(currFuncion, result) == None:
       if dirVar.getglobalVariable(result) == None:
@@ -1418,12 +1421,13 @@ def p_cteidcall_atributo_metodo(p):
       else:
        myAddress = dirVar.getglobalVariable(result).direccion
   else:
-      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion
+      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion 
+  """
   print("auxDir", auxDir, currentID)
   print("3")
   #verificar si es un arreglo o matriz
   if(len(arrVar.length)==0):
-    #ES UNA VARIABLE NORMAL
+    cuads.pOperandos[-1] = auxDir
     print("normal")
   else:
     cuads.pOperandos.pop()

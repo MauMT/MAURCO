@@ -153,6 +153,8 @@ def cuadsor():
       #print(pOperandos)
       print("no-or")
 
+
+
 '''
 REVISAR ESTO
 '''
@@ -187,7 +189,7 @@ def auxAsignacion(currFuncion):
     #generar cuadruplo
 
     #result_type = if
-    myAddress = None
+    """ myAddress = None
     if dirVar.getlocalVariable(currFuncion, result) == None:
       if dirVar.getglobalVariable(result) == None:
         print("error en la busqueda")
@@ -195,9 +197,9 @@ def auxAsignacion(currFuncion):
       else:
        myAddress = dirVar.getglobalVariable(result).direccion
     else:
-      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion
+      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion """
 
-    cuads.append((oper, left, right, myAddress))
+    cuads.append((oper, left, right, result))
     print(cuads)
     #agregarID(result_addr)
 
