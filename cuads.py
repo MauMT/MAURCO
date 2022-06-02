@@ -69,6 +69,8 @@ def validar():
     #result type checar semantica con cubo
     result_type = semantic[leftType][oper][rightType]
     print(result_type)
+    
+    agregarTipo(result_type)
 
     #agregar un valor a temp counter
     #generar cuadruplo

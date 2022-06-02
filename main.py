@@ -820,10 +820,6 @@ def p_valasigaux(p):
   '''
   valasigaux : ID valasign_aux2
   '''
-  ####NO FUNCIONA CON ARREGLOS
-  #print("valasigaux--- ", p[1])currentID = p[1]
-  #cuads.agregarID(currentID)
-  #print("pipipipipiop", cuads.pOperandos)
 
   global isArr
   global arrExp
@@ -1353,6 +1349,9 @@ def p_cteidcall(p):
     #cuads.agregarConst(currVal)
     cuads.agregarConst(auxDir)
     cuads.agregarTipo(currTipo)
+    print("fffffffffffffffffffffffffffffffffffffffffffffffffffff")
+    print(currVal)
+    print(currTipo)
     
     
   #print("SSSSSSSSSSSSSSSSS")

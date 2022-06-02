@@ -21,19 +21,11 @@ print(msg)
 }
 
 
-int func helloWorld2()
-vars
-int f;
 
-{
-  print(f)
-  f = 1;
-  return(5);
-}
 
 
 main(){
-    x = 1 + 2 ;
+    x = 1 + 2 + 3 + 4 + 5 ;
     a = (x+5);
 
     arr[1] = 3;
