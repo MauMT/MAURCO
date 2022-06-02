@@ -69,23 +69,28 @@ def validar():
     #result type checar semantica con cubo
     result_type = semantic[leftType][oper][rightType]
     print(result_type)
-    
+
     agregarTipo(result_type)
 
     #agregar un valor a temp counter
     #generar cuadruplo
-    result = "t" + str(tempcounter)
-    tempcounter = tempcounter +1
+
+    if result_type == "int":
+      result_addr = virtualAdd.getGlobalTempAddressInt()
+    elif result_type == "float":
+      result_addr = virtualAdd.getGlobalTempAddressFloat()
+    else:
+      print("errorvalidar")
     
 
 
-    cuads.append((oper, left, right, result))
+    cuads.append((oper, left, right, result_addr))
     print(cuads)
 
     #agregar resultado en pOperandos
-    agregarID(result)
-    print("agregarid")
-    dirVar.agregarglobalVariable(result, [] ,"float")
+    agregarID(result_addr)
+    print("agreegarid")
+    dirVar.agregarglobalVariable(result_addr, [] ,result_type)
     
     #agregar resultadotipo en pTipospo
 
@@ -151,31 +156,62 @@ def cuadsor():
 '''
 REVISAR ESTO
 '''
-def auxAsignacion(): 
+def auxAsignacion(currFuncion): 
 
     right = ''
     print("rOp assign ", right)
 
     left = pOperandos.pop()
+
+    leftType = pTipos.pop()
+    print("leftType", leftType)
+
+    resultType = pTipos.pop()
+    print("rtype", resultType)
+
     print("lOp assign ", left)
     result = pOperandos.pop()
-    print("lOp assign ", result)
+    print("rOp assign ", result)
   
     #operador
     oper = pOperadores.pop()
     print(oper)
 
-    cuads.append((oper, left, right, result))
+    result_type = semantic[leftType][oper][resultType]
+    print(result_type)
+    print("sensual")
+
+    #agregarTipo(result_type)
+
+    #agregar un valor a temp counter
+    #generar cuadruplo
+
+    #result_type = if
+    myAddress = None
+    if dirVar.getlocalVariable(currFuncion, result) == None:
+      if dirVar.getglobalVariable(result) == None:
+        print("error en la busqueda")
+        raise Exception("variable no existe we")
+      else:
+       myAddress = dirVar.getglobalVariable(result).direccion
+    else:
+      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion
+
+    cuads.append((oper, left, right, myAddress))
     print(cuads)
+    #agregarID(result_addr)
+
+    #######################################################
+#######NO SE DIRECCION
+    #######################################################
+
     
-    dirVar.agregarglobalVariable(result,[],"float")
-    print(dirVar.dirglobalVar)
     #agregar resultado en pOperandos
-    #agregarID(result)
+    #agrsegarID(result)
     #agregar resultadotipo en pTipospo
 '''----------------------------------------------'''
 
-def cuadsasignacion():
+def cuadsasignacion(currFuncion):
   if not pOperadores:
     print("empty")
   else:
@@ -183,7 +219,7 @@ def cuadsasignacion():
       print("yes-assign")
       global tempcounter
       #tempcounter = tempcounter + 1
-      auxAsignacion()
+      auxAsignacion(currFuncion)
     else:
       #print(pOperandos)
       print("no-assign")
@@ -278,9 +314,10 @@ def ciclowhile3():
 
 
 def ciclofrom1(x):
+ 
   agregarID(x)
-  #validar que el tipo de ID sea numerico
-  #pTipos
+  agregarTipo("int")
+
 
 def ciclofrom2():
   checktype = pTipos.pop()
@@ -380,55 +417,77 @@ def cReturn():
   cuads.append(("RETURN", " ", " ", valret))
   #return valret
 
-def asignval(callfunc):
-  global tempcounter
-  result = "t" + str(tempcounter)
-  tempcounter = tempcounter +1
-  cuads.append(("=", callfunc, " ", result))
+def asignval(callfunc, tipo):
+
+  if tipo == "int":
+    result_addr = virtualAdd.getGlobalTempAddressInt()
+  elif tipo == "float":
+    result_addr = virtualAdd.getGlobalTempAddressFloat()
+  else:
+    print("errorASSIGN")
+    
+  cuads.append(("=", callfunc, " ", result_addr))
 
 
+"""
+  if tipo == "int":
+    result_addr = virtualAdd.getGlobalTempAddressInt()
+  elif tipo == "float":
+    result_addr = virtualAdd.getGlobalTempAddressFloat()
+  else:
+    print("error")
+  """
+
+def getConstantAddressbyValue(currVal, currTipo):
+  if currVal in dirVar.dirConstantes:
+    auxDir = dirVar.dirConstantes[currVal]
+  else:
+    if currTipo == "int":
+      auxDir = virtualAdd.getConstantAddressInt()
+    elif currTipo == "float":
+      auxDir = virtualAdd.getConstantAddressFloat()
+    dirVar.dirConstantes[currVal] = auxDir
+  return auxDir
 
 
 ######################################################
 #ARREGLOS
 ######################################################
 def arrVerifica(val, rango):
-  cuads.append(("VER", val, "0", rango-1))
+  
+  cero = getConstantAddressbyValue(0, "int")
+  limite = getConstantAddressbyValue(rango-1, "int")
+  cuads.append(("VER", val, cero, limite))
+
 
 def arrMult(s1, m1):
-  global tempcounter
-  result = "t" + str(tempcounter)
-  tempcounter = tempcounter +1
+  result = virtualAdd.getGlobalTempAddressInt()
   cuads.append(("*", s1, m1, result))
   agregarID(result)
+  agregarTipo("int")
 
 def arrSumaMult(s2):
-  global tempcounter
-  result = "t" + str(tempcounter)
-  tempcounter = tempcounter +1
+  result = virtualAdd.getGlobalTempAddressInt()
   val = pOperandos.pop()
   cuads.append(("+", s2, val, result))
   agregarID(result)
+  agregarTipo("int")
 
 
 
 def sumaDirBase(direccion):
-  direccion = 150222
   print(direccion)
-  #print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
-  global tempcounter
-  result = "t" + str(tempcounter)
+  result = virtualAdd.getGlobalTempAddressInt()
   cuads.append(("+", direccion, pOperandos.pop(), result))
   agregarID(result)
+  agregarTipo("int")
 
 def sumaDirBasearr(temp, direccion):
-  direccion = 150222
   print(direccion)
-  #print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
-  global tempcounter
-  result = "t" + str(tempcounter)
+  result = virtualAdd.getGlobalTempAddressInt()
   cuads.append(("+", direccion, temp, result))
   agregarID(result)
+  agregarTipo("int")
 
 ######################################################
 #PRINT
@@ -449,3 +508,31 @@ def printCuads():
   for el1, el2, el3, el4 in cuads:
       print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format(cuadCounter,el1,el2,el3,el4))
       cuadCounter+=1
+
+
+'''
+myAddress = None
+result = 'f'
+currFuncion = 'helloWorld2'
+
+dirVar.agregarFuncion('helloWorld2', "int")
+dirVar.agregarlocalVariable('helloWorld2', result, [], "int", False)
+dirVar.getlocalVariable(currFuncion, result).direccion = 9999
+
+
+dirVar.agregarglobalVariable(result, [], "int")
+dirVar.getglobalVariable(result).direccion = 1111
+
+if dirVar.getlocalVariable(currFuncion, result) == None:
+  if dirVar.getglobalVariable(result) == None:
+    print("error en la busqueda")
+    raise Exception("variable no existe we")
+  else:
+   print("global")
+   myAddress = dirVar.getglobalVariable(result).direccion
+else:
+  print("local")
+  myAddress = dirVar.getlocalVariable(currFuncion, result).direccion
+
+print(myAddress)
+'''

@@ -10,9 +10,6 @@ Maquina virtual
 version de documentacion
 8   ################################ Despues de maquina virtual
 
-Arreglos no verifican antes de asignar
-
-No se genera correctamente las funciones
 
 fallas del return con int si es la misma variable.
 
@@ -31,3 +28,7 @@ fallas del return con int si es la misma variable.
 
 - arreglar count de goto
 4  #################################Contadores erroneos
+
+Arreglos no verifican antes de asignar
+
+No se genera correctamente las funciones

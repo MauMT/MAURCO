@@ -813,7 +813,7 @@ def p_asignacion(p):
     
     currOper = p[2]
     cuads.agregarOperador(currOper)
-    cuads.cuadsasignacion()
+    cuads.cuadsasignacion(currFuncion)
     
   
 def p_valasigaux(p):
@@ -828,6 +828,7 @@ def p_valasigaux(p):
   print("prueba ID --- ", currentID)
   print("tipo id --- ", currTipo)
   cuads.agregarID(currentID)
+  cuads.agregarTipo(currTipo)
 
   #verificar que ID tiene dimensiones y tipo
   print("1")
@@ -861,6 +862,18 @@ def p_valasigaux(p):
     print(arrExp)
     print(len(arrVar.length))
     print("lengths arrvar")
+
+
+    myAddress = None
+    if dirVar.getlocalVariable(currFuncion, currentID) == None:
+        if dirVar.getglobalVariable(currentID) == None:
+            print("error en la busqueda")
+            raise Exception("variable no existe we")
+        else:
+            myAddress = dirVar.getglobalVariable(currentID).direccion
+    else:
+        myAddress = dirVar.getlocalVariable(currFuncion, currentID).direccion
+
     if(len(arrExp)==len(arrVar.length)):
         if(len(arrVar.length)==1):
             print("aqui entra arrvar1")
@@ -874,7 +887,7 @@ def p_valasigaux(p):
 
             ##############AQUI HAY UNA DIRECCION FALSA HAY QUE CAMBIARLA 27/05
 
-            cuads.sumaDirBasearr(arrExp[0], 3)
+            cuads.sumaDirBasearr(arrExp[0], myAddress)
             print("no hay 4")
 
         else:
@@ -890,7 +903,7 @@ def p_valasigaux(p):
             print("6")
             cuads.arrSumaMult(arrExp[1])
             print("7")
-            cuads.sumaDirBase(3)
+            cuads.sumaDirBase(myAddress)
             print("8")
             #crear cuadruplo de multiplicacion
     else:
@@ -927,7 +940,7 @@ def p_asignacion_simple(p):
   asignacion_simple : hyper_exp
                     | array_inside
   '''
-  #cuads.cuadsasignacion()
+
 
 def p_asatr(p):
       '''
@@ -982,7 +995,7 @@ def p_valnull(p):
         print("1 No todo bien")
     else:
         print("2 No todo bien")
-        cuads.asignval(callfunc)
+        cuads.asignval(callfunc, dirVar.getfunctype(callfunc))
 
 ### cambié SEP_LPAREN arg SEP_RPAREN por asignacion_funcion
 def p_asignacion_metodo(p):
@@ -1376,11 +1389,16 @@ def p_cteidcall_atributo_metodo(p):
   #currTID = cuads.pTipos.pop()
   print("2")
   #print(currentID)
+
+  '''
+  auxDir = None
   if(currFuncion == None):
-    print("es none")
+    print("es non1e")
     arrVar = dirVar.getglobalVariable(currentID)
+    print(arrVar.__dict__)
     if(arrVar == None):
         print("ERROR NO EXISTE LA VARIABLE")
+        raise Exception("No existe la variable")
   else:
       arrVar = dirVar.getlocalVariable(currFuncion, currentID)
       if(arrVar == None):
@@ -1388,7 +1406,20 @@ def p_cteidcall_atributo_metodo(p):
         if(arrVar == None):
             #NO EXISTE
             print("ERROR NO EXISTE LA VARIABLE")
-
+            raise Exception("No existe la variable")
+      auxDir = arrVal.direccion
+'''
+  myAddress = None
+  #if currFuncion == None
+  if dirVar.getlocalVariable(currFuncion, result) == None:
+      if dirVar.getglobalVariable(result) == None:
+        print("error en la busqueda")
+        raise Exception("variable no existe we")
+      else:
+       myAddress = dirVar.getglobalVariable(result).direccion
+  else:
+      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion
+  print("auxDir", auxDir, currentID)
   print("3")
   #verificar si es un arreglo o matriz
   if(len(arrVar.length)==0):
@@ -1510,7 +1541,7 @@ def p_typefun(p):
   dirVar.initFunction(currFuncion, insContcuad, primtempcont)
   dirVar.agregartemp(currFuncion, finaltemp)
 
-  if(p[1] == "VOID"):
+  if(p[1] == "void"):
     print("hola")
     #valred
   else:
@@ -1763,6 +1794,11 @@ try:
     print("\nvars globales:\n")
     for key in dirVar.dirglobalVar:
       print(key, dirVar.dirglobalVar[key].__dict__)
+
+    print("\ndirConstantes\n")
+    for key in dirVar.dirConstantes:
+      print(dirVar.dirConstantes[key], key)
+    print("\n")
     #a = (dirVar.getFuncion("helloWorld"))
     #print(a._dict_)
     #b = a["localVar"]
@@ -1776,6 +1812,14 @@ try:
     print("Correct syntax")
 except:
     print(f'Syntax error')
+    print("\ndirConstantes\n")
+    for key in dirVar.dirConstantes:
+      print(dirVar.dirConstantes[key], key)
+    print("\n")
+
+    print("\nvars globales:\n")
+    for key in dirVar.dirglobalVar:
+      print(key, dirVar.dirglobalVar[key].__dict__)
     
 
 cuads.printCuads()

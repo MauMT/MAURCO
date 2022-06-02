@@ -1,4 +1,4 @@
-import cuads
+
 
 class variable:
     def __init__(self, tipovar, length):
@@ -253,7 +253,7 @@ dirClases = {}
 dirConstantes = {}
 
 
-agregarglobalVariable("alex", [],"int")
+
 '''
 agregarFuncion("hola", "int")
 agregarFuncion("adios", "float")

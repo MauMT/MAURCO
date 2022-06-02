@@ -8,12 +8,13 @@ vars
     char msg;
     int x, a, b, z, j;
     int arr[4], f;
-    int mat[2][3];
+    int mat[2][3], q;
 }
 
 void func helloWorld()
 vars
 int msg;
+
 
 {
 print(msg)
@@ -21,7 +22,16 @@ print(msg)
 }
 
 
+void func helloWorld2()
+vars
+int f;
+int mat[2][3], q;
 
+{
+  print(f)
+  f = 1;
+  return;
+}
 
 
 main(){
