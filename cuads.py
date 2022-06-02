@@ -380,6 +380,18 @@ def ciclofrom4():
 #CUADS FUNCIONES
 ######################################################
 
+
+def lectInp():
+
+  cuads.append(("INPUT", " ", " ", pOperandos.pop()))
+  pTipos.pop()
+
+#def escPri():
+
+
+
+######################################################
+
 def endfunc():
   cuads.append(("ENDFUNC", " ", " ", " "))
 

@@ -1036,14 +1036,21 @@ def p_argsaux(p):
 
 def p_lectura(p):
     '''
-    lectura : INPUT SEP_LPAREN ID lectaux SEP_RPAREN SEP_SEMICOLON
+    lectura : INPUT SEP_LPAREN valasigaux cuadsinput lectaux  SEP_RPAREN SEP_SEMICOLON
     '''
+    print("LECTURA")
 
 def p_lectaux(p):
     '''
-    lectaux : SEP_COMMA ID lectaux
+    lectaux : SEP_COMMA valasigaux cuadsinput lectaux
             | empty
     '''
+
+def p_cuadsinput(p):
+    '''
+    cuadsinput : empty
+    '''
+    cuads.lectInp()
 
 def p_escritura(p):
     '''
