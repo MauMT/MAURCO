@@ -6,7 +6,7 @@ vars
     int i;
     float valor, y;
     char msg;
-    int x, a, b, z, j, f, n, aux;
+    int x, a, b, z, j;
     int arr[4];
     int mat[2][3], q;
 }
@@ -31,6 +31,7 @@ int mat[2][3], q;
   f = 1;
   return(f);
 }
+
 
 int func fact(int n)
 vars
@@ -83,6 +84,6 @@ main(){
 
     print(2);
     print(3);
-    input(x, a , f);
+    input(x, a);
 }
 end

@@ -158,7 +158,7 @@ def cuadsor():
 '''
 REVISAR ESTO
 '''
-def auxAsignacion(currFuncion): 
+def auxAsignacion(): 
 
     right = ''
     #print("rOp assign ", right)
@@ -217,7 +217,7 @@ def auxAsignacion(currFuncion):
     #agregar resultadotipo en pTipospo
 '''----------------------------------------------'''
 
-def cuadsasignacion(currFuncion):
+def cuadsasignacion():
   if not pOperadores:
     print("empty")
   else:
@@ -225,7 +225,7 @@ def cuadsasignacion(currFuncion):
       print("yes-assign")
       global tempcounter
       #tempcounter = tempcounter + 1
-      auxAsignacion(currFuncion)
+      auxAsignacion()
     else:
       #print(pOperandos)
       print("no-assign")
