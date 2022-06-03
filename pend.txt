@@ -7,9 +7,7 @@ Maquina virtual
 version de documentacion
 8   ################################ Despues de maquina virtual
 
-
-fallas del return con int si es la misma variable.(no existe current funcion en el scope)
-
+print char
 
 ********************************************************************
 
@@ -35,7 +33,12 @@ Tipos aritmeticos con memoria
 
 params no genera cuads
 
-asignacion
+
+
+print e input
+
+fallas del return con int si es la misma variable.(no existe current funcion en el scope)
+
 
 
 

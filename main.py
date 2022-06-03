@@ -835,7 +835,8 @@ def p_valasigaux(p):
 
 
   if(currFuncion == None):
-    print("es none")
+    print("es none valasig")
+    print(currentID)
     tipo = dirVar.getglobalVariable(currentID).tipoVariable()
     print("pek", tipo)
     if(tipo == None):
@@ -1457,7 +1458,8 @@ def p_cteidcall_atributo_metodo(p):
 
 
   if(currFuncion == None):
-    print("es none")
+    print("es none cteid")
+    print(currentID)
     tipo = dirVar.getglobalVariable(currentID).tipoVariable()
     print("pek", tipo)
     if(tipo == None):
@@ -1661,6 +1663,7 @@ def p_typefun(p):
       tup = currTypeID.get()
       #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
       #dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
+      print("VAAAAAAAAAAAR LOCAAAAAAAAAAAAAL")
       print("curr0:", tup[0], tup[1], tup[2], tup[3])
       
       tipo = tup[2]
@@ -1733,6 +1736,7 @@ def p_paramsfuncreate(p):
     print("paramsmnv")
     print(p[2])
     global arrLength
+    global currTipo
     currID.put((p[2], arrLength))
 
     curr = currID.get()
@@ -1929,6 +1933,16 @@ except:
     print("\nvars globales:\n")
     for key in dirVar.dirglobalVar:
       print(key, dirVar.dirglobalVar[key].__dict__)
+
+
+    print("\nvars hw2:\n")
+    for key in dirVar.dirFunciones["helloW2"].localVar:
+      print(key, dirVar.dirFunciones["helloW2"].localVar[key].__dict__)
+
+
+    print("\nvars fact:\n")
+    for key in dirVar.dirFunciones["factorial"].localVar:
+      print(key, dirVar.dirFunciones["factorial"].localVar[key].__dict__)
     
 
 cuads.addCounter()

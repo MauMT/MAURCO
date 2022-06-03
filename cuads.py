@@ -516,6 +516,8 @@ def arrSumaMult(s2):
 
 
 def sumaDirBase(direccion):
+  print("tamaño pTipos", len(pTipos))
+  print("tamaño pOperandos", len(pOperandos))
   print(direccion)
   result = virtualAdd.getGlobalTempAddressInt()
   cuads.append(("+", direccion, pOperandos.pop(), result))
