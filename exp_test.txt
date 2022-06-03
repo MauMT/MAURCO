@@ -1,0 +1,32 @@
+program Expresion;
+
+
+vars
+{
+    int i;
+    float valor, y;
+    char msg;
+    int x, a, b, z, j;
+    int arr[4], f;
+    int mat[2][3], aux;
+}
+
+
+
+main(){
+    
+    x = 1 + 2 + 3 + 4 + 5;
+    
+    a = (x+5);
+    
+    y = b*(5 + 2.3);
+
+    if(i < 2) then{
+      aux = 1;
+    }
+    else{
+      aux = 10;
+    }
+    print(aux);
+}
+end

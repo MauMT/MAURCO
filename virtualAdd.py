@@ -10,18 +10,42 @@ Lf = 13000
 Tgi = 15000
 Tgf = 17000
 
-
-
 # Inicio de direcciones para constantes
 Ci = 23000
-Cf = 24000
+Cf = 24000 #hasta 25,000
 
+
+### FUNCIONES PARA OBTENER EL CONTADOR ACTUAL DE CADA TIPO DE DIRECCIÓN
+# getAddress de cualquier tipo mueve el contador a una dirección después de la última asignada
+# Num variables de cierto tipo = contador - dirección inicial
+# si contador = 5001, dirección inicial = 5000, entonces num variables = 5001 - 5000 = 1 
 def getCurrentGlobalAddressInt():
   return Gi
 
 def getCurrentGlobalAddressFloat():
   return Gf
 
+def getCurrentLocalAddressInt():
+  return Li
+
+def getCurrentLocalAddressFloat():
+  return Lf
+
+def getCurrentTempAddressInt():
+  return Tgi
+
+def getCurrentTempAddressFloat():
+  return Tgf
+
+def getCurrentConstantAddressInt():
+  return Ci
+
+def getCurrentConstantAddressFloat():
+  return Cf
+
+#---------------------------------------------------------------------------------
+
+### FUNCIONES PARA OBTENER UNA DIRECCIÓN DEPENDIENDO EL TIPO Y SCOPE
 def getGlobalAddressInt(size=1):
   global Gi
   aux = Gi
@@ -42,7 +66,7 @@ def setGlobalAddressFloat(x):
   global Gf
   Gf = x
   
-### deben ir asociadas a una función o algo así
+### Están asociadas a una función
 def getLocalAddressInt(size=1):
   global Li
   aux = Li
@@ -83,7 +107,7 @@ def getConstantAddressFloat():
   return aux
 
 
-
+### FUNCIONES PARA REINICIAR LOS COUNTERS DE LAS VARIABLES LOCALES Y LAS VARIABLES TEMPORALES
 def reiniciarCountersLocales():
   global Li
   global Lf
@@ -99,12 +123,5 @@ def reiniciarTemporalesLocales():
   global Tlf
   Tli = 19000
   Tlf = 21000
+#---------------------------------------------------------------------------------
 
-
-""" x = getLocalAddressInt()
-print("1", x)
-y = getLocalAddressInt(size=12)
-print("2", y)
-z = getLocalAddressInt()
-print("3", z)
- """

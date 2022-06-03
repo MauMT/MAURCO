@@ -837,7 +837,7 @@ def p_valasigaux(p):
   print(currFuncion)
 
 
-  if(currFuncion == "main"):
+  if(currFuncion == "main" or currFuncion == None):
     print("es none valasig")
     print(currentID)
     tipo = dirVar.getglobalVariable(currentID).tipoVariable()
@@ -866,8 +866,8 @@ def p_valasigaux(p):
   print("tipo id --- ", tipo)
   cuads.agregarID(currentID)
   cuads.agregarTipo(tipo)
-  print(dirVar.dirFunciones[currFuncion].localVar)
-  if(currFuncion == "main"):
+  #print(dirVar.dirFunciones[currFuncion].localVar)
+  if(currFuncion == "main" or currFuncion == None):
     arrVar = dirVar.getglobalVariable(currentID)
     if(arrVar == None):
         print("gloabl ERROR NO EXISTE LA VARIABLE")
@@ -1486,7 +1486,7 @@ def p_cteidcall_atributo_metodo(p):
   print(currFuncion)
 
 
-  if(currFuncion == "main"):
+  if(currFuncion == "main" or currFuncion == None):
     print("es none valasig")
     print(currentID)
     tipo = dirVar.getglobalVariable(currentID).tipoVariable()
@@ -1515,8 +1515,8 @@ def p_cteidcall_atributo_metodo(p):
   print("tipo id --- ", tipo)
   cuads.agregarID(currentID)
   cuads.agregarTipo(tipo)
-  print(dirVar.dirFunciones[currFuncion].localVar)
-  if(currFuncion == "main"):
+  #print(dirVar.dirFunciones[currFuncion].localVar)
+  if(currFuncion == "main" or currFuncion == None):
     arrVar = dirVar.getglobalVariable(currentID)
     if(arrVar == None):
         print("gloabl ERROR NO EXISTE LA VARIABLE")
@@ -1933,7 +1933,7 @@ def p_relCurr(p):
 
 
 
-file = open("ebasic_test.txt", 'r')
+file = open("exp_test.txt", 'r')
 
 #lexer.input("program primero ")
 
@@ -1956,9 +1956,7 @@ try:
     print("Dirclases")
     print(dirVar.dirClases)
     
-    print("\nvars hw2:\n")
-    #for key in dirVar.dirFunciones["helloW2"].localVar:
-    print(dirVar.dirFunciones["helloW2"].__dict__)
+
 
     print("\nvars globales:\n")
     for key in dirVar.dirglobalVar:
@@ -1968,17 +1966,8 @@ try:
     for key in dirVar.dirConstantes:
       print(dirVar.dirConstantes[key], key)
     print("\n")
-    #a = (dirVar.getFuncion("helloWorld"))
-    #print(a._dict_)
-    #b = a["localVar"]
-    #print(b._dict_)
-    #clase
-    #libro = (dirVar.dirClases["Libro"])
-    #print(libro._dict_)
-    #print("pOperandos\n", cuads.pOperandos)
-    #print("pTipos\n", cuads.pTipos)
-    #print("pOperadores\n", cuads.pOperadores)
     print("Correct syntax")
+
 except:
     print(f'Syntax error')
     print("\ndirConstantes\n")
@@ -1991,16 +1980,9 @@ except:
       print(key, dirVar.dirglobalVar[key].__dict__)
 
 
-    print("\nvars hw2:\n")
-    #for key in dirVar.dirFunciones["helloW2"].localVar:
-    print(dirVar.dirFunciones["helloW2"].__dict__)
 
-    '''
-    print("\nvars fact:\n")
-    for key in dirVar.dirFunciones["fact"].localVar:
-      print(key, dirVar.dirFunciones["fact"].localVar[key].__dict__)
-    '''
 
 cuads.addCounter()
 cuads.printCuads()
+import vm
 #print(cuads.cuads)
