@@ -33,7 +33,7 @@ Tipos aritmeticos con memoria
 
 params no genera cuads
 
-
+params y vars de funciones esta resuelto y mlp
 
 print e input
 
