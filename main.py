@@ -332,8 +332,14 @@ def p_typeVarsGlobal(p):
 def p_profunctions(p):
   '''
   profunctions : functions profunctions
-               | principal END
+               | principal END endcuads
   '''
+
+def p_endcuads(p):
+    '''
+    endcuads : empty
+    '''
+    cuads.fincuads()
 
 def p_principal(p):
   '''
@@ -826,10 +832,35 @@ def p_valasigaux(p):
   global arrExp
   global isMat
   currentID = p[1]
+
+
+  if(currFuncion == None):
+    print("es none")
+    tipo = dirVar.getglobalVariable(currentID).tipoVariable()
+    print("pek", tipo)
+    if(tipo == None):
+        print("ERROR NO EXISTE LA VARIABLE")
+  else:
+      tipo = dirVar.getlocalVariable(currFuncion, currentID).tipoVariable()
+      if(tipo == None):
+        tipo = dirVar.getglobalVariable(currentID).tipoVariable()
+        if(tipo == None):
+            #NO EXISTE
+            print("ERROR NO EXISTE LA VARIABLE")
+
+  """ if dirVar.getlocalVariable(currFuncion, result) == None:
+      if dirVar.getglobalVariable(result) == None:
+        print("error en la busqueda")
+        raise Exception("variable no existe we")
+      else:
+       myAddress = dirVar.getglobalVariable(result).direccion
+  else:
+      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion """
+
   print("prueba ID --- ", currentID)
-  print("tipo id --- ", currTipo)
+  print("tipo id --- ", tipo)
   cuads.agregarID(currentID)
-  cuads.agregarTipo(currTipo)
+  cuads.agregarTipo(tipo)
 
   #verificar que ID tiene dimensiones y tipo
   print("1")
@@ -837,24 +868,33 @@ def p_valasigaux(p):
   #currTID = cuads.pTipos.pop()
   print("2")
   #print(currentID)
+
+  auxDir = None
   if(currFuncion == None):
-    print("es none")
+    print("es non1e")
+    print("hey")
     arrVar = dirVar.getglobalVariable(currentID)
+    auxDir = arrVar.direccion
+    print("hey")
     if(arrVar == None):
         print("ERROR NO EXISTE LA VARIABLE")
+        raise Exception("No existe la variable")
   else:
       arrVar = dirVar.getlocalVariable(currFuncion, currentID)
+      auxDir = arrVar.direccion
       if(arrVar == None):
         arrVar = dirVar.getglobalVariable(currentID)
+        auxDir = arrVar.direccion
         if(arrVar == None):
             #NO EXISTE
             print("ERROR NO EXISTE LA VARIABLE")
+            raise Exception("No existe la variable")
 
   print("3")
   #verificar si es un arreglo o matriz
   if(len(arrVar.length)==0):
-    #ES UNA VARIABLE NORMAL
-    print("normal")
+    print("arrvarlength0")
+    cuads.pOperandos[-1] = auxDir
   else:
     cuads.pOperandos.pop()
     #arr por ahora
@@ -916,7 +956,6 @@ def p_valasigaux(p):
   isArr = False
   isMat = False
   arrExp = []
-
 
 
 def p_valasign_aux2(p):
@@ -1060,14 +1099,21 @@ def p_escritura(p):
 def p_escrituraaux(p):
     '''
     escrituraaux : letrero escaux2
-                 | hyper_exp escaux2
+                 | hyper_exp cuadprint escaux2
     '''
 
 def p_escaux2(p):
     '''
     escaux2 : SEP_COMMA escrituraaux
-            | SEP_RPAREN
+            | SEP_RPAREN SEP_SEMICOLON
     '''
+
+def p_cuadprint(p):
+    '''
+    cuadprint : empty
+    '''
+    cuads.escPri()
+
 
 def p_letrero(p):
     '''
@@ -1408,10 +1454,36 @@ def p_cteidcall_atributo_metodo(p):
   global arrExp
   global isMat
   currentID = p[1]
+
+
+  if(currFuncion == None):
+    print("es none")
+    tipo = dirVar.getglobalVariable(currentID).tipoVariable()
+    print("pek", tipo)
+    if(tipo == None):
+        print("ERROR NO EXISTE LA VARIABLE")
+  else:
+      tipo = dirVar.getlocalVariable(currFuncion, currentID).tipoVariable()
+      if(tipo == None):
+        tipo = dirVar.getglobalVariable(currentID).tipoVariable()
+        if(tipo == None):
+            #NO EXISTE
+            print("ERROR NO EXISTE LA VARIABLE")
+
+  """ if dirVar.getlocalVariable(currFuncion, result) == None:
+      if dirVar.getglobalVariable(result) == None:
+        print("error en la busqueda")
+        raise Exception("variable no existe we")
+      else:
+       myAddress = dirVar.getglobalVariable(result).direccion
+  else:
+      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion """
+
   print("prueba ID --- ", currentID)
-  print("tipo id --- ", currTipo)
+  print("tipo id --- ", tipo)
   cuads.agregarID(currentID)
-  cuads.agregarTipo(currTipo)
+  cuads.agregarTipo(tipo)
+
   #verificar que ID tiene dimensiones y tipo
   print("1")
   #currentID = cuads.pOperandos.top()
@@ -1419,13 +1491,12 @@ def p_cteidcall_atributo_metodo(p):
   print("2")
   #print(currentID)
 
-  
   auxDir = None
   if(currFuncion == None):
     print("es non1e")
     arrVar = dirVar.getglobalVariable(currentID)
     auxDir = arrVar.direccion
-    print(arrVar.__dict__)
+    print("hey")
     if(arrVar == None):
         print("ERROR NO EXISTE LA VARIABLE")
         raise Exception("No existe la variable")
@@ -1439,25 +1510,11 @@ def p_cteidcall_atributo_metodo(p):
             #NO EXISTE
             print("ERROR NO EXISTE LA VARIABLE")
             raise Exception("No existe la variable")
-  
-  
-  """ myAddress = None 
-  #if currFuncion == None
-  if dirVar.getlocalVariable(currFuncion, result) == None:
-      if dirVar.getglobalVariable(result) == None:
-        print("error en la busqueda")
-        raise Exception("variable no existe we")
-      else:
-       myAddress = dirVar.getglobalVariable(result).direccion
-  else:
-      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion 
-  """
-  print("auxDir", auxDir, currentID)
+
   print("3")
   #verificar si es un arreglo o matriz
   if(len(arrVar.length)==0):
     cuads.pOperandos[-1] = auxDir
-    print("normal")
   else:
     cuads.pOperandos.pop()
     #arr por ahora
@@ -1466,6 +1523,18 @@ def p_cteidcall_atributo_metodo(p):
     print(arrExp)
     print(len(arrVar.length))
     print("lengths arrvar")
+
+
+    myAddress = None
+    if dirVar.getlocalVariable(currFuncion, currentID) == None:
+        if dirVar.getglobalVariable(currentID) == None:
+            print("error en la busqueda")
+            raise Exception("variable no existe we")
+        else:
+            myAddress = dirVar.getglobalVariable(currentID).direccion
+    else:
+        myAddress = dirVar.getlocalVariable(currFuncion, currentID).direccion
+
     if(len(arrExp)==len(arrVar.length)):
         if(len(arrVar.length)==1):
             print("aqui entra arrvar1")
@@ -1479,19 +1548,24 @@ def p_cteidcall_atributo_metodo(p):
 
             ##############AQUI HAY UNA DIRECCION FALSA HAY QUE CAMBIARLA 27/05
 
-            cuads.sumaDirBasearr(arrExp[0], 3)
+            cuads.sumaDirBasearr(arrExp[0], myAddress)
             print("no hay 4")
 
         else:
             print("aqui entra arrvar2")
             #matriz
+            print("3")
             cuads.arrVerifica(arrExp[0], arrVar.length[0])
+            print("4")
             cuads.arrMult(arrExp[0], arrVar.length[1])
             #verificar pilatop con arrexp
+            print("5")
             cuads.arrVerifica(arrExp[1], arrVar.length[1])
+            print("6")
             cuads.arrSumaMult(arrExp[1])
-
-            cuads.sumaDirBase()
+            print("7")
+            cuads.sumaDirBase(myAddress)
+            print("8")
             #crear cuadruplo de multiplicacion
     else:
         #ERROR LAS DIMENSIONES NO COINCIDEN
@@ -1799,7 +1873,7 @@ def p_relCurr(p):
 
 
 
-file = open("basic_test.txt", 'r')
+file = open("ebasic_test.txt", 'r')
 
 #lexer.input("program primero ")
 

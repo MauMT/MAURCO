@@ -161,35 +161,40 @@ REVISAR ESTO
 def auxAsignacion(currFuncion): 
 
     right = ''
-    print("rOp assign ", right)
+    #print("rOp assign ", right)
 
     left = pOperandos.pop()
-
     leftType = pTipos.pop()
     print("leftType", leftType)
 
+    result = pOperandos.pop()
     resultType = pTipos.pop()
-    print("rtype", resultType)
+    print("resOp assign ", result)
+    print("rtype -", resultType)
+
+    print("tamaño pTipos", len(pTipos))
+    print("tamaño pOperandos", len(pOperandos))
 
     print("lOp assign ", left)
-    result = pOperandos.pop()
-    print("rOp assign ", result)
+    
   
     #operador
     oper = pOperadores.pop()
     print(oper)
 
-    result_type = semantic[leftType][oper][resultType]
+    result_type = semantic[resultType][oper][leftType]
     print(result_type)
     print("sensual")
 
+    if result_type == "error":
+      print("No se puede asignar un tipo '{}' a un tipo '{}'".format(leftType, resultType))
+      raise Exception("No se puede asignar un tipo '{}' a un tipo '{}'".format(leftType, resultType))
     #agregarTipo(result_type)
 
     #agregar un valor a temp counter
     #generar cuadruplo
-
-    #result_type = if
-    """ myAddress = None
+    """
+    myAddress = None
     if dirVar.getlocalVariable(currFuncion, result) == None:
       if dirVar.getglobalVariable(result) == None:
         print("error en la busqueda")
@@ -197,11 +202,10 @@ def auxAsignacion(currFuncion):
       else:
        myAddress = dirVar.getglobalVariable(result).direccion
     else:
-      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion """
-
+      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion
+    """
     cuads.append((oper, left, right, result))
     print(cuads)
-    #agregarID(result_addr)
 
     #######################################################
 #######NO SE DIRECCION
@@ -249,6 +253,7 @@ def condicion1():
     #print("TYPE MISMATCH")
   #else:
   result = pOperandos.pop()
+  pTipos.pop()
   cuads.append(("GOTOF", result, " ", "fill"))
   print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   print(len(cuads))
@@ -340,7 +345,7 @@ def ciclofrom2():
 
 def ciclofrom3():
   print("3333333333333333333333333333333333333333333333333333333333333")
-  #checktype = pTipos.pop()
+  checktype = pTipos.pop()
   #implementar la tabla de variables y funciones
   #if checktype != bool:
     #print("TYPE MISMATCH")
@@ -363,6 +368,7 @@ def ciclofrom4():
   cuads.append(("=", result, " ", "VControl"))
 
   cuads.append(("=", result, " ",pOperandos.pop()))
+  pTipos.pop()
   print("2222222222222222222222222222222222222222222222222222222222222")
   FIN = psaltos.pop()
   RET = psaltos.pop()
@@ -370,7 +376,7 @@ def ciclofrom4():
   cuads.append(("GOTO", " ", " ", RET))
   fill(FIN, len(cuads))
   print("44444444444444444444444444444444444444444444444444444444444444")
-  #pOperandos.pop()
+
   print("55555555555555555555555555555555555555555555555555555555555555")
   #pTipos.pop()
 
@@ -380,13 +386,16 @@ def ciclofrom4():
 #CUADS FUNCIONES
 ######################################################
 
+def fincuads():
+  cuads.append(("END", " ", " ", " "))
 
 def lectInp():
-
   cuads.append(("INPUT", " ", " ", pOperandos.pop()))
   pTipos.pop()
 
-#def escPri():
+def escPri():
+  cuads.append(("PRINT", " ", " ",  pOperandos.pop()))
+  pTipos.pop()
 
 
 
@@ -415,6 +424,7 @@ def valparams(params):
       vfin = ("param"+str(conttipos))
       print(vfin)
       cuads.append(("PARAM", pOperandos.pop() ," ", vfin))
+      pTipos.pop()
       print("finaliza")
     else:
       print("errorparam")
@@ -442,7 +452,7 @@ def valMain():
 
 def cReturn():
   print("REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
-  valret = pOperandos.pop()
+  valret = pOperandos[-1]
   cuads.append(("RETURN", " ", " ", valret))
   #return valret
 
@@ -498,6 +508,7 @@ def arrMult(s1, m1):
 def arrSumaMult(s2):
   result = virtualAdd.getGlobalTempAddressInt()
   val = pOperandos.pop()
+  pTipos.pop()
   cuads.append(("+", s2, val, result))
   agregarID(result)
   agregarTipo("int")
@@ -508,6 +519,7 @@ def sumaDirBase(direccion):
   print(direccion)
   result = virtualAdd.getGlobalTempAddressInt()
   cuads.append(("+", direccion, pOperandos.pop(), result))
+  pTipos.pop()
   agregarID(result)
   agregarTipo("int")
 
