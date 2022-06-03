@@ -538,8 +538,6 @@ def sumaDirBasearr(temp, direccion):
 def getCurrCounter():
   return len(cuads)
 
-def getTempCounter():
-  return tempcounter
 
 
 #add counter to each element in cuads

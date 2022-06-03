@@ -1682,7 +1682,7 @@ def p_nvfuntipid(p):
     currTipo = p[1]
     currFuncion = p[3]
     dirVar.agregarFuncion(currFuncion, currTipo)
-    dirVar.initFunction(currFuncion, insContcuad, primtempcont)
+    #dirVar.initFunction(currFuncion, insContcuad, primtempcont)
     if(currTipo == "void"):
         print("hola")
         #valred
@@ -1840,8 +1840,7 @@ def p_insCont(p):
     global insContcuad
     global primtempcont
     insContcuad = cuads.getCurrCounter()
-    primtempcont = cuads.getTempCounter()
-    dirVar.initFunction(currFuncion, insContcuad, primtempcont)
+    dirVar.initFunction(currFuncion, insContcuad)
 
 
 def p_varsfun(p):
@@ -1929,7 +1928,7 @@ def p_relCurr(p):
     print(currFuncion)
     cuads.endfunc()
     global finaltemp
-    finaltemp = cuads.getTempCounter()
+    #finaltemp = cuads.getTempCounter()
 
 
 
@@ -1958,8 +1957,8 @@ try:
     print(dirVar.dirClases)
     
     print("\nvars hw2:\n")
-    for key in dirVar.dirFunciones["helloW2"].localVar:
-      print(key, dirVar.dirFunciones["helloW2"].localVar[key].__dict__)
+    #for key in dirVar.dirFunciones["helloW2"].localVar:
+    print(dirVar.dirFunciones["helloW2"].__dict__)
 
     print("\nvars globales:\n")
     for key in dirVar.dirglobalVar:
@@ -1993,8 +1992,8 @@ except:
 
 
     print("\nvars hw2:\n")
-    for key in dirVar.dirFunciones["helloW2"].localVar:
-      print(key, dirVar.dirFunciones["helloW2"].localVar[key].__dict__)
+    #for key in dirVar.dirFunciones["helloW2"].localVar:
+    print(dirVar.dirFunciones["helloW2"].__dict__)
 
     '''
     print("\nvars fact:\n")

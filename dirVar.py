@@ -1,4 +1,4 @@
-
+from functools import reduce
 
 class variable:
     def __init__(self, tipovar, length):
@@ -24,23 +24,37 @@ class funcion:
     def __init__(self, tipoFuncion):
         self.tipoFuncion = tipoFuncion
         self.parameters = []
-        self.cantVar = 0
-        self.tempcount = 0
+        self.cuadcount = 0
+        self.intcant = 0
+        self.floatcant = 0
+        self.charcant = 0
         self.direccion = 0
         self.localVar = {}
-        self.direccionLocalInt = 11000
 
     def gettipoFuncion(self):
         return self.tipoFuncion
     
     def gettableFuncion(self):
         return self.localVar
+
+    def setintcant(self, value):
+        self.intcant = value
+
+    def getintcant(self):
+        return self.intcant
+
+    def setfloatcant(self, value):
+        self.floatcant = value
+
+    def getfloatcant(self):
+        return self.floatcant
+
+    def setcharcant(self, value):
+        self.floatcant = value
+
+    def getcharcant(self):
+        return self.charcant
     
-    def getdireccionLocalInt(self):
-        return self.direccionLocalInt
-    
-    def setdireccionLocalInt(self, direccion):
-        self.direccionLocalInt = direccion
 
 #-----------------------------------------------------------
 class objeto:
@@ -108,16 +122,36 @@ def agregarFuncion(nomFuncion, tipoFuncion):
 
 
 def agregarlocalVariable(nomFuncion, nomVariable, arrLength, tipoVariable, isParam):
+  print("aglocvar")
   if nomFuncion in dirFunciones:
+    print("aglocvar")
     if nomVariable in dirFunciones[nomFuncion].gettableFuncion():
       print("ya existe esta variable local")
     else:
+      print("aglocvar")
       if(isParam):
         dirFunciones[nomFuncion].parameters.append(tipoVariable)
       #es correcta la identacion por param
+      print("isparam")
+      print(arrLength)
+      if len(arrLength) == 0:
+        indsum = 1
+      else:
+        indsum = reduce(lambda x, y: x * y, arrLength)
+      print("arreglo")
 
+      if(tipoVariable == "int"):
+        dirFunciones[nomFuncion].setintcant(dirFunciones[nomFuncion].getintcant()+indsum)
+      elif(tipoVariable == "float"):
+        dirFunciones[nomFuncion].setfloatcant(dirFunciones[nomFuncion].getfloatcant()+indsum)
+        #dirFunciones[nomFuncion].floatcant = indsum+floatcant
+      elif(tipoVariable == "char"):
+        dirFunciones[nomFuncion].setcharcant(dirFunciones[nomFuncion].getcharcant()+indsum)
+        #dirFunciones[nomFuncion].charcant = indsum+charcant
+      print("cantvar")
       dirFunciones[nomFuncion].gettableFuncion()[nomVariable]= variable(tipoVariable, arrLength)
-      dirFunciones[nomFuncion].cantVar = len(dirFunciones[nomFuncion].gettableFuncion())+len(arrLength)
+      print("hola")
+      
   else:
     print("no existe esta funcion")
 
@@ -138,10 +172,9 @@ tup = currTypeID.get()
       dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3], tup[4], tup[5])
 """
 
-def initFunction(nomFuncion, dir, cant):
+def initFunction(nomFuncion, currcuadcounter):
     if nomFuncion in dirFunciones:
-        dirFunciones[nomFuncion].direccion = dir
-        dirFunciones[nomFuncion].tempcount = cant
+        dirFunciones[nomFuncion].cuadcount = currcuadcounter
     else:
         print("no existe la funcion")
 

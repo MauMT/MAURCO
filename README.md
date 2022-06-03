@@ -31,6 +31,9 @@ python main.py ejemplo.txt
 - Python 3.6 o superior
 - PLY 4.0: [Repositorio de PLY](https://github.com/dabeaz/ply)
 
+####
+Ya genera todos los cuadrupolos con funciones y empezada maquina virtual
+
 ---
 ### Bugs conocidos
 - La asignación, que es asociativa por derecha genera cuádruplos en orden erróneo
