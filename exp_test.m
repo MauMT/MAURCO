@@ -16,7 +16,8 @@ vars
 main(){
     
     x = 5;
-    
+    arr[3] = 700;
+    print(arr[3]);
     mat[1][2] = 10;
     print(mat[1][2]);
     print(x);

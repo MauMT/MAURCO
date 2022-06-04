@@ -528,9 +528,10 @@ def sumaDirBase(direccion):
   agregarTipo("int")
 
 def sumaDirBasearr(temp, direccion):
-  print(direccion)
+  print("otra dir base es", direccion)
   result = virtualAdd.getGlobalTempAddressInt()
-  cuads.append(("+", direccion, temp, result))
+  dir_base = getConstantAddressbyValue(direccion, "int")
+  cuads.append(("+", dir_base, temp, result))
   agregarID(result)
   agregarTipo("int")
 

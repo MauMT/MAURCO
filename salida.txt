@@ -674,791 +674,1234 @@ State  : 188
 Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE valasigaux OP_ASSIGN asign_opciones . LexToken(SEP_SEMICOLON,';',18,154)
 Action : Shift and goto state 221
 State  : 221
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON . LexToken(ID,'mat',20,165)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON . LexToken(ID,'arr',19,160)
 Action : Reduce rule [asignacion -> valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON] with [None,'=',None,';'] and goto state 116
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 116
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE asignacion . LexToken(ID,'mat',20,165)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE asignacion . LexToken(ID,'arr',19,160)
 Action : Reduce rule [estatuto -> asignacion] with [None] and goto state 115
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 115
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto . LexToken(ID,'mat',20,165)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto . LexToken(ID,'arr',19,160)
 Action : Shift and goto state 129
 State  : 129
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID . LexToken(SEP_LBRACKET,'[',20,168)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID . LexToken(SEP_LBRACKET,'[',19,163)
 Action : Shift and goto state 167
 State  : 167
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET . LexToken(CTE_INT,1,20,169)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET . LexToken(CTE_INT,3,19,164)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 191
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 191
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET empty . LexToken(CTE_INT,1,20,169)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET empty . LexToken(CTE_INT,3,19,164)
 Action : Reduce rule [it -> empty] with [None] and goto state 197
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 197
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it . LexToken(CTE_INT,1,20,169)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it . LexToken(CTE_INT,3,19,164)
 Action : Shift and goto state 246
 State  : 246
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',20,170)
-Action : Reduce rule [cteidcall -> CTE_INT] with [1] and goto state 244
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',19,165)
+Action : Reduce rule [cteidcall -> CTE_INT] with [3] and goto state 244
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 244
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 242
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 289
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 289
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 287
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 196
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 239
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 239
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [expaux -> empty] with [None] and goto state 237
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 237
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 195
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 232
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 232
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 230
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 194
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 229
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 229
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 227
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 193
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 226
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 226
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 224
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',19,165)
 Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 206
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 206
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',20,170)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',19,165)
 Action : Shift and goto state 265
 State  : 265
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(SEP_LBRACKET,'[',20,171)
-Action : Shift and goto state 310
-State  : 310
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET . LexToken(CTE_INT,2,20,172)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 191
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(OP_ASSIGN,'=',19,167)
+Action : Reduce rule [arraccarraux -> SEP_LBRACKET hyper_exp SEP_RBRACKET] with ['[',None,']'] and goto state 166
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 191
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET empty . LexToken(CTE_INT,2,20,172)
-Action : Reduce rule [it -> empty] with [None] and goto state 197
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 197
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it . LexToken(CTE_INT,2,20,172)
-Action : Shift and goto state 246
-State  : 246
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [cteidcall -> CTE_INT] with [2] and goto state 244
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 244
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 242
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 289
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 289
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 287
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 196
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 239
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 239
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [expaux -> empty] with [None] and goto state 237
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 237
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 195
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 232
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 232
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 230
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 194
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 229
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 229
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 227
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 193
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 226
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 226
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 224
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',20,173)
-Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 343
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 343
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',20,173)
-Action : Shift and goto state 365
-State  : 365
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(OP_ASSIGN,'=',20,175)
-Action : Reduce rule [mataccarraux -> SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp SEP_RBRACKET] with ['[',None,']','[',None,']'] and goto state 165
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 165
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID mataccarraux . LexToken(OP_ASSIGN,'=',20,175)
-Action : Reduce rule [acceso_array -> mataccarraux] with [None] and goto state 164
+State  : 166
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID arraccarraux . LexToken(OP_ASSIGN,'=',19,167)
+Action : Reduce rule [acceso_array -> arraccarraux] with [None] and goto state 164
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 164
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID acceso_array . LexToken(OP_ASSIGN,'=',20,175)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID acceso_array . LexToken(OP_ASSIGN,'=',19,167)
 Action : Reduce rule [valasign_aux2 -> acceso_array] with [None] and goto state 162
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 162
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID valasign_aux2 . LexToken(OP_ASSIGN,'=',20,175)
-Action : Reduce rule [valasigaux -> ID valasign_aux2] with ['mat',None] and goto state 122
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto ID valasign_aux2 . LexToken(OP_ASSIGN,'=',19,167)
+Action : Reduce rule [valasigaux -> ID valasign_aux2] with ['arr',None] and goto state 122
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 122
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux . LexToken(OP_ASSIGN,'=',20,175)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux . LexToken(OP_ASSIGN,'=',19,167)
 Action : Shift and goto state 155
 State  : 155
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN . LexToken(CTE_INT,10,20,177)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN . LexToken(CTE_INT,700,19,169)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 191
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 191
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN empty . LexToken(CTE_INT,10,20,177)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN empty . LexToken(CTE_INT,700,19,169)
 Action : Reduce rule [it -> empty] with [None] and goto state 190
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 190
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it . LexToken(CTE_INT,10,20,177)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it . LexToken(CTE_INT,700,19,169)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 191
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 191
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it empty . LexToken(CTE_INT,10,20,177)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it empty . LexToken(CTE_INT,700,19,169)
 Action : Reduce rule [it -> empty] with [None] and goto state 197
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 197
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it . LexToken(CTE_INT,10,20,177)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it . LexToken(CTE_INT,700,19,169)
 Action : Shift and goto state 246
 State  : 246
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it CTE_INT . LexToken(SEP_SEMICOLON,';',20,179)
-Action : Reduce rule [cteidcall -> CTE_INT] with [10] and goto state 244
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it CTE_INT . LexToken(SEP_SEMICOLON,';',19,172)
+Action : Reduce rule [cteidcall -> CTE_INT] with [700] and goto state 244
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 244
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it cteidcall . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it cteidcall . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 242
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it factor . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it factor . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 289
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 289
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it factor empty . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it factor empty . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 287
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it factor terminoaux . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it it factor terminoaux . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 196
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it termino . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it termino . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 239
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 239
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it termino empty . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it termino empty . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [expaux -> empty] with [None] and goto state 237
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 237
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it termino expaux . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it termino expaux . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 195
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it exp . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it exp . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 232
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 232
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it exp empty . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it exp empty . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 230
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it exp expresionaux . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it exp expresionaux . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 194
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it expresion . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it expresion . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 229
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 229
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it expresion empty . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it expresion empty . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 227
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it expresion andexpaux . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it expresion andexpaux . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 193
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it and_exp . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it and_exp . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 226
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 226
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it and_exp empty . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it and_exp empty . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 224
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it and_exp hyper_aux . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it and_exp hyper_aux . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 222
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 222
 Defaulted state 222: Reduce using 114
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it hyper_exp . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN it hyper_exp . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [asignacion_simple -> it hyper_exp] with [None,None] and goto state 189
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 189
 Defaulted state 189: Reduce using 113
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN asignacion_simple . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN asignacion_simple . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Reduce rule [asign_opciones -> asignacion_simple] with [None] and goto state 188
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 188
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN asign_opciones . LexToken(SEP_SEMICOLON,';',20,179)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN asign_opciones . LexToken(SEP_SEMICOLON,';',19,172)
 Action : Shift and goto state 221
 State  : 221
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON . LexToken(PRINT,'print',21,185)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON . LexToken(PRINT,'print',20,178)
 Action : Reduce rule [asignacion -> valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON] with [None,'=',None,';'] and goto state 116
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 116
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto asignacion . LexToken(PRINT,'print',21,185)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto asignacion . LexToken(PRINT,'print',20,178)
 Action : Reduce rule [estatuto -> asignacion] with [None] and goto state 152
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 152
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto . LexToken(PRINT,'print',21,185)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto . LexToken(PRINT,'print',20,178)
 Action : Shift and goto state 124
 State  : 124
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT . LexToken(SEP_LPAREN,'(',21,190)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT . LexToken(SEP_LPAREN,'(',20,183)
 Action : Shift and goto state 157
 State  : 157
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN . LexToken(ID,'mat',21,191)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN . LexToken(ID,'arr',20,184)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 191
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 191
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN empty . LexToken(ID,'mat',21,191)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN empty . LexToken(ID,'arr',20,184)
 Action : Reduce rule [it -> empty] with [None] and goto state 197
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 197
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it . LexToken(ID,'mat',21,191)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it . LexToken(ID,'arr',20,184)
 Action : Shift and goto state 251
 State  : 251
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID . LexToken(SEP_LBRACKET,'[',21,194)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID . LexToken(SEP_LBRACKET,'[',20,187)
 Action : Shift and goto state 167
 State  : 167
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET . LexToken(CTE_INT,0,21,195)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET . LexToken(CTE_INT,3,20,188)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 191
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 191
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET empty . LexToken(CTE_INT,0,21,195)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET empty . LexToken(CTE_INT,3,20,188)
 Action : Reduce rule [it -> empty] with [None] and goto state 197
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 197
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it . LexToken(CTE_INT,0,21,195)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it . LexToken(CTE_INT,3,20,188)
 Action : Shift and goto state 246
 State  : 246
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',21,196)
-Action : Reduce rule [cteidcall -> CTE_INT] with [0] and goto state 244
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',20,189)
+Action : Reduce rule [cteidcall -> CTE_INT] with [3] and goto state 244
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 244
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 242
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 289
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 289
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 287
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 196
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 239
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 239
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [expaux -> empty] with [None] and goto state 237
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 237
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 195
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 232
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 232
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 230
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 194
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 229
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 229
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 227
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 193
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 226
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 226
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 224
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',20,189)
 Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 206
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 206
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',21,196)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',20,189)
 Action : Shift and goto state 265
 State  : 265
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(SEP_LBRACKET,'[',21,197)
-Action : Shift and goto state 310
-State  : 310
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET . LexToken(CTE_INT,2,21,198)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 191
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(SEP_RPAREN,')',20,190)
+Action : Reduce rule [arraccarraux -> SEP_LBRACKET hyper_exp SEP_RBRACKET] with ['[',None,']'] and goto state 166
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 191
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET empty . LexToken(CTE_INT,2,21,198)
-Action : Reduce rule [it -> empty] with [None] and goto state 197
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 197
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it . LexToken(CTE_INT,2,21,198)
-Action : Shift and goto state 246
-State  : 246
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [cteidcall -> CTE_INT] with [2] and goto state 244
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 244
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 242
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 289
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 289
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 287
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 196
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 239
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 239
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [expaux -> empty] with [None] and goto state 237
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 237
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 195
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 232
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 232
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 230
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 194
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 229
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 229
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 227
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 193
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 226
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 226
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 224
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',21,199)
-Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 343
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 343
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',21,199)
-Action : Shift and goto state 365
-State  : 365
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(SEP_RPAREN,')',21,200)
-Action : Reduce rule [mataccarraux -> SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp SEP_RBRACKET] with ['[',None,']','[',None,']'] and goto state 165
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 165
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID mataccarraux . LexToken(SEP_RPAREN,')',21,200)
-Action : Reduce rule [acceso_array -> mataccarraux] with [None] and goto state 298
+State  : 166
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID arraccarraux . LexToken(SEP_RPAREN,')',20,190)
+Action : Reduce rule [acceso_array -> arraccarraux] with [None] and goto state 298
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 298
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID acceso_array . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID acceso_array . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [aux_accesoarray -> acceso_array] with [None] and goto state 296
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 296
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID aux_accesoarray . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID aux_accesoarray . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [var_id_aux -> aux_accesoarray] with [None] and goto state 295
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 295
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID var_id_aux . LexToken(SEP_RPAREN,')',21,200)
-Action : Reduce rule [cteidcall_atributo_metodo -> ID var_id_aux] with ['mat',None] and goto state 249
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it ID var_id_aux . LexToken(SEP_RPAREN,')',20,190)
+Action : Reduce rule [cteidcall_atributo_metodo -> ID var_id_aux] with ['arr',None] and goto state 249
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 249
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it cteidcall_atributo_metodo . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it cteidcall_atributo_metodo . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [separadorarrfunc -> cteidcall_atributo_metodo] with [None] and goto state 245
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 245
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it separadorarrfunc . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it separadorarrfunc . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [factor -> separadorarrfunc] with [None] and goto state 242
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 242
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it factor . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it factor . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 289
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 289
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it factor empty . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it factor empty . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 287
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it factor terminoaux . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN it factor terminoaux . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 196
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN termino . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN termino . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 239
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 239
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN termino empty . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN termino empty . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [expaux -> empty] with [None] and goto state 237
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 237
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN termino expaux . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN termino expaux . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 195
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN exp . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN exp . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 232
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 232
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN exp empty . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN exp empty . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 230
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN exp expresionaux . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN exp expresionaux . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 194
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN expresion . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN expresion . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 229
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 229
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN expresion empty . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN expresion empty . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 227
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN expresion andexpaux . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN expresion andexpaux . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 193
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN and_exp . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN and_exp . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 226
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 226
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN and_exp empty . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN and_exp empty . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 224
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN and_exp hyper_aux . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN and_exp hyper_aux . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 200
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 200
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 256
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 256
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp empty . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp empty . LexToken(SEP_RPAREN,')',20,190)
 Action : Reduce rule [cuadprint -> empty] with [None] and goto state 255
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 255
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint . LexToken(SEP_RPAREN,')',21,200)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint . LexToken(SEP_RPAREN,')',20,190)
 Action : Shift and goto state 254
 State  : 254
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN . LexToken(SEP_SEMICOLON,';',21,201)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN . LexToken(SEP_SEMICOLON,';',20,191)
 Action : Shift and goto state 301
 State  : 301
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN SEP_SEMICOLON . LexToken(PRINT,'print',22,207)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN SEP_SEMICOLON . LexToken(ID,'mat',21,197)
 Action : Reduce rule [escaux2 -> SEP_RPAREN SEP_SEMICOLON] with [')',';'] and goto state 302
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 302
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint escaux2 . LexToken(PRINT,'print',22,207)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint escaux2 . LexToken(ID,'mat',21,197)
 Action : Reduce rule [escrituraaux -> hyper_exp cuadprint escaux2] with [None,None,None] and goto state 198
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 198
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN escrituraaux . LexToken(PRINT,'print',22,207)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto PRINT SEP_LPAREN escrituraaux . LexToken(ID,'mat',21,197)
 Action : Reduce rule [escritura -> PRINT SEP_LPAREN escrituraaux] with ['print','(',None] and goto state 118
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 118
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto escritura . LexToken(PRINT,'print',22,207)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto escritura . LexToken(ID,'mat',21,197)
 Action : Reduce rule [estatuto -> escritura] with [None] and goto state 152
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 152
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto . LexToken(PRINT,'print',22,207)
-Action : Shift and goto state 124
-State  : 124
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT . LexToken(SEP_LPAREN,'(',22,212)
-Action : Shift and goto state 157
-State  : 157
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN . LexToken(ID,'x',22,213)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto . LexToken(ID,'mat',21,197)
+Action : Shift and goto state 129
+State  : 129
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID . LexToken(SEP_LBRACKET,'[',21,200)
+Action : Shift and goto state 167
+State  : 167
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET . LexToken(CTE_INT,1,21,201)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 191
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 191
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN empty . LexToken(ID,'x',22,213)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET empty . LexToken(CTE_INT,1,21,201)
 Action : Reduce rule [it -> empty] with [None] and goto state 197
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 197
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it . LexToken(ID,'x',22,213)
-Action : Shift and goto state 251
-State  : 251
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it ID . LexToken(SEP_RPAREN,')',22,214)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 297
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET it . LexToken(CTE_INT,1,21,201)
+Action : Shift and goto state 246
+State  : 246
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',21,202)
+Action : Reduce rule [cteidcall -> CTE_INT] with [1] and goto state 244
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 297
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it ID empty . LexToken(SEP_RPAREN,')',22,214)
-Action : Reduce rule [asatr -> empty] with [None] and goto state 299
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 299
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it ID asatr . LexToken(SEP_RPAREN,')',22,214)
-Action : Reduce rule [empty -> <empty>] with [] and goto state 335
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 335
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it ID asatr empty . LexToken(SEP_RPAREN,')',22,214)
-Action : Reduce rule [cteidcall_am_aux -> empty] with [None] and goto state 333
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 333
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it ID asatr cteidcall_am_aux . LexToken(SEP_RPAREN,')',22,214)
-Action : Reduce rule [aux_accesoarray -> asatr cteidcall_am_aux] with [None,None] and goto state 296
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 296
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it ID aux_accesoarray . LexToken(SEP_RPAREN,')',22,214)
-Action : Reduce rule [var_id_aux -> aux_accesoarray] with [None] and goto state 295
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 295
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it ID var_id_aux . LexToken(SEP_RPAREN,')',22,214)
-Action : Reduce rule [cteidcall_atributo_metodo -> ID var_id_aux] with ['x',None] and goto state 249
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 249
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it cteidcall_atributo_metodo . LexToken(SEP_RPAREN,')',22,214)
-Action : Reduce rule [separadorarrfunc -> cteidcall_atributo_metodo] with [None] and goto state 245
-Result : <NoneType @ 0x7ffd7d64acd8> (None)
-State  : 245
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it separadorarrfunc . LexToken(SEP_RPAREN,')',22,214)
-Action : Reduce rule [factor -> separadorarrfunc] with [None] and goto state 242
+State  : 244
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',21,202)
+Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 242
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it factor . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 289
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 289
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it factor empty . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 287
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN it factor terminoaux . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 196
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN termino . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 239
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 239
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN termino empty . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [expaux -> empty] with [None] and goto state 237
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 237
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN termino expaux . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 195
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN exp . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 232
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 232
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN exp empty . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 230
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN exp expresionaux . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 194
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN expresion . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 229
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 229
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN expresion empty . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 227
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN expresion andexpaux . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 193
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN and_exp . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 226
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 226
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN and_exp empty . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',21,202)
 Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 224
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN and_exp hyper_aux . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',21,202)
+Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 206
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 206
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',21,202)
+Action : Shift and goto state 265
+State  : 265
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(SEP_LBRACKET,'[',21,203)
+Action : Shift and goto state 310
+State  : 310
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET . LexToken(CTE_INT,2,21,204)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 191
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 191
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET empty . LexToken(CTE_INT,2,21,204)
+Action : Reduce rule [it -> empty] with [None] and goto state 197
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 197
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it . LexToken(CTE_INT,2,21,204)
+Action : Shift and goto state 246
+State  : 246
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [cteidcall -> CTE_INT] with [2] and goto state 244
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 244
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 242
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 289
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 289
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 287
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 196
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 239
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 239
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [expaux -> empty] with [None] and goto state 237
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 237
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 195
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 232
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 232
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 230
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 194
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 229
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 229
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 227
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 193
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 226
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 226
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 224
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',21,205)
+Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 343
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 343
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',21,205)
+Action : Shift and goto state 365
+State  : 365
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(OP_ASSIGN,'=',21,207)
+Action : Reduce rule [mataccarraux -> SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp SEP_RBRACKET] with ['[',None,']','[',None,']'] and goto state 165
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 165
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID mataccarraux . LexToken(OP_ASSIGN,'=',21,207)
+Action : Reduce rule [acceso_array -> mataccarraux] with [None] and goto state 164
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 164
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID acceso_array . LexToken(OP_ASSIGN,'=',21,207)
+Action : Reduce rule [valasign_aux2 -> acceso_array] with [None] and goto state 162
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 162
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto ID valasign_aux2 . LexToken(OP_ASSIGN,'=',21,207)
+Action : Reduce rule [valasigaux -> ID valasign_aux2] with ['mat',None] and goto state 122
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 122
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux . LexToken(OP_ASSIGN,'=',21,207)
+Action : Shift and goto state 155
+State  : 155
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN . LexToken(CTE_INT,10,21,209)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 191
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 191
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN empty . LexToken(CTE_INT,10,21,209)
+Action : Reduce rule [it -> empty] with [None] and goto state 190
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 190
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it . LexToken(CTE_INT,10,21,209)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 191
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 191
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it empty . LexToken(CTE_INT,10,21,209)
+Action : Reduce rule [it -> empty] with [None] and goto state 197
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 197
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it it . LexToken(CTE_INT,10,21,209)
+Action : Shift and goto state 246
+State  : 246
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it it CTE_INT . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [cteidcall -> CTE_INT] with [10] and goto state 244
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 244
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it it cteidcall . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 242
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it it factor . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 289
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 289
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it it factor empty . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 287
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it it factor terminoaux . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 196
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it termino . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 239
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 239
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it termino empty . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [expaux -> empty] with [None] and goto state 237
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 237
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it termino expaux . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 195
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it exp . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 232
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 232
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it exp empty . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 230
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it exp expresionaux . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 194
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it expresion . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 229
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 229
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it expresion empty . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 227
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it expresion andexpaux . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 193
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it and_exp . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 226
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 226
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it and_exp empty . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 224
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it and_exp hyper_aux . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 222
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 222
+Defaulted state 222: Reduce using 114
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN it hyper_exp . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [asignacion_simple -> it hyper_exp] with [None,None] and goto state 189
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 189
+Defaulted state 189: Reduce using 113
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN asignacion_simple . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Reduce rule [asign_opciones -> asignacion_simple] with [None] and goto state 188
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 188
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN asign_opciones . LexToken(SEP_SEMICOLON,';',21,211)
+Action : Shift and goto state 221
+State  : 221
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON . LexToken(PRINT,'print',22,217)
+Action : Reduce rule [asignacion -> valasigaux OP_ASSIGN asign_opciones SEP_SEMICOLON] with [None,'=',None,';'] and goto state 116
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 116
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto asignacion . LexToken(PRINT,'print',22,217)
+Action : Reduce rule [estatuto -> asignacion] with [None] and goto state 152
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 152
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto . LexToken(PRINT,'print',22,217)
+Action : Shift and goto state 124
+State  : 124
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT . LexToken(SEP_LPAREN,'(',22,222)
+Action : Shift and goto state 157
+State  : 157
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN . LexToken(ID,'mat',22,223)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 191
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 191
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN empty . LexToken(ID,'mat',22,223)
+Action : Reduce rule [it -> empty] with [None] and goto state 197
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 197
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it . LexToken(ID,'mat',22,223)
+Action : Shift and goto state 251
+State  : 251
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID . LexToken(SEP_LBRACKET,'[',22,226)
+Action : Shift and goto state 167
+State  : 167
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET . LexToken(CTE_INT,1,22,227)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 191
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 191
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET empty . LexToken(CTE_INT,1,22,227)
+Action : Reduce rule [it -> empty] with [None] and goto state 197
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 197
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it . LexToken(CTE_INT,1,22,227)
+Action : Shift and goto state 246
+State  : 246
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [cteidcall -> CTE_INT] with [1] and goto state 244
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 244
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 242
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 289
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 289
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 287
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 196
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 239
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 239
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [expaux -> empty] with [None] and goto state 237
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 237
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 195
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 232
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 232
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 230
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 194
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 229
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 229
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 227
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 193
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 226
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 226
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 224
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',22,228)
+Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 206
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 206
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',22,228)
+Action : Shift and goto state 265
+State  : 265
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(SEP_LBRACKET,'[',22,229)
+Action : Shift and goto state 310
+State  : 310
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET . LexToken(CTE_INT,2,22,230)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 191
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 191
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET empty . LexToken(CTE_INT,2,22,230)
+Action : Reduce rule [it -> empty] with [None] and goto state 197
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 197
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it . LexToken(CTE_INT,2,22,230)
+Action : Shift and goto state 246
+State  : 246
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it CTE_INT . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [cteidcall -> CTE_INT] with [2] and goto state 244
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 244
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it cteidcall . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [factor -> cteidcall] with [None] and goto state 242
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 242
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 289
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 289
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor empty . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 287
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET it factor terminoaux . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 196
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 239
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 239
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino empty . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [expaux -> empty] with [None] and goto state 237
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 237
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET termino expaux . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 195
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 232
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 232
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp empty . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 230
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET exp expresionaux . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 194
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 229
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 229
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion empty . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 227
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET expresion andexpaux . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 193
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 226
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 226
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp empty . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 224
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET and_exp hyper_aux . LexToken(SEP_RBRACKET,']',22,231)
+Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 343
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 343
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp . LexToken(SEP_RBRACKET,']',22,231)
+Action : Shift and goto state 365
+State  : 365
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp SEP_RBRACKET . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [mataccarraux -> SEP_LBRACKET hyper_exp SEP_RBRACKET SEP_LBRACKET hyper_exp SEP_RBRACKET] with ['[',None,']','[',None,']'] and goto state 165
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 165
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID mataccarraux . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [acceso_array -> mataccarraux] with [None] and goto state 298
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 298
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID acceso_array . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [aux_accesoarray -> acceso_array] with [None] and goto state 296
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 296
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID aux_accesoarray . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [var_id_aux -> aux_accesoarray] with [None] and goto state 295
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 295
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID var_id_aux . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [cteidcall_atributo_metodo -> ID var_id_aux] with ['mat',None] and goto state 249
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 249
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it cteidcall_atributo_metodo . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [separadorarrfunc -> cteidcall_atributo_metodo] with [None] and goto state 245
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 245
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it separadorarrfunc . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [factor -> separadorarrfunc] with [None] and goto state 242
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 242
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it factor . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 289
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 289
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it factor empty . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 287
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it factor terminoaux . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 196
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN termino . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 239
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 239
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN termino empty . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [expaux -> empty] with [None] and goto state 237
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 237
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN termino expaux . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 195
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN exp . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 232
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 232
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN exp empty . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 230
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN exp expresionaux . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 194
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN expresion . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 229
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 229
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN expresion empty . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 227
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN expresion andexpaux . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 193
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN and_exp . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 226
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 226
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN and_exp empty . LexToken(SEP_RPAREN,')',22,232)
+Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 224
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN and_exp hyper_aux . LexToken(SEP_RPAREN,')',22,232)
 Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 200
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 200
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp . LexToken(SEP_RPAREN,')',22,232)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 256
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 256
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp empty . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp empty . LexToken(SEP_RPAREN,')',22,232)
 Action : Reduce rule [cuadprint -> empty] with [None] and goto state 255
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 255
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint . LexToken(SEP_RPAREN,')',22,214)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint . LexToken(SEP_RPAREN,')',22,232)
 Action : Shift and goto state 254
 State  : 254
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN . LexToken(SEP_SEMICOLON,';',22,215)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN . LexToken(SEP_SEMICOLON,';',22,233)
 Action : Shift and goto state 301
 State  : 301
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN SEP_SEMICOLON . LexToken(SEP_RBRACE,'}',24,222)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN SEP_SEMICOLON . LexToken(PRINT,'print',23,239)
 Action : Reduce rule [escaux2 -> SEP_RPAREN SEP_SEMICOLON] with [')',';'] and goto state 302
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 302
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint escaux2 . LexToken(SEP_RBRACE,'}',24,222)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint escaux2 . LexToken(PRINT,'print',23,239)
 Action : Reduce rule [escrituraaux -> hyper_exp cuadprint escaux2] with [None,None,None] and goto state 198
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 198
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto PRINT SEP_LPAREN escrituraaux . LexToken(SEP_RBRACE,'}',24,222)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto PRINT SEP_LPAREN escrituraaux . LexToken(PRINT,'print',23,239)
 Action : Reduce rule [escritura -> PRINT SEP_LPAREN escrituraaux] with ['print','(',None] and goto state 118
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 118
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto escritura . LexToken(SEP_RBRACE,'}',24,222)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto escritura . LexToken(PRINT,'print',23,239)
 Action : Reduce rule [estatuto -> escritura] with [None] and goto state 152
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 152
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto . LexToken(SEP_RBRACE,'}',24,222)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto . LexToken(PRINT,'print',23,239)
+Action : Shift and goto state 124
+State  : 124
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT . LexToken(SEP_LPAREN,'(',23,244)
+Action : Shift and goto state 157
+State  : 157
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN . LexToken(ID,'x',23,245)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 191
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 191
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN empty . LexToken(ID,'x',23,245)
+Action : Reduce rule [it -> empty] with [None] and goto state 197
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 197
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it . LexToken(ID,'x',23,245)
+Action : Shift and goto state 251
+State  : 251
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 297
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 297
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID empty . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [asatr -> empty] with [None] and goto state 299
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 299
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID asatr . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 335
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 335
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID asatr empty . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [cteidcall_am_aux -> empty] with [None] and goto state 333
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 333
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID asatr cteidcall_am_aux . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [aux_accesoarray -> asatr cteidcall_am_aux] with [None,None] and goto state 296
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 296
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID aux_accesoarray . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [var_id_aux -> aux_accesoarray] with [None] and goto state 295
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 295
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it ID var_id_aux . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [cteidcall_atributo_metodo -> ID var_id_aux] with ['x',None] and goto state 249
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 249
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it cteidcall_atributo_metodo . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [separadorarrfunc -> cteidcall_atributo_metodo] with [None] and goto state 245
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 245
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it separadorarrfunc . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [factor -> separadorarrfunc] with [None] and goto state 242
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 242
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it factor . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 289
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 289
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it factor empty . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [terminoaux -> empty] with [None] and goto state 287
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 287
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN it factor terminoaux . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [termino -> it factor terminoaux] with [None,None,None] and goto state 196
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 196
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN termino . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 239
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 239
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN termino empty . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [expaux -> empty] with [None] and goto state 237
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 237
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN termino expaux . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [exp -> termino expaux] with [None,None] and goto state 195
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 195
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN exp . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 232
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 232
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN exp empty . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [expresionaux -> empty] with [None] and goto state 230
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 230
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN exp expresionaux . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [expresion -> exp expresionaux] with [None,None] and goto state 194
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 194
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN expresion . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 229
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 229
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN expresion empty . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [andexpaux -> empty] with [None] and goto state 227
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 227
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN expresion andexpaux . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [and_exp -> expresion andexpaux] with [None,None] and goto state 193
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 193
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN and_exp . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 226
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 226
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN and_exp empty . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [hyper_aux -> empty] with [None] and goto state 224
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 224
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN and_exp hyper_aux . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [hyper_exp -> and_exp hyper_aux] with [None,None] and goto state 200
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 200
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 256
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 256
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp empty . LexToken(SEP_RPAREN,')',23,246)
+Action : Reduce rule [cuadprint -> empty] with [None] and goto state 255
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 255
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint . LexToken(SEP_RPAREN,')',23,246)
+Action : Shift and goto state 254
+State  : 254
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN . LexToken(SEP_SEMICOLON,';',23,247)
+Action : Shift and goto state 301
+State  : 301
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint SEP_RPAREN SEP_SEMICOLON . LexToken(SEP_RBRACE,'}',25,254)
+Action : Reduce rule [escaux2 -> SEP_RPAREN SEP_SEMICOLON] with [')',';'] and goto state 302
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 302
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN hyper_exp cuadprint escaux2 . LexToken(SEP_RBRACE,'}',25,254)
+Action : Reduce rule [escrituraaux -> hyper_exp cuadprint escaux2] with [None,None,None] and goto state 198
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 198
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto PRINT SEP_LPAREN escrituraaux . LexToken(SEP_RBRACE,'}',25,254)
+Action : Reduce rule [escritura -> PRINT SEP_LPAREN escrituraaux] with ['print','(',None] and goto state 118
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 118
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto escritura . LexToken(SEP_RBRACE,'}',25,254)
+Action : Reduce rule [estatuto -> escritura] with [None] and goto state 152
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 152
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto estatuto . LexToken(SEP_RBRACE,'}',25,254)
 Action : Shift and goto state 154
 State  : 154
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto SEP_RBRACE . LexToken(END,'end',25,224)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto estatuto SEP_RBRACE . LexToken(END,'end',26,256)
 Action : Reduce rule [bloqueaux -> SEP_RBRACE] with ['}'] and goto state 187
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 187
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto bloqueaux . LexToken(END,'end',25,224)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto estatuto bloqueaux . LexToken(END,'end',26,256)
 Action : Reduce rule [bloqueaux -> estatuto bloqueaux] with [None,None] and goto state 187
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 187
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto bloqueaux . LexToken(END,'end',25,224)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto estatuto bloqueaux . LexToken(END,'end',26,256)
 Action : Reduce rule [bloqueaux -> estatuto bloqueaux] with [None,None] and goto state 187
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 187
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto bloqueaux . LexToken(END,'end',25,224)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto estatuto bloqueaux . LexToken(END,'end',26,256)
+Action : Reduce rule [bloqueaux -> estatuto bloqueaux] with [None,None] and goto state 187
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 187
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto estatuto bloqueaux . LexToken(END,'end',26,256)
+Action : Reduce rule [bloqueaux -> estatuto bloqueaux] with [None,None] and goto state 187
+Result : <NoneType @ 0x7ffd7d64acd8> (None)
+State  : 187
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto estatuto bloqueaux . LexToken(END,'end',26,256)
 Action : Reduce rule [bloqueaux -> estatuto bloqueaux] with [None,None] and goto state 153
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 153
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto bloqueaux . LexToken(END,'end',25,224)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN SEP_LBRACE estatuto bloqueaux . LexToken(END,'end',26,256)
 Action : Reduce rule [bloque -> SEP_LBRACE estatuto bloqueaux] with ['{',None,None] and goto state 91
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 91
 Defaulted state 91: Reduce using 20
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN bloque . LexToken(END,'end',25,224)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal MAIN maini SEP_LPAREN SEP_RPAREN bloque . LexToken(END,'end',26,256)
 Action : Reduce rule [principal -> MAIN maini SEP_LPAREN SEP_RPAREN bloque] with ['main',None,'(',')',None] and goto state 13
 Result : <NoneType @ 0x7ffd7d64acd8> (None)
 State  : 13
-Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal principal . LexToken(END,'end',25,224)
+Stack  : PROGRAM ID SEP_SEMICOLON varsGlobal principal . LexToken(END,'end',26,256)
 Action : Shift and goto state 21
 State  : 21
 Defaulted state 21: Reduce using 212
@@ -1489,10 +1932,10 @@ State  : 5
 Defaulted state 5: Reduce using 1
 Stack  : PROGRAM ID SEP_SEMICOLON proaux . None
 Action : Reduce rule [programa -> PROGRAM ID SEP_SEMICOLON proaux] with ['program','Expresion',';',None] and goto state 1
-Result : <str @ 0x2c14628f3b0> ('Success')
+Result : <str @ 0x2380fd6e470> ('Success')
 State  : 1
 Stack  : programa . $end
-Done   : Returning <str @ 0x2c14628f3b0> ('Success')
+Done   : Returning <str @ 0x2380fd6e470> ('Success')
 PLY: PARSE DEBUG END
 float
 CALL INITIAL
@@ -1696,6 +2139,105 @@ int
 sensual
 [('GOTO', ' ', ' ', 1), ('=', 23000, '', 5001)]
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+mau  3
+mmmm  int
+fffffffffffffffffffffffffffffffffffffffffffffffffffff
+3
+int
+term
+expaux
+exp
+empty
+empty
+empty
+23001
+ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+arr
+None
+es none valasig
+arr
+prueba ID ---  arr
+tipo id ---  int
+3
+lengths Exp
+1
+[23001]
+1
+lengths arrvar
+aqui entra arrvar1
+arrExp en 0
+23001
+verify
+otra dir base es 5002
+no hay 4
+4
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+mau  700
+mmmm  int
+fffffffffffffffffffffffffffffffffffffffffffffffffffff
+700
+int
+term
+expaux
+exp
+empty
+empty
+empty
+yes-assign
+leftType int
+resOp assign  15000
+rtype - int
+tamaño pTipos 2
+tamaño pOperandos 0
+lOp assign  23003
+=
+int
+sensual
+[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5001), ('VER', 23001, 23002, 23001), ('+', 5002, 23001, 15000), ('=', 23003, '', 15000)]
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+mau  3
+mmmm  int
+fffffffffffffffffffffffffffffffffffffffffffffffffffff
+3
+int
+term
+expaux
+exp
+empty
+empty
+empty
+23001
+ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+arr
+None
+es none valasig
+arr
+prueba ID ---  arr
+tipo id ---  int
+3
+lengths Exp
+1
+[23001]
+1
+lengths arrvar
+aqui entra arrvar1
+arrExp en 0
+23001
+verify
+otra dir base es 5002
+no hay 4
+4
+term
+expaux
+exp
+empty
+empty
+empty
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 mau  1
 mmmm  int
 fffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -1720,8 +2262,8 @@ empty
 empty
 empty
 ATTTTTTTTTTTTTTTTTTTAYYYYÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ
-prim val 23002
-sec val 23001
+prim val 23005
+sec val 23004
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 mat
 None
@@ -1732,7 +2274,7 @@ tipo id ---  int
 3
 lengths Exp
 2
-[23001, 23002]
+[23004, 23005]
 2
 lengths arrvar
 aqui entra arrvar2
@@ -1741,7 +2283,7 @@ aqui entra arrvar2
 5
 6
 7
-tamaño pTipos 4
+tamaño pTipos 8
 tamaño pOperandos 1
 la dir base es 5007
 8
@@ -1761,21 +2303,21 @@ empty
 empty
 yes-assign
 leftType int
-resOp assign  15002
+resOp assign  15004
 rtype - int
-tamaño pTipos 3
+tamaño pTipos 7
 tamaño pOperandos 0
-lOp assign  23005
+lOp assign  23007
 =
 int
 sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5001), ('VER', 23001, 23003, 23001), ('*', 23001, 23004, 15000), ('VER', 23002, 23003, 23002), ('+', 23002, 15000, 15001), ('+', 5007, 15001, 15002), ('=', 23005, '', 15002)]
+[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5001), ('VER', 23001, 23002, 23001), ('+', 5002, 23001, 15000), ('=', 23003, '', 15000), ('VER', 23001, 23002, 23001), ('+', 5002, 23001, 15001), ('PRINT', ' ', ' ', 15001), ('VER', 23004, 23002, 23004), ('*', 23004, 23001, 15002), ('VER', 23005, 23002, 23005), ('+', 23005, 15002, 15003), ('+', 23006, 15003, 15004), ('=', 23007, '', 15004)]
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  0
+mau  1
 mmmm  int
 fffffffffffffffffffffffffffffffffffffffffffffffffffff
-0
+1
 int
 term
 expaux
@@ -1796,8 +2338,8 @@ empty
 empty
 empty
 ATTTTTTTTTTTTTTTTTTTAYYYYÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ
-prim val 23002
-sec val 23003
+prim val 23005
+sec val 23004
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 mat
 None
@@ -1808,7 +2350,7 @@ tipo id ---  int
 3
 lengths Exp
 2
-[23003, 23002]
+[23004, 23005]
 2
 lengths arrvar
 aqui entra arrvar2
@@ -1817,7 +2359,7 @@ aqui entra arrvar2
 5
 6
 7
-tamaño pTipos 7
+tamaño pTipos 11
 tamaño pOperandos 1
 la dir base es 5007
 8
@@ -1846,9 +2388,9 @@ empty
 empty
 empty
 DIRGLOB
-{'i': <dirVar.variable object at 0x000002C146D8F6D0>, 'valor': <dirVar.variable object at 0x000002C146ECE2B0>, 'y': <dirVar.variable object at 0x000002C146ECE850>, 'msg': <dirVar.variable object at 0x000002C146ECF220>, 'x': <dirVar.variable object at 0x000002C146ECFB80>, 'arr': <dirVar.variable object at 0x000002C146E2D760>, 'f': <dirVar.variable object at 0x000002C146E2DC40>, 'mat': <dirVar.variable object at 0x000002C146E27820>, 'aux': <dirVar.variable object at 0x000002C146E27D00>}
+{'i': <dirVar.variable object at 0x00000238109AE6D0>, 'valor': <dirVar.variable object at 0x000002381086E2B0>, 'y': <dirVar.variable object at 0x000002381086E850>, 'msg': <dirVar.variable object at 0x000002381086F220>, 'x': <dirVar.variable object at 0x000002381086FB80>, 'arr': <dirVar.variable object at 0x0000023810910760>, 'f': <dirVar.variable object at 0x0000023810910C40>, 'mat': <dirVar.variable object at 0x000002381090D820>, 'aux': <dirVar.variable object at 0x000002381090DD00>}
 dirFunc
-{'main': <dirVar.funcion object at 0x000002C146D8F280>}
+{'main': <dirVar.funcion object at 0x00000238109AE280>}
 Dirclases
 {}
 
@@ -1867,11 +2409,13 @@ aux {'tipovar': 'int', 'length': [], 'valor': None, 'direccion': 5013}
 dirConstantes
 
 23000 5
-23001 1
-23002 2
-23003 0
-23004 3
-23005 10
+23001 3
+23002 0
+23003 700
+23004 1
+23005 2
+23006 5007
+23007 10
 
 
 Correct syntax
@@ -1883,40 +2427,37 @@ cuad      op        v1        v2        vf
 ----      --        ---       ---       ---       
 0         GOTO                          1         
 1         =         23000               5001      
-2         VER       23001     23003     23001     
-3         *         23001     23004     15000     
-4         VER       23002     23003     23002     
-5         +         23002     15000     15001     
-6         +         5007      15001     15002     
-7         =         23005               15002     
-8         VER       23003     23003     23001     
-9         *         23003     23004     15003     
-10        VER       23002     23003     23002     
-11        +         23002     15003     15004     
-12        +         5007      15004     15005     
-13        PRINT                         15005     
-14        PRINT                         5001      
-15        END                                     
-[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0], [], [], [0, 0, 0, 0, 0, 0], [], [], []]
-Num cuadruplos:  16
+2         VER       23001     23002     23001     
+3         +         5002      23001     15000     
+4         =         23003               15000     
+5         VER       23001     23002     23001     
+6         +         5002      23001     15001     
+7         PRINT                         15001     
+8         VER       23004     23002     23004     
+9         *         23004     23001     15002     
+10        VER       23005     23002     23005     
+11        +         23005     15002     15003     
+12        +         23006     15003     15004     
+13        =         23007               15004     
+14        VER       23004     23002     23004     
+15        *         23004     23001     15005     
+16        VER       23005     23002     23005     
+17        +         23005     15005     15006     
+18        +         23006     15006     15007     
+19        PRINT                         15007     
+20        PRINT                         5001      
+21        END                                     
+[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0], [], [], [0, 0, 0, 0, 0, 0, 0, 0], [], [], []]
+Num cuadruplos:  22
 -----------------------------------------------------
 VER
 VER
-+
-23002 + 15000 en 15001
--- newResult 5
-+
-5007 + 15001 en 15002
--- newResult 5
+None
 VER
 VER
-+
-23002 + 15003 en 15004
--- newResult 2
-+
-5007 + 15004 en 15005
--- newResult 2
-2
+VER
+VER
+10
 5
 -----------------------------------------------------
-[[0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0], [], [], [3, 5, 5, 0, 2, 2], [], [], []]
+[[0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0], [0, 0], [], [], [3, 3, 3, 5, 5012, 3, 5, 5012], [], [], []]
