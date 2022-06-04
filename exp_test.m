@@ -17,8 +17,8 @@ main(){
     
     x = 5;
     
-    mat[0][2] = 10;
-    print(mat[0][2]);
+    mat[1][2] = 10;
+    print(mat[1][2]);
     print(x);
     
 }

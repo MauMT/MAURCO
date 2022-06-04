@@ -116,6 +116,9 @@ def writeOnMemory(value, addr):
     elif aux == 'tgf':
         MemoriaGlobal[5][addr - TEMPORAL_FLOAT_START] = value
 
+def isTemporalAddress(addr):
+    return is_between(TEMPORAL_INT_START, addr, 19000)
+
 def incrementInstructionPointer():
     global instruction_pointer
     instruction_pointer += 1
@@ -245,7 +248,10 @@ while cuads[instruction_pointer][1] != 'END':
             incrementInstructionPointer()
 
     elif operacion == 'PRINT':
-        print(readMemory(res))
+        if isTemporalAddress(res):
+            print(readMemory(readMemory(res)))
+        else:
+            print(readMemory(res))
         incrementInstructionPointer()
     
     elif operacion == 'ERA':

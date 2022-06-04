@@ -519,9 +519,10 @@ def arrSumaMult(s2):
 def sumaDirBase(direccion):
   print("tamaño pTipos", len(pTipos))
   print("tamaño pOperandos", len(pOperandos))
-  print(direccion)
+  print("la dir base es", direccion)
+  dir_base = getConstantAddressbyValue(direccion, "int")
   result = virtualAdd.getGlobalTempAddressInt()
-  cuads.append(("+", direccion, pOperandos.pop(), result))
+  cuads.append(("+", dir_base, pOperandos.pop(), result))
   pTipos.pop()
   agregarID(result)
   agregarTipo("int")
