@@ -3,6 +3,7 @@ from dirVar import dirFunciones
 from dirVar import dirConstantes
 import virtualAdd
 
+from virtualAdd import GLOBAL_INT_START, GLOBAL_FLOAT_START, LOCAL_INT_START, LOCAL_FLOAT_START, TEMPORAL_INT_START, TEMPORAL_FLOAT_START, CONSTANT_INT_START, CONSTANT_FLOAT_START
 
 # 0 globales int 5000
 # 1 globales float 8000
@@ -12,6 +13,7 @@ import virtualAdd
 
 # 4 temporales int 15000
 # 5 temporales float 17000
+
 MemoriaGlobal = [[],[],[],[],[],[],[],[]]
 
 class MemoriaLocal:
@@ -28,10 +30,10 @@ def getFuncionContext(funcion):
 
 
 ### RESTAR VALOR DE LA DIRECCIÓN BASE DEPERENDIENDO EL TIPO Y SCOPE
-casillasGlobalInt = virtualAdd.getCurrentGlobalAddressInt() - 5000
-casillasGlobalFloat = virtualAdd.getCurrentGlobalAddressFloat() - 8000
-casillasTemporalesInt = virtualAdd.getCurrentTempAddressInt() - 15000
-casillasTemporalesFloat = virtualAdd.getCurrentTempAddressFloat() - 17000
+casillasGlobalInt = virtualAdd.getCurrentGlobalAddressInt() - virtualAdd.GLOBAL_INT_START
+casillasGlobalFloat = virtualAdd.getCurrentGlobalAddressFloat() - virtualAdd.GLOBAL_FLOAT_START
+casillasTemporalesInt = virtualAdd.getCurrentTempAddressInt() - virtualAdd.TEMPORAL_INT_START
+casillasTemporalesFloat = virtualAdd.getCurrentTempAddressFloat() - virtualAdd.TEMPORAL_FLOAT_START
 #-----------------------------------------------------------
 
 MemoriaGlobal[0] = [0] * casillasGlobalInt
@@ -46,36 +48,33 @@ MemoriaGlobal[5] = [0] * casillasTemporalesFloat
 
 
 dictConstantesMemoriaGlobal = dict((v,k) for k,v in dirConstantes.items())
-print(dictConstantesMemoriaGlobal)
-print("--")
+
 print(MemoriaGlobal)
 
 instruction_pointer = 1
 
-#myCuads = [(0, 'GOTO', ' ', ' ', 1), (1, '+', 23000, 23001, 15000), (2, '+', 15000, 23002, 15001), (3, '+', 15001, 23003, 15002), (4, '+', 15002, 23004, 15003), (5, '=', 15003, '', 'x'), (6, '+', 5001, 23004, 15004), (7, '=', 15004, '', 'a'), (8, '+', 23004, 24000, 17000), (9, '*', 5003, 17000, 17001), (10, '=', 17001, '', 'y'), (11, '*', 23005, 23006, 15005), (12, '=', 15005, '', 'z'), (13, '/', 23002, 23004, 17002), (14, '+', 5004, 17002, 17003), (15, '=', 23007, '', 'a'), (16, 'END', ' ', ' ', ' ')]
-
 
 print("Num cuadruplos: ", cuads.__len__())
-
+print("-----------------------------------------------------")
 def getTypeScopeByAddress(num):
     '''
     Devuelve un string con el tipo y scope de la variable en la dirección num
     '''
-    if num >= 5000 and num < 8000:
+    if num >= GLOBAL_INT_START and num < GLOBAL_FLOAT_START:
         return 'gi'
-    elif num >= 8000 and num < 11000:
+    elif num >= GLOBAL_FLOAT_START and num < LOCAL_INT_START:
         return 'gf'
-    elif num >= 11000 and num < 13000:
+    elif num >= LOCAL_INT_START and num < LOCAL_FLOAT_START:
         return 'li'
-    elif num >= 13000 and num < 15000:
+    elif num >= LOCAL_FLOAT_START and num < TEMPORAL_INT_START:
         return 'lf'
-    elif num >= 15000 and num < 17000:
+    elif num >= TEMPORAL_INT_START and num < TEMPORAL_FLOAT_START:
         return 'tgi'
-    elif num >= 17000 and num < 19000:
+    elif num >= TEMPORAL_FLOAT_START and num < 19000:
         return 'tgf'
-    elif num >= 23000 and num < 24000:
+    elif num >= CONSTANT_INT_START and num < CONSTANT_FLOAT_START:
         return 'ci'
-    elif num >= 24000 and num < 25000:
+    elif num >= CONSTANT_FLOAT_START and num < 25000:
         return 'cf'
 
 
@@ -85,17 +84,17 @@ def getConstant(key):
 def readMemory(num):
     aux = getTypeScopeByAddress(num)
     if aux == 'gi':
-        return MemoriaGlobal[0][num - 5000]
+        return MemoriaGlobal[0][num - GLOBAL_INT_START]
     elif aux == 'gf':
-        return MemoriaGlobal[1][num - 8000]
+        return MemoriaGlobal[1][num - GLOBAL_FLOAT_START]
     elif aux == 'li':
-        return MemoriaGlobal[2][num - 11000]
+        return MemoriaGlobal[2][num - LOCAL_INT_START]
     elif aux == 'lf':
-        return MemoriaGlobal[3][num - 13000]
+        return MemoriaGlobal[3][num - LOCAL_FLOATT_START]
     elif aux == 'tgi':
-        return MemoriaGlobal[4][num - 15000]
+        return MemoriaGlobal[4][num - TEMPORAL_INT_START]
     elif aux == 'tgf':
-        return MemoriaGlobal[5][num - 17000]
+        return MemoriaGlobal[5][num - TEMPORAL_FLOAT_START]
     elif aux == 'ci':
         return getConstant(num)
     elif aux == 'cf':
@@ -104,19 +103,18 @@ def readMemory(num):
 # 'value' is an actual value that will assigned to 'addr' 
 def writeOnMemory(value, addr):
     aux = getTypeScopeByAddress(addr)
-    print("aux: ", aux)
     if aux == 'gi':
-        MemoriaGlobal[0][addr - 5000] = value
+        MemoriaGlobal[0][addr - GLOBAL_INT_START] = value
     elif aux == 'gf':
-        MemoriaGlobal[1][addr - 8000] = value
+        MemoriaGlobal[1][addr - GLOBAL_FLOAT_START] = value
     elif aux == 'li':
-        MemoriaGlobal[2][addr - 11000] = value
+        MemoriaGlobal[2][addr - LOCAL_INT_START] = value
     elif aux == 'lf':
-        MemoriaGlobal[3][addr - 13000] = value
+        MemoriaGlobal[3][addr - LOCAL_FLOATT_START] = value
     elif aux == 'tgi':
-        MemoriaGlobal[4][addr - 15000] = value
+        MemoriaGlobal[4][addr - TEMPORAL_INT_START] = value
     elif aux == 'tgf':
-        MemoriaGlobal[5][addr - 17000] = value
+        MemoriaGlobal[5][addr - TEMPORAL_FLOAT_START] = value
 
 def incrementInstructionPointer():
     global instruction_pointer
@@ -127,7 +125,18 @@ def printHelper(operador, izq, der, res, newRes):
     print(izq, operador, der, "en", res)
     print("-- newResult", newRes)
 
+def boolean_to_num(val):
+    if val:
+        return 1
+    else:
+        return 0
 
+def getTypeByAddres(addr):
+    if (addr >= GLOBAL_INT_START and addr < GLOBAL_FLOAT_START) or (addr >= TEMPORAL_INT_START and addr < TEMPORAL_FLOAT_START) or (addr >= LOCAL_INT_START and addr < LOCAL_FLOATT_START):
+        return 'int'
+    elif (addr >= GLOBAL_FLOAT_START and addr < LOCAL_INT_START) or (addr >= LOCAL_FLOAT_START and addr < TEMPORAL_INT_START) or (addr >= TEMPORAL_FLOAT_START and addr < CONSTANT_INT_START):
+        return 'float'
+    
 
 while cuads[instruction_pointer][1] != 'END': 
     
@@ -139,76 +148,77 @@ while cuads[instruction_pointer][1] != 'END':
 
     if operacion == 'GOTO':
         print("GOTO")
-        incrementInstructionPointer()
-
+        #incrementInstructionPointer()
+        instruction_pointer = int(res)
     elif operacion == '+':
         newResult = readMemory(operandoIzq) + readMemory(operandoDer)
-        printHelper('+', operandoIzq, operandoDer, res, newResult)
+        #printHelper('+', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(newResult, res)
         incrementInstructionPointer()
     
     elif operacion == '-':
         newResult = readMemory(operandoIzq) - readMemory(operandoDer)
-        printHelper('-', operandoIzq, operandoDer, res, newResult)
+        #printHelper('-', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(newResult, res)
         incrementInstructionPointer()
     
     elif operacion == '*':
-        print("*")
-        print(operandoIzq, '*', operandoDer, "en", res)
         newResult = readMemory(operandoIzq) * readMemory(operandoDer)
-        print("-- newResult", newResult)
+        #printHelper('*', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(newResult, res)
         incrementInstructionPointer()
 
     elif operacion == '/':
-        print("/")
-        print(operandoIzq, '/', operandoDer, "en", res)
         newResult = readMemory(operandoIzq) / readMemory(operandoDer)
-        print("-- newResult", newResult)
+        #printHelper('/', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(newResult, res)
         incrementInstructionPointer()
 
     elif operacion == '<':
-        print("<")
-        print(operandoIzq, '<', operandoDer, "en", res)
         newResult = readMemory(operandoIzq) < readMemory(operandoDer)
-        print("-- newResult", newResult)
-        writeOnMemory(newResult, res)
+        #printHelper('<', operandoIzq, operandoDer, res, newResult)
+        writeOnMemory(value=boolean_to_num(newResult), addr=res)
         incrementInstructionPointer()
 
     elif operacion == '>':
-        print(">")
-        print(operandoIzq, '>', operandoDer, "en", res)
         newResult = readMemory(operandoIzq) > readMemory(operandoDer)
-        print("-- newResult", newResult)
-        writeOnMemory(newResult, res)
+        #printHelper('>', operandoIzq, operandoDer, res, newResult)
+        writeOnMemory(value=boolean_to_num(newResult), addr=res)
         incrementInstructionPointer()
 
     elif operacion == '!=':
-        print("!=")
-        print(operandoIzq, '!=', operandoDer, "en", res)
         newResult = readMemory(operandoIzq) != readMemory(operandoDer)
-        print("-- newResult", newResult)
-        writeOnMemory(newResult, res)
+        #printHelper('!=', operandoIzq, operandoDer, res, newResult)
+        writeOnMemory(value=boolean_to_num(newResult), addr=res)
         incrementInstructionPointer()
 
     elif operacion == '&':
-        print("&")
+        newResult = readMemory(operandoIzq) and readMemory(operandoDer)
+        #printHelper('&', operandoIzq, operandoDer, res, newResult)
+        writeOnMemory(value=boolean_to_num(newResult), addr=res)
         incrementInstructionPointer()
 
     elif operacion == '|':
-        print("|")
+        newResult = readMemory(operandoIzq) or readMemory(operandoDer)
+        printHelper('|', operandoIzq, operandoDer, res, newResult)
+        writeOnMemory(value=boolean_to_num(newResult), addr=res)
         incrementInstructionPointer()
 
     elif operacion == 'INPUT':
-        print("INPUT")
+        tipo = getTypeByAddres(res)
+
+        if tipo == 'int':
+            newResult = int(input())
+        elif tipo == 'float':
+            newResult = float(input())
+            
+        writeOnMemory(newResult, res)
         incrementInstructionPointer()
 
     elif operacion == '=':
-        print("=")
+        """ print("=")
         print("operandoIzq: ", operandoIzq)
-        print("res: ", res)
+        print("res: ", res) """
         writeOnMemory(readMemory(operandoIzq), res)
         incrementInstructionPointer()
 
@@ -217,11 +227,12 @@ while cuads[instruction_pointer][1] != 'END':
         incrementInstructionPointer()
 
     elif operacion == 'GOTOF':
-        print("GOTOF")
-        incrementInstructionPointer()
+        if readMemory(operandoIzq) == 0:
+            instruction_pointer = int(res)
+        else:
+            incrementInstructionPointer()
 
     elif operacion == 'PRINT':
-        print("PRINT")
         print(readMemory(res))
         incrementInstructionPointer()
     
@@ -246,6 +257,5 @@ while cuads[instruction_pointer][1] != 'END':
         incrementInstructionPointer()
     
 
-    
-    
+print("-----------------------------------------------------")
 print(MemoriaGlobal)

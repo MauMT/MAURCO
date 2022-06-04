@@ -1,3 +1,4 @@
+
 # Inicio de direcciones para variables globales
 Gi = 5000
 Gf = 8000
@@ -14,6 +15,17 @@ Tgf = 17000
 Ci = 23000
 Cf = 24000 #hasta 25,000
 
+GLOBAL_INT_START = 5000
+GLOBAL_FLOAT_START = 8000
+
+LOCAL_INT_START = 11000
+LOCAL_FLOAT_START = 13000
+
+TEMPORAL_INT_START = 15000
+TEMPORAL_FLOAT_START = 17000
+
+CONSTANT_INT_START = 23000
+CONSTANT_FLOAT_START = 24000
 
 ### FUNCIONES PARA OBTENER EL CONTADOR ACTUAL DE CADA TIPO DE DIRECCIÓN
 # getAddress de cualquier tipo mueve el contador a una dirección después de la última asignada

@@ -1933,7 +1933,7 @@ def p_relCurr(p):
 
 
 
-file = open("exp_test.txt", 'r')
+file = open("exp_test.m", 'r')
 
 #lexer.input("program primero ")
 
@@ -1986,3 +1986,4 @@ cuads.addCounter()
 cuads.printCuads()
 import vm
 #print(cuads.cuads)
+

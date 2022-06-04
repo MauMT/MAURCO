@@ -16,17 +16,15 @@ vars
 main(){
     
     x = 1 + 2 + 3 + 4 + 5;
-    
+    b = 3;
     a = (x+5);
-    
+    i = 10;
     y = b*(5 + 2.3);
+    input(y);
+    if(y<10) then {
+      print(y);
+    }
 
-    if(i < 2) then{
-      aux = 1;
-    }
-    else{
-      aux = 10;
-    }
-    print(aux);
+    
 }
 end
