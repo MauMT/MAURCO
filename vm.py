@@ -136,7 +136,11 @@ def getTypeByAddres(addr):
         return 'int'
     elif (addr >= GLOBAL_FLOAT_START and addr < LOCAL_INT_START) or (addr >= LOCAL_FLOAT_START and addr < TEMPORAL_INT_START) or (addr >= TEMPORAL_FLOAT_START and addr < CONSTANT_INT_START):
         return 'float'
-    
+
+def is_between(x, y, z):
+    return x <= y <= z
+
+inside_array_flag = False
 
 while cuads[instruction_pointer][1] != 'END': 
     
@@ -145,7 +149,7 @@ while cuads[instruction_pointer][1] != 'END':
     operandoIzq = cuad[2]
     operandoDer = cuad[3]
     res = cuad[4]
-
+    
     if operacion == 'GOTO':
         print("GOTO")
         #incrementInstructionPointer()
@@ -219,12 +223,20 @@ while cuads[instruction_pointer][1] != 'END':
         """ print("=")
         print("operandoIzq: ", operandoIzq)
         print("res: ", res) """
-        writeOnMemory(readMemory(operandoIzq), res)
+        if inside_array_flag:
+            writeOnMemory(readMemory(operandoIzq), readMemory(res))
+        else:
+            writeOnMemory(readMemory(operandoIzq), res)
         incrementInstructionPointer()
 
     elif operacion == 'VER':
         print("VER")
-        incrementInstructionPointer()
+        
+        if is_between(readMemory(operandoDer), readMemory(operandoIzq), readMemory(res)):
+            incrementInstructionPointer()
+            inside_array_flag = True
+        else:
+            raise IndexError("Index out of range")
 
     elif operacion == 'GOTOF':
         if readMemory(operandoIzq) == 0:

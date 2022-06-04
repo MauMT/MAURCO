@@ -501,7 +501,8 @@ def arrVerifica(val, rango):
 
 def arrMult(s1, m1):
   result = virtualAdd.getGlobalTempAddressInt()
-  cuads.append(("*", s1, m1, result))
+  dir_m1 = getConstantAddressbyValue(m1, "int")
+  cuads.append(("*", s1, dir_m1, result))
   agregarID(result)
   agregarTipo("int")
 

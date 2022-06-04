@@ -6,7 +6,7 @@ vars
     int i;
     float valor, y;
     char msg;
-    int x, a, b, z, j;
+    int x;
     int arr[4], f;
     int mat[2][3], aux;
 }
@@ -15,16 +15,11 @@ vars
 
 main(){
     
-    x = 1 + 2 + 3 + 4 + 5;
-    b = 3;
-    a = (x+5);
-    i = 10;
-    y = b*(5 + 2.3);
-    input(y);
-    if(y<10) then {
-      print(y);
-    }
-
+    x = 5;
+    
+    mat[0][2] = 10;
+    print(mat[0][2]);
+    print(x);
     
 }
 end

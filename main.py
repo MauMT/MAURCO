@@ -761,9 +761,13 @@ def p_mataccarraux(p):
     isMat = True
     val = cuads.pOperandos.pop()
     print("ATTTTTTTTTTTTTTTTTTTAYYYYÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ")
-    arrExp.append(val)
+    print("prim val", val)
+    #arrExp.append(val)
+    arrExp.insert(0, val)
     val = cuads.pOperandos.pop()
-    arrExp.append(val)
+    print("sec val", val)
+    #arrExp.append(val)
+    arrExp.insert(0, val)
 
     
 """
