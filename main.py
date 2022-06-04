@@ -1148,14 +1148,9 @@ def p_cuadprint(p):
 
 def p_letrero(p):
     '''
-    letrero : CTE_CHAR letaux
+    letrero : CTE_CHAR 
     '''
 
-def p_letaux(p):
-    '''
-    letaux : CTE_CHAR letaux
-           | empty
-    '''
 
 #### NO SE USAN 😬#######
 def p_llamadavoid(p):
@@ -1971,6 +1966,8 @@ try:
       print(dirVar.dirConstantes[key], key)
     print("\n")
     print("Correct syntax")
+
+    
 
 except:
     print(f'Syntax error')

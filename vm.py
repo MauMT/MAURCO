@@ -154,9 +154,8 @@ while cuads[instruction_pointer][1] != 'END':
     res = cuad[4]
     
     if operacion == 'GOTO':
-        print("GOTO")
-        #incrementInstructionPointer()
         instruction_pointer = int(res)
+
     elif operacion == '+':
         newResult = readMemory(operandoIzq) + readMemory(operandoDer)
         #printHelper('+', operandoIzq, operandoDer, res, newResult)
@@ -189,7 +188,13 @@ while cuads[instruction_pointer][1] != 'END':
 
     elif operacion == '>':
         newResult = readMemory(operandoIzq) > readMemory(operandoDer)
-        #printHelper('>', operandoIzq, operandoDer, res, newResult)
+        printHelper('>', operandoIzq, operandoDer, res, newResult)
+        writeOnMemory(value=boolean_to_num(newResult), addr=res)
+        incrementInstructionPointer()
+
+    elif operacion == '==':
+        newResult = readMemory(operandoIzq) == readMemory(operandoDer)
+        #printHelper('==', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(value=boolean_to_num(newResult), addr=res)
         incrementInstructionPointer()
 
@@ -230,16 +235,18 @@ while cuads[instruction_pointer][1] != 'END':
             writeOnMemory(readMemory(operandoIzq), readMemory(res))
         else:
             writeOnMemory(readMemory(operandoIzq), res)
+        inside_array_flag = False
         incrementInstructionPointer()
 
     elif operacion == 'VER':
-        print("VER")
         
         if is_between(readMemory(operandoDer), readMemory(operandoIzq), readMemory(res)):
             incrementInstructionPointer()
             inside_array_flag = True
         else:
+            incrementInstructionPointer()
             raise IndexError("Index out of range")
+            
 
     elif operacion == 'GOTOF':
         if readMemory(operandoIzq) == 0:

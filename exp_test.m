@@ -8,19 +8,30 @@ vars
     char msg;
     int x;
     int arr[4], f;
-    int mat[2][3], aux;
+    int mat[2][3], aux, n;
 }
 
 
 
 main(){
     
-    x = 5;
-    arr[3] = 700;
-    print(arr[3]);
-    mat[1][2] = 10;
-    print(mat[1][2]);
-    print(x);
     
+    i=0;
+    x = 5;
+    while(i<3) do {
+      print(i);
+      arr[i] = 888;
+      i = i+1;
+    }
+
+
+aux = 1;
+  n=5;
+  while (n>0) do {
+    aux = aux*n;
+    n = n-1;
+  }
+  print(aux);
+
 }
 end
