@@ -157,6 +157,7 @@ def t_CTE_INT(t):
   return t 
 
 
+
 def t_CTE_CHAR(t):
   r'\"[a-zA-Z0-9_]*\"'
   t.value = str(t.value)
@@ -188,18 +189,6 @@ arrLength = []
 currFuncion = None
 isCallFun = False
 
-""" if(currFuncion == None):
-    print("es none")
-    arrVar = dirVar.getglobalVariable(currentID)
-    if(arrVar == None):
-        print("ERROR NO EXISTE LA VARIABLE")
-else:
-    arrVar = dirVar.getlocalVariable(currFuncion, currentID)
-    if(arrVar == None):
-      arrVar = dirVar.getglobalVariable(currentID)
-      if(arrVar == None):
-          #NO EXISTE
-          print("ERROR NO EXISTE LA VARIABLE") """
 
 def p_programa(p):
   '''
@@ -1152,7 +1141,8 @@ def p_letrero(p):
     '''
     letrero : CTE_CHAR 
     '''
-
+    cuads.escChar(p[1])
+ 
 
 #### NO SE USAN 😬#######
 def p_llamadavoid(p):
@@ -1341,10 +1331,16 @@ def p_expresion(p):
   
 def p_expresionaux(p):
   '''
-  expresionaux : evaluators exp
+  expresionaux : evaluators exp cuadcomp
                | empty
   '''
   ############################################################
+
+
+def p_cuadcomp(p):
+  '''
+  cuadcomp : empty
+  '''
   cuads.cuadscomparation()
 
 def p_evaluators(p):
@@ -1959,7 +1955,7 @@ lexer.input(lines)
 parser = yacc.yacc()
 try:
     print('Parsing...')
-    parser.parse(lines, debug=1)
+    parser.parse(lines, debug=0)
     print("DIRGLOB")
     print(dirVar.dirglobalVar)
     print("dirFunc")
@@ -1993,7 +1989,7 @@ except:
       print(key, dirVar.dirglobalVar[key].__dict__)
 
 
-#print(dirVar.dirFunciones["factorialRecursivo"].__dict__)
+print(dirVar.dirFunciones["factorialIterativo"].__dict__)
 
 cuads.addCounter()
 cuads.printCuads()

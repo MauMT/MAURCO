@@ -21,3 +21,11 @@ def checkintOrFloat(num):
       return "unknown"
 
 print(checkintOrFloat("2.3"))
+
+# function for checking if something is a string
+def is_string(s):
+    try:
+        s + ""
+        return True
+    except TypeError:
+        return False

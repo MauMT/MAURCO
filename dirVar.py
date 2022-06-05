@@ -26,6 +26,8 @@ class funcion:
         self.cuadcount = 0
         self.intcant = 0
         self.floatcant = 0
+        self.tempintcant = 0
+        self.tempfloatcant = 0
         self.charcant = 0
         self.direccion = 0
         self.localVar = {}
@@ -53,6 +55,19 @@ class funcion:
 
     def getcharcant(self):
         return self.charcant
+    
+    def gettempintcant(self):
+        return self.tempintcant
+    
+    def gettempfloatcant(self):
+        return self.tempfloatcant
+    
+    def settempintcant(self, value):
+        self.tempintcant = value
+    
+    def settempfloatcant(self, value):
+        self.tempfloatcant = value
+
     
 
 #-----------------------------------------------------------

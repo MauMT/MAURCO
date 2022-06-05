@@ -421,7 +421,7 @@ def valparams(params):
       conttipos += 1
       print("sientra")
       print(pOperandos[-1])
-      vfin = ("param"+str(conttipos))
+      vfin = (conttipos)
       print(vfin)
       cuads.append(("PARAM", pOperandos.pop() ," ", vfin))
       pTipos.pop()
@@ -522,7 +522,7 @@ def sumaDirBase(direccion):
   print("tamaño pOperandos", len(pOperandos))
   print("la dir base es", direccion)
   dir_base = getConstantAddressbyValue(direccion, "int")
-  result = virtualAdd.getGlobalTempAddressInt()
+  result = virtualAdd.getTempPointerAddress()
   cuads.append(("+", dir_base, pOperandos.pop(), result))
   pTipos.pop()
   agregarID(result)
@@ -560,6 +560,11 @@ def printCuads():
   for cuadCounter, el1, el2, el3, el4 in cuads:
       print ("{:<10}{:<10}{:<10}{:<10}{:<10}".format(cuadCounter,el1,el2,el3,el4))
 
+
+def escChar(char):
+  #remove first and last char from char string
+  char = char[1:-1]
+  cuads.append(("PRINT", " ", " ", char))
 
 '''
 myAddress = None

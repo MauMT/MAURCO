@@ -12,10 +12,23 @@ vars
     int a, b, size, aux;
 }
 
+int func factorialIterativo(int n)
+vars
+int aux;
+{
+    aux = 1;
+    while (n > 0) do {
+        aux = aux * n;
+        n = n - 1;
+    }
+    return(aux);
+}
+
 
 main(){
 
-  i=7;
+  i = factorialIterativo(5);
+  print(i);
   vector[0] = 1;
   vector[1] = 9;
   vector[2] = 11;
@@ -28,29 +41,31 @@ main(){
   vector[9] = 25;
 
 
-  
-
 
 a = 0;
 b = 0;
 size = 10;
   
-  while (a < size) do {
-    while (b < size-a-1) do {
+while (a < size -1) do {
+    while (b < (size - a -1)) do {
+      
       if(vector[b] > vector[b+1]) then {
+        
         aux = vector[b];
         vector[b] = vector[b+1];
         vector[b+1] = aux;
-        b = b + 1;
     }
-    a = a + 1;
+    b = b + 1;
   }
-  i = 0;
-
-  while(i< 10) do{
-    print(vector[i]);
-    i = i + 1;
-  }
+  a = a + 1;
+  b = 0;
+}
+  
+i = 0;
+while(i< 10) do{
+  print(vector[i]);
+  i = i + 1;
+}
 
 
 
