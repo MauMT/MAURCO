@@ -1070,7 +1070,9 @@ def p_valnull(p):
         print("1 No todo bien")
     else:
         print("2 No todo bien")
-        cuads.asignval(callfunc, dirVar.getfunctype(callfunc))
+        dirFuncion = dirVar.getglobalVariable(callfunc).direccion
+        print("dir de la funca", dirFuncion)
+        cuads.asignval(dirFuncion, dirVar.getfunctype(callfunc))
 
 
 def p_asignacion_metodo(p):
@@ -1687,6 +1689,16 @@ def p_nvfuntipid(p):
         #valred
     else:
         dirVar.agregarglobalVariable(currFuncion, [], currTipo)
+        if currTipo == "int":
+          auxDir = virtualAdd.getGlobalAddressInt()
+          print(auxDir)
+          dirVar.setGlobalVarAddress(currFuncion, auxDir)
+        elif currTipo == "float":
+          auxDir = virtualAdd.getGlobalAddressFloat()
+          dirVar.setGlobalVarAddress(currFuncion, auxDir)
+        else:
+          print("tipo desconocido")
+
 
 
 def p_vfuntipid(p):
@@ -1981,7 +1993,7 @@ except:
       print(key, dirVar.dirglobalVar[key].__dict__)
 
 
-
+#print(dirVar.dirFunciones["factorialRecursivo"].__dict__)
 
 cuads.addCounter()
 cuads.printCuads()

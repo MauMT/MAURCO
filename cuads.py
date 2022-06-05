@@ -464,7 +464,8 @@ def asignval(callfunc, tipo):
     result_addr = virtualAdd.getGlobalTempAddressFloat()
   else:
     print("errorASSIGN")
-    
+  agregarID(result_addr)
+  agregarTipo(tipo)
   cuads.append(("=", callfunc, " ", result_addr))
 
 
@@ -529,7 +530,8 @@ def sumaDirBase(direccion):
 
 def sumaDirBasearr(temp, direccion):
   print("otra dir base es", direccion)
-  result = virtualAdd.getGlobalTempAddressInt()
+  #result = virtualAdd.getGlobalTempAddressInt()
+  result = virtualAdd.getTempPointerAddress()
   dir_base = getConstantAddressbyValue(direccion, "int")
   cuads.append(("+", dir_base, temp, result))
   agregarID(result)

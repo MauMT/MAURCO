@@ -15,6 +15,8 @@ Tgf = 17000
 Ci = 23000
 Cf = 24000 #hasta 25,000
 
+Tp = 69000
+
 GLOBAL_INT_START = 5000
 GLOBAL_FLOAT_START = 8000
 
@@ -26,6 +28,8 @@ TEMPORAL_FLOAT_START = 17000
 
 CONSTANT_INT_START = 23000
 CONSTANT_FLOAT_START = 24000
+
+TEMPORAL_POINTER_START = 69000
 
 ### FUNCIONES PARA OBTENER EL CONTADOR ACTUAL DE CADA TIPO DE DIRECCIÓN
 # getAddress de cualquier tipo mueve el contador a una dirección después de la última asignada
@@ -55,9 +59,18 @@ def getCurrentConstantAddressInt():
 def getCurrentConstantAddressFloat():
   return Cf
 
+def getCurrentTempPointer():
+  return Tp
+
 #---------------------------------------------------------------------------------
 
 ### FUNCIONES PARA OBTENER UNA DIRECCIÓN DEPENDIENDO EL TIPO Y SCOPE
+def getTempPointerAddress():
+  global Tp
+  aux = Tp
+  Tp = Tp+1
+  return aux
+
 def getGlobalAddressInt(size=1):
   global Gi
   aux = Gi
@@ -125,15 +138,19 @@ def reiniciarCountersLocales():
   global Lf
   global Tli
   global Tlf
+  global Tp
   Li = 11000
   Lf = 13000
   Tli = 19000
   Tlf = 21000
+  Tp = 69000
 
 def reiniciarTemporalesLocales():
   global Tli
   global Tlf
+  global Tp
   Tli = 19000
   Tlf = 21000
+  Tp = 69000
 #---------------------------------------------------------------------------------
 

@@ -3,7 +3,7 @@ from dirVar import dirFunciones
 from dirVar import dirConstantes
 import virtualAdd
 
-from virtualAdd import GLOBAL_INT_START, GLOBAL_FLOAT_START, LOCAL_INT_START, LOCAL_FLOAT_START, TEMPORAL_INT_START, TEMPORAL_FLOAT_START, CONSTANT_INT_START, CONSTANT_FLOAT_START
+from virtualAdd import GLOBAL_INT_START, GLOBAL_FLOAT_START, LOCAL_INT_START, LOCAL_FLOAT_START, TEMPORAL_INT_START, TEMPORAL_FLOAT_START, CONSTANT_INT_START, CONSTANT_FLOAT_START, TEMPORAL_POINTER_START
 
 # 0 globales int 5000
 # 1 globales float 8000
@@ -14,7 +14,7 @@ from virtualAdd import GLOBAL_INT_START, GLOBAL_FLOAT_START, LOCAL_INT_START, LO
 # 4 temporales int 15000
 # 5 temporales float 17000
 
-MemoriaGlobal = [[],[],[],[],[],[],[],[]]
+MemoriaGlobal = [[],[],[],[],[],[],[]]
 
 class MemoriaLocal:
     def __init__(self):
@@ -34,8 +34,9 @@ casillasGlobalInt = virtualAdd.getCurrentGlobalAddressInt() - virtualAdd.GLOBAL_
 casillasGlobalFloat = virtualAdd.getCurrentGlobalAddressFloat() - virtualAdd.GLOBAL_FLOAT_START
 casillasTemporalesInt = virtualAdd.getCurrentTempAddressInt() - virtualAdd.TEMPORAL_INT_START
 casillasTemporalesFloat = virtualAdd.getCurrentTempAddressFloat() - virtualAdd.TEMPORAL_FLOAT_START
+casillasTemporalesPointer = virtualAdd.getCurrentTempPointer() - virtualAdd.TEMPORAL_POINTER_START
 #-----------------------------------------------------------
-
+print("pepepepe", casillasTemporalesPointer)
 MemoriaGlobal[0] = [0] * casillasGlobalInt
 MemoriaGlobal[1] = [0] * casillasGlobalFloat
 
@@ -44,6 +45,7 @@ MemoriaGlobal[3] = [0] * """
 
 MemoriaGlobal[4] = [0] * casillasTemporalesInt
 MemoriaGlobal[5] = [0] * casillasTemporalesFloat
+MemoriaGlobal[6] = [0] * casillasTemporalesPointer
 
 
 
@@ -76,6 +78,8 @@ def getTypeScopeByAddress(num):
         return 'ci'
     elif num >= CONSTANT_FLOAT_START and num < 25000:
         return 'cf'
+    elif num >= TEMPORAL_POINTER_START and num < 70000:
+        return 'tp'
 
 
 def getConstant(key):
@@ -99,9 +103,12 @@ def readMemory(num):
         return getConstant(num)
     elif aux == 'cf':
         return getConstant(num)
+    elif aux == 'tp':
+        return MemoriaGlobal[6][num - TEMPORAL_POINTER_START]
 
 # 'value' is an actual value that will assigned to 'addr' 
 def writeOnMemory(value, addr):
+    #print("`/`/`/`/`/writeOnMemory", value, addr)
     aux = getTypeScopeByAddress(addr)
     if aux == 'gi':
         MemoriaGlobal[0][addr - GLOBAL_INT_START] = value
@@ -115,18 +122,29 @@ def writeOnMemory(value, addr):
         MemoriaGlobal[4][addr - TEMPORAL_INT_START] = value
     elif aux == 'tgf':
         MemoriaGlobal[5][addr - TEMPORAL_FLOAT_START] = value
+    elif aux == 'tp':
+        MemoriaGlobal[6][addr - TEMPORAL_POINTER_START] = value
 
 def isTemporalAddress(addr):
-    return is_between(TEMPORAL_INT_START, addr, 19000)
+    return is_between(TEMPORAL_POINTER_START, addr, 70000)
 
 def incrementInstructionPointer():
     global instruction_pointer
+    cuad = cuads[instruction_pointer]
+    operacion = cuad[1]
+    operandoIzq = cuad[2]
+    operandoDer = cuad[3]
+    res = cuad[4]
+    #print(operacion, operandoIzq, operandoDer, "en", res)
     instruction_pointer += 1
 
+
 def printHelper(operador, izq, der, res, newRes):
+    print("********************************************************")
     print(operador)
     print(izq, operador, der, "en", res)
     print("-- newResult", newRes)
+    print("********************************************************")
 
 def boolean_to_num(val):
     if val:
@@ -145,7 +163,9 @@ def is_between(x, y, z):
 
 inside_array_flag = False
 
-while cuads[instruction_pointer][1] != 'END': 
+#cuads[instruction_pointer][1] != 'END'
+
+while instruction_pointer != cuads.__len__(): 
     
     cuad = cuads[instruction_pointer]
     operacion = cuad[1]
@@ -158,8 +178,10 @@ while cuads[instruction_pointer][1] != 'END':
 
     elif operacion == '+':
         newResult = readMemory(operandoIzq) + readMemory(operandoDer)
+        
         #printHelper('+', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(newResult, res)
+        #print(readMemory(res))
         incrementInstructionPointer()
     
     elif operacion == '-':
@@ -187,12 +209,25 @@ while cuads[instruction_pointer][1] != 'END':
         incrementInstructionPointer()
 
     elif operacion == '>':
+        if operandoDer >= 69000:
+            operandoDer = readMemory(operandoDer)
+        elif operandoIzq >= 69000:
+            operandoIzq = readMemory(operandoIzq) 
+        
         newResult = readMemory(operandoIzq) > readMemory(operandoDer)
-        printHelper('>', operandoIzq, operandoDer, res, newResult)
+        #printHelper('>', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(value=boolean_to_num(newResult), addr=res)
         incrementInstructionPointer()
 
+
     elif operacion == '==':
+        
+        if operandoDer >= 69000:
+            operandoDer = readMemory(operandoDer)
+        elif operandoIzq >= 69000:
+            operandoIzq = readMemory(operandoIzq) 
+        
+        
         newResult = readMemory(operandoIzq) == readMemory(operandoDer)
         #printHelper('==', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(value=boolean_to_num(newResult), addr=res)
@@ -231,20 +266,22 @@ while cuads[instruction_pointer][1] != 'END':
         """ print("=")
         print("operandoIzq: ", operandoIzq)
         print("res: ", res) """
-        if inside_array_flag:
+        if res >= 69000:
             writeOnMemory(readMemory(operandoIzq), readMemory(res))
+        elif operandoIzq >= 69000:
+            writeOnMemory(readMemory(readMemory(operandoIzq)), res)    
         else:
             writeOnMemory(readMemory(operandoIzq), res)
-        inside_array_flag = False
+
         incrementInstructionPointer()
 
     elif operacion == 'VER':
         
         if is_between(readMemory(operandoDer), readMemory(operandoIzq), readMemory(res)):
             incrementInstructionPointer()
-            inside_array_flag = True
+            
         else:
-            incrementInstructionPointer()
+            #incrementInstructionPointer()
             raise IndexError("Index out of range")
             
 

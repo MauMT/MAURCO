@@ -4,7 +4,6 @@ class variable:
     def __init__(self, tipovar, length):
         self.tipovar = tipovar
         self.length = length
-        self.valor = None
         self.direccion = None
 
     def tipoVariable(self):
