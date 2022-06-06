@@ -1,4 +1,4 @@
-program Expresion;
+program Functions;
 
 
 vars
@@ -9,7 +9,7 @@ vars
     int x;
     int arr[4], f, vector[10];
     int mat[2][3];
-    int a, b, size, aux;
+    int a, b, size, aux, marco;
 }
 
 int func factorialRecursivo(int n)
@@ -38,6 +38,22 @@ int aux;
     return(aux);
 }
 
+int func fibonacciRecursivo(int n)
+vars
+int aux, aux2, aux3;
+float x;
+{
+    if (n < 3) then{
+        aux = 1;
+        
+    } else{
+      aux2 = fibonacciRecursivo(n-1);
+      aux3 = fibonacciRecursivo(n-2);
+      aux = aux2 + aux3;
+    }
+    
+    return(aux);
+}
 
 
 int func fibonacciIterativo(int n)
@@ -57,20 +73,26 @@ int aux, numAnterior, numAntesAnterior, numActual;
 
 }
 
+int func mau(int n)
+vars
+int aux;
+{
+    aux = fibonacciIterativo(n);
+    return(aux);
+}
+
 
 main(){
-  print("factorial recursivo de 5", factorialRecursivo(5));
-  print("factorial iterativo de 5", factorialIterativo(5));
+  
 
-  print("fibonacci iterativo de 10 es", fibonacciIterativo(10));
-
-
-
-
-
-
-
-
+print("mau(10)", mau(10));
+print("--------------------");
+print("fibonacciRecursivo(10)", fibonacciRecursivo(10));
+print("fibonacciIterativo(10)", fibonacciIterativo(10));
+print("--------------------");
+print("factorialRecursivo(5)", factorialRecursivo(5));
+print("factorialIterativo(5)", factorialIterativo(5));
+  
 
   
 

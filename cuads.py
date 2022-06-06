@@ -85,14 +85,13 @@ def validar():
 
 
     cuads.append((oper, left, right, result_addr))
-    print(cuads)
+    
 
     #agregar resultado en pOperandos
     agregarID(result_addr)
-    print("agreegarid")
+    
     dirVar.agregarglobalVariable(result_addr, [] ,result_type)
     
-    #agregar resultadotipo en pTipospo
 
 
 
@@ -161,21 +160,15 @@ REVISAR ESTO
 def auxAsignacion(): 
 
     right = ''
-    #print("rOp assign ", right)
+    
 
     left = pOperandos.pop()
     leftType = pTipos.pop()
-    print("leftType", leftType)
+    
 
     result = pOperandos.pop()
     resultType = pTipos.pop()
-    print("resOp assign ", result)
-    print("rtype -", resultType)
-
-    print("tamaño pTipos", len(pTipos))
-    print("tamaño pOperandos", len(pOperandos))
-
-    print("lOp assign ", left)
+    
     
   
     #operador
@@ -183,52 +176,27 @@ def auxAsignacion():
     print(oper)
 
     result_type = semantic[resultType][oper][leftType]
-    print(result_type)
-    print("sensual")
 
     if result_type == "error":
       print("No se puede asignar un tipo '{}' a un tipo '{}'".format(leftType, resultType))
       raise Exception("No se puede asignar un tipo '{}' a un tipo '{}'".format(leftType, resultType))
-    #agregarTipo(result_type)
-
-    #agregar un valor a temp counter
-    #generar cuadruplo
-    """
-    myAddress = None
-    if dirVar.getlocalVariable(currFuncion, result) == None:
-      if dirVar.getglobalVariable(result) == None:
-        print("error en la busqueda")
-        raise Exception("variable no existe we")
-      else:
-       myAddress = dirVar.getglobalVariable(result).direccion
-    else:
-      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion
-    """
-    cuads.append((oper, left, right, result))
-    print(cuads)
-
-    #######################################################
-#######NO SE DIRECCION
-    #######################################################
-
     
-    #agregar resultado en pOperandos
-    #agrsegarID(result)
-    #agregar resultadotipo en pTipospo
+    cuads.append((oper, left, right, result))
+
+
+
 '''----------------------------------------------'''
 
 def cuadsasignacion():
   if not pOperadores:
-    print("empty")
+    pass
   else:
     if(( pOperadores[-1] == "=")):
-      print("yes-assign")
+      
       global tempcounter
-      #tempcounter = tempcounter + 1
+      
       auxAsignacion()
-    else:
-      #print(pOperandos)
-      print("no-assign")
+    
 
 
 ######################################################
@@ -244,21 +212,16 @@ def cuadsasignacion():
 
 #1
 #la ultima direccion de memoria validando el tipo de expresion
-#if lasttemp != bool ERROR
+#if lasttemp != int ERROR
 #generar cuadruplo falso sin saber el resultado
 def condicion1():
-  #checktype = pTipos.pop()
-  #implementar la tabla de variables y funciones
-  #if checktype != bool:
-    #print("TYPE MISMATCH")
-  #else:
+  
   result = pOperandos.pop()
   pTipos.pop()
   cuads.append(("GOTOF", result, " ", "fill"))
-  print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-  print(len(cuads))
+  #print(len(cuads))
   psaltos.append(len(cuads)-1)
-  print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+  
     
     
 #2
@@ -266,10 +229,7 @@ def condicion1():
 #end = psaltos.pop
 #fill(end, cont)
 def condicion2():
-  #rint("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   end = psaltos.pop()
-  print(end)
-  #print("No se logra establecer el fill")
   fill(end, len(cuads))
 
 
@@ -287,9 +247,6 @@ def condicion3():
 
 
 def fill(x, y):
-  print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-  print("No se logra establecer el fill")
-  print(x)
   auxfill = (cuads[x])
   v = list(auxfill)
   v[3] = str(y)

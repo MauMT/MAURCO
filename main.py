@@ -145,7 +145,7 @@ t_ignore = " \t"
 # DEFINICIONES REGULARES
 
 def t_CTE_FLOAT(t):
-  r'\d\.\d+'
+  r'\d*\.\d+'
   t.value = float(t.value)
   return t
 
@@ -157,7 +157,8 @@ def t_CTE_INT(t):
 
 
 def t_CTE_CHAR(t):
-  r'\"[a-zA-Z0-9_ ]*\"'
+  #r'\"[a-zA-Z0-9_ .,-]*\"'
+  r'\".*\"'
   t.value = str(t.value)
   return t
 
@@ -172,9 +173,9 @@ def t_newline(t):
     pass
 
 def t_error(t):
-  print("Caracter ilegal '%s'" % t.value[0])
+  print("El caracter '%s' no es válido" % t.value[0])
   raise Exception("Caracter ilegal '%s'" % t.value[0])
-  #t.lexer.skip(1)
+  t.lexer.skip(1)
 
 # REGLAS 
 
@@ -243,16 +244,17 @@ def p_stepid(p):
     stepid : empty
     '''
     
-    print(currID.empty())
+    #print(currID.empty())
     while not(currID.empty()) :
       curr = currID.get()
       
       if len(curr[1]) == 0:
         #print("not array")
+        
         dirVar.agregarglobalVariable(curr[0], [], currTipo)
+        
         #print("not 1ssssss")
         if currTipo == "int":
-          
           auxDir = virtualAdd.getGlobalAddressInt()
           print(auxDir)
           dirVar.setGlobalVarAddress(curr[0], auxDir)
@@ -813,19 +815,15 @@ def p_valasigaux(p):
 
     if(len(arrExp)==len(arrVar.length)):
         if(len(arrVar.length)==1):
-            print("aqui entra arrvar1")
+            
             #arreglo
             #verificar pilatop con arrexp
             #cuadruplo de suma
-            print("arrExp en 0")
-            print(arrExp[0])
             cuads.arrVerifica(arrExp[0], arrVar.length[0])
-            print("verify")
-
-            ##############AQUI HAY UNA DIRECCION FALSA HAY QUE CAMBIARLA 27/05
+            
 
             cuads.sumaDirBasearr(arrExp[0], myAddress)
-            print("no hay 4")
+            
 
         else:
             print("aqui entra arrvar2")
@@ -943,7 +941,7 @@ def p_asignacion_funcion(p):
     '''
     asignacion_funcion : SEP_LPAREN args SEP_RPAREN valnull
     '''
-    print("signnnnnnnnnaaaaaaaaaaaaaaaaaaaaa")
+    pass
 
 def p_valnull(p):
     '''
@@ -951,21 +949,21 @@ def p_valnull(p):
     '''
     global callfunc
     par = dirVar.getParametersfunc(callfunc)
-    print("saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    
     if(cuads.valnull(par)):
-        print("Todo bien")
+        
         cuads.createGOSUB(callfunc)
     else:
-        print("break")
+        pass
+        #print("break")
 
 
     if(dirVar.getfunctype(callfunc) == "void"):
-        print("ES VOID")
-        print("1 No todo bien")
+        #print("ES VOID")
+        pass
     else:
-        print("2 No todo bien")
+        
         dirFuncion = dirVar.getglobalVariable(callfunc).direccion
-        print("dir de la funca", dirFuncion)
         cuads.asignval(dirFuncion, dirVar.getfunctype(callfunc))
 
 
@@ -985,8 +983,6 @@ def p_validateparam(p):
     validateparam : empty
     '''
     global callfunc
-    print("caaaaaaaaaaaaaaaaaaaaaaallll")
-    print(callfunc)
     par = dirVar.getParametersfunc(callfunc)
     cuads.valparams(par)
 
@@ -1049,7 +1045,7 @@ def p_letrero(p):
     cuads.escChar(p[1])
  
 
-#### NO SE USAN 😬#######
+
 def p_llamadavoid(p):
     '''
     llamadavoid : usfunc asatr SEP_LPAREN args SEP_RPAREN valnull SEP_SEMICOLON
@@ -1061,7 +1057,7 @@ def p_voididt(p):
     voididt : ID
             | ID OP_DOT ID
     '''
-#########################
+
   
 def p_decision(p):
     '''
@@ -1572,6 +1568,7 @@ def p_nvfuntipid(p):
     global currFuncion
     currTipo = p[1]
     currFuncion = p[3]
+    
     dirVar.agregarFuncion(currFuncion, currTipo)
     #dirVar.initFunction(currFuncion, insContcuad, primtempcont)
     if(currTipo == "void"):
@@ -1784,10 +1781,10 @@ def p_stepidvarsfun(p):
 
     #currID.pust(p[1], isMat, isArr, arrLength)
 
-    print("Empty")
-    print(currID.empty())
+    #print(currID.empty())
     while not(currID.empty()) :
       curr = currID.get()
+      
       currTypeID.put((curr[0], curr[1], currTipo, False))
 
 def p_typefunp(p):
@@ -1830,11 +1827,24 @@ def p_relCurr(p):
     #finaltemp = cuads.getTempCounter()
 
 
+def printDirVarValues():
+  print("DIRGLOB")
+  print(dirVar.dirglobalVar)
+  print("dirFunc")
+  print(dirVar.dirFunciones)
+  print("Dirclases")
+  print(dirVar.dirClases)
+  
+  print("\nvars globales:\n")
+  for key in dirVar.dirglobalVar:
+    print(key, dirVar.dirglobalVar[key].__dict__)
+
+  print("\ndirConstantes\n")
+  for key in dirVar.dirConstantes:
+    print(dirVar.dirConstantes[key], key)
 
 
-file = open("exp_test.m", 'r')
-
-#lexer.input("program primero ")
+file = open("Testing files/sort_find.m", 'r')
 
 lines = file.read()
 file.close()
@@ -1846,45 +1856,16 @@ lexer.input(lines)
 # Build the parser.
 parser = yacc.yacc()
 try:
-    print('Parsing...')
-    parser.parse(lines, debug=0)
-    print("DIRGLOB")
-    print(dirVar.dirglobalVar)
-    print("dirFunc")
-    print(dirVar.dirFunciones)
-    print("Dirclases")
-    print(dirVar.dirClases)
     
-
-
-    print("\nvars globales:\n")
-    for key in dirVar.dirglobalVar:
-      print(key, dirVar.dirglobalVar[key].__dict__)
-
-    print("\ndirConstantes\n")
-    for key in dirVar.dirConstantes:
-      print(dirVar.dirConstantes[key], key)
-    print("\n")
-    print("Correct syntax")
-
+    parser.parse(lines, debug=0)
+    #printDirVarValues()
+    cuads.addCounter()
+    #cuads.printCuads()
+    import vm
     
 
 except:
     print(f'Syntax error')
-    print("\ndirConstantes\n")
-    for key in dirVar.dirConstantes:
-      print(dirVar.dirConstantes[key], key)
-    print("\n")
+    
 
-    print("\nvars globales:\n")
-    for key in dirVar.dirglobalVar:
-      print(key, dirVar.dirglobalVar[key].__dict__)
-
-
-#print(dirVar.dirFunciones["factorialRecursivo"].__dict__)
-
-cuads.addCounter()
-cuads.printCuads()
-import vm
-#print(cuads.cuads)
 

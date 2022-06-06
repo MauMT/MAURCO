@@ -44,7 +44,6 @@ MemoriaGlobal[6] = [0] * casillasTemporalesPointer
 
 dictConstantesMemoriaGlobal = dict((v,k) for k,v in dirConstantes.items())
 
-print(MemoriaGlobal)
 
 memoryStack = []
 memoriaLocal = [[], [], [], []]
@@ -52,8 +51,8 @@ memoriaLocal = [[], [], [], []]
 instruction_pointer = 0
 
 
-print("Num cuadruplos: ", cuads.__len__())
-print("-----------------------------------------------------")
+#print("Num cuadruplos: ", cuads.__len__())
+
 def getTypeScopeByAddress(num):
     '''
     Devuelve un string con el tipo y scope de la variable en la dirección num
@@ -108,7 +107,7 @@ def readMemory(num):
 
 # 'value' is an actual value that will assigned to 'addr' 
 def writeOnMemory(value, addr):
-    #print("`/`/`/`/`/writeOnMemory", value, addr)
+    
     aux = getTypeScopeByAddress(addr)
     if aux == 'gi':
         MemoriaGlobal[0][addr - GLOBAL_INT_START] = value
@@ -249,7 +248,6 @@ while cuads[instruction_pointer][1] != 'END':
             operandoDer = readMemory(operandoDer) 
         
         newResult = readMemory(operandoIzq) == readMemory(operandoDer)
-        print("apaa", readMemory(operandoIzq), readMemory(operandoDer))
         #printHelper('==', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(value=boolean_to_num(newResult), addr=res)
         incrementInstructionPointer()
@@ -293,14 +291,6 @@ while cuads[instruction_pointer][1] != 'END':
         incrementInstructionPointer()
 
     elif operacion == '=':
-        """ print("=")
-        print("operandoIzq: ", operandoIzq)
-        print("res: ", res) """
-        """ print("mem izq", readMemory(operandoIzq))
-        print("mem der", readMemory(operandoDer))
-        print("res", res)
-        print """
-
 
         if res >= 69000 and operandoIzq >= 69000:
             writeOnMemory(readMemory(readMemory(operandoIzq)), readMemory(res))
@@ -319,7 +309,7 @@ while cuads[instruction_pointer][1] != 'END':
             incrementInstructionPointer()
             
         else:
-            #incrementInstructionPointer()
+            print("Index Error: '{}' no se encuentra entre '{}' y '{}'".format(readMemory(operandoIzq), readMemory(operandoDer), readMemory(res)))
             raise IndexError("Index out of range")
             
 
@@ -401,10 +391,7 @@ while cuads[instruction_pointer][1] != 'END':
         #pop de una emptu list menso
         #print("endfunc pPointers", pPointersFuncion)
         memoryStack.pop()
+        pFunciones.pop()
         instruction_pointer = pPointersFuncion.pop()
         
-    
 
-print("-----------------------------------------------------")
-print(MemoriaGlobal)
-print(memoryStack)

@@ -17,6 +17,9 @@ class variable:
 
     def direccionVariable(self):
         return self.direccion
+    
+    def __str__(self):
+        return str(self.tipovar) + " " + str(self.length) + " " + str(self.direccion)
 
 #-----------------------------------------------------------
 class funcion:
@@ -130,7 +133,8 @@ def getglobalVariable(nomVariable):
 
 def agregarFuncion(nomFuncion, tipoFuncion):
   if nomFuncion in dirFunciones:
-    print("Error, ya existe")
+    print("Error ya existe la función", nomFuncion)
+    raise NameError("Error ya existe la función", nomFuncion)
   else:
     dirFunciones[nomFuncion] = funcion(tipoFuncion)
 
@@ -140,7 +144,8 @@ def agregarlocalVariable(nomFuncion, nomVariable, arrLength, tipoVariable, isPar
   if nomFuncion in dirFunciones:
     print("aglocvar")
     if nomVariable in dirFunciones[nomFuncion].gettableFuncion():
-      print("ya existe esta variable local")
+      print("Ya existe la variable local", nomVariable, "en la función", nomFuncion)
+      raise NameError("Ya existe la variable local", nomVariable, "en la función", nomFuncion)
     else:
       print("aglocvar")
       if(isParam):
@@ -167,7 +172,7 @@ def agregarlocalVariable(nomFuncion, nomVariable, arrLength, tipoVariable, isPar
       print("hola")
       
   else:
-    print("no existe esta funcion")
+    print("no existe esta función")
 
 
 def getfunctype(nomFuncion):
@@ -219,10 +224,11 @@ def getParametersfunc(nomFuncion):
     
 
 def agregarglobalVariable(nomVariable, arrLength, tipoVariable):
-  print("Error")
-  print(nomVariable)
+  
+  #print(nomVariable)
   if nomVariable in dirglobalVar:
-    print("Error ya existe esta variable global")
+    print("Error ya existe la variable global", nomVariable)
+    raise NameError("Error ya existe la variable global", nomVariable)
   else:
     print(tipoVariable)
     print(nomVariable)
