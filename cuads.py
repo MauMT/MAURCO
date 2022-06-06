@@ -409,7 +409,7 @@ def createERA(nombre):
   cuads.append(("ERA", nombre, " ", " "))
   global conttipos
   conttipos = 0
-  print("ERAAAAAAA")
+  print("ERAAAAAA - mango")
 
 def valparams(params):
   print("dentrodepilatipos")

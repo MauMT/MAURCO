@@ -1,18 +1,15 @@
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1927: Function p_cureturn redefined. Previously defined on line 1784
 WARNING: Token 'SEP_COLON' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:212: Rule 'ini' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:789: Rule 'array_inside' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1080: Rule 'asignacion_metodo' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1167: Rule 'voididt' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1263: Rule 'valueid' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1269: Rule 'llamadafuncionmetodo' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1280: Rule 'funcidt_aux' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1287: Rule 'map' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1306: Rule 'printA' defined, but not used
-WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1420: Rule 'its' defined, but not used
+WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:753: Rule 'array_inside' defined, but not used
+WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1044: Rule 'asignacion_metodo' defined, but not used
+WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1131: Rule 'voididt' defined, but not used
+WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1227: Rule 'valueid' defined, but not used
+WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1233: Rule 'llamadafuncionmetodo' defined, but not used
+WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1244: Rule 'funcidt_aux' defined, but not used
+WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1251: Rule 'map' defined, but not used
+WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1270: Rule 'printA' defined, but not used
+WARNING: C:\Users\mauri\OneDrive\Documentos\Repos\MAURCO\main.py:1390: Rule 'its' defined, but not used
 WARNING: There is 1 unused token
-WARNING: There are 10 unused rules
-WARNING: Symbol 'ini' is unreachable
+WARNING: There are 9 unused rules
 WARNING: Symbol 'array_inside' is unreachable
 WARNING: Symbol 'insideaux' is unreachable
 WARNING: Symbol 'matrixaux' is unreachable
@@ -37,10 +34,7 @@ i
 []
 next
 hey
-Empty
 False
-gloubal  i [] int
-not array
 Error
 i
 int
@@ -48,7 +42,6 @@ i
 <class 'str'>
 []
 []
-not 1ssssss
 not 1aaaaaa
 5000
 call varsGlobal
@@ -62,10 +55,7 @@ y
 []
 next
 hey
-Empty
 False
-gloubal  valor [] float
-not array
 Error
 valor
 float
@@ -73,10 +63,7 @@ valor
 <class 'str'>
 []
 []
-not 1ssssss
 not 123123
-gloubal  y [] float
-not array
 Error
 y
 float
@@ -84,7 +71,6 @@ y
 <class 'str'>
 []
 []
-not 1ssssss
 not 123123
 call varsGlobal
 OLISTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -92,10 +78,7 @@ msg
 []
 next
 hey
-Empty
 False
-gloubal  msg [] char
-not array
 Error
 msg
 char
@@ -103,7 +86,6 @@ msg
 <class 'str'>
 []
 []
-not 1ssssss
 tipo desconocido
 call varsGlobal
 OLISTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -111,10 +93,7 @@ x
 []
 next
 hey
-Empty
 False
-gloubal  x [] int
-not array
 Error
 x
 int
@@ -122,7 +101,6 @@ x
 <class 'str'>
 []
 []
-not 1ssssss
 not 1aaaaaa
 5001
 call varsGlobal
@@ -141,9 +119,7 @@ vector
 [10]
 next
 hey1
-Empty
 False
-gloubal  arr [4] int
 array
 Error
 arr
@@ -152,8 +128,6 @@ arr
 <class 'str'>
 [4]
 [4]
-gloubal  f [] int
-not array
 Error
 f
 int
@@ -161,10 +135,8 @@ f
 <class 'str'>
 []
 []
-not 1ssssss
 not 1aaaaaa
 5006
-gloubal  vector [10] int
 array
 Error
 vector
@@ -179,9 +151,7 @@ mat
 [2, 3]
 next
 hey1
-Empty
 False
-gloubal  mat [2, 3] int
 array
 Error
 mat
@@ -211,10 +181,7 @@ aux
 []
 next
 hey
-Empty
 False
-gloubal  a [] int
-not array
 Error
 a
 int
@@ -222,11 +189,8 @@ a
 <class 'str'>
 []
 []
-not 1ssssss
 not 1aaaaaa
 5023
-gloubal  b [] int
-not array
 Error
 b
 int
@@ -234,11 +198,8 @@ b
 <class 'str'>
 []
 []
-not 1ssssss
 not 1aaaaaa
 5024
-gloubal  size [] int
-not array
 Error
 size
 int
@@ -246,11 +207,8 @@ size
 <class 'str'>
 []
 []
-not 1ssssss
 not 1aaaaaa
 5025
-gloubal  aux [] int
-not array
 Error
 aux
 int
@@ -258,37 +216,149 @@ aux
 <class 'str'>
 []
 []
-not 1ssssss
 not 1aaaaaa
 5026
-ooooooooooooooooooooooooooooooooooooooooooooooooooooooa
-maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaani
+Error
+factorialRecursivo
+int
+factorialRecursivo
+<class 'str'>
+[]
+[]
+5027
+call typeparammnv
+paramsmnv
+n
+call typemv
+OLISTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+aux
+[]
+next
+hey
+Empty
+False
+VAAAAAAAAAAAR LOCAAAAAAAAAAAAAL
+curr0: n [] int True
+not array
+aglocvar
+aglocvar
+aglocvar
+isparam
+[]
+arreglo
+cantvar
+hola
+la variable es n 11000
+VAAAAAAAAAAAR LOCAAAAAAAAAAAAAL
+curr0: aux [] int False
+not array
+aglocvar
+aglocvar
+aglocvar
+isparam
+[]
+arreglo
+cantvar
+hola
+la variable es aux 11001
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-i
-None
-es none valasig
-i
-prueba ID ---  i
+n
+factorialRecursivo
+no lo se
+n
+<dirVar.variable object at 0x00000165EE5D6610>
+entraenglobal
+prueba ID ---  n
 tipo id ---  int
+no lo se
+n
+3
+arrvarlength0
+4
+term
+expaux
+exp
+empty
+empty
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+n
+factorialRecursivo
+no lo se
+n
+<dirVar.variable object at 0x00000165EE5D6610>
+entraenglobal
+prueba ID ---  n
+tipo id ---  int
+no lo se
+n
+3
+arrvarlength0
+4
+term
+expaux
+exp
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+mau  1
+mmmm  int
+fffffffffffffffffffffffffffffffffffffffffffffffffffff
+1
+int
+term
+expaux
+exp
+yes
+validar
+23000
+11000
+ltype int
+rtype int
+<
+int
+[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000)]
+agreegarid
+Error
+15000
+int
+15000
+<class 'int'>
+[]
+[]
+empty
+empty
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+5
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+aux
+factorialRecursivo
+no lo se
+aux
+<dirVar.variable object at 0x00000165EE5D6D00>
+entraenglobal
+prueba ID ---  aux
+tipo id ---  int
+no lo se
+aux
 3
 arrvarlength0
 4
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  7
+mau  1
 mmmm  int
 fffffffffffffffffffffffffffffffffffffffffffffffffffff
-7
+1
 int
 term
 expaux
 exp
 empty
 empty
-empty
 yes-assign
 leftType int
-resOp assign  5000
+resOp assign  11001
 rtype - int
 tamaño pTipos 0
 tamaño pOperandos 0
@@ -296,42 +366,26 @@ lOp assign  23000
 =
 int
 sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000)]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  0
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-0
-int
-term
-expaux
-exp
-empty
-empty
-empty
-23001
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[23001]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23001
-verify
-otra dir base es 5007
-no hay 4
+[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', 'fill'), ('=', 23000, '', 11001)]
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+No se logra establecer el fill
 4
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+n
+factorialRecursivo
+no lo se
+n
+<dirVar.variable object at 0x00000165EE5D6610>
+entraenglobal
+prueba ID ---  n
+tipo id ---  int
+no lo se
+n
+3
+arrvarlength0
+4
+term
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 mau  1
 mmmm  int
@@ -339,22 +393,79 @@ fffffffffffffffffffffffffffffffffffffffffffffffffffff
 1
 int
 term
+operador -|-|-|-  -
+entrasumsub
+op1sumsub
+validar
+23000
+11000
+ltype int
+rtype int
+-
+int
+[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', 'fill'), ('-', 11000, 23000, 15001)]
+agreegarid
+Error
+15001
+int
+15001
+<class 'int'>
+[]
+[]
+expaux
 expaux
 exp
 empty
 empty
-empty
-yes-assign
-leftType int
-resOp assign  69000
-rtype - int
-tamaño pTipos 2
-tamaño pOperandos 0
-lOp assign  23004
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000)]
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+aux
+factorialRecursivo
+no lo se
+aux
+<dirVar.variable object at 0x00000165EE5D6D00>
+entraenglobal
+prueba ID ---  aux
+tipo id ---  int
+no lo se
+aux
+3
+arrvarlength0
+4
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+n
+factorialRecursivo
+no lo se
+n
+<dirVar.variable object at 0x00000165EE5D6610>
+entraenglobal
+prueba ID ---  n
+tipo id ---  int
+no lo se
+n
+3
+arrvarlength0
+4
+IDGLOBALCURRFUNC
+factorialRecursivo
+ERAAAAAA - mango
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+n
+factorialRecursivo
+no lo se
+n
+<dirVar.variable object at 0x00000165EE5D6610>
+entraenglobal
+prueba ID ---  n
+tipo id ---  int
+no lo se
+n
+3
+arrvarlength0
+4
+term
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 mau  1
 mmmm  int
@@ -362,289 +473,128 @@ fffffffffffffffffffffffffffffffffffffffffffffffffffff
 1
 int
 term
+operador -|-|-|-  -
+entrasumsub
+op1sumsub
+validar
+23000
+11000
+ltype int
+rtype int
+-
+int
+[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', 'fill'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002)]
+agreegarid
+Error
+15002
+int
+15002
+<class 'int'>
+[]
+[]
+expaux
 expaux
 exp
 empty
 empty
-empty
-23004
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[23004]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23004
-verify
-otra dir base es 5007
-no hay 4
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  9
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-9
+caaaaaaaaaaaaaaaaaaaaaaallll
+factorialRecursivo
+['int']
+dentrodepilatipos
 int
+sientra
+15002
+1
+finaliza
+['int']
+saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Todo bien
+factorialRecursivo
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+2 No todo bien
+dir de la funca 5027
+signnnnnnnnnaaaaaaaaaaaaaaaaaaaaa
+operador -|-|-|-  *
+yes
+validar
+15003
+11000
+ltype int
+rtype int
+*
+int
+[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', 'fill'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002), ('PARAM', 15002, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15003), ('*', 11000, 15003, 15004)]
+agreegarid
+Error
+15004
+int
+15004
+<class 'int'>
+[]
+[]
 term
 expaux
 exp
-empty
 empty
 empty
 yes-assign
 leftType int
-resOp assign  69001
+resOp assign  11001
 rtype - int
-tamaño pTipos 4
+tamaño pTipos 0
 tamaño pOperandos 0
-lOp assign  23002
+lOp assign  15004
 =
 int
 sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001)]
+[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', 'fill'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002), ('PARAM', 15002, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15003), ('*', 11000, 15003, 15004), ('=', 15004, '', 11001)]
+6
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+No se logra establecer el fill
+6
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  2
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-2
-int
-term
-expaux
-exp
-empty
-empty
-empty
-23005
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
+aux
+factorialRecursivo
+no lo se
+aux
+<dirVar.variable object at 0x00000165EE5D6D00>
+entraenglobal
+prueba ID ---  aux
 tipo id ---  int
+no lo se
+aux
 3
-lengths Exp
-1
-[23005]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23005
-verify
-otra dir base es 5007
-no hay 4
+arrvarlength0
 4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  11
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-11
-int
 term
 expaux
 exp
 empty
 empty
-empty
-yes-assign
-leftType int
-resOp assign  69002
-rtype - int
-tamaño pTipos 6
-tamaño pOperandos 0
-lOp assign  23006
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002)]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  3
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-3
-int
-term
-expaux
-exp
-empty
-empty
-empty
-23007
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+FUUUUUUUUUUUUUUUNCION ACTUAL
+factorialRecursivo
+ooooooooooooooooooooooooooooooooooooooooooooooooooooooa
+maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaani
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
+x
+factorialRecursivo
+no lo se
+x
 None
-es none valasig
-vector
-prueba ID ---  vector
+prueba ID ---  x
 tipo id ---  int
+no lo se
+x
 3
-lengths Exp
-1
-[23007]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23007
-verify
-otra dir base es 5007
-no hay 4
+arrvarlength0
 4
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  7
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-7
-int
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  69003
-rtype - int
-tamaño pTipos 8
-tamaño pOperandos 0
-lOp assign  23000
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003)]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  4
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-4
-int
-term
-expaux
-exp
-empty
-empty
-empty
-23008
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[23008]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23008
-verify
-otra dir base es 5007
-no hay 4
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  15
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-15
-int
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  69004
-rtype - int
-tamaño pTipos 10
-tamaño pOperandos 0
-lOp assign  23009
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004)]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  5
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-5
-int
-term
-expaux
-exp
-empty
-empty
-empty
-23010
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[23010]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23010
-verify
-otra dir base es 5007
-no hay 4
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  17
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-17
-int
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  69005
-rtype - int
-tamaño pTipos 12
-tamaño pOperandos 0
-lOp assign  23011
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005)]
+IDGLOBALCURRFUNC
+factorialRecursivo
+ERAAAAAA - mango
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 mau  6
 mmmm  int
@@ -656,190 +606,100 @@ expaux
 exp
 empty
 empty
-empty
-23012
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[23012]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23012
-verify
-otra dir base es 5007
-no hay 4
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  21
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-21
+caaaaaaaaaaaaaaaaaaaaaaallll
+factorialRecursivo
+['int']
+dentrodepilatipos
 int
+sientra
+23001
+1
+finaliza
+['int']
+saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Todo bien
+factorialRecursivo
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+2 No todo bien
+dir de la funca 5027
+signnnnnnnnnaaaaaaaaaaaaaaaaaaaaa
 term
 expaux
 exp
-empty
 empty
 empty
 yes-assign
 leftType int
-resOp assign  69006
+resOp assign  5001
 rtype - int
-tamaño pTipos 14
-tamaño pOperandos 0
-lOp assign  23013
+tamaño pTipos 1
+tamaño pOperandos 1
+lOp assign  15005
 =
 int
 sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006)]
+[('GOTO', ' ', ' ', 18), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', '16'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002), ('PARAM', 15002, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15003), ('*', 11000, 15003, 15004), ('=', 15004, '', 11001), ('RETURN', ' ', ' ', 11001), ('ENDFUNC', ' ', ' ', ' '), ('PRINT', ' ', ' ', 'mau'), ('ERA', 'factorialRecursivo', ' ', ' '), ('PARAM', 23001, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15005), ('=', 15005, '', 5001)]
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  7
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-7
-int
-term
-expaux
-exp
-empty
-empty
-empty
-23000
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
+i
+factorialRecursivo
+no lo se
+i
 None
-es none valasig
-vector
-prueba ID ---  vector
+prueba ID ---  i
 tipo id ---  int
+no lo se
+i
 3
-lengths Exp
-1
-[23000]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23000
-verify
-otra dir base es 5007
-no hay 4
+arrvarlength0
 4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  21
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-21
-int
 term
 expaux
 exp
 empty
 empty
-empty
-yes-assign
-leftType int
-resOp assign  69007
-rtype - int
-tamaño pTipos 16
-tamaño pOperandos 0
-lOp assign  23013
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007)]
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  8
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-8
-int
-term
-expaux
-exp
-empty
-empty
-empty
-23014
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
+x
+factorialRecursivo
+no lo se
+x
 None
-es none valasig
-vector
-prueba ID ---  vector
+prueba ID ---  x
 tipo id ---  int
+no lo se
+x
 3
-lengths Exp
-1
-[23014]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23014
-verify
-otra dir base es 5007
-no hay 4
+arrvarlength0
 4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  20
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-20
-int
 term
 expaux
 exp
 empty
 empty
-empty
-yes-assign
-leftType int
-resOp assign  69008
-rtype - int
-tamaño pTipos 18
-tamaño pOperandos 0
-lOp assign  23015
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008)]
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  9
+mau  0
 mmmm  int
 fffffffffffffffffffffffffffffffffffffffffffffffffffff
-9
+0
 int
 term
 expaux
 exp
-empty
 empty
 empty
 23002
 ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 vector
-None
-es none valasig
+factorialRecursivo
+no lo se
 vector
+None
 prueba ID ---  vector
 tipo id ---  int
+no lo se
+vector
 3
 lengths Exp
 1
@@ -855,1265 +715,31 @@ no hay 4
 4
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  25
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-25
-int
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  69009
-rtype - int
-tamaño pTipos 20
-tamaño pOperandos 0
-lOp assign  23016
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009)]
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-a
-None
-es none valasig
-a
-prueba ID ---  a
-tipo id ---  int
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  0
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-0
-int
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  5023
-rtype - int
-tamaño pTipos 20
-tamaño pOperandos 0
-lOp assign  23001
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023)]
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  0
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-0
-int
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  5024
-rtype - int
-tamaño pTipos 20
-tamaño pOperandos 0
-lOp assign  23001
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024)]
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-size
-None
-es none valasig
-size
-prueba ID ---  size
-tipo id ---  int
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  10
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-10
-int
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  5025
-rtype - int
-tamaño pTipos 20
-tamaño pOperandos 0
-lOp assign  23017
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025)]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-a
-None
-es none valasig
-a
-prueba ID ---  a
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-size
-None
-es none valasig
-size
-prueba ID ---  size
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-yes
-validar
-5025
-5023
-ltype int
-rtype int
-<
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000)]
-agreegarid
-Error
-15000
-int
-15000
-<class 'int'>
-[]
-[]
-empty
-empty
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-size
-None
-es none valasig
-size
-prueba ID ---  size
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-a
-None
-es none valasig
-a
-prueba ID ---  a
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-operador -|-|-|-  -
-entrasumsub
-op1sumsub
-validar
-5023
-5025
-ltype int
-rtype int
--
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001)]
-agreegarid
-Error
-15001
-int
-15001
-<class 'int'>
-[]
-[]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 mau  1
 mmmm  int
 fffffffffffffffffffffffffffffffffffffffffffffffffffff
 1
 int
 term
-operador -|-|-|-  -
-entrasumsub
-op1sumsub
-validar
-23004
-15001
-ltype int
-rtype int
--
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002)]
-agreegarid
-Error
-15002
-int
-15002
-<class 'int'>
-[]
-[]
-expaux
-expaux
 expaux
 exp
-yes
-validar
-15002
-5024
-ltype int
-rtype int
-<
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003)]
-agreegarid
-Error
-15003
-int
-15003
-<class 'int'>
-[]
-[]
-empty
-empty
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-empty
-empty
-empty
-5024
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[5024]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-5024
-verify
-otra dir base es 5007
-no hay 4
-4
-term
-expaux
-exp
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  1
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-1
-int
-term
-operador -|-|-|-  +
-entrasumsub
-op1sumsub
-validar
-23004
-5024
-ltype int
-rtype int
-+
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004)]
-agreegarid
-Error
-15004
-int
-15004
-<class 'int'>
-[]
-[]
-expaux
-expaux
-exp
-yes
-validar
-15004
-69010
-ltype int
-rtype int
->
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005)]
-agreegarid
-Error
-15005
-int
-15005
-<class 'int'>
-[]
-[]
-empty
-empty
-15005
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[15005]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-15005
-verify
-otra dir base es 5007
-no hay 4
-4
-term
-expaux
-exp
-empty
-empty
-empty
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-48
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-empty
-empty
-empty
-5024
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[5024]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-5024
-verify
-otra dir base es 5007
-no hay 4
-4
-term
-expaux
-exp
-empty
-empty
-empty
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-aux
-None
-es none valasig
-aux
-prueba ID ---  aux
-tipo id ---  int
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-empty
-empty
-empty
-5024
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[5024]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-5024
-verify
-otra dir base es 5007
-no hay 4
-4
-term
-expaux
-exp
-empty
 empty
 empty
 yes-assign
 leftType int
-resOp assign  5026
+resOp assign  69000
 rtype - int
-tamaño pTipos 28
-tamaño pOperandos 0
-lOp assign  69013
+tamaño pTipos 3
+tamaño pOperandos 1
+lOp assign  23000
 =
 int
 sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', 'fill'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026)]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-aux
-None
-es none valasig
-aux
-prueba ID ---  aux
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-empty
-empty
-empty
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-empty
-empty
-empty
-5024
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[5024]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-5024
-verify
-otra dir base es 5007
-no hay 4
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  1
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-1
-int
-term
-operador -|-|-|-  +
-entrasumsub
-op1sumsub
-validar
-23004
-5024
-ltype int
-rtype int
-+
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', 'fill'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006)]
-agreegarid
-Error
-15006
-int
-15006
-<class 'int'>
-[]
-[]
-expaux
-expaux
-exp
-empty
-empty
-empty
-15006
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[15006]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-15006
-verify
-otra dir base es 5007
-no hay 4
-4
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  69014
-rtype - int
-tamaño pTipos 32
-tamaño pOperandos 0
-lOp assign  69015
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', 'fill'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014)]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-empty
-empty
-empty
-5024
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[5024]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-5024
-verify
-otra dir base es 5007
-no hay 4
-4
-term
-expaux
-exp
-empty
-empty
-empty
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  1
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-1
-int
-term
-operador -|-|-|-  +
-entrasumsub
-op1sumsub
-validar
-23004
-5024
-ltype int
-rtype int
-+
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', 'fill'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007)]
-agreegarid
-Error
-15007
-int
-15007
-<class 'int'>
-[]
-[]
-expaux
-expaux
-exp
-empty
-empty
-empty
-15007
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[15007]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-15007
-verify
-otra dir base es 5007
-no hay 4
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-aux
-None
-es none valasig
-aux
-prueba ID ---  aux
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  69017
-rtype - int
-tamaño pTipos 36
-tamaño pOperandos 0
-lOp assign  5026
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', 'fill'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017)]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  1
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-1
-int
-term
-operador -|-|-|-  +
-entrasumsub
-op1sumsub
-validar
-23004
-5024
-ltype int
-rtype int
-+
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', 'fill'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017), ('PRINT', ' ', ' ', 'vectorb1'), ('+', 5024, 23004, 15008)]
-agreegarid
-Error
-15008
-int
-15008
-<class 'int'>
-[]
-[]
-expaux
-expaux
-exp
-empty
-empty
-empty
-15008
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[15008]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-15008
-verify
-otra dir base es 5007
-no hay 4
-4
-term
-expaux
-exp
-empty
-empty
-empty
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-b
-None
-es none valasig
-b
-prueba ID ---  b
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  1
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-1
-int
-term
-operador -|-|-|-  +
-entrasumsub
-op1sumsub
-validar
-23004
-5024
-ltype int
-rtype int
-+
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', 'fill'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017), ('PRINT', ' ', ' ', 'vectorb1'), ('+', 5024, 23004, 15008), ('VER', 15008, 23001, 23002), ('+', 23003, 15008, 69018), ('PRINT', ' ', ' ', 69018), ('+', 5024, 23004, 15009)]
-agreegarid
-Error
-15009
-int
-15009
-<class 'int'>
-[]
-[]
-expaux
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  5024
-rtype - int
-tamaño pTipos 38
-tamaño pOperandos 0
-lOp assign  15009
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', 'fill'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', 'fill'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017), ('PRINT', ' ', ' ', 'vectorb1'), ('+', 5024, 23004, 15008), ('VER', 15008, 23001, 23002), ('+', 23003, 15008, 69018), ('PRINT', ' ', ' ', 69018), ('+', 5024, 23004, 15009), ('=', 15009, '', 5024)]
-47
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-No se logra establecer el fill
-47
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-No se logra establecer el fill
-40
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-a
-None
-es none valasig
-a
-prueba ID ---  a
-tipo id ---  int
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-a
-None
-es none valasig
-a
-prueba ID ---  a
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  1
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-1
-int
-term
-operador -|-|-|-  +
-entrasumsub
-op1sumsub
-validar
-23004
-5023
-ltype int
-rtype int
-+
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', '79'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', '78'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017), ('PRINT', ' ', ' ', 'vectorb1'), ('+', 5024, 23004, 15008), ('VER', 15008, 23001, 23002), ('+', 23003, 15008, 69018), ('PRINT', ' ', ' ', 69018), ('+', 5024, 23004, 15009), ('=', 15009, '', 5024), ('GOTO', ' ', ' ', 37), ('+', 5023, 23004, 15010)]
-agreegarid
-Error
-15010
-int
-15010
-<class 'int'>
-[]
-[]
-expaux
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  5023
-rtype - int
-tamaño pTipos 38
-tamaño pOperandos 0
-lOp assign  15010
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', 'fill'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', '79'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', '78'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017), ('PRINT', ' ', ' ', 'vectorb1'), ('+', 5024, 23004, 15008), ('VER', 15008, 23001, 23002), ('+', 23003, 15008, 69018), ('PRINT', ' ', ' ', 69018), ('+', 5024, 23004, 15009), ('=', 15009, '', 5024), ('GOTO', ' ', ' ', 37), ('+', 5023, 23004, 15010), ('=', 15010, '', 5023)]
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-No se logra establecer el fill
-36
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-i
-None
-es none valasig
-i
-prueba ID ---  i
-tipo id ---  int
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  0
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-0
-int
-term
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  5000
-rtype - int
-tamaño pTipos 38
-tamaño pOperandos 0
-lOp assign  23001
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', '82'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', '79'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', '78'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017), ('PRINT', ' ', ' ', 'vectorb1'), ('+', 5024, 23004, 15008), ('VER', 15008, 23001, 23002), ('+', 23003, 15008, 69018), ('PRINT', ' ', ' ', 69018), ('+', 5024, 23004, 15009), ('=', 15009, '', 5024), ('GOTO', ' ', ' ', 37), ('+', 5023, 23004, 15010), ('=', 15010, '', 5023), ('GOTO', ' ', ' ', 35), ('=', 23001, '', 5000)]
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-i
-None
-es none valasig
-i
-prueba ID ---  i
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  10
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-10
-int
-term
-expaux
-exp
-yes
-validar
-23017
-5000
-ltype int
-rtype int
-<
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', '82'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', '79'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', '78'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017), ('PRINT', ' ', ' ', 'vectorb1'), ('+', 5024, 23004, 15008), ('VER', 15008, 23001, 23002), ('+', 23003, 15008, 69018), ('PRINT', ' ', ' ', 69018), ('+', 5024, 23004, 15009), ('=', 15009, '', 5024), ('GOTO', ' ', ' ', 37), ('+', 5023, 23004, 15010), ('=', 15010, '', 5023), ('GOTO', ' ', ' ', 35), ('=', 23001, '', 5000), ('<', 5000, 23017, 15011)]
-agreegarid
-Error
-15011
-int
-15011
-<class 'int'>
-[]
-[]
-empty
-empty
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-i
-None
-es none valasig
-i
-prueba ID ---  i
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-expaux
-exp
-empty
-empty
-empty
-5000
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[5000]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-5000
-verify
-otra dir base es 5007
-no hay 4
-4
-term
-expaux
-exp
-empty
-empty
-empty
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-i
-None
-es none valasig
-i
-prueba ID ---  i
-tipo id ---  int
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-i
-None
-es none valasig
-i
-prueba ID ---  i
-tipo id ---  int
-3
-arrvarlength0
-4
-term
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  1
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-1
-int
-term
-operador -|-|-|-  +
-entrasumsub
-op1sumsub
-validar
-23004
-5000
-ltype int
-rtype int
-+
-int
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', '82'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', '79'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', '78'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017), ('PRINT', ' ', ' ', 'vectorb1'), ('+', 5024, 23004, 15008), ('VER', 15008, 23001, 23002), ('+', 23003, 15008, 69018), ('PRINT', ' ', ' ', 69018), ('+', 5024, 23004, 15009), ('=', 15009, '', 5024), ('GOTO', ' ', ' ', 37), ('+', 5023, 23004, 15010), ('=', 15010, '', 5023), ('GOTO', ' ', ' ', 35), ('=', 23001, '', 5000), ('<', 5000, 23017, 15011), ('GOTOF', 15011, ' ', 'fill'), ('VER', 5000, 23001, 23002), ('+', 23003, 5000, 69019), ('PRINT', ' ', ' ', 69019), ('+', 5000, 23004, 15012)]
-agreegarid
-Error
-15012
-int
-15012
-<class 'int'>
-[]
-[]
-expaux
-expaux
-exp
-empty
-empty
-empty
-yes-assign
-leftType int
-resOp assign  5000
-rtype - int
-tamaño pTipos 40
-tamaño pOperandos 0
-lOp assign  15012
-=
-int
-sensual
-[('GOTO', ' ', ' ', 1), ('=', 23000, '', 5000), ('VER', 23001, 23001, 23002), ('+', 23003, 23001, 69000), ('=', 23004, '', 69000), ('VER', 23004, 23001, 23002), ('+', 23003, 23004, 69001), ('=', 23002, '', 69001), ('VER', 23005, 23001, 23002), ('+', 23003, 23005, 69002), ('=', 23006, '', 69002), ('VER', 23007, 23001, 23002), ('+', 23003, 23007, 69003), ('=', 23000, '', 69003), ('VER', 23008, 23001, 23002), ('+', 23003, 23008, 69004), ('=', 23009, '', 69004), ('VER', 23010, 23001, 23002), ('+', 23003, 23010, 69005), ('=', 23011, '', 69005), ('VER', 23012, 23001, 23002), ('+', 23003, 23012, 69006), ('=', 23013, '', 69006), ('VER', 23000, 23001, 23002), ('+', 23003, 23000, 69007), ('=', 23013, '', 69007), ('VER', 23014, 23001, 23002), ('+', 23003, 23014, 69008), ('=', 23015, '', 69008), ('VER', 23002, 23001, 23002), ('+', 23003, 23002, 69009), ('=', 23016, '', 69009), ('=', 23001, '', 5023), ('=', 23001, '', 5024), ('=', 23017, '', 5025), ('<', 5023, 5025, 15000), ('GOTOF', 15000, ' ', '82'), ('-', 5025, 5023, 15001), ('-', 15001, 23004, 15002), ('<', 5024, 15002, 15003), ('GOTOF', 15003, ' ', '79'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69010), ('+', 5024, 23004, 15004), ('>', 69010, 15004, 15005), ('VER', 15005, 23001, 23002), ('+', 23003, 15005, 69011), ('GOTOF', 69011, ' ', '78'), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69012), ('PRINT', ' ', ' ', 69012), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69013), ('=', 69013, '', 5026), ('PRINT', ' ', ' ', 'aux'), ('PRINT', ' ', ' ', 5026), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69014), ('+', 5024, 23004, 15006), ('VER', 15006, 23001, 23002), ('+', 23003, 15006, 69015), ('=', 69015, '', 69014), ('PRINT', ' ', ' ', 'vectorb'), ('VER', 5024, 23001, 23002), ('+', 23003, 5024, 69016), ('PRINT', ' ', ' ', 69016), ('+', 5024, 23004, 15007), ('VER', 15007, 23001, 23002), ('+', 23003, 15007, 69017), ('=', 5026, '', 69017), ('PRINT', ' ', ' ', 'vectorb1'), ('+', 5024, 23004, 15008), ('VER', 15008, 23001, 23002), ('+', 23003, 15008, 69018), ('PRINT', ' ', ' ', 69018), ('+', 5024, 23004, 15009), ('=', 15009, '', 5024), ('GOTO', ' ', ' ', 37), ('+', 5023, 23004, 15010), ('=', 15010, '', 5023), ('GOTO', ' ', ' ', 35), ('=', 23001, '', 5000), ('<', 5000, 23017, 15011), ('GOTOF', 15011, ' ', 'fill'), ('VER', 5000, 23001, 23002), ('+', 23003, 5000, 69019), ('PRINT', ' ', ' ', 69019), ('+', 5000, 23004, 15012), ('=', 15012, '', 5000)]
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-No se logra establecer el fill
-84
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  9
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-9
-int
-term
-expaux
-exp
-empty
-empty
-empty
-23002
-ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-vector
-None
-es none valasig
-vector
-prueba ID ---  vector
-tipo id ---  int
-3
-lengths Exp
-1
-[23002]
-1
-lengths arrvar
-aqui entra arrvar1
-arrExp en 0
-23002
-verify
-otra dir base es 5007
-no hay 4
-4
-term
-expaux
-exp
-empty
-empty
-empty
+[('GOTO', ' ', ' ', 18), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', '16'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002), ('PARAM', 15002, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15003), ('*', 11000, 15003, 15004), ('=', 15004, '', 11001), ('RETURN', ' ', ' ', 11001), ('ENDFUNC', ' ', ' ', ' '), ('PRINT', ' ', ' ', 'mau'), ('ERA', 'factorialRecursivo', ' ', ' '), ('PARAM', 23001, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15005), ('=', 15005, '', 5001), ('PRINT', ' ', ' ', 'i_es'), ('PRINT', ' ', ' ', 5000), ('PRINT', ' ', ' ', 'x_es'), ('PRINT', ' ', ' ', 5001), ('VER', 23002, 23002, 23003), ('+', 23004, 23002, 69000), ('=', 23000, '', 69000)]
 DIRGLOB
-{'i': <dirVar.variable object at 0x000002853926BA60>, 'valor': <dirVar.variable object at 0x000002853926D640>, 'y': <dirVar.variable object at 0x000002853926DBE0>, 'msg': <dirVar.variable object at 0x00000285391EE5B0>, 'x': <dirVar.variable object at 0x00000285391EEF10>, 'arr': <dirVar.variable object at 0x00000285391CACA0>, 'f': <dirVar.variable object at 0x00000285393AE1C0>, 'vector': <dirVar.variable object at 0x00000285393AE7C0>, 'mat': <dirVar.variable object at 0x000002853930D0D0>, 'a': <dirVar.variable object at 0x000002853930DEB0>, 'b': <dirVar.variable object at 0x000002853930E4F0>, 'size': <dirVar.variable object at 0x000002853930EAF0>, 'aux': <dirVar.variable object at 0x000002853930C130>, 15000: <dirVar.variable object at 0x000002853926BB80>, 15001: <dirVar.variable object at 0x000002853930E430>, 15002: <dirVar.variable object at 0x00000285391EE0D0>, 15003: <dirVar.variable object at 0x00000285391EEEE0>, 15004: <dirVar.variable object at 0x000002853926B7F0>, 15005: <dirVar.variable object at 0x000002853926DAF0>, 15006: <dirVar.variable object at 0x000002853930D370>, 15007: <dirVar.variable object at 0x000002853930EFA0>, 15008: <dirVar.variable object at 0x000002853930D5B0>, 15009: <dirVar.variable object at 0x00000285391CA310>, 15010: <dirVar.variable object at 0x00000285391EE820>, 15011: <dirVar.variable object at 0x00000285393AE8B0>, 15012: <dirVar.variable object at 0x00000285393AE520>}
+{'i': <dirVar.variable object at 0x00000165EE49C250>, 'valor': <dirVar.variable object at 0x00000165EE49CB50>, 'y': <dirVar.variable object at 0x00000165EE49CEB0>, 'msg': <dirVar.variable object at 0x00000165EE67E5E0>, 'x': <dirVar.variable object at 0x00000165EE67ECA0>, 'arr': <dirVar.variable object at 0x00000165EE53F790>, 'f': <dirVar.variable object at 0x00000165EE53FAF0>, 'vector': <dirVar.variable object at 0x00000165EE53FF10>, 'mat': <dirVar.variable object at 0x00000165EE67F640>, 'a': <dirVar.variable object at 0x00000165EE53C070>, 'b': <dirVar.variable object at 0x00000165EE53C5E0>, 'size': <dirVar.variable object at 0x00000165EE53C9A0>, 'aux': <dirVar.variable object at 0x00000165EE53CD60>, 'factorialRecursivo': <dirVar.variable object at 0x00000165EE67EE20>, 15000: <dirVar.variable object at 0x00000165EE5CFA30>, 15001: <dirVar.variable object at 0x00000165EE5C60A0>, 15002: <dirVar.variable object at 0x00000165EE5C4280>, 15004: <dirVar.variable object at 0x00000165EE5C50D0>}
 dirFunc
-{'main': <dirVar.funcion object at 0x0000028538C02BB0>}
+{'factorialRecursivo': <dirVar.funcion object at 0x00000165EE49CA00>, 'main': <dirVar.funcion object at 0x00000165EE536DC0>}
 Dirclases
 {}
 
@@ -2132,230 +758,92 @@ a {'tipovar': 'int', 'length': [], 'direccion': 5023}
 b {'tipovar': 'int', 'length': [], 'direccion': 5024}
 size {'tipovar': 'int', 'length': [], 'direccion': 5025}
 aux {'tipovar': 'int', 'length': [], 'direccion': 5026}
+factorialRecursivo {'tipovar': 'int', 'length': [], 'direccion': 5027}
 15000 {'tipovar': 'int', 'length': [], 'direccion': None}
 15001 {'tipovar': 'int', 'length': [], 'direccion': None}
 15002 {'tipovar': 'int', 'length': [], 'direccion': None}
-15003 {'tipovar': 'int', 'length': [], 'direccion': None}
 15004 {'tipovar': 'int', 'length': [], 'direccion': None}
-15005 {'tipovar': 'int', 'length': [], 'direccion': None}
-15006 {'tipovar': 'int', 'length': [], 'direccion': None}
-15007 {'tipovar': 'int', 'length': [], 'direccion': None}
-15008 {'tipovar': 'int', 'length': [], 'direccion': None}
-15009 {'tipovar': 'int', 'length': [], 'direccion': None}
-15010 {'tipovar': 'int', 'length': [], 'direccion': None}
-15011 {'tipovar': 'int', 'length': [], 'direccion': None}
-15012 {'tipovar': 'int', 'length': [], 'direccion': None}
 
 dirConstantes
 
-23000 7
-23001 0
-23002 9
-23003 5007
-23004 1
-23005 2
-23006 11
-23007 3
-23008 4
-23009 15
-23010 5
-23011 17
-23012 6
-23013 21
-23014 8
-23015 20
-23016 25
-23017 10
+23000 1
+23001 6
+23002 0
+23003 9
+23004 5007
 
 
 Correct syntax
+{'tipoFuncion': 'int', 'parameters': ['int'], 'cuadcount': 1, 'intcant': 2, 'floatcant': 0, 'tempintcant': 10, 'tempfloatcant': 10, 'charcant': 0, 'direccion': 5027, 'localVar': {'n': <dirVar.variable object at 0x00000165EE5D6610>, 'aux': <dirVar.variable object at 0x00000165EE5D6D00>}}
 
 
 
 
 cuad      op        v1        v2        vf        
 ----      --        ---       ---       ---       
-0         GOTO                          1         
-1         =         23000               5000      
-2         VER       23001     23001     23002     
-3         +         23003     23001     69000     
-4         =         23004               69000     
-5         VER       23004     23001     23002     
-6         +         23003     23004     69001     
-7         =         23002               69001     
-8         VER       23005     23001     23002     
-9         +         23003     23005     69002     
-10        =         23006               69002     
-11        VER       23007     23001     23002     
-12        +         23003     23007     69003     
-13        =         23000               69003     
-14        VER       23008     23001     23002     
-15        +         23003     23008     69004     
-16        =         23009               69004     
-17        VER       23010     23001     23002     
-18        +         23003     23010     69005     
-19        =         23011               69005     
-20        VER       23012     23001     23002     
-21        +         23003     23012     69006     
-22        =         23013               69006     
-23        VER       23000     23001     23002     
-24        +         23003     23000     69007     
-25        =         23013               69007     
-26        VER       23014     23001     23002     
-27        +         23003     23014     69008     
-28        =         23015               69008     
-29        VER       23002     23001     23002     
-30        +         23003     23002     69009     
-31        =         23016               69009     
-32        =         23001               5023      
-33        =         23001               5024      
-34        =         23017               5025      
-35        <         5023      5025      15000     
-36        GOTOF     15000               82        
-37        -         5025      5023      15001     
-38        -         15001     23004     15002     
-39        <         5024      15002     15003     
-40        GOTOF     15003               79        
-41        VER       5024      23001     23002     
-42        +         23003     5024      69010     
-43        +         5024      23004     15004     
-44        >         69010     15004     15005     
-45        VER       15005     23001     23002     
-46        +         23003     15005     69011     
-47        GOTOF     69011               78        
-48        PRINT                         vectorb   
-49        VER       5024      23001     23002     
-50        +         23003     5024      69012     
-51        PRINT                         69012     
-52        VER       5024      23001     23002     
-53        +         23003     5024      69013     
-54        =         69013               5026      
-55        PRINT                         aux       
-56        PRINT                         5026      
-57        VER       5024      23001     23002     
-58        +         23003     5024      69014     
-59        +         5024      23004     15006     
-60        VER       15006     23001     23002     
-61        +         23003     15006     69015     
-62        =         69015               69014     
-63        PRINT                         vectorb   
-64        VER       5024      23001     23002     
-65        +         23003     5024      69016     
-66        PRINT                         69016     
-67        +         5024      23004     15007     
-68        VER       15007     23001     23002     
-69        +         23003     15007     69017     
-70        =         5026                69017     
-71        PRINT                         vectorb1  
-72        +         5024      23004     15008     
-73        VER       15008     23001     23002     
-74        +         23003     15008     69018     
-75        PRINT                         69018     
-76        +         5024      23004     15009     
-77        =         15009               5024      
-78        GOTO                          37        
-79        +         5023      23004     15010     
-80        =         15010               5023      
-81        GOTO                          35        
-82        =         23001               5000      
-83        <         5000      23017     15011     
-84        GOTOF     15011               91        
-85        VER       5000      23001     23002     
-86        +         23003     5000      69019     
-87        PRINT                         69019     
-88        +         5000      23004     15012     
-89        =         15012               5000      
-90        GOTO                          83        
-91        VER       23002     23001     23002     
-92        +         23003     23002     69020     
-93        PRINT                         69020     
-94        END                                     
-pepepepe 21
-[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0], [], [], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-Num cuadruplos:  95
+0         GOTO                          18        
+1         PRINT                         n         
+2         PRINT                         11000     
+3         <         11000     23000     15000     
+4         GOTOF     15000               7         
+5         =         23000               11001     
+6         GOTO                          16        
+7         -         11000     23000     15001     
+8         PRINT                         15001     
+9         ERA       factorialRecursivo                    
+10        -         11000     23000     15002     
+11        PARAM     15002               1         
+12        GOSUB     factorialRecursivo                    
+13        =         5027                15003     
+14        *         11000     15003     15004     
+15        =         15004               11001     
+16        RETURN                        11001     
+17        ENDFUNC                                 
+18        PRINT                         mau       
+19        ERA       factorialRecursivo                    
+20        PARAM     23001               1         
+21        GOSUB     factorialRecursivo                    
+22        =         5027                15005     
+23        =         15005               5001      
+24        PRINT                         i_es      
+25        PRINT                         5000      
+26        PRINT                         x_es      
+27        PRINT                         5001      
+28        VER       23002     23002     23003     
+29        +         23004     23002     69000     
+30        =         23000               69000     
+31        END                                     
+[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0], [], [], [0, 0, 0, 0, 0, 0], [], [0]]
+Num cuadruplos:  32
 -----------------------------------------------------
-vectorb
-1
-aux
-1
-vectorb
-9
-vectorb1
-1
-vectorb
-1
-aux
-1
-vectorb
-11
-vectorb1
-1
-vectorb
-1
-aux
-1
-vectorb
-7
-vectorb1
-1
-vectorb
-1
-aux
-1
-vectorb
-15
-vectorb1
-1
-vectorb
-1
-aux
-1
-vectorb
-17
-vectorb1
-1
-vectorb
-1
-aux
-1
-vectorb
-21
-vectorb1
-1
-vectorb
-1
-aux
-1
-vectorb
-21
-vectorb1
-1
-vectorb
-1
-aux
-1
-vectorb
-20
-vectorb1
-1
-vectorb
-1
-aux
-1
-vectorb
-25
-vectorb1
-1
-9
-11
-7
-15
-17
-21
-21
-20
-25
-1
-1
+mau
+ERA
+PARAM
+tatata 6
+blabla 23001
+type int
+res 1
+mem actual --- [[6, 0], [], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+n
+6
+5
+ERA
+PARAM
+tatata -1
+blabla 15002
+type int
+res 1
+mem actual --- [[-1, 0], [], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+n
+-1
+RETURN
+11001 1
+RETURN
+11001 -1
+i_es
+0
+x_es
+-1
 -----------------------------------------------------
-[[10, 0, 0, 0, 0, 0, 0, 9, 11, 7, 15, 17, 21, 21, 20, 25, 1, 0, 0, 0, 0, 0, 0, 10, 9, 10, 1], [0, 0], [], [], [0, 1, 0, 0, 9, 0, 9, 9, 9, 9, 10, 0, 10], [], [5007, 5008, 5009, 5010, 5011, 5012, 5013, 5014, 5015, 5016, 5015, 5007, 5015, 5015, 5015, 5016, 5015, 5016, 5016, 5016, 5016]]
+[[0, -1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1], [0, 0], [], [], [1, 5, -1, 1, -1, -1], [], [5007]]
+[<vm.MemoriaLocal object at 0x00000165EE53FD00>, <vm.MemoriaLocal object at 0x00000165EE53FD00>]

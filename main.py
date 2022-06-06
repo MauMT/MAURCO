@@ -196,31 +196,6 @@ def p_programa(p):
   '''
   p[0] = "Success"
 
-def p_ini(p):
-  '''
-  ini :
-  '''
-  print("CALL INITIAL")
-  global currFuncion
-  global currClass
-  global currID
-  global currTypeID
-  global currMet
-  global currVars
-  global currTipo
-  global isArr
-  global isMat
-  global arrExp
-  isArr = False
-  isMat = False
-  arrExp = []
-  arrLength = []
-  currID = queue.Queue()
-  currVars = queue.Queue()
-  currMet = queue.Queue()
-  currTypeID = queue.Queue()
-  #currTipo = queue.Queue()
-#####################################
 
 
 def p_proaux(p):
@@ -257,7 +232,7 @@ def p_objectsvarsglobal(p):
     currTipo = p[2]
     while not(currID.empty()) :
       curr = currID.get()
-      print("Algo no se")
+      
       dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
 
 def p_idvarsglobal(p):
@@ -269,17 +244,17 @@ def p_stepid(p):
     '''
     stepid : empty
     '''
-    print("Empty")
+    
     print(currID.empty())
     while not(currID.empty()) :
       curr = currID.get()
-      print("gloubal ", curr[0], curr[1], currTipo)
+      
       
 
       if len(curr[1]) == 0:
-        print("not array")
+        #print("not array")
         dirVar.agregarglobalVariable(curr[0], [], currTipo)
-        print("not 1ssssss")
+        #print("not 1ssssss")
         if currTipo == "int":
           print("not 1aaaaaa")
           auxDir = virtualAdd.getGlobalAddressInt()
@@ -1689,9 +1664,11 @@ def p_nvfuntipid(p):
           auxDir = virtualAdd.getGlobalAddressInt()
           print(auxDir)
           dirVar.setGlobalVarAddress(currFuncion, auxDir)
+          dirVar.dirFunciones[currFuncion].direccion = auxDir
         elif currTipo == "float":
           auxDir = virtualAdd.getGlobalAddressFloat()
           dirVar.setGlobalVarAddress(currFuncion, auxDir)
+          dirVar.dirFunciones[currFuncion].direccion = auxDir
         else:
           print("tipo desconocido")
 
@@ -1776,11 +1753,11 @@ def p_novoidnext(p):
   novoidnext : SEP_LPAREN paramsfun insCont SEP_RPAREN varsfun SEP_LBRACE genLoc estfun nvaux
   '''
 
-  def p_cureturn(p):
+  """ def p_cureturn(p):
     '''
     cureturn : empty
     '''
-    cuads.cReturn()
+    cuads.cReturn() """
 
 
 def p_paramsfun(p):
@@ -1989,7 +1966,7 @@ except:
       print(key, dirVar.dirglobalVar[key].__dict__)
 
 
-print(dirVar.dirFunciones["factorialIterativo"].__dict__)
+#print(dirVar.dirFunciones["factorialRecursivo"].__dict__)
 
 cuads.addCounter()
 cuads.printCuads()

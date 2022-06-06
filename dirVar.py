@@ -26,8 +26,8 @@ class funcion:
         self.cuadcount = 0
         self.intcant = 0
         self.floatcant = 0
-        self.tempintcant = 0
-        self.tempfloatcant = 0
+        self.tempintcant = 10
+        self.tempfloatcant = 10
         self.charcant = 0
         self.direccion = 0
         self.localVar = {}

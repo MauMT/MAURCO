@@ -17,22 +17,15 @@ MemoriaGlobal = [[],[],[],[],[],[],[]]
 
 class MemoriaLocal:
     def __init__(self):
-        self.MemoriaLocalInt = []
-        self.MemoriaLocalFloat = []
+        #Int, Float, Temp Int, Temp Float
+        self.MemoriaLocal = [[],[], [], []]
     def __string__(self):
-        return "MemoriaLocalInt: " + str(self.MemoriaLocalInt) + "\nMemoriaLocalFloat: " + str(self.MemoriaLocalFloat)
+        return "MemoriaLocalInt: " + str(self.MemoriaLocal[0]) + "\nMemoriaLocalFloat: " + str(self.MemoriaLocal[1])
 
 
 
 
 ### STACK DE MEMORIAS ####
-memoryStack = []
-
-#---------------------------------------------------------------------------------------------------------------------
-casillasLocalInt = virtualAdd.getCurrentLocalAddressInt() - virtualAdd.LOCAL_INT_START
-casillasLocalFloat = virtualAdd.getCurrentLocalAddressFloat() - virtualAdd.LOCAL_FLOAT_START
-#---------------------------------------------------------------------------------------------------------------------
-x = MemoriaLocal()
 
 def getFuncionContext(funcion):
     return dirFunciones[funcion]
@@ -63,7 +56,10 @@ dictConstantesMemoriaGlobal = dict((v,k) for k,v in dirConstantes.items())
 
 print(MemoriaGlobal)
 
-instruction_pointer = 1
+memoryStack = []
+x = MemoriaLocal()
+
+instruction_pointer = 0
 
 
 print("Num cuadruplos: ", cuads.__len__())
@@ -72,6 +68,7 @@ def getTypeScopeByAddress(num):
     '''
     Devuelve un string con el tipo y scope de la variable en la dirección num
     '''
+
     if num >= GLOBAL_INT_START and num < GLOBAL_FLOAT_START:
         return 'gi'
     elif num >= GLOBAL_FLOAT_START and num < LOCAL_INT_START:
@@ -97,14 +94,19 @@ def getConstant(key):
 
 def readMemory(num):
     aux = getTypeScopeByAddress(num)
+    
     if aux == 'gi':
         return MemoriaGlobal[0][num - GLOBAL_INT_START]
     elif aux == 'gf':
         return MemoriaGlobal[1][num - GLOBAL_FLOAT_START]
-        """ elif aux == 'li':
-            return MemoriaGlobal[2][num - LOCAL_INT_START]
-        elif aux == 'lf':
-            return MemoriaGlobal[3][num - LOCAL_FLOATT_START] """
+    elif aux == 'li':
+        print("num", num)
+        print("memoryStack", memoryStack[-1].MemoriaLocal)
+        
+        return memoryStack[-1].MemoriaLocal[0][num - LOCAL_INT_START]
+    elif aux == 'lf':
+        
+        return memoryStack[-1].MemoriaLocal[1][num - LOCAL_FLOAT_START]
     elif aux == 'tgi':
         return MemoriaGlobal[4][num - TEMPORAL_INT_START]
     elif aux == 'tgf':
@@ -124,10 +126,18 @@ def writeOnMemory(value, addr):
         MemoriaGlobal[0][addr - GLOBAL_INT_START] = value
     elif aux == 'gf':
         MemoriaGlobal[1][addr - GLOBAL_FLOAT_START] = value
-        """ elif aux == 'li':
-            MemoriaGlobal[2][addr - LOCAL_INT_START] = value
-        elif aux == 'lf':
-            MemoriaGlobal[3][addr - LOCAL_FLOAT_START] = value """
+    elif aux == 'li':
+        if memoryStack:
+            memoryStack[-1].MemoriaLocal[0][addr - LOCAL_INT_START] = value
+        else:
+            x.MemoriaLocal[0][addr - LOCAL_INT_START] = value
+        #memoryStack[-1].MemoriaLocal[0][addr - LOCAL_INT_START] = value
+    elif aux == 'lf':
+        if memoryStack:
+            memoryStack[-1].MemoriaLocal[1][addr - LOCAL_FLOAT_START] = value
+        else:
+            x.MemoriaLocal[1][addr - LOCAL_FLOAT_START] = value
+        #memoryStack[-1].MemoriaLocal[1][addr - LOCAL_FLOAT_START] = value
     elif aux == 'tgi':
         MemoriaGlobal[4][addr - TEMPORAL_INT_START] = value
     elif aux == 'tgf':
@@ -163,9 +173,9 @@ def boolean_to_num(val):
         return 0
 
 def getTypeByAddress(addr):
-    if (addr >= GLOBAL_INT_START and addr < GLOBAL_FLOAT_START) or (addr >= TEMPORAL_INT_START and addr < TEMPORAL_FLOAT_START) or (addr >= LOCAL_INT_START and addr < LOCAL_FLOATT_START):
+    if (addr >= GLOBAL_INT_START and addr < GLOBAL_FLOAT_START) or (addr >= TEMPORAL_INT_START and addr < TEMPORAL_FLOAT_START) or (addr >= LOCAL_INT_START and addr < LOCAL_FLOAT_START) or (addr >= CONSTANT_INT_START and addr < CONSTANT_FLOAT_START):
         return 'int'
-    elif (addr >= GLOBAL_FLOAT_START and addr < LOCAL_INT_START) or (addr >= LOCAL_FLOAT_START and addr < TEMPORAL_INT_START) or (addr >= TEMPORAL_FLOAT_START and addr < CONSTANT_INT_START):
+    elif (addr >= GLOBAL_FLOAT_START and addr < LOCAL_INT_START) or (addr >= LOCAL_FLOAT_START and addr < TEMPORAL_INT_START) or (addr >= TEMPORAL_FLOAT_START and addr < CONSTANT_INT_START) or (addr >= CONSTANT_FLOAT_START and addr < 25000):
         return 'float'
 
 def is_between(x, y, z):
@@ -175,6 +185,7 @@ inside_array_flag = False
 
 #cuads[instruction_pointer][1] != 'END'
 pFunciones = []
+pPointersFuncion = []
 
 while cuads[instruction_pointer][1] != 'END': 
     paramCounter = 0
@@ -183,6 +194,7 @@ while cuads[instruction_pointer][1] != 'END':
     operandoIzq = cuad[2]
     operandoDer = cuad[3]
     res = cuad[4]
+    
     
     if operacion == 'GOTO':
         instruction_pointer = int(res)
@@ -198,6 +210,7 @@ while cuads[instruction_pointer][1] != 'END':
     elif operacion == '-':
         newResult = readMemory(operandoIzq) - readMemory(operandoDer)
         #printHelper('-', operandoIzq, operandoDer, res, newResult)
+        print("hola", readMemory(operandoIzq))
         writeOnMemory(newResult, res)
         incrementInstructionPointer()
     
@@ -235,6 +248,7 @@ while cuads[instruction_pointer][1] != 'END':
             operandoIzq = readMemory(operandoIzq)
         elif operandoDer >= 69000:
             operandoDer = readMemory(operandoDer) 
+        
         
         newResult = readMemory(operandoIzq) > readMemory(operandoDer)
         #printHelper('>', operandoIzq, operandoDer, res, newResult)
@@ -335,7 +349,7 @@ while cuads[instruction_pointer][1] != 'END':
 
     elif operacion == 'PRINT':
         
-        if isstring(res):
+        if is_string(res):
             print(res)
         else:
             if isTemporalAddress(res):
@@ -348,32 +362,67 @@ while cuads[instruction_pointer][1] != 'END':
         print("ERA")
         cantIntLocales = dirFunciones[operandoIzq].intcant
         cantFloatLocales = dirFunciones[operandoIzq].floatcant
+        cantTempIntLocales = dirFunciones[operandoIzq].tempintcant
+        cantTempFloatLocales = dirFunciones[operandoIzq].tempfloatcant
         pFunciones.append(operandoIzq)
-        x.MemoriaLocalInt = [0]*casillasLocalInt
-        x.MemoriaLocalFloat = [0]*casillasLocalFloat
+        
+        x.MemoriaLocal[0] = [0]*cantIntLocales
+        x.MemoriaLocal[1] = [0]*cantFloatLocales
+        x.MemoriaLocal[2] = [0]*cantTempIntLocales
+        x.MemoriaLocal[3] = [0]*cantTempFloatLocales
+        #memoryStack.append(x)
+        
         incrementInstructionPointer()
     
     elif operacion == 'PARAM':
         print("PARAM")
-        print("tatata", readMemory(operandoIzq))
+        #print("tatata", readMemory(operandoIzq))
         tipo = getTypeByAddress(operandoIzq)
+        print("operandoIzq:", operandoIzq, "tipo:", tipo)
+        #print(memoryStack)
+        print("read memory --", readMemory(operandoIzq))
         
-
-        x.MemoriaLocalInt[operandoDer-1] = readMemory(operandoIzq)
+        if memoryStack:
+            if tipo == 'int':
+                #print("read memory", readMemory(operandoIzq))
+                x.MemoriaLocal[0][res-1] = readMemory(operandoIzq)
+            elif tipo == 'float':
+                x.MemoriaLocal[1][res-1] = readMemory(operandoIzq) 
+        else:
+            if tipo == 'int':
+                #print("read memory", readMemory(operandoIzq))
+                x.MemoriaLocal[0][res-1] = readMemory(operandoIzq)
+            elif tipo == 'float':
+                x.MemoriaLocal[1][res-1] = readMemory(operandoIzq)     
+        #print("mem actual ---", memoryStack[-1].MemoriaLocal)
         incrementInstructionPointer()
     
     elif operacion == 'GOSUB':
-        print("GOSUB")
-        incrementInstructionPointer()
+        #print("GOSUB")
+        # se mete el pointer hacia el sig cuadruplo en una pila para saber a dónde regresar al terminar de ejecutar la función
+        print("GOSUB", operandoIzq)
+        memoryStack.append(x)
+        pPointersFuncion.append(instruction_pointer+1)
+        instruction_pointer = dirFunciones[operandoIzq].cuadcount
+        # incrementInstructionPointer()
     
     elif operacion == 'RETURN':
         print("RETURN")
+        funcActual = pFunciones[-1]
+        #print(res, readMemory(res))
+        dirFuncionActual = dirFunciones[funcActual].direccion
+        writeOnMemory(readMemory(res), dirFuncionActual)
         incrementInstructionPointer()
     
     elif operacion == 'ENDFUNC':
-        print("ENDFUNC")
-        incrementInstructionPointer()
+        #print("ENDFUNC")
+        #pop de una emptu list menso
+        #print("endfunc pPointers", pPointersFuncion)
+        memoryStack.pop()
+        instruction_pointer = pPointersFuncion.pop()
+        
     
 
 print("-----------------------------------------------------")
 print(MemoriaGlobal)
+print(memoryStack)

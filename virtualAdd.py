@@ -31,6 +31,7 @@ CONSTANT_FLOAT_START = 24000
 
 TEMPORAL_POINTER_START = 69000
 
+
 ### FUNCIONES PARA OBTENER EL CONTADOR ACTUAL DE CADA TIPO DE DIRECCIÓN
 # getAddress de cualquier tipo mueve el contador a una dirección después de la última asignada
 # Num variables de cierto tipo = contador - dirección inicial
