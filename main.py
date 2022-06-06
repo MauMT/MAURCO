@@ -1,3 +1,4 @@
+
 import ply.lex as lex
 import ply.yacc as yacc
 import dirVar
@@ -6,6 +7,8 @@ import constantTypeCheck
 import cuads
 import virtualAdd
 from functools import reduce
+
+
 
 tokens = [
 #
@@ -54,8 +57,6 @@ tokens = [
   'RETURN',
   'INPUT',
   'PRINT',
-  'PRINTA',
-  'MAP',
 #
   'OP_GT',
   'OP_LT',
@@ -104,8 +105,6 @@ reservadas = {
   'return' : 'RETURN',
   'input' : 'INPUT',
   'print' : 'PRINT',
-  'printA' : 'PRINTA',
-  'map': 'MAP',
   'class': 'CLASS',
   'inherits': 'INHERITS',
   'attributes': 'ATTRIBUTES',
@@ -173,7 +172,7 @@ def t_newline(t):
     pass
 
 def t_error(t):
-  print("El caracter '%s' no es válido" % t.value[0])
+  print("Lexical Error: El caracter '%s' no es válido" % t.value[0])
   raise Exception("Caracter ilegal '%s'" % t.value[0])
   t.lexer.skip(1)
 
@@ -263,9 +262,9 @@ def p_stepid(p):
           auxDir = virtualAdd.getGlobalAddressFloat()
           dirVar.setGlobalVarAddress(curr[0], auxDir)
         else:
-          print("tipo desconocido")
+          pass
       else:
-        print("array")
+        # Es un array
         dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
         arrSize = reduce(lambda x, y: x * y, curr[1])
         if currTipo == "int":
@@ -275,7 +274,7 @@ def p_stepid(p):
           auxDir = virtualAdd.getGlobalAddressFloat(size=arrSize)
           dirVar.setGlobalVarAddress(curr[0], auxDir)
         else:
-          print("tipo desconocido")
+          pass
 
 def p_typeVarsGlobal(p):
   '''
@@ -283,13 +282,13 @@ def p_typeVarsGlobal(p):
                  | FLOAT
                  | CHAR
     '''
-  #print("call varsGlobal")
   global currTipo
   currTipo = p[1]
  
 
 
-#funciones del programa
+
+# REGLAS DE LAS FUNCIONES
 
 def p_profunctions(p):
   '''
@@ -751,14 +750,20 @@ def p_valasigaux(p):
   global arrExp
   global isMat
   currentID = p[1]
-
-
+  print("aid", currentID)
+  print("currF", currFuncion)
   if(currFuncion == "main" or currFuncion == None):
-
-    tipo = dirVar.getglobalVariable(currentID).tipoVariable()
+    var = dirVar.getglobalVariable(currentID)
+    if(var == None):
+      print("Name Error: Variable '{}' no declarada".format(currentID))
+      sys.exit()
+    tipo = var.tipoVariable()
   else:
       if(dirVar.getlocalVariable(currFuncion, currentID) == None):
-        
+        var = dirVar.getglobalVariable(currentID)
+        if(var == None):
+          print("Name Error: Variable '{}' no declarada".format(currentID))
+          sys.exit()
         tipo = dirVar.getglobalVariable(currentID).tipoVariable()
 
       else:
@@ -767,7 +772,7 @@ def p_valasigaux(p):
 
   cuads.agregarID(currentID)
   cuads.agregarTipo(tipo)
-  #print(dirVar.dirFunciones[currFuncion].localVar)
+  
   if(currFuncion == "main" or currFuncion == None):
     arrVar = dirVar.getglobalVariable(currentID)
     if(arrVar == None):
@@ -1147,12 +1152,7 @@ def p_cicfr4(p):
   '''
   cuads.ciclofrom4()
 
-###########################################################################
-def p_valueid(p):
-    '''
-    valueid : ID
-            | CTE_INT
-    '''
+
 #### REGLAS NO USADAS:  ####################################################
 def p_llamadafuncionmetodo(p):
     '''
@@ -1170,33 +1170,7 @@ def p_funcidt_aux(p):
   funcidt_aux : OP_DOT ID
                 | empty
   '''
-####################################################
-  
-def p_map(p):
-    '''
-    map : MAP SEP_LPAREN ID SEP_COMMA operator SEP_COMMA intof SEP_RPAREN SEP_SEMICOLON
-    '''
 
-def p_operator(p):
-    '''
-    operator : OP_MULT
-             | OP_DIV
-             | OP_PLUS
-             | OP_MINUS
-    '''
-
-def p_intof(p):
-    '''
-    intof : CTE_INT
-          | CTE_FLOAT
-    '''
-
-def p_printA(p):
-    '''
-    printA : PRINTA SEP_LPAREN ID SEP_RPAREN SEP_SEMICOLON
-    '''
-
-################################################
 # REVISAR la hyperexpresion para uso de AND y OR, falta modificar las reglas que usen expresion para que usen hyperexp
 def p_hyper_exp(p):
     '''
@@ -1340,9 +1314,7 @@ def p_cteidcall(p):
               
     '''
     currVal = p[1]
-    print("mau ", currVal)
     currTipo = constantTypeCheck.checkintOrFloat(str(currVal))
-    print("mmmm ", currTipo)
 
     if currVal in dirVar.dirConstantes:
         auxDir = dirVar.dirConstantes[currVal]
@@ -1379,24 +1351,24 @@ def p_cteidcall_atributo_metodo(p):
   global arrExp
   global isMat
   currentID = p[1]
-  print("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
-  print(currentID)
-  print(currFuncion)
-
+  
 
   if(currFuncion == "main" or currFuncion == None):
-
-    print(currentID)
-    tipo = dirVar.getglobalVariable(currentID).tipoVariable()
+    var = dirVar.getglobalVariable(currentID)
+    if var == None:
+      print("Name Error: variable '{}' no declarada".format(currentID))
+      sys.exit()
+    tipo = var.tipoVariable()
   else:
-      print(currentID)
-      print(dirVar.getlocalVariable(currFuncion, currentID))
+      
       if(dirVar.getlocalVariable(currFuncion, currentID) == None):
-        
+        var = dirVar.getglobalVariable(currentID)
+        if var == None:
+          print("Name Error: variable '{}' no declarada".format(currentID))
+          sys.exit()
         tipo = dirVar.getglobalVariable(currentID).tipoVariable()
 
       else:
-        print("entraenglobal")
         tipo = dirVar.getlocalVariable(currFuncion, currentID).tipoVariable()
 
 
@@ -1525,7 +1497,7 @@ def p_empty(p):
     pass
 
 def p_error(p):
-  print("Error de parser en", p)
+  print("Syntax Error: Expresión o token no válido", p)
   raise Exception("Error al parsear ", p)
 
 
@@ -1684,7 +1656,7 @@ def p_paramsfuncreate(p):
     '''
     paramsfuncreate : typeparamfun ID paramsauxfun
     '''
-    print("paramsmnv")
+    
     print(p[2])
     global arrLength
     global currTipo
@@ -1844,7 +1816,7 @@ def printDirVarValues():
     print(dirVar.dirConstantes[key], key)
 
 
-file = open("Testing files/sort_find.m", 'r')
+file = open("Testing files/functions.m", 'r')
 
 lines = file.read()
 file.close()
@@ -1860,7 +1832,7 @@ try:
     parser.parse(lines, debug=0)
     #printDirVarValues()
     cuads.addCounter()
-    #cuads.printCuads()
+    cuads.printCuads()
     import vm
     
 

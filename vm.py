@@ -158,6 +158,8 @@ def getTypeByAddress(addr):
         return 'int'
     elif (addr >= GLOBAL_FLOAT_START and addr < LOCAL_INT_START) or (addr >= LOCAL_FLOAT_START and addr < TEMPORAL_INT_START) or (addr >= TEMPORAL_FLOAT_START and addr < CONSTANT_INT_START) or (addr >= CONSTANT_FLOAT_START and addr < 25000):
         return 'float'
+    else:
+        return 'erro'
 
 def is_between(x, y, z):
     return x <= y <= z
@@ -283,9 +285,20 @@ while cuads[instruction_pointer][1] != 'END':
         tipo = getTypeByAddress(res)
 
         if tipo == 'int':
-            newResult = int(input())
+            try:
+                newResult = int(input())
+            except ValueError:
+                print('Input Error: El valor ingresado no es asignable a esa variable')
+                exit()
+            
         elif tipo == 'float':
-            newResult = float(input())
+            try:
+                newResult = float(input())
+            except ValueError:
+                print('Input Error: El valor ingresado no es asignable a esa variable')
+                exit()
+        
+        
             
         writeOnMemory(newResult, res)
         incrementInstructionPointer()

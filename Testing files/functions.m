@@ -83,7 +83,10 @@ int aux;
 
 
 main(){
-  
+size =0;
+print(size);
+
+
 
 print("mau(10)", mau(10));
 print("--------------------");

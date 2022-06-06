@@ -396,22 +396,18 @@ def valnull(params):
     return False
 
 def createGOSUB(nombre):
-  print(nombre)
-  print("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
   cuads.append(("GOSUB", nombre, " ", " "))
 
 
 def valMain():
-  print("maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaani")
   cumain = (("GOTO", " ", " ", len(cuads)))
   cuads[0] = cumain
 
 
 def cReturn():
-  print("REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
   valret = pOperandos[-1]
   cuads.append(("RETURN", " ", " ", valret))
-  #return valret
+  
 
 def asignval(callfunc, tipo):
 
@@ -420,20 +416,12 @@ def asignval(callfunc, tipo):
   elif tipo == "float":
     result_addr = virtualAdd.getGlobalTempAddressFloat()
   else:
-    print("errorASSIGN")
+    #print("errorASSIGN")
+    pass
   agregarID(result_addr)
   agregarTipo(tipo)
   cuads.append(("=", callfunc, " ", result_addr))
 
-
-"""
-  if tipo == "int":
-    result_addr = virtualAdd.getGlobalTempAddressInt()
-  elif tipo == "float":
-    result_addr = virtualAdd.getGlobalTempAddressFloat()
-  else:
-    print("error")
-  """
 
 def getConstantAddressbyValue(currVal, currTipo):
   if currVal in dirVar.dirConstantes:
@@ -475,9 +463,6 @@ def arrSumaMult(s2):
 
 
 def sumaDirBase(direccion):
-  print("tamaño pTipos", len(pTipos))
-  print("tamaño pOperandos", len(pOperandos))
-  print("la dir base es", direccion)
   dir_base = getConstantAddressbyValue(direccion, "int")
   result = virtualAdd.getTempPointerAddress()
   cuads.append(("+", dir_base, pOperandos.pop(), result))
@@ -486,8 +471,6 @@ def sumaDirBase(direccion):
   agregarTipo("int")
 
 def sumaDirBasearr(temp, direccion):
-  print("otra dir base es", direccion)
-  #result = virtualAdd.getGlobalTempAddressInt()
   result = virtualAdd.getTempPointerAddress()
   dir_base = getConstantAddressbyValue(direccion, "int")
   cuads.append(("+", dir_base, temp, result))
@@ -495,11 +478,10 @@ def sumaDirBasearr(temp, direccion):
   agregarTipo("int")
 
 ######################################################
-#PRINT
+# GENERACIÓN DE TABLA CON CUADS FORMATEADA
 ######################################################
 def getCurrCounter():
   return len(cuads)
-
 
 
 #add counter to each element in cuads
@@ -522,30 +504,3 @@ def escChar(char):
   #remove first and last char from char string
   char = char[1:-1]
   cuads.append(("PRINT", " ", " ", char))
-
-'''
-myAddress = None
-result = 'f'
-currFuncion = 'helloWorld2'
-
-dirVar.agregarFuncion('helloWorld2', "int")
-dirVar.agregarlocalVariable('helloWorld2', result, [], "int", False)
-dirVar.getlocalVariable(currFuncion, result).direccion = 9999
-
-
-dirVar.agregarglobalVariable(result, [], "int")
-dirVar.getglobalVariable(result).direccion = 1111
-
-if dirVar.getlocalVariable(currFuncion, result) == None:
-  if dirVar.getglobalVariable(result) == None:
-    print("error en la busqueda")
-    raise Exception("variable no existe we")
-  else:
-   print("global")
-   myAddress = dirVar.getglobalVariable(result).direccion
-else:
-  print("local")
-  myAddress = dirVar.getlocalVariable(currFuncion, result).direccion
-
-print(myAddress)
-'''

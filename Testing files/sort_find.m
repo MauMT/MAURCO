@@ -1,6 +1,5 @@
 program SortFindVector;
 
-
 vars
 {
     int i;
@@ -9,13 +8,13 @@ vars
     int x;
     int arr[4], f, vector[10];
     int mat[2][3];
-    int a, b, size, aux, marco;
+    int a, b, size, aux, mau;
 }
 
 
 main(){
-  
-i = 0;
+  mau = 1;
+  i = 0;
   f = 17;
   vector[0] = 19;
   vector[1] = 27;
@@ -59,14 +58,14 @@ while(i< 10) do{
   print(vector[i]);
   i = i + 1;
 }
-  
+
 y=17.3;
 valor = 7.3;
 
 if(y-valor==10) then{
-  print("True");
+  print("Verdadero");
 } else{
-  print("False");
+  print("Falso");
 }
 
 input(y);
