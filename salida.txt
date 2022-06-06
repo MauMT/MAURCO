@@ -219,9 +219,9 @@ aux
 not 1aaaaaa
 5026
 Error
-factorialRecursivo
+fibonacciIterativo
 int
-factorialRecursivo
+fibonacciIterativo
 <class 'str'>
 []
 []
@@ -231,14 +231,22 @@ paramsmnv
 n
 call typemv
 OLISTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-aux
+numAnterior
+[]
+next
+hey
+OLISTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+numAntesAnterior
+[]
+next
+hey
+OLISTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+numActual
 []
 next
 hey
 Empty
 False
-VAAAAAAAAAAAR LOCAAAAAAAAAAAAAL
-curr0: n [] int True
 not array
 aglocvar
 aglocvar
@@ -249,8 +257,6 @@ arreglo
 cantvar
 hola
 la variable es n 11000
-VAAAAAAAAAAAR LOCAAAAAAAAAAAAAL
-curr0: aux [] int False
 not array
 aglocvar
 aglocvar
@@ -260,96 +266,47 @@ isparam
 arreglo
 cantvar
 hola
-la variable es aux 11001
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+la variable es numAnterior 11001
+not array
+aglocvar
+aglocvar
+aglocvar
+isparam
+[]
+arreglo
+cantvar
+hola
+la variable es numAntesAnterior 11002
+not array
+aglocvar
+aglocvar
+aglocvar
+isparam
+[]
+arreglo
+cantvar
+hola
+la variable es numActual 11003
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-n
-factorialRecursivo
+numAnterior
+fibonacciIterativo
 no lo se
-n
-<dirVar.variable object at 0x00000165EE5D6610>
+numAnterior
+<dirVar.variable object at 0x00000271EDBCA850>
 entraenglobal
-prueba ID ---  n
+prueba ID ---  numAnterior
 tipo id ---  int
 no lo se
-n
+numAnterior
 3
 arrvarlength0
 4
-term
-expaux
-exp
-empty
-empty
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-n
-factorialRecursivo
-no lo se
-n
-<dirVar.variable object at 0x00000165EE5D6610>
-entraenglobal
-prueba ID ---  n
-tipo id ---  int
-no lo se
-n
-3
-arrvarlength0
-4
-term
-expaux
-exp
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  1
+mau  0
 mmmm  int
 fffffffffffffffffffffffffffffffffffffffffffffffffffff
-1
-int
-term
-expaux
-exp
-yes
-validar
-23000
-11000
-ltype int
-rtype int
-<
-int
-[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000)]
-agreegarid
-Error
-15000
-int
-15000
-<class 'int'>
-[]
-[]
-empty
-empty
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-5
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-aux
-factorialRecursivo
-no lo se
-aux
-<dirVar.variable object at 0x00000165EE5D6D00>
-entraenglobal
-prueba ID ---  aux
-tipo id ---  int
-no lo se
-aux
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  1
-mmmm  int
-fffffffffffffffffffffffffffffffffffffffffffffffffffff
-1
+0
 int
 term
 expaux
@@ -366,26 +323,59 @@ lOp assign  23000
 =
 int
 sensual
-[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', 'fill'), ('=', 23000, '', 11001)]
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-No se logra establecer el fill
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+[('goto', '1', '', ''), ('=', 23000, '', 11001)]
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-n
-factorialRecursivo
+numAntesAnterior
+fibonacciIterativo
 no lo se
-n
-<dirVar.variable object at 0x00000165EE5D6610>
+numAntesAnterior
+<dirVar.variable object at 0x00000271EDBCAD30>
 entraenglobal
-prueba ID ---  n
+prueba ID ---  numAntesAnterior
 tipo id ---  int
 no lo se
-n
+numAntesAnterior
 3
 arrvarlength0
 4
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+mau  0
+mmmm  int
+fffffffffffffffffffffffffffffffffffffffffffffffffffff
+0
+int
 term
+expaux
+exp
+empty
+empty
+yes-assign
+leftType int
+resOp assign  11002
+rtype - int
+tamaño pTipos 0
+tamaño pOperandos 0
+lOp assign  23000
+=
+int
+sensual
+[('goto', '1', '', ''), ('=', 23000, '', 11001), ('=', 23000, '', 11002)]
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+numActual
+fibonacciIterativo
+no lo se
+numActual
+<dirVar.variable object at 0x00000271EDBC8220>
+entraenglobal
+prueba ID ---  numActual
+tipo id ---  int
+no lo se
+numActual
+3
+arrvarlength0
+4
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 mau  1
 mmmm  int
@@ -393,79 +383,35 @@ fffffffffffffffffffffffffffffffffffffffffffffffffffff
 1
 int
 term
-operador -|-|-|-  -
-entrasumsub
-op1sumsub
-validar
-23000
-11000
-ltype int
-rtype int
--
-int
-[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', 'fill'), ('-', 11000, 23000, 15001)]
-agreegarid
-Error
-15001
-int
-15001
-<class 'int'>
-[]
-[]
-expaux
 expaux
 exp
 empty
 empty
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-aux
-factorialRecursivo
-no lo se
-aux
-<dirVar.variable object at 0x00000165EE5D6D00>
-entraenglobal
-prueba ID ---  aux
-tipo id ---  int
-no lo se
-aux
-3
-arrvarlength0
-4
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+yes-assign
+leftType int
+resOp assign  11003
+rtype - int
+tamaño pTipos 0
+tamaño pOperandos 0
+lOp assign  23001
+=
+int
+sensual
+[('goto', '1', '', ''), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003)]
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 n
-factorialRecursivo
-no lo se
+fibonacciIterativo
 n
-<dirVar.variable object at 0x00000165EE5D6610>
+<dirVar.variable object at 0x00000271EDBCA370>
 entraenglobal
-prueba ID ---  n
-tipo id ---  int
-no lo se
-n
-3
-arrvarlength0
-4
-IDGLOBALCURRFUNC
-factorialRecursivo
-ERAAAAAA - mango
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-n
-factorialRecursivo
-no lo se
-n
-<dirVar.variable object at 0x00000165EE5D6610>
-entraenglobal
-prueba ID ---  n
-tipo id ---  int
-no lo se
 n
 3
 arrvarlength0
 4
 term
+expaux
+exp
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 mau  1
 mmmm  int
@@ -473,65 +419,95 @@ fffffffffffffffffffffffffffffffffffffffffffffffffffff
 1
 int
 term
-operador -|-|-|-  -
-entrasumsub
-op1sumsub
-validar
-23000
-11000
-ltype int
-rtype int
--
-int
-[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', 'fill'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002)]
-agreegarid
-Error
-15002
-int
-15002
-<class 'int'>
-[]
-[]
-expaux
 expaux
 exp
-empty
-empty
-caaaaaaaaaaaaaaaaaaaaaaallll
-factorialRecursivo
-['int']
-dentrodepilatipos
-int
-sientra
-15002
-1
-finaliza
-['int']
-saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-Todo bien
-factorialRecursivo
-BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-2 No todo bien
-dir de la funca 5027
-signnnnnnnnnaaaaaaaaaaaaaaaaaaaaa
-operador -|-|-|-  *
 yes
 validar
-15003
+23001
 11000
 ltype int
 rtype int
-*
+>
 int
-[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', 'fill'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002), ('PARAM', 15002, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15003), ('*', 11000, 15003, 15004)]
+[('goto', '1', '', ''), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003), ('>', 11000, 23001, 15000)]
 agreegarid
 Error
-15004
+15000
 int
-15004
+15000
 <class 'int'>
 []
 []
+empty
+empty
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+numAntesAnterior
+fibonacciIterativo
+no lo se
+numAntesAnterior
+<dirVar.variable object at 0x00000271EDBCAD30>
+entraenglobal
+prueba ID ---  numAntesAnterior
+tipo id ---  int
+no lo se
+numAntesAnterior
+3
+arrvarlength0
+4
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+numAnterior
+fibonacciIterativo
+numAnterior
+<dirVar.variable object at 0x00000271EDBCA850>
+entraenglobal
+numAnterior
+3
+arrvarlength0
+4
+term
+expaux
+exp
+empty
+empty
+yes-assign
+leftType int
+resOp assign  11002
+rtype - int
+tamaño pTipos 0
+tamaño pOperandos 0
+lOp assign  11001
+=
+int
+sensual
+[('goto', '1', '', ''), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003), ('>', 11000, 23001, 15000), ('GOTOF', 15000, ' ', 'fill'), ('=', 11001, '', 11002)]
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+numAnterior
+fibonacciIterativo
+no lo se
+numAnterior
+<dirVar.variable object at 0x00000271EDBCA850>
+entraenglobal
+prueba ID ---  numAnterior
+tipo id ---  int
+no lo se
+numAnterior
+3
+arrvarlength0
+4
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+numActual
+fibonacciIterativo
+numActual
+<dirVar.variable object at 0x00000271EDBC8220>
+entraenglobal
+numActual
+3
+arrvarlength0
+4
 term
 expaux
 exp
@@ -543,27 +519,165 @@ resOp assign  11001
 rtype - int
 tamaño pTipos 0
 tamaño pOperandos 0
-lOp assign  15004
+lOp assign  11003
 =
 int
 sensual
-[('goto', '1', '', ''), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', 'fill'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002), ('PARAM', 15002, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15003), ('*', 11000, 15003, 15004), ('=', 15004, '', 11001)]
-6
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-No se logra establecer el fill
-6
-NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+[('goto', '1', '', ''), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003), ('>', 11000, 23001, 15000), ('GOTOF', 15000, ' ', 'fill'), ('=', 11001, '', 11002), ('=', 11003, '', 11001)]
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-aux
-factorialRecursivo
+numActual
+fibonacciIterativo
 no lo se
-aux
-<dirVar.variable object at 0x00000165EE5D6D00>
+numActual
+<dirVar.variable object at 0x00000271EDBC8220>
 entraenglobal
-prueba ID ---  aux
+prueba ID ---  numActual
 tipo id ---  int
 no lo se
-aux
+numActual
+3
+arrvarlength0
+4
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+numAntesAnterior
+fibonacciIterativo
+numAntesAnterior
+<dirVar.variable object at 0x00000271EDBCAD30>
+entraenglobal
+numAntesAnterior
+3
+arrvarlength0
+4
+term
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+numAnterior
+fibonacciIterativo
+numAnterior
+<dirVar.variable object at 0x00000271EDBCA850>
+entraenglobal
+numAnterior
+3
+arrvarlength0
+4
+term
+operador -|-|-|-  +
+entrasumsub
+op1sumsub
+validar
+11001
+11002
+ltype int
+rtype int
++
+int
+[('goto', '1', '', ''), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003), ('>', 11000, 23001, 15000), ('GOTOF', 15000, ' ', 'fill'), ('=', 11001, '', 11002), ('=', 11003, '', 11001), ('+', 11002, 11001, 15001)]
+agreegarid
+Error
+15001
+int
+15001
+<class 'int'>
+[]
+[]
+expaux
+expaux
+exp
+empty
+empty
+yes-assign
+leftType int
+resOp assign  11003
+rtype - int
+tamaño pTipos 0
+tamaño pOperandos 0
+lOp assign  15001
+=
+int
+sensual
+[('goto', '1', '', ''), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003), ('>', 11000, 23001, 15000), ('GOTOF', 15000, ' ', 'fill'), ('=', 11001, '', 11002), ('=', 11003, '', 11001), ('+', 11002, 11001, 15001), ('=', 15001, '', 11003)]
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+n
+fibonacciIterativo
+no lo se
+n
+<dirVar.variable object at 0x00000271EDBCA370>
+entraenglobal
+prueba ID ---  n
+tipo id ---  int
+no lo se
+n
+3
+arrvarlength0
+4
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+n
+fibonacciIterativo
+n
+<dirVar.variable object at 0x00000271EDBCA370>
+entraenglobal
+n
+3
+arrvarlength0
+4
+term
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+mau  1
+mmmm  int
+fffffffffffffffffffffffffffffffffffffffffffffffffffff
+1
+int
+term
+operador -|-|-|-  -
+entrasumsub
+op1sumsub
+validar
+23001
+11000
+ltype int
+rtype int
+-
+int
+[('goto', '1', '', ''), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003), ('>', 11000, 23001, 15000), ('GOTOF', 15000, ' ', 'fill'), ('=', 11001, '', 11002), ('=', 11003, '', 11001), ('+', 11002, 11001, 15001), ('=', 15001, '', 11003), ('-', 11000, 23001, 15002)]
+agreegarid
+Error
+15002
+int
+15002
+<class 'int'>
+[]
+[]
+expaux
+expaux
+exp
+empty
+empty
+yes-assign
+leftType int
+resOp assign  11000
+rtype - int
+tamaño pTipos 0
+tamaño pOperandos 0
+lOp assign  15002
+=
+int
+sensual
+[('goto', '1', '', ''), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003), ('>', 11000, 23001, 15000), ('GOTOF', 15000, ' ', 'fill'), ('=', 11001, '', 11002), ('=', 11003, '', 11001), ('+', 11002, 11001, 15001), ('=', 15001, '', 11003), ('-', 11000, 23001, 15002), ('=', 15002, '', 11000)]
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+No se logra establecer el fill
+5
+NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
+LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+numActual
+fibonacciIterativo
+numActual
+<dirVar.variable object at 0x00000271EDBC8220>
+entraenglobal
+numActual
 3
 arrvarlength0
 4
@@ -573,13 +687,13 @@ exp
 empty
 empty
 REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-FUUUUUUUUUUUUUUUNCION ACTUAL
-factorialRecursivo
+fibonacciIterativo
+imprimirCosas
 ooooooooooooooooooooooooooooooooooooooooooooooooooooooa
 maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaani
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 x
-factorialRecursivo
+imprimirCosas
 no lo se
 x
 None
@@ -593,13 +707,13 @@ arrvarlength0
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 IDGLOBALCURRFUNC
-factorialRecursivo
+fibonacciIterativo
 ERAAAAAA - mango
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
-mau  6
+mau  10
 mmmm  int
 fffffffffffffffffffffffffffffffffffffffffffffffffffff
-6
+10
 int
 term
 expaux
@@ -607,18 +721,18 @@ exp
 empty
 empty
 caaaaaaaaaaaaaaaaaaaaaaallll
-factorialRecursivo
+fibonacciIterativo
 ['int']
 dentrodepilatipos
 int
 sientra
-23001
+23002
 1
 finaliza
 ['int']
 saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 Todo bien
-factorialRecursivo
+fibonacciIterativo
 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 2 No todo bien
 dir de la funca 5027
@@ -634,21 +748,17 @@ resOp assign  5001
 rtype - int
 tamaño pTipos 1
 tamaño pOperandos 1
-lOp assign  15005
+lOp assign  15003
 =
 int
 sensual
-[('GOTO', ' ', ' ', 18), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', '16'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002), ('PARAM', 15002, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15003), ('*', 11000, 15003, 15004), ('=', 15004, '', 11001), ('RETURN', ' ', ' ', 11001), ('ENDFUNC', ' ', ' ', ' '), ('PRINT', ' ', ' ', 'mau'), ('ERA', 'factorialRecursivo', ' ', ' '), ('PARAM', 23001, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15005), ('=', 15005, '', 5001)]
+[('GOTO', ' ', ' ', 19), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003), ('>', 11000, 23001, 15000), ('GOTOF', 15000, ' ', '13'), ('=', 11001, '', 11002), ('=', 11003, '', 11001), ('+', 11002, 11001, 15001), ('=', 15001, '', 11003), ('-', 11000, 23001, 15002), ('=', 15002, '', 11000), ('GOTO', ' ', ' ', 4), ('RETURN', ' ', ' ', 11003), ('ENDFUNC', ' ', ' ', ' '), ('PRINT', ' ', ' ', 'Hola'), ('PRINT', ' ', ' ', 'Mundo'), ('PRINT', ' ', ' ', 'jeje'), ('ENDFUNC', ' ', ' ', ' '), ('PRINT', ' ', ' ', 'mau'), ('ERA', 'fibonacciIterativo', ' ', ' '), ('PARAM', 23002, ' ', 1), ('GOSUB', 'fibonacciIterativo', ' ', ' '), ('=', 5027, ' ', 15003), ('=', 15003, '', 5001)]
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 i
-factorialRecursivo
-no lo se
+imprimirCosas
 i
 None
-prueba ID ---  i
-tipo id ---  int
-no lo se
 i
 3
 arrvarlength0
@@ -661,13 +771,9 @@ empty
 NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 x
-factorialRecursivo
-no lo se
+imprimirCosas
 x
 None
-prueba ID ---  x
-tipo id ---  int
-no lo se
 x
 3
 arrvarlength0
@@ -688,11 +794,11 @@ expaux
 exp
 empty
 empty
-23002
+23000
 ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 vector
-factorialRecursivo
+imprimirCosas
 no lo se
 vector
 None
@@ -703,12 +809,12 @@ vector
 3
 lengths Exp
 1
-[23002]
+[23000]
 1
 lengths arrvar
 aqui entra arrvar1
 arrExp en 0
-23002
+23000
 verify
 otra dir base es 5007
 no hay 4
@@ -731,15 +837,26 @@ resOp assign  69000
 rtype - int
 tamaño pTipos 3
 tamaño pOperandos 1
-lOp assign  23000
+lOp assign  23001
 =
 int
 sensual
-[('GOTO', ' ', ' ', 18), ('PRINT', ' ', ' ', 'n'), ('PRINT', ' ', ' ', 11000), ('<', 11000, 23000, 15000), ('GOTOF', 15000, ' ', '7'), ('=', 23000, '', 11001), ('GOTO', ' ', ' ', '16'), ('-', 11000, 23000, 15001), ('PRINT', ' ', ' ', 15001), ('ERA', 'factorialRecursivo', ' ', ' '), ('-', 11000, 23000, 15002), ('PARAM', 15002, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15003), ('*', 11000, 15003, 15004), ('=', 15004, '', 11001), ('RETURN', ' ', ' ', 11001), ('ENDFUNC', ' ', ' ', ' '), ('PRINT', ' ', ' ', 'mau'), ('ERA', 'factorialRecursivo', ' ', ' '), ('PARAM', 23001, ' ', 1), ('GOSUB', 'factorialRecursivo', ' ', ' '), ('=', 5027, ' ', 15005), ('=', 15005, '', 5001), ('PRINT', ' ', ' ', 'i_es'), ('PRINT', ' ', ' ', 5000), ('PRINT', ' ', ' ', 'x_es'), ('PRINT', ' ', ' ', 5001), ('VER', 23002, 23002, 23003), ('+', 23004, 23002, 69000), ('=', 23000, '', 69000)]
+[('GOTO', ' ', ' ', 19), ('=', 23000, '', 11001), ('=', 23000, '', 11002), ('=', 23001, '', 11003), ('>', 11000, 23001, 15000), ('GOTOF', 15000, ' ', '13'), ('=', 11001, '', 11002), ('=', 11003, '', 11001), ('+', 11002, 11001, 15001), ('=', 15001, '', 11003), ('-', 11000, 23001, 15002), ('=', 15002, '', 11000), ('GOTO', ' ', ' ', 4), ('RETURN', ' ', ' ', 11003), ('ENDFUNC', ' ', ' ', ' '), ('PRINT', ' ', ' ', 'Hola'), ('PRINT', ' ', ' ', 'Mundo'), ('PRINT', ' ', ' ', 'jeje'), ('ENDFUNC', ' ', ' ', ' '), ('PRINT', ' ', ' ', 'mau'), ('ERA', 'fibonacciIterativo', ' ', ' '), ('PARAM', 23002, ' ', 1), ('GOSUB', 'fibonacciIterativo', ' ', ' '), ('=', 5027, ' ', 15003), ('=', 15003, '', 5001), ('PRINT', ' ', ' ', 'i_es'), ('PRINT', ' ', ' ', 5000), ('PRINT', ' ', ' ', 'x_es'), ('PRINT', ' ', ' ', 5001), ('VER', 23000, 23000, 23003), ('+', 23004, 23000, 69000), ('=', 23001, '', 69000)]
+IDGLOBALCURRFUNC
+imprimirCosas
+ERAAAAAA - mango
+[]
+saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Todo bien
+imprimirCosas
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ES VOID
+1 No todo bien
+llamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadavoid
 DIRGLOB
-{'i': <dirVar.variable object at 0x00000165EE49C250>, 'valor': <dirVar.variable object at 0x00000165EE49CB50>, 'y': <dirVar.variable object at 0x00000165EE49CEB0>, 'msg': <dirVar.variable object at 0x00000165EE67E5E0>, 'x': <dirVar.variable object at 0x00000165EE67ECA0>, 'arr': <dirVar.variable object at 0x00000165EE53F790>, 'f': <dirVar.variable object at 0x00000165EE53FAF0>, 'vector': <dirVar.variable object at 0x00000165EE53FF10>, 'mat': <dirVar.variable object at 0x00000165EE67F640>, 'a': <dirVar.variable object at 0x00000165EE53C070>, 'b': <dirVar.variable object at 0x00000165EE53C5E0>, 'size': <dirVar.variable object at 0x00000165EE53C9A0>, 'aux': <dirVar.variable object at 0x00000165EE53CD60>, 'factorialRecursivo': <dirVar.variable object at 0x00000165EE67EE20>, 15000: <dirVar.variable object at 0x00000165EE5CFA30>, 15001: <dirVar.variable object at 0x00000165EE5C60A0>, 15002: <dirVar.variable object at 0x00000165EE5C4280>, 15004: <dirVar.variable object at 0x00000165EE5C50D0>}
+{'i': <dirVar.variable object at 0x00000271EDB26E50>, 'valor': <dirVar.variable object at 0x00000271EDA8D790>, 'y': <dirVar.variable object at 0x00000271EDA8DAF0>, 'msg': <dirVar.variable object at 0x00000271EDB2E220>, 'x': <dirVar.variable object at 0x00000271EDB2E8E0>, 'arr': <dirVar.variable object at 0x00000271EDC6D3D0>, 'f': <dirVar.variable object at 0x00000271EDC6D730>, 'vector': <dirVar.variable object at 0x00000271EDC6DB50>, 'mat': <dirVar.variable object at 0x00000271EDB2F280>, 'a': <dirVar.variable object at 0x00000271EDB2FEE0>, 'b': <dirVar.variable object at 0x00000271EDC6E220>, 'size': <dirVar.variable object at 0x00000271EDC6E5E0>, 'aux': <dirVar.variable object at 0x00000271EDC6E9A0>, 'fibonacciIterativo': <dirVar.variable object at 0x00000271EDA8DD00>, 15000: <dirVar.variable object at 0x00000271EDBBA6D0>, 15001: <dirVar.variable object at 0x00000271EDA8D730>, 15002: <dirVar.variable object at 0x00000271EDB2F160>}
 dirFunc
-{'factorialRecursivo': <dirVar.funcion object at 0x00000165EE49CA00>, 'main': <dirVar.funcion object at 0x00000165EE536DC0>}
+{'fibonacciIterativo': <dirVar.funcion object at 0x00000271EDB268E0>, 'imprimirCosas': <dirVar.funcion object at 0x00000271EDB2F370>, 'main': <dirVar.funcion object at 0x00000271EDB2F340>}
 Dirclases
 {}
 
@@ -758,92 +875,73 @@ a {'tipovar': 'int', 'length': [], 'direccion': 5023}
 b {'tipovar': 'int', 'length': [], 'direccion': 5024}
 size {'tipovar': 'int', 'length': [], 'direccion': 5025}
 aux {'tipovar': 'int', 'length': [], 'direccion': 5026}
-factorialRecursivo {'tipovar': 'int', 'length': [], 'direccion': 5027}
+fibonacciIterativo {'tipovar': 'int', 'length': [], 'direccion': 5027}
 15000 {'tipovar': 'int', 'length': [], 'direccion': None}
 15001 {'tipovar': 'int', 'length': [], 'direccion': None}
 15002 {'tipovar': 'int', 'length': [], 'direccion': None}
-15004 {'tipovar': 'int', 'length': [], 'direccion': None}
 
 dirConstantes
 
-23000 1
-23001 6
-23002 0
+23000 0
+23001 1
+23002 10
 23003 9
 23004 5007
 
 
 Correct syntax
-{'tipoFuncion': 'int', 'parameters': ['int'], 'cuadcount': 1, 'intcant': 2, 'floatcant': 0, 'tempintcant': 10, 'tempfloatcant': 10, 'charcant': 0, 'direccion': 5027, 'localVar': {'n': <dirVar.variable object at 0x00000165EE5D6610>, 'aux': <dirVar.variable object at 0x00000165EE5D6D00>}}
 
 
 
 
 cuad      op        v1        v2        vf        
 ----      --        ---       ---       ---       
-0         GOTO                          18        
-1         PRINT                         n         
-2         PRINT                         11000     
-3         <         11000     23000     15000     
-4         GOTOF     15000               7         
-5         =         23000               11001     
-6         GOTO                          16        
-7         -         11000     23000     15001     
-8         PRINT                         15001     
-9         ERA       factorialRecursivo                    
-10        -         11000     23000     15002     
-11        PARAM     15002               1         
-12        GOSUB     factorialRecursivo                    
-13        =         5027                15003     
-14        *         11000     15003     15004     
-15        =         15004               11001     
-16        RETURN                        11001     
-17        ENDFUNC                                 
-18        PRINT                         mau       
-19        ERA       factorialRecursivo                    
-20        PARAM     23001               1         
-21        GOSUB     factorialRecursivo                    
-22        =         5027                15005     
-23        =         15005               5001      
-24        PRINT                         i_es      
-25        PRINT                         5000      
-26        PRINT                         x_es      
-27        PRINT                         5001      
-28        VER       23002     23002     23003     
-29        +         23004     23002     69000     
-30        =         23000               69000     
-31        END                                     
-[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0], [], [], [0, 0, 0, 0, 0, 0], [], [0]]
-Num cuadruplos:  32
+0         GOTO                          19        
+1         =         23000               11001     
+2         =         23000               11002     
+3         =         23001               11003     
+4         >         11000     23001     15000     
+5         GOTOF     15000               13        
+6         =         11001               11002     
+7         =         11003               11001     
+8         +         11002     11001     15001     
+9         =         15001               11003     
+10        -         11000     23001     15002     
+11        =         15002               11000     
+12        GOTO                          4         
+13        RETURN                        11003     
+14        ENDFUNC                                 
+15        PRINT                         Hola      
+16        PRINT                         Mundo     
+17        PRINT                         jeje      
+18        ENDFUNC                                 
+19        PRINT                         mau       
+20        ERA       fibonacciIterativo                    
+21        PARAM     23002               1         
+22        GOSUB     fibonacciIterativo                    
+23        =         5027                15003     
+24        =         15003               5001      
+25        PRINT                         i_es      
+26        PRINT                         5000      
+27        PRINT                         x_es      
+28        PRINT                         5001      
+29        VER       23000     23000     23003     
+30        +         23004     23000     69000     
+31        =         23001               69000     
+32        ERA       imprimirCosas                    
+33        GOSUB     imprimirCosas                    
+34        END                                     
+[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0], [], [], [0, 0, 0, 0], [], [0]]
+Num cuadruplos:  35
 -----------------------------------------------------
 mau
-ERA
-PARAM
-tatata 6
-blabla 23001
-type int
-res 1
-mem actual --- [[6, 0], [], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-n
-6
-5
-ERA
-PARAM
-tatata -1
-blabla 15002
-type int
-res 1
-mem actual --- [[-1, 0], [], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-n
--1
-RETURN
-11001 1
-RETURN
-11001 -1
 i_es
 0
 x_es
--1
+55
+Hola
+Mundo
+jeje
 -----------------------------------------------------
-[[0, -1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1], [0, 0], [], [], [1, 5, -1, 1, -1, -1], [], [5007]]
-[<vm.MemoriaLocal object at 0x00000165EE53FD00>, <vm.MemoriaLocal object at 0x00000165EE53FD00>]
+[[0, 55, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 55], [0, 0], [], [], [0, 55, 1, 55], [], [5007]]
+[]

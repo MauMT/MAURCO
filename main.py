@@ -76,9 +76,7 @@ tokens = [
   'METHODS',
 
 ]
-#t_ID =#t_PROGRAMA =#t_VAR =  #tipos de datos#t_INT =#t_FLOAT =#t_STRING =#t_CTEINT =#t_CTEFLOAT =#comandos#t_IF =#t_ELSE = #t_PRINT =
 
-#VOID FUNCTION ID SEP_LPAREN paramsmv SEP_RPAREN voidvarsmet
   
 reservadas = {
   
@@ -159,7 +157,7 @@ def t_CTE_INT(t):
 
 
 def t_CTE_CHAR(t):
-  r'\"[a-zA-Z0-9_]*\"'
+  r'\"[a-zA-Z0-9_ ]*\"'
   t.value = str(t.value)
   return t
 
@@ -174,8 +172,9 @@ def t_newline(t):
     pass
 
 def t_error(t):
-  print ("caracter ilegal '%s'" % t.value[0])
-  t.lexer.skip(1)
+  print("Caracter ilegal '%s'" % t.value[0])
+  raise Exception("Caracter ilegal '%s'" % t.value[0])
+  #t.lexer.skip(1)
 
 # REGLAS 
 
@@ -227,12 +226,11 @@ def p_objectsvarsglobal(p):
     '''
     objectsvarsglobal : OBJECT ID lista_objetos varsauxGlobal
     '''
-    print("call objectsvarsglobal")
+    #print("call objectsvarsglobal")
     global currTipo
     currTipo = p[2]
     while not(currID.empty()) :
       curr = currID.get()
-      
       dirVar.agregarglobalVariable(curr[0], curr[1], currTipo)
 
 def p_idvarsglobal(p):
@@ -249,19 +247,17 @@ def p_stepid(p):
     while not(currID.empty()) :
       curr = currID.get()
       
-      
-
       if len(curr[1]) == 0:
         #print("not array")
         dirVar.agregarglobalVariable(curr[0], [], currTipo)
         #print("not 1ssssss")
         if currTipo == "int":
-          print("not 1aaaaaa")
+          
           auxDir = virtualAdd.getGlobalAddressInt()
           print(auxDir)
           dirVar.setGlobalVarAddress(curr[0], auxDir)
         elif currTipo == "float":
-          print("not 123123")
+          
           auxDir = virtualAdd.getGlobalAddressFloat()
           dirVar.setGlobalVarAddress(curr[0], auxDir)
         else:
@@ -285,7 +281,7 @@ def p_typeVarsGlobal(p):
                  | FLOAT
                  | CHAR
     '''
-  print("call varsGlobal")
+  #print("call varsGlobal")
   global currTipo
   currTipo = p[1]
  
@@ -321,7 +317,7 @@ def p_maini(p):
   '''
   maini : empty
   '''
-  print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooa")
+  
   cuads.valMain()
 
 def p_bloque(p):
@@ -344,10 +340,10 @@ def p_clase(p):
     clase : CLASS ID inheritsaux SEP_LBRACE ATTRIBUTES OP_LT atributos OP_GT metaux SEP_RBRACE
     '''
   #################################
-    print("call clase")
+    #print("call clase")
     currClass = p[2]
     dirVar.crearClase(currClass)
-    print("CLASSSSEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
+    
 
     #METODO QUE QUITA LAS VARIABLES Y PARAMETROS CON TIPO
     #currMet.put(currFuncion, currTipo)
@@ -483,7 +479,7 @@ def p_paramsmetcreate(p):
     '''
     paramsmetcreate : typeparamet ID paramsauxmet
     '''
-    print("paramsmnv")
+    #print("paramsmnv")
     print(p[2])
     global arrLength
     currID.put((p[2], arrLength))
@@ -496,7 +492,7 @@ def p_typeparamet(p):
                   | FLOAT
                   | CHAR
     '''
-    print("call typeparammv")
+    #print("call typeparammv")
     global currTipo
     currTipo = p[1]
 
@@ -512,7 +508,7 @@ def p_paramsauxmetcreate(p):
     '''
     paramsauxmetcreate : SEP_COMMA typeparamet ID paramsauxmet
     '''
-    print("paramsmnv")
+    #print("paramsmnv")
     print(p[3])
     global arrLength
     currID.put((p[3], arrLength))
@@ -549,7 +545,7 @@ def p_objectsvarsmet(p):
     '''
     objectsvarsmet : OBJECT ID lista_objetos varsauxmet
     '''
-    print("call objectsvarsmet")
+    #print("call objectsvarsmet")
     currTipo = p[2]
     while not(currID.empty()) :
       curr = currID.get()
@@ -564,7 +560,7 @@ def p_stepidvarsmet(p):
     '''
     stepidvarsmet : 
     '''
-    print("Empty")
+    
     print(currID.empty())
     while not(currID.empty()) :
       curr = currID.get()
@@ -590,10 +586,11 @@ def p_mnvaux(p):
     '''
     mnvaux : RETURN SEP_LPAREN hyper_exp SEP_RPAREN SEP_SEMICOLON SEP_RBRACE
     '''
+
 #####################################
 #General
 #####################################
-################################
+
 def p_lista_ids(p):
   '''
   lista_ids : idlistval listaidaux
@@ -612,7 +609,7 @@ def p_listaidaux(p):
     listaidaux : decarr pasarr decaraux
                | pasarr decaraux
     '''
-    #print("ccccccccooooooooooooooooooooomo")
+    
     
 
 def p_pasarr(p):
@@ -622,15 +619,9 @@ def p_pasarr(p):
     global arrLength
     global currArrvalue
     
-    print("OLISTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-    print(currArrvalue)
-    print(arrLength)
-    print("next")
     if len(arrLength)==0:
-      print("hey")
       currID.put((currArrvalue, []))
     else:
-      print("hey1")
       currID.put((currArrvalue, arrLength))
         
     arrLength = []
@@ -642,7 +633,7 @@ def p_decaraux(p):
     decaraux : SEP_COMMA lista_ids
              | SEP_SEMICOLON
     '''
-    #print("estaaaaaaaaaaaaaaaaaaaaaaaaaas")
+    
 
 
 def p_lista_objetos(p):
@@ -651,17 +642,18 @@ def p_lista_objetos(p):
   '''
   global arrLength
   currID.put((p[1], arrLength))
-  print("lista_objetos")
-  print(p[1])
+  
 
 def p_listaobjetosaux(p):
     '''
     listaobjaux : SEP_COMMA lista_objetos
                 | SEP_SEMICOLON
     '''
-  #######################################################
+
+#######################################################
 #ARRAYS
-  #######################################################
+#######################################################
+
 def p_decarr(p):
     '''
     decarr : arrdecprime
@@ -700,7 +692,7 @@ def p_it(p):
     it : empty
                
     '''
-    print("NOOOOOOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMS")
+    print("Verificación de acceso a la regla")
 
 
 def p_arraccarraux(p):
@@ -711,8 +703,6 @@ def p_arraccarraux(p):
     global arrExp
     isArr = True
     val = cuads.pOperandos.pop()
-    print(val)
-    print("ATTTTTTTTTTTTTTTTTTTAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
     arrExp.append(val)
 
 
@@ -724,51 +714,10 @@ def p_mataccarraux(p):
     global arrExp
     isMat = True
     val = cuads.pOperandos.pop()
-    print("ATTTTTTTTTTTTTTTTTTTAYYYYÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ")
-    print("prim val", val)
-    #arrExp.append(val)
     arrExp.insert(0, val)
     val = cuads.pOperandos.pop()
-    print("sec val", val)
-    #arrExp.append(val)
     arrExp.insert(0, val)
 
-    
-"""
-def p_matvalue(p):
-    '''
-    matvalue : 
-    '''
-"""
-
-
-
-
-####################################################################################
-#PROBABLEMENTE QUITAR ARRAY INSIDE PORQUE ES MAS FUNCIONALIDAD CON PUNTOS
-####################################################################################
-
-def p_array_inside(p):
-    '''
-    array_inside : SEP_LBRACKET hyper_exp insideaux
-    '''
-
-def p_insideaux(p):
-    '''
-    insideaux : SEP_COMMA hyper_exp insideaux
-              | SEP_RBRACKET matrixaux
-    '''
-
-def p_matrixaux(p):
-    '''
-    matrixaux : SEP_LBRACKET CTE_INT matrixinside
-    '''
-
-def p_matrixinside(p):
-    '''
-    matrixinside : SEP_COMMA CTE_INT matrixinside
-                 | SEP_RBRACKET
-    '''
 
 def p_estatuto(p):
     '''
@@ -779,7 +728,7 @@ def p_estatuto(p):
              | repeticion
              | lectura
     '''
-################################################
+
 
 def p_asignacion(p):
     '''
@@ -800,51 +749,32 @@ def p_valasigaux(p):
   global arrExp
   global isMat
   currentID = p[1]
-  print("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
-  print(currentID)
-  print(currFuncion)
 
 
   if(currFuncion == "main" or currFuncion == None):
-    print("es none valasig")
-    print(currentID)
+
     tipo = dirVar.getglobalVariable(currentID).tipoVariable()
   else:
-      print("no lo se")
-      print(currentID)
-      print(dirVar.getlocalVariable(currFuncion, currentID))
       if(dirVar.getlocalVariable(currFuncion, currentID) == None):
         
         tipo = dirVar.getglobalVariable(currentID).tipoVariable()
 
       else:
-        print("entraenglobal")
+
         tipo = dirVar.getlocalVariable(currFuncion, currentID).tipoVariable()
 
-  """ if dirVar.getlocalVariable(currFuncion, result) == None:
-      if dirVar.getglobalVariable(result) == None:
-        print("error en la busqueda")
-        raise Exception("variable no existe we")
-      else:
-       myAddress = dirVar.getglobalVariable(result).direccion
-  else:
-      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion """
-
-  print("prueba ID --- ", currentID)
-  print("tipo id --- ", tipo)
   cuads.agregarID(currentID)
   cuads.agregarTipo(tipo)
   #print(dirVar.dirFunciones[currFuncion].localVar)
   if(currFuncion == "main" or currFuncion == None):
     arrVar = dirVar.getglobalVariable(currentID)
     if(arrVar == None):
-        print("gloabl ERROR NO EXISTE LA VARIABLE")
-        raise Exception("No existe la variable")
+        print("No existe la variable global", currentID)
+        raise Exception("No existe la variable global", currentID)
     auxDir = arrVar.direccion
 
   else:
-    print("no lo se")
-    print(currentID)
+    
     if(dirVar.getlocalVariable(currFuncion, currentID) == None):
         arrVar = dirVar.getglobalVariable(currentID)
         auxDir = arrVar.direccion
@@ -852,8 +782,8 @@ def p_valasigaux(p):
         
         arrVar = dirVar.getlocalVariable(currFuncion, currentID)
         if(arrVar == None):
-            print("GLOBAL ERROR NO EXISTE LA VARIABLE")
-            raise Exception("No existe la variable")
+            print("No existe la variable global", currentID)
+            raise Exception("No existe la variable global", currentID)
         auxDir = arrVar.direccion
 
   print("3")
@@ -1459,11 +1389,10 @@ def p_cteidcall_atributo_metodo(p):
 
 
   if(currFuncion == "main" or currFuncion == None):
-    print("es none valasig")
+
     print(currentID)
     tipo = dirVar.getglobalVariable(currentID).tipoVariable()
   else:
-      print("no lo se")
       print(currentID)
       print(dirVar.getlocalVariable(currFuncion, currentID))
       if(dirVar.getlocalVariable(currFuncion, currentID) == None):
@@ -1474,29 +1403,19 @@ def p_cteidcall_atributo_metodo(p):
         print("entraenglobal")
         tipo = dirVar.getlocalVariable(currFuncion, currentID).tipoVariable()
 
-  """ if dirVar.getlocalVariable(currFuncion, result) == None:
-      if dirVar.getglobalVariable(result) == None:
-        print("error en la busqueda")
-        raise Exception("variable no existe we")
-      else:
-       myAddress = dirVar.getglobalVariable(result).direccion
-  else:
-      myAddress = dirVar.getlocalVariable(currFuncion, result).direccion """
 
-  print("prueba ID --- ", currentID)
-  print("tipo id --- ", tipo)
   cuads.agregarID(currentID)
   cuads.agregarTipo(tipo)
   #print(dirVar.dirFunciones[currFuncion].localVar)
   if(currFuncion == "main" or currFuncion == None):
     arrVar = dirVar.getglobalVariable(currentID)
     if(arrVar == None):
-        print("gloabl ERROR NO EXISTE LA VARIABLE")
-        raise Exception("No existe la variable")
+        print("No existe la variable global", currentID)
+        raise NameError("No existe la variable global", currentID)
     auxDir = arrVar.direccion
 
   else:
-    print("no lo se")
+
     print(currentID)
     if(dirVar.getlocalVariable(currFuncion, currentID) == None):
         arrVar = dirVar.getglobalVariable(currentID)
@@ -1505,8 +1424,8 @@ def p_cteidcall_atributo_metodo(p):
         
         arrVar = dirVar.getlocalVariable(currFuncion, currentID)
         if(arrVar == None):
-            print("GLOBAL ERROR NO EXISTE LA VARIABLE")
-            raise Exception("No existe la variable")
+            print("No existe la variable local", currentID)
+            raise NameError("No existe la variable local", currentID)
         auxDir = arrVar.direccion
 
   print("3")
@@ -1684,10 +1603,7 @@ def p_vfuntipid(p):
     currFuncion = p[3]
     dirVar.agregarFuncion(currFuncion, currTipo)
     
-    if(currTipo == "void"):
-        print("hola")
-        #valred
-    else:
+    if(currTipo != "void"):
         dirVar.agregarglobalVariable(currFuncion, [], currTipo)
 
    
@@ -1702,8 +1618,8 @@ def p_genLoc(p):
           tup = currTypeID.get()
           #(nomFuncion, nomVariable, arrLength, tipoVariable, isParam)
           #dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
-          print("VAAAAAAAAAAAR LOCAAAAAAAAAAAAAL")
-          print("curr0:", tup[0], tup[1], tup[2], tup[3])
+          
+          #print("curr0:", tup[0], tup[1], tup[2], tup[3])
           
           tipo = tup[2]
           if len(tup[1]) == 0:
@@ -1718,7 +1634,7 @@ def p_genLoc(p):
               auxDir = virtualAdd.getLocalAddressFloat()
               dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
             else:
-              print("tipo desconocido")
+              raise TypeError("tipo desconocido")
             
           else:
             
@@ -1908,7 +1824,6 @@ def p_relCurr(p):
     '''
     #release current varTable
     #funcion para borrar toda la tabla de la funcion
-    print("FUUUUUUUUUUUUUUUNCION ACTUAL")
     print(currFuncion)
     cuads.endfunc()
     global finaltemp

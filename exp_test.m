@@ -16,7 +16,7 @@ int func factorialRecursivo(int n)
 vars 
 int aux, aux2;
 {
-  print("n", n);
+  
   if (n < 1) then{
     aux = 1;
   } else{
@@ -26,13 +26,44 @@ int aux, aux2;
   return(aux);
 }
 
+int func factorialIterativo(int n)
+vars
+int aux;
+{
+    aux = 1;
+    while (n > 0) do {
+        aux = aux * n;
+        n = n - 1;
+    }
+    return(aux);
+}
+
+
+
+int func fibonacciIterativo(int n)
+vars 
+int aux, numAnterior, numAntesAnterior, numActual;
+{
+  numAnterior = 0;
+  numAntesAnterior = 0;
+  numActual = 1;
+  while (n > 1) do{
+    numAntesAnterior = numAnterior;
+    numAnterior = numActual;
+    numActual = numAntesAnterior + numAnterior;
+    n = n - 1;
+  }
+  return(numActual);
+
+}
+
 
 main(){
-  print("mau");
-  x = factorialRecursivo(10);
-  print("i_es", i);
-  print("x_es", x);
-  vector[0] = 1;
+  print("factorial recursivo de 5", factorialRecursivo(5));
+  print("factorial iterativo de 5", factorialIterativo(5));
+
+  print("fibonacci iterativo de 10 es", fibonacciIterativo(10));
+
 
 
 
