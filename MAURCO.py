@@ -7,11 +7,20 @@ from main import run
 
 if __name__ == '__main__':
 
-    if len(sys.argv) > 1:
+    if len(sys.argv) == 2:
         file = sys.argv[1]
         try:
-            run(file)
+            run(file, False)
         except EOFError:
             print(EOFError)
+    elif len(sys.argv) == 3:
+        file = sys.argv[1]
+        flag = sys.argv[2]
+        
+        try:
+            run(file, flag)
+        except EOFError:
+            print(EOFError)
+
     else:
-        print("No se ingresó el nombre de un archivo") 
+        print("Número incorrecto de argumentos") 

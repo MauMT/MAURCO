@@ -183,7 +183,6 @@ def t_error(t):
 #print("CALL INITIAL")
 
 currID = queue.Queue()
-currVars = queue.Queue()
 currMet = queue.Queue()
 currTypeID = queue.Queue()
 arrLength = []
@@ -1714,7 +1713,7 @@ file = open("Testing files/fibo.m", 'r')
 lines = file.read()
 file.close() """
 
-def run(name):
+def run(name, flag):
   file = open("Testing files/"+name, 'r')
 
   lines = file.read()
@@ -1728,9 +1727,10 @@ def run(name):
   try:
       
       parser.parse(lines, debug=0)
-      #printDirVarValues()
+      print("flag", flag)
       cuads.addCounter()
-      cuads.printCuads()
+      if flag == "1":
+        cuads.printCuads()
       import vm
       
 
