@@ -1708,29 +1708,34 @@ def printDirVarValues():
   for key in dirVar.dirConstantes:
     print(dirVar.dirConstantes[key], key)
 
-
+""" 
 file = open("Testing files/fibo.m", 'r')
 
 lines = file.read()
-file.close()
+file.close() """
 
-# Build the lexer.
-lexer = lex.lex()
-lexer.input(lines)
+def run(name):
+  file = open("Testing files/"+name, 'r')
 
-# Build the parser.
-parser = yacc.yacc()
-try:
-    
-    parser.parse(lines, debug=0)
-    #printDirVarValues()
-    cuads.addCounter()
-    cuads.printCuads()
-    import vm
-    
+  lines = file.read()
+  file.close()
+  # Build the lexer.
+  lexer = lex.lex()
+  lexer.input(lines)
 
-except:
-    print(f'Syntax error')
-    
+  # Build the parser.
+  parser = yacc.yacc()
+  try:
+      
+      parser.parse(lines, debug=0)
+      #printDirVarValues()
+      cuads.addCounter()
+      cuads.printCuads()
+      import vm
+      
+
+  except:
+      print(f'Syntax error')
+      
 
 
