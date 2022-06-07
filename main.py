@@ -1,4 +1,8 @@
-
+'''
+  MÓDULO PRINCIPAL
+  Contiene el parser y la lectura del archivo de entrada
+  Además, en este módulo se decide o no si imprimir los cuádruplos y/o ejecutar la máqiuna virtual
+'''
 import ply.lex as lex
 import ply.yacc as yacc
 import dirVar
@@ -27,7 +31,6 @@ tokens = [
 #
   'SEP_COMMA',
   'SEP_SEMICOLON',
-  'SEP_COLON',
   'SEP_LBRACE',
   'SEP_RBRACE',
   'SEP_LPAREN',
@@ -114,7 +117,6 @@ reservadas = {
 
 t_SEP_COMMA = r'\,'
 t_SEP_SEMICOLON = r';'
-t_SEP_COLON = r':'
 t_SEP_LBRACE = r'\{'
 t_SEP_RBRACE = r'\}'
 t_SEP_LPAREN = r'\('
@@ -178,7 +180,7 @@ def t_error(t):
 
 # REGLAS 
 
-print("CALL INITIAL")
+#print("CALL INITIAL")
 
 currID = queue.Queue()
 currVars = queue.Queue()
@@ -255,7 +257,7 @@ def p_stepid(p):
         #print("not 1ssssss")
         if currTipo == "int":
           auxDir = virtualAdd.getGlobalAddressInt()
-          print(auxDir)
+          #print(auxDir)
           dirVar.setGlobalVarAddress(curr[0], auxDir)
         elif currTipo == "float":
           
@@ -350,13 +352,13 @@ def p_clase(p):
     #currMet.put(currFuncion, currTipo)
     while not(currMet.empty()) :
       metup = currMet.get()
-      print(metup)
+      #print(metup)
       dirVar.agregarMetodosClase(currClass, metup[0], metup[1])
       
     #METODO QUE AGREGA LAS FUNCIONES
     while not(currTypeID.empty()) :
       tup = currTypeID.get()
-      print(tup)
+      #print(tup)
       #currID.put(p[1], isMat, isArr, arrLength) Tipo
       dirVar.agregarAtributosClase(currClass,tup[0], tup[1],tup[2])
 
@@ -391,7 +393,7 @@ def p_objectsvarsclass(p):
     '''
     objectsvarsclass : OBJECT ID lista_objetos varsauxclass
     '''
-    print("call objectsvarsclass")
+    #print("call objectsvarsclass")
     global currTipo
     currTipo = p[2]
     while not(currID.empty()) :
@@ -418,11 +420,11 @@ def p_typevarsclass(p):
             | FLOAT
             | CHAR
     '''
-    print("call typevarsclass")
+    #print("call typevarsclass")
     global currTipo
     
     currTipo = p[1]
-    print(currTipo)
+    #print(currTipo)
 
 def p_metaux(p):
     '''
@@ -448,7 +450,8 @@ def p_metodo_no_void(p):
     '''
     metodo_no_void : typemet SEP_LPAREN paramsmet SEP_RPAREN varsmet SEP_LBRACE estmet mnvaux 
     '''
-    print("call metodo_no_void")
+    #print("call metodo_no_void")
+    pass
 
 
 def p_metodo_void(p):
@@ -481,7 +484,7 @@ def p_paramsmetcreate(p):
     paramsmetcreate : typeparamet ID paramsauxmet
     '''
     #print("paramsmnv")
-    print(p[2])
+    #print(p[2])
     global arrLength
     currID.put((p[2], arrLength))
     curr = currID.get()
@@ -510,7 +513,7 @@ def p_paramsauxmetcreate(p):
     paramsauxmetcreate : SEP_COMMA typeparamet ID paramsauxmet
     '''
     #print("paramsmnv")
-    print(p[3])
+    #print(p[3])
     global arrLength
     currID.put((p[3], arrLength))
     curr = currID.get()
@@ -562,7 +565,7 @@ def p_stepidvarsmet(p):
     stepidvarsmet : 
     '''
     
-    print(currID.empty())
+    #print(currID.empty())
     while not(currID.empty()) :
       curr = currID.get()
       currTypeID.put((curr[0], curr[1], currTipo))
@@ -573,7 +576,7 @@ def p_typemetp(p):
                  | FLOAT
                  | CHAR
   '''
-  print("call typemv")
+  #print("call typemv")
   global currTipo
   currTipo = p[1]
 
@@ -693,7 +696,7 @@ def p_it(p):
     it : empty
                
     '''
-    print("Verificación de acceso a la regla")
+    #print("Verificación de acceso a la regla")
 
 
 def p_arraccarraux(p):
@@ -750,8 +753,6 @@ def p_valasigaux(p):
   global arrExp
   global isMat
   currentID = p[1]
-  print("aid", currentID)
-  print("currF", currFuncion)
   if(currFuncion == "main" or currFuncion == None):
     var = dirVar.getglobalVariable(currentID)
     if(var == None):
@@ -793,26 +794,26 @@ def p_valasigaux(p):
             raise Exception("No existe la variable global", currentID)
         auxDir = arrVar.direccion
 
-  print("3")
+  #print("3")
   #verificar si es un arreglo o matriz
   if(len(arrVar.length)==0):
-    print("arrvarlength0")
+    #print("arrvarlength0")
     cuads.pOperandos[-1] = auxDir
   else:
     cuads.pOperandos.pop()
     #arr por ahora
-    print("lengths Exp")
-    print(len(arrExp))
-    print(arrExp)
-    print(len(arrVar.length))
-    print("lengths arrvar")
+    #print("lengths Exp")
+    #print(len(arrExp))
+    #print(arrExp)
+    #print(len(arrVar.length))
+    #print("lengths arrvar")
 
 
     myAddress = None
     if dirVar.getlocalVariable(currFuncion, currentID) == None:
         if dirVar.getglobalVariable(currentID) == None:
-            print("error en la busqueda")
-            raise Exception("variable no existe we")
+            print("Name Error: Variable '{}' no declarada".format(currentID))
+            raise Exception("No existe la variable global", currentID)
         else:
             myAddress = dirVar.getglobalVariable(currentID).direccion
     else:
@@ -831,60 +832,33 @@ def p_valasigaux(p):
             
 
         else:
-            print("aqui entra arrvar2")
+            #print("aqui entra arrvar2")
             #matriz
-            print("3")
+            #print("3")
             cuads.arrVerifica(arrExp[0], arrVar.length[0])
-            print("4")
+            #print("4")
             cuads.arrMult(arrExp[0], arrVar.length[1])
             #verificar pilatop con arrexp
-            print("5")
+            #print("5")
             cuads.arrVerifica(arrExp[1], arrVar.length[1])
-            print("6")
+            #print("6")
             cuads.arrSumaMult(arrExp[1])
-            print("7")
+            #print("7")
             cuads.sumaDirBase(myAddress)
-            print("8")
+            #print("8")
             #crear cuadruplo de multiplicacion
     else:
         #ERROR LAS DIMENSIONES NO COINCIDEN
-        print("Las dimensiones no coinciden")
-  print("4")
+        print("Dimension Error: Las dimensiones no coinciden")
+        raise Exception("Las dimensiones no coinciden")
+  #print("4")
 
 
   isArr = False
   isMat = False
   arrExp = []
 
-  #verificar que ID tiene dimensiones y tipo
-  #currentID = cuads.pOperandos.top()
-  #currTID = cuads.pTipos.pop()
-  #print(currentID)
-'''
-  auxDir = None
-  if(currFuncion == None):
-    print("ifdir")
-    print("es non1e")
-    print("hey")
-    arrVar = dirVar.getglobalVariable(currentID)
-    auxDir = arrVar.direccion
-    print("hey")
-    if(arrVar == None):
-        print("ERROR NO EXISTE LA VARIABLE")
-        raise Exception("No existe la variable")
-  else:
-      print("elsedir")
-      arrVar = dirVar.getlocalVariable(currFuncion, currentID)
-      auxDir = arrVar.direccion
-      print("arrvar")
-      if(arrVar == None):
-        arrVar = dirVar.getglobalVariable(currentID)
-        auxDir = arrVar.direccion
-        if(arrVar == None):
-            #NO EXISTE
-            print("ERROR NO EXISTE LA VARIABLE")
-            raise Exception("No existe la variable")
-  '''
+
 
 def p_valasign_aux2(p):
   '''
@@ -924,23 +898,15 @@ def p_usfunc(p):
     '''
     usfunc : ID
     '''
-    print("IDGLOBALCURRFUNC")
-    print(p[1])
+    #print("IDGLOBALCURRFUNC")
+    #print(p[1])
     global callfunc
     callfunc = p[1]
     bex = dirVar.verify(p[1])
     if (bex):
         cuads.createERA(p[1])
 
-"""
-##### NO USADA EN ESTA VERSIÓN
-def p_asignacion_compleja_aux(p):
-    '''
-    asignacion_compleja_aux : it asisgnacion_funcion
-                            | asignacion_metodo
-    '''
-####
-"""
+
 
 def p_asignacion_funcion(p):
     '''
@@ -972,10 +938,10 @@ def p_valnull(p):
         cuads.asignval(dirFuncion, dirVar.getfunctype(callfunc))
 
 
-def p_asignacion_metodo(p):
+""" def p_asignacion_metodo(p):
     '''
     asignacion_metodo : OP_DOT ID asignacion_funcion
-    '''
+    ''' """
 
 def p_args(p):
     '''
@@ -1005,7 +971,7 @@ def p_lectura(p):
     '''
     lectura : INPUT SEP_LPAREN valasigaux cuadsinput lectaux  SEP_RPAREN SEP_SEMICOLON
     '''
-    print("LECTURA")
+    #print("LECTURA")
 
 def p_lectaux(p):
     '''
@@ -1055,13 +1021,7 @@ def p_llamadavoid(p):
     '''
     llamadavoid : usfunc asatr SEP_LPAREN args SEP_RPAREN valnull SEP_SEMICOLON
     '''
-    print("llamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadavoid")
 
-def p_voididt(p):
-    '''
-    voididt : ID
-            | ID OP_DOT ID
-    '''
 
   
 def p_decision(p):
@@ -1153,23 +1113,6 @@ def p_cicfr4(p):
   cuads.ciclofrom4()
 
 
-#### REGLAS NO USADAS:  ####################################################
-def p_llamadafuncionmetodo(p):
-    '''
-    llamadafuncionmetodo : funcidt SEP_LPAREN args SEP_RPAREN
-    '''
-
-def p_funcidt(p):
-    '''
-    funcidt : ID asatr
-            
-    '''
-
-def p_funcidt_aux(p):
-  '''
-  funcidt_aux : OP_DOT ID
-                | empty
-  '''
 
 # REVISAR la hyperexpresion para uso de AND y OR, falta modificar las reglas que usen expresion para que usen hyperexp
 def p_hyper_exp(p):
@@ -1232,7 +1175,6 @@ def p_exp(p):
     '''
     exp : termino expaux
     '''
-    print("exp")
 
   
 def p_expaux(p):
@@ -1240,9 +1182,8 @@ def p_expaux(p):
     expaux : gensumres expaux
            | empty
     '''
-    print("expaux")
-    currOperador = p[1]
-    cuads.agregarOperador(currOperador)
+    """ currOperador = p[1]
+    cuads.agregarOperador(currOperador) """
 
 def p_gensumres(p):
     '''
@@ -1251,15 +1192,13 @@ def p_gensumres(p):
     '''
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
-    print("operador -|-|-|- ", currOperador)
     cuads.cuadssumsub()
     
 def p_termino(p):
     '''
     termino : it factor terminoaux
     '''
-    print("term")
-    ############################################################
+    
     
   
 def p_terminoaux(p):
@@ -1275,7 +1214,6 @@ def p_genmuldiv(p):
     '''
     currOperador = p[1]
     cuads.agregarOperador(currOperador)
-    print("operador -|-|-|- ", currOperador)
     cuads.cuadsmuldiv()
   
 def p_factor(p):
@@ -1285,27 +1223,7 @@ def p_factor(p):
            | separadorarrfunc
     '''
 
-def p_its(p):
-    '''
-    its : empty
-    '''
-    print("ÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ")
 
-
-
-"""
-def p_sign(p):
-    '''
-    sign : OP_PLUS
-         | OP_MINUS
-         | empty
-    '''
-    print("555555555555555555555555555555")
-    print(p[0])
-"""
-
-
-###### CHECAR SI AGREGAR CTE_CHAR 
 def p_cteidcall(p):
     '''
     cteidcall : CTE_INT
@@ -1327,13 +1245,8 @@ def p_cteidcall(p):
     #cuads.agregarConst(currVal)
     cuads.agregarConst(auxDir)
     cuads.agregarTipo(currTipo)
-    print("fffffffffffffffffffffffffffffffffffffffffffffffffffff")
-    print(currVal)
-    print(currTipo)
     
-    
-  #print("SSSSSSSSSSSSSSSSS")
-    #print(p[1])
+ 
 
 def p_separadorarrfunc(p):
     '''
@@ -1374,7 +1287,7 @@ def p_cteidcall_atributo_metodo(p):
 
   cuads.agregarID(currentID)
   cuads.agregarTipo(tipo)
-  #print(dirVar.dirFunciones[currFuncion].localVar)
+  
   if(currFuncion == "main" or currFuncion == None):
     arrVar = dirVar.getglobalVariable(currentID)
     if(arrVar == None):
@@ -1384,7 +1297,6 @@ def p_cteidcall_atributo_metodo(p):
 
   else:
 
-    print(currentID)
     if(dirVar.getlocalVariable(currFuncion, currentID) == None):
         arrVar = dirVar.getglobalVariable(currentID)
         auxDir = arrVar.direccion
@@ -1396,26 +1308,26 @@ def p_cteidcall_atributo_metodo(p):
             raise NameError("No existe la variable local", currentID)
         auxDir = arrVar.direccion
 
-  print("3")
+  
   #verificar si es un arreglo o matriz
   if(len(arrVar.length)==0):
-    print("arrvarlength0")
+    
     cuads.pOperandos[-1] = auxDir
   else:
     cuads.pOperandos.pop()
     #arr por ahora
-    print("lengths Exp")
+    """ print("lengths Exp")
     print(len(arrExp))
     print(arrExp)
     print(len(arrVar.length))
-    print("lengths arrvar")
+    print("lengths arrvar") """
 
 
     myAddress = None
     if dirVar.getlocalVariable(currFuncion, currentID) == None:
         if dirVar.getglobalVariable(currentID) == None:
-            print("error en la busqueda")
-            raise Exception("variable no existe we")
+            print("Name Error: variable '{}' no declarada".format(currentID))
+            raise Exception("variable no declarada")
         else:
             myAddress = dirVar.getglobalVariable(currentID).direccion
     else:
@@ -1423,40 +1335,36 @@ def p_cteidcall_atributo_metodo(p):
 
     if(len(arrExp)==len(arrVar.length)):
         if(len(arrVar.length)==1):
-            print("aqui entra arrvar1")
+            
             #arreglo
             #verificar pilatop con arrexp
             #cuadruplo de suma
-            print("arrExp en 0")
-            print(arrExp[0])
+            
             cuads.arrVerifica(arrExp[0], arrVar.length[0])
-            print("verify")
-
-            ##############AQUI HAY UNA DIRECCION FALSA HAY QUE CAMBIARLA 27/05
-
             cuads.sumaDirBasearr(arrExp[0], myAddress)
-            print("no hay 4")
+            
 
         else:
-            print("aqui entra arrvar2")
+            
             #matriz
-            print("3")
+            #print("3")
             cuads.arrVerifica(arrExp[0], arrVar.length[0])
-            print("4")
+            #print("4")
             cuads.arrMult(arrExp[0], arrVar.length[1])
             #verificar pilatop con arrexp
-            print("5")
+            #print("5")
             cuads.arrVerifica(arrExp[1], arrVar.length[1])
-            print("6")
+            #print("6")
             cuads.arrSumaMult(arrExp[1])
-            print("7")
+            #print("7")
             cuads.sumaDirBase(myAddress)
-            print("8")
+            #print("8")
             #crear cuadruplo de multiplicacion
     else:
         #ERROR LAS DIMENSIONES NO COINCIDEN
-        print("Las dimensiones no coinciden")
-  print("4")
+        print("Dimension Error: Las dimensiones no coinciden")
+        raise Exception("Dimension Error: Las dimensiones no coinciden")
+  #print("4")
 
 
   isArr = False
@@ -1484,13 +1392,6 @@ def p_cteidcall_am_aux(p):
   '''
 
 
-################### NO SE USA
-#def p_typeidf(p):
-'''
-typeidf : OP_DOT ID 
-        | empty
-'''
-###################
 
 def p_empty(p):
     'empty :'
@@ -1544,13 +1445,11 @@ def p_nvfuntipid(p):
     dirVar.agregarFuncion(currFuncion, currTipo)
     #dirVar.initFunction(currFuncion, insContcuad, primtempcont)
     if(currTipo == "void"):
-        print("hola")
-        #valred
+        pass
     else:
         dirVar.agregarglobalVariable(currFuncion, [], currTipo)
         if currTipo == "int":
           auxDir = virtualAdd.getGlobalAddressInt()
-          print(auxDir)
           dirVar.setGlobalVarAddress(currFuncion, auxDir)
           dirVar.dirFunciones[currFuncion].direccion = auxDir
         elif currTipo == "float":
@@ -1558,7 +1457,8 @@ def p_nvfuntipid(p):
           dirVar.setGlobalVarAddress(currFuncion, auxDir)
           dirVar.dirFunciones[currFuncion].direccion = auxDir
         else:
-          print("tipo desconocido")
+          pass
+          #print("tipo desconocido")
 
 
 
@@ -1592,9 +1492,9 @@ def p_genLoc(p):
           
           tipo = tup[2]
           if len(tup[1]) == 0:
-            print("not array")
+            #print("not array")
             dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
-            print("la variable es", tup[0], virtualAdd.Li)
+            
             if tipo == "int":
               auxDir = virtualAdd.getLocalAddressInt()
               #setLocalVarAddress(func, nombreVar, dir)
@@ -1607,11 +1507,9 @@ def p_genLoc(p):
             
           else:
             
-            print(currFuncion)
             dirVar.agregarlocalVariable(currFuncion,tup[0], tup[1], tup[2], tup[3])
             arrSize = reduce(lambda x, y: x * y, tup[1])
             
-            print("arrSize", arrSize)
             if tipo == "int":
               auxDir = virtualAdd.getLocalAddressInt(size=arrSize)
               dirVar.setLocalVarAddress(currFuncion, tup[0], auxDir)
@@ -1657,7 +1555,6 @@ def p_paramsfuncreate(p):
     paramsfuncreate : typeparamfun ID paramsauxfun
     '''
     
-    print(p[2])
     global arrLength
     global currTipo
     currID.put((p[2], arrLength))
@@ -1672,7 +1569,6 @@ def p_typeparamfun(p):
                   | FLOAT
                   | CHAR
     '''
-    print("call typeparammnv")
     global currTipo
     currTipo = p[1]
       
@@ -1688,8 +1584,7 @@ def p_paramsauxfuncreate(p):
     '''
     paramsauxfuncreate : SEP_COMMA typeparamfun ID paramsauxfun
     '''
-    print("paramsmnv")
-    print(p[3])
+    
     global arrLength
     currID.put((p[3], arrLength))
 
@@ -1734,7 +1629,6 @@ def p_objectsvarsfun(p):
     '''
     objectvarsfun : OBJECT ID lista_objetos varsauxfun
     '''
-    print("call objectsvarsmet")
     currTipo = p[2]
     while not(currID.empty()) :
       while not(currID.empty()) :
@@ -1765,7 +1659,6 @@ def p_typefunp(p):
                  | FLOAT
                  | CHAR
   '''
-  print("call typemv")
   global currTipo
   currTipo = p[1]
 
@@ -1793,7 +1686,7 @@ def p_relCurr(p):
     '''
     #release current varTable
     #funcion para borrar toda la tabla de la funcion
-    print(currFuncion)
+    #print(currFuncion)
     cuads.endfunc()
     global finaltemp
     #finaltemp = cuads.getTempCounter()
@@ -1816,7 +1709,7 @@ def printDirVarValues():
     print(dirVar.dirConstantes[key], key)
 
 
-file = open("Testing files/functions.m", 'r')
+file = open("Testing files/fibo.m", 'r')
 
 lines = file.read()
 file.close()

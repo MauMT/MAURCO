@@ -1,3 +1,11 @@
+'''
+  MÓDULO DE LA MÁQUINA VIRTUAL
+  Contiene la memoria global y el stack de memorias locales
+  Lee los cuádruplos y ejecuta las operaciones indicadas y necesarias
+  para manejo de valores en la memoria
+
+'''
+
 from cuads import cuads
 from dirVar import dirFunciones, dirConstantes
 import virtualAdd
@@ -17,8 +25,6 @@ MemoriaGlobal = [[],[],[],[],[],[],[]]
 
 ### STACK DE MEMORIAS ####
 
-def getFuncionContext(funcion):
-    return dirFunciones[funcion]
 
 
 ### crear direcciones para el char
@@ -46,7 +52,7 @@ dictConstantesMemoriaGlobal = dict((v,k) for k,v in dirConstantes.items())
 
 
 memoryStack = []
-memoriaLocal = [[], [], [], []]
+memoriaLocal = [[], []]
 
 instruction_pointer = 0
 
@@ -204,6 +210,9 @@ while cuads[instruction_pointer][1] != 'END':
         incrementInstructionPointer()
 
     elif operacion == '/':
+        if readMemory(operandoDer) == 0:
+            print("Value Error: Division by zero")
+            exit()
         newResult = readMemory(operandoIzq) / readMemory(operandoDer)
         #printHelper('/', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(newResult, res)
@@ -277,7 +286,7 @@ while cuads[instruction_pointer][1] != 'END':
 
     elif operacion == '|':
         newResult = readMemory(operandoIzq) or readMemory(operandoDer)
-        printHelper('|', operandoIzq, operandoDer, res, newResult)
+        #printHelper('|', operandoIzq, operandoDer, res, newResult)
         writeOnMemory(value=boolean_to_num(newResult), addr=res)
         incrementInstructionPointer()
 
@@ -353,8 +362,8 @@ while cuads[instruction_pointer][1] != 'END':
         
         memoriaLocal[0] = [0]*cantIntLocales
         memoriaLocal[1] = [0]*cantFloatLocales
-        memoriaLocal[2] = [0]*cantTempIntLocales
-        memoriaLocal[3] = [0]*cantTempFloatLocales
+        """ memoriaLocal[2] = [0]*cantTempIntLocales
+        memoriaLocal[3] = [0]*cantTempFloatLocales """
         #memoryStack.append(x)
         
         incrementInstructionPointer()

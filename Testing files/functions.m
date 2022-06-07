@@ -83,9 +83,10 @@ int aux;
 
 
 main(){
-size =0;
+size = 99;
 print(size);
-
+x = 1;
+print("a",size/x);
 
 
 print("mau(10)", mau(10));

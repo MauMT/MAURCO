@@ -62,7 +62,7 @@ while(i< 10) do{
 y=17.3;
 valor = 7.3;
 
-if(y-valor==10) then{
+if(y-valor==11) then{
   print("Verdadero");
 } else{
   print("Falso");

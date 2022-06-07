@@ -44,31 +44,29 @@ def agregarOperador(operador):
 
 
 def validar():
-    print("validar")
+    
     global tempcounter
     #right operando
     #left operando
     right = pOperandos.pop()
-    print(right)
-
     left = pOperandos.pop()
-    print(left)
+    
 
     #right type
     #left type
     rightType = pTipos.pop()
-    print("ltype", rightType)
+    #print("ltype", rightType)
 
     leftType = pTipos.pop()
-    print("rtype", leftType)
+    #print("rtype", leftType)
     
     #operador
     oper = pOperadores.pop()
-    print(oper)
+    #print(oper)
 
-    #result type checar semantica con cubo
+    #result type, checa la semántica usando el cubo semántico
     result_type = semantic[leftType][oper][rightType]
-    print(result_type)
+    #print(result_type)
 
     agregarTipo(result_type)
 
@@ -80,7 +78,8 @@ def validar():
     elif result_type == "float":
       result_addr = virtualAdd.getGlobalTempAddressFloat()
     else:
-      print("errorvalidar")
+      pass
+      #print("errorvalidar")
     
 
 
@@ -96,67 +95,68 @@ def validar():
 
 
 def cuadssumsub():
-  print("entrasumsub")
+  
   if not pOperadores:
-    print("empty")
+    pass
+    #print("empty")
   else:
     if(( pOperadores[-1] == "+") or ( pOperadores[-1] == "-")):
-      print("op1sumsub")
       validar()
     else:
       #print(pOperandos)
-      print("no-summin")
+      pass
+      #print("no-summin")
 
 def cuadsmuldiv():
   if not pOperadores:
-    print("empty")
+    #print("empty")
+    pass
   else:
     if(( pOperadores[-1] == "*") or ( pOperadores[-1] == "/")):
-      print("yes")
       validar()
     else:
-      #print(pOperandos)
-      print("no-multdiv")
+      #print("no-multdiv")
+      pass
 
 def cuadscomparation():
   if not pOperadores:
-    print("empty")
+    #print("empty")
+    pass
   else:
     if(( pOperadores[-1] == "<") or ( pOperadores[-1] == "==") 
       or (pOperadores[-1] == ">") or (pOperadores[-1] == "!=")):
-      print("yes")
+      
       validar()
     else:
       #print(pOperandos)
-      print("no-compar")
+      #print("no-compar")
+      pass
 
 def cuadsand():
   if not pOperadores:
-    print("empty")
+    #print("empty")
+    pass
   else:
     if(( pOperadores[-1] == "&")):
-      print("yes")
+      #print("yes")
       validar()
     else:
-      #print(pOperandos)
-      print("no-and")
+      #print("no-and")
+      pass
 
 def cuadsor():
   if not pOperadores:
-    print("empty")
+    #print("empty")
+    pass
   else:
     if(( pOperadores[-1] == "|")):
-      print("yes")
+      #print("yes")
       validar()
     else:
-      #print(pOperandos)
-      print("no-or")
+      #print("no-or")
+      pass
 
 
-
-'''
-REVISAR ESTO
-'''
 def auxAsignacion(): 
 
     right = ''
@@ -173,12 +173,11 @@ def auxAsignacion():
   
     #operador
     oper = pOperadores.pop()
-    print(oper)
 
     result_type = semantic[resultType][oper][leftType]
 
     if result_type == "error":
-      print("No se puede asignar un tipo '{}' a un tipo '{}'".format(leftType, resultType))
+      print("Type Error: No se puede asignar un tipo '{}' a un tipo '{}'".format(leftType, resultType))
       raise Exception("No se puede asignar un tipo '{}' a un tipo '{}'".format(leftType, resultType))
     
     cuads.append((oper, left, right, result))
@@ -286,14 +285,9 @@ def ciclofrom1(x):
 def ciclofrom2():
   checktype = pTipos.pop()
   
-  #implementar la tabla de variables y funciones
-  print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS2")
-  #if checktype != bool:
-  #  print("TYPE MISMATCH")
-  #else:
-  print("SS")
+  
   result = pOperandos.pop()
-  print("SS")
+  
   #VControl = pOperandos[-1]
     #LLAMADA A CUBO SEMANTICO
     #if Tipo Res ERROR
@@ -301,7 +295,7 @@ def ciclofrom2():
   cuads.append(("=", result, " ", "VControl"))
 
 def ciclofrom3():
-  print("3333333333333333333333333333333333333333333333333333333333333")
+  
   checktype = pTipos.pop()
   #implementar la tabla de variables y funciones
   #if checktype != bool:
@@ -317,7 +311,7 @@ def ciclofrom3():
 
 
 def ciclofrom4():
-  print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASSSSSS")
+  
   global tempcounter
   result = "t" + str(tempcounter)
   tempcounter = tempcounter +1
@@ -326,15 +320,11 @@ def ciclofrom4():
 
   cuads.append(("=", result, " ",pOperandos.pop()))
   pTipos.pop()
-  print("2222222222222222222222222222222222222222222222222222222222222")
   FIN = psaltos.pop()
   RET = psaltos.pop()
-  print("3333333333333333333333333333333333333333333333333333333333333")
   cuads.append(("GOTO", " ", " ", RET))
   fill(FIN, len(cuads))
-  print("44444444444444444444444444444444444444444444444444444444444444")
 
-  print("55555555555555555555555555555555555555555555555555555555555555")
   #pTipos.pop()
 
 
@@ -366,27 +356,27 @@ def createERA(nombre):
   cuads.append(("ERA", nombre, " ", " "))
   global conttipos
   conttipos = 0
-  print("ERAAAAAA - mango")
+  
 
 def valparams(params):
-  print("dentrodepilatipos")
-  #validar tipo
+  
   global conttipos
-  print(pTipos[-1])
   if(params):
     if pTipos[-1] == params[conttipos]:
       conttipos += 1
-      print("sientra")
-      print(pOperandos[-1])
+      
+      #print(pOperandos[-1])
       vfin = (conttipos)
-      print(vfin)
+      #print(vfin)
       cuads.append(("PARAM", pOperandos.pop() ," ", vfin))
       pTipos.pop()
-      print("finaliza")
+      
     else:
-      print("errorparam")
+      pass
+      #print("errorparam")
   else:
-    print("There are no params")
+    pass
+    #print("There are no params")
 
 def valnull(params):
   #global conttipos

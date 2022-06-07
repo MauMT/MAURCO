@@ -51,12 +51,12 @@ semantic = {
     },
     '&':{
         'int':'int',
-        'float':'error',
+        'float':'int',
         'char':'error'
     },
     '|':{
         'int':'int',
-        'float':'error',
+        'float':'int',
         'char':'error'
     },
   },
@@ -173,3 +173,4 @@ semantic = {
     },
  }
 }
+

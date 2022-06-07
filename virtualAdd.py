@@ -1,4 +1,10 @@
+'''
+  MÓDULO QUE MANTIENE EL CONTEO DE LAS DIRECCIONES VIRTUALES
+  Es el encargado de asignar las direcciones virtuales a las variables dependiendo del scope y tipo
 
+  Además, es el que reinicia los contadores de las direcciones virtuales y ayuda a conocer los rangos necesarios 
+  para cada tipo de variable y scope
+'''
 # Inicio de direcciones para variables globales
 Gi = 5000
 Gf = 8000

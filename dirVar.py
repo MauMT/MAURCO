@@ -1,3 +1,11 @@
+'''
+    MÓDULO DE LOS DIRECTORIOS
+    Contiene las funciones para manejar el directorio de variables, funciones, constantes
+    Es el responsable de búsqueda y escritura de los nombres de funciones, constantes y variables
+    en los diccionarios correspondientes.
+    Además, contiene la definición de los objetos 'variable' y 'funcion'
+'''
+
 from functools import reduce
 
 class variable:
@@ -91,26 +99,7 @@ class objeto:
 
 
 #-----------------------------------------------------------
-""" class Constante():
-    def _init_(self, valorConstante, tipoConstante):
-        self.tipoConstante = tipoConstante
-        self.direccion = None
-    
-    def getTipoConstante(self):
-        return self.tipoConstante
-    
-    def getDireccionConstante(self):
-        return self.direccion
-    
-    def setDireccionConstante(self, direccion):
-        self.direccion = direccion
 
-def getOrAddConstant(valorConstante, tipoConstante):
-    if valorConstante in dirConstantes:
-        return dirConstantes[valorConstante]
-    else:
-        dirConstantes[valorConstante] = Constante(valorConstante, tipoConstante)
-        return dirConstantes[valorConstante] """
 
 
 def getFuncion(nomFuncion):
@@ -140,24 +129,21 @@ def agregarFuncion(nomFuncion, tipoFuncion):
 
 
 def agregarlocalVariable(nomFuncion, nomVariable, arrLength, tipoVariable, isParam):
-  print("aglocvar")
+  
   if nomFuncion in dirFunciones:
-    print("aglocvar")
+    
     if nomVariable in dirFunciones[nomFuncion].gettableFuncion():
       print("Ya existe la variable local", nomVariable, "en la función", nomFuncion)
       raise NameError("Ya existe la variable local", nomVariable, "en la función", nomFuncion)
     else:
-      print("aglocvar")
+      
       if(isParam):
         dirFunciones[nomFuncion].parameters.append(tipoVariable)
       #es correcta la identacion por param
-      print("isparam")
-      print(arrLength)
       if len(arrLength) == 0:
         indsum = 1
       else:
         indsum = reduce(lambda x, y: x * y, arrLength)
-      print("arreglo")
 
       if(tipoVariable == "int"):
         dirFunciones[nomFuncion].setintcant(dirFunciones[nomFuncion].getintcant()+indsum)
@@ -167,9 +153,9 @@ def agregarlocalVariable(nomFuncion, nomVariable, arrLength, tipoVariable, isPar
       elif(tipoVariable == "char"):
         dirFunciones[nomFuncion].setcharcant(dirFunciones[nomFuncion].getcharcant()+indsum)
         #dirFunciones[nomFuncion].charcant = indsum+charcant
-      print("cantvar")
+      
       dirFunciones[nomFuncion].gettableFuncion()[nomVariable]= variable(tipoVariable, arrLength)
-      print("hola")
+      
       
   else:
     print("no existe esta función")
@@ -212,7 +198,7 @@ def verify(nomFuncion):
 
 def getParametersfunc(nomFuncion):
     if nomFuncion in dirFunciones:
-        print(dirFunciones[nomFuncion].parameters)
+        #print(dirFunciones[nomFuncion].parameters)
         return dirFunciones[nomFuncion].parameters
     else:
         print("no existe la funcion")
@@ -227,15 +213,15 @@ def agregarglobalVariable(nomVariable, arrLength, tipoVariable):
   
   #print(nomVariable)
   if nomVariable in dirglobalVar:
-    print("Error ya existe la variable global", nomVariable)
+    print("Name Error: Error ya existe la variable global", nomVariable)
     raise NameError("Error ya existe la variable global", nomVariable)
   else:
-    print(tipoVariable)
-    print(nomVariable)
-    print(type(nomVariable))
-    print(arrLength)
+    #print(tipoVariable)
+    #print(nomVariable)
+    #print(type(nomVariable))
+    #print(arrLength)
     dirglobalVar[nomVariable] = variable(tipoVariable, arrLength)
-    print(arrLength)
+    #print(arrLength)
 
 
 ##checar si usar objeto(), o cambiar objeto() a clase()
@@ -306,33 +292,3 @@ dirClases = {}
 
 dirConstantes = {}
 
-
-
-'''
-agregarFuncion("hola", "int")
-agregarFuncion("adios", "float")
-agregarFuncion("si", "str")
-agregarFuncion("no", "int")
-#agregarFuncion("no", "int")
-agregarglobalVariable("alex", "int")
-agregarglobalVariable("luis", "int")
-agregarlocalVariable("hola", "estrella", "float")
-agregarlocalVariable("hola","andy", "int")
-#agregarlocalVariable("hola","andy", "int")
-print(dirFunciones)
-print(dirFunciones["hola"].localVar)
-print(dir)
-
-agregarglobalVariable("alex", [],"int")
-agregarglobalVariable("luis", [], "int")
-
-setGlobalVarAddress("alex", 9999)
-
-print(dirglobalVar["alex"].direccion)
-
-
-getOrAddConstant(5, "int")
-dirConstantes[5].setDireccionConstante(1000)
-
-print(dirConstantes[5]._dict_)
-'''

@@ -1,3 +1,8 @@
+'''
+    MÓDULO ENCARGADO DE RECONOCER EL TIPO DE LAS CONSTANTES
+    ES UTILIZADO POR 
+'''
+
 def isfloat(num):
     try:
         float(num)
@@ -20,7 +25,6 @@ def checkintOrFloat(num):
   else:
       return "unknown"
 
-print(checkintOrFloat("2.3"))
 
 # function for checking if something is a string
 def is_string(s):
