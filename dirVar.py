@@ -20,9 +20,6 @@ class variable:
     def tipoVariable(self):
         return self.tipovar
 
-    def valorVariable(self):
-        return self.valor
-
     def lengthVariable(self):
         return self.length
 
