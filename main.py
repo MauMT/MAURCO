@@ -1738,6 +1738,3 @@ def run(name, flag):
 
   except:
       print(f'Syntax error')
-      
-
-
