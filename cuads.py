@@ -1,3 +1,13 @@
+'''
+    MÓDULO DE CUÁDRUPLOS
+    Es el encargado de generar los cuádruplos dependiendo del tipo de estatuto que el parser obtiene,
+    además contiene la lista actual de cuádruplos y una función para imprimirlos en consola.
+    - Hace uso del directorio de constantes en el módulo 'dirVar' para reausar las direcciones de memoria cuando
+    algún operando es una constante.
+    - Hace uso del módulo 'virtualAdd' para asignar direcciones de memoria a los reusltados de las expresiones.
+    - Hace uso del diccionario 'semantic' para validar la semántica de las expresiones que s enecuentra en el módulo 'semanticCube'.
+'''
+
 import dirVar
 import virtualAdd
 from semanticCube import semantic
@@ -12,25 +22,19 @@ pOperadores = []
 pTipos = []
 psaltos = []
 
-####### NUMERAR LÍNEAS E IMPRIMIR EN TABLA BONITA
 
-#funcion de array cuadruplos
+
+
 cuads=[("goto","1","","")]
 
 tempcounter = 0
 
-#funcion de agregar ID 
-#validaciones de ID con tipo
+'''
+Funciones de control de la pila de tipos, pila de operadores y pila de operandos
+'''
 
-## ESTO ES MÁS UN AGREGAR TEMPORAL
 def agregarID(id):
-  #if nomFuncion in dirFunciones:
-  #validacion de tipo y si esta en varstable
-  #if id not in dirVar.dirglobalVar:
-    pOperandos.append(id)
-  #else:
-  #  raise NameError('Variable no declarada')
-  #  print("variable no declarada")
+  pOperandos.append(id)
 
 def agregarConst(const):
   pOperandos.append(const)
@@ -43,8 +47,12 @@ def agregarOperador(operador):
     pOperadores.append(operador)
 
 
+
 def validar():
-    
+    '''
+    Función validar(), es usada por todas las expresiones aritméticas, 
+    de comparación y de operadores lógicos para la generación de cuádruplos.
+    '''    
     global tempcounter
     #right operando
     #left operando
@@ -158,9 +166,11 @@ def cuadsor():
 
 
 def auxAsignacion(): 
-
+    '''
+    Función auxiliar para la generación de cuádruplos de asignación.
+    Es similar a validar()
+    '''
     right = ''
-    
 
     left = pOperandos.pop()
     leftType = pTipos.pop()

@@ -1,9 +1,12 @@
 '''
-  MÓDULO DE LA MÁQUINA VIRTUAL
-  Contiene la memoria global y el stack de memorias locales
-  Lee los cuádruplos y ejecuta las operaciones indicadas y necesarias
-  para manejo de valores en la memoria
-
+    MÓDULO DE LA MÁQUINA VIRTUAL
+    Contiene la memoria global y el stack de memorias locales
+    Lee los cuádruplos y ejecuta las operaciones indicadas y necesarias
+    para manejo de valores en la memoria
+    - Lee las losta de cuádruplos del módulo 'cuads'
+    -  Importa el directiorio de funciones y constantes de 'dirVar'
+    - Hace uso dela función is_string quer verifica si un argumento es un string o una dirección
+    - Hace uso de las contantes de 'virtualAdd' que indican los inicios de memoria por cada tipo y scope
 '''
 
 from cuads import cuads
@@ -23,9 +26,6 @@ from virtualAdd import GLOBAL_INT_START, GLOBAL_FLOAT_START, LOCAL_INT_START, LO
 
 MemoriaGlobal = [[],[],[],[],[],[],[]]
 
-### STACK DE MEMORIAS ####
-
-
 
 ### crear direcciones para el char
 casillasGlobalInt = virtualAdd.getCurrentGlobalAddressInt() - virtualAdd.GLOBAL_INT_START
@@ -39,25 +39,21 @@ casillasTemporalesPointer = virtualAdd.getCurrentTempPointer() - virtualAdd.TEMP
 MemoriaGlobal[0] = [0] * casillasGlobalInt
 MemoriaGlobal[1] = [0] * casillasGlobalFloat
 
-""" MemoriaGlobal[2] = [0] * casillasLocalInt
-MemoriaGlobal[3] = [0] * casillasLocalFloat """
 
 MemoriaGlobal[4] = [0] * casillasTemporalesInt
 MemoriaGlobal[5] = [0] * casillasTemporalesFloat
 MemoriaGlobal[6] = [0] * casillasTemporalesPointer
 
 
-
+# Se revierten las keys y values del diccionario para obtener un valor a partir de una dirección de memoria
 dictConstantesMemoriaGlobal = dict((v,k) for k,v in dirConstantes.items())
 
-
+# Stack de memorias locales usado en la recursividad
 memoryStack = []
 memoriaLocal = [[], []]
 
 instruction_pointer = 0
 
-
-#print("Num cuadruplos: ", cuads.__len__())
 
 def getTypeScopeByAddress(num):
     '''

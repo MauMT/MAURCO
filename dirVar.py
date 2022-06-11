@@ -1,9 +1,12 @@
 '''
     MÓDULO DE LOS DIRECTORIOS
-    Contiene las funciones para manejar el directorio de variables, funciones, constantes
+    Contiene las funciones para manejar el directorio de variables, de funciones,y de constantes
     Es el responsable de búsqueda y escritura de los nombres de funciones, constantes y variables
     en los diccionarios correspondientes.
     Además, contiene la definición de los objetos 'variable' y 'funcion'
+    - La máquina virtual en el módulo 'vm' hace uso del directorio de funciones y de constantes que están en este módulo
+    - El módulo 'cuads' hace uso de este módulo para agregar variables temporales a los directorios
+    
 '''
 
 from functools import reduce

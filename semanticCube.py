@@ -1,6 +1,7 @@
-# lógica de enteros 0 es False,
-# cualquier otro valor es True
-
+'''
+MÓDULO QUE CONTIENE EL CUBO SEMÁNTICO
+Diccionario 'semantic' que tiene tipo del operando izquierdo, operador, tipo del operando derecho y resultado de esa operación
+'''
 semantic = {
   'int': {
     '+' : {

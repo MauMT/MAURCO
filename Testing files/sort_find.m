@@ -2,7 +2,7 @@ program SortFindVector;
 
 vars
 {
-    int i;
+    int i, j;
     float valor, y;
     char msg;
     int x;
@@ -51,6 +51,30 @@ while (a < (size-1)) do {
   }
   a = a + 1;
   b = 0;
+}
+
+mat[0][0] = 1;
+mat[0][1] = 2;
+mat[0][2] = 3;
+mat[1][0] = 4;
+mat[1][1] = 5;
+mat[1][2] = 6;
+
+
+i=0;
+j=0;
+f = 8;
+
+while (i<2) do{
+    
+    while(j<3) do{
+    if(mat[i][j] == f) then {
+      print("True");
+    }
+    j = j+1;
+  }
+  j=0;
+  i = i + 1;
 }
 
 i = 0;

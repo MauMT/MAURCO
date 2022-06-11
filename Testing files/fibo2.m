@@ -31,7 +31,7 @@ float x;
 main(){
 
     print("--------------------");
-    print("fibonacciRecursivo(10)", fibonacciRecursivo(10));
+    print("fibonacciRecursivo(10)", fibonacciRecursivo(20));
     print("--------------------");
 
 }

@@ -1,6 +1,9 @@
-################ 
-# File Reader, checar posible futura implementación para lectura de archivos
-################
+'''
+    MÓDULO DE LECTURA DE ARCHIVOS
+    Es el encargado de recibir el nombre del archivo que se ejecutará
+    Usa el módulo 'main' para ejecutar el archivo
+    Posee una flag que indica si se desea que se impriman los cuadruplos o no
+'''
 import sys
 from main import run
 

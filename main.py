@@ -1,7 +1,13 @@
 '''
   MÓDULO PRINCIPAL
-  Contiene el parser y la lectura del archivo de entrada
-  Además, en este módulo se decide o no si imprimir los cuádruplos y/o ejecutar la máqiuna virtual
+  Contiene el parser y hace el guardado de las variables, funciones y expresiones
+  para su posterior manejo y ejecución 
+  
+  - Hace uso del módulo 'cuads' para llamar a cada uno delos métodos que generan los cuádruplos
+  - Hace uso del módulo 'dirVar' para guardar y verificar la existencia de las variables, constantes y funciones
+  - Usa el módulo 'virtualAdd' para aignar una dirección virtual a cada una de las variables, constantes y funciones
+  - Usa el módulo constantTypeCheck para verificar cuál es el tipo de una constante y si es válido
+  - Utiliza la función reduce del módulo 'functool' para hacer el cálculo del tamaño de un arreglo con base en sus dimensiones
 '''
 import ply.lex as lex
 import ply.yacc as yacc
@@ -1707,11 +1713,7 @@ def printDirVarValues():
   for key in dirVar.dirConstantes:
     print(dirVar.dirConstantes[key], key)
 
-""" 
-file = open("Testing files/fibo.m", 'r')
 
-lines = file.read()
-file.close() """
 
 def run(name, flag):
   file = open("Testing files/"+name, 'r')
@@ -1727,7 +1729,7 @@ def run(name, flag):
   try:
       
       parser.parse(lines, debug=0)
-      print("flag", flag)
+      #print("flag", flag)
       cuads.addCounter()
       if flag == "1":
         cuads.printCuads()

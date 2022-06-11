@@ -31,7 +31,7 @@ int aux, numAnterior, numAntesAnterior, numActual;
 main(){
 
     print("--------------------");
-    print("fibonacciIterativo(10)", fibonacciIterativo(10));
+    print("fibonacciIterativo(10)", fibonacciIterativo(20));
     print("--------------------");
 
 

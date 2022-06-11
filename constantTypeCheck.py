@@ -1,6 +1,5 @@
 '''
     MÓDULO ENCARGADO DE RECONOCER EL TIPO DE LAS CONSTANTES
-    ES UTILIZADO POR 
 '''
 
 def isfloat(num):
@@ -26,7 +25,7 @@ def checkintOrFloat(num):
       return "unknown"
 
 
-# function for checking if something is a string
+# Función para revisar si algo es casteable a string
 def is_string(s):
     try:
         s + ""
